@@ -1,0 +1,103 @@
+{
+  "name": "pui-react-buttons",
+  "version": "3.0.0",
+  "description": "A collection of React components providing styled buttons and links",
+  "main": "buttons.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "peerDependencies": {
+    "react": "^0.14.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^5.8.3",
+    "classnames": "^1.2.0",
+    "pui-css-buttons": "3.0.0",
+    "pui-react-helpers": "3.0.0"
+  },
+  "_id": "pui-react-buttons@3.0.0",
+  "scripts": {},
+  "_shasum": "af11c952c5dfd2621f4a1e182fd3e9239e854d68",
+  "_from": "pui-react-buttons@>=3.0.0-alpha.1 <4.0.0",
+  "_resolved": "https://registry.npmjs.org/pui-react-buttons/-/pui-react-buttons-3.0.0.tgz",
+  "_npmVersion": "2.14.16",
+  "_nodeVersion": "5.5.0",
+  "_npmUser": {
+    "name": "d-reinhold",
+    "email": "dom.reinhold@gmail.com"
+  },
+  "dist": {
+    "shasum": "af11c952c5dfd2621f4a1e182fd3e9239e854d68",
+    "tarball": "http://registry.npmjs.org/pui-react-buttons/-/pui-react-buttons-3.0.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "atomanyih",
+      "email": "august.toman.yih@gmail.com"
+    },
+    {
+      "name": "charleshansen",
+      "email": "chansen87@gmail.com"
+    },
+    {
+      "name": "ctaymor",
+      "email": "ctaymor@gmail.com"
+    },
+    {
+      "name": "cthompson",
+      "email": "cthompson@pivotal.io"
+    },
+    {
+      "name": "d-reinhold",
+      "email": "dom.reinhold@gmail.com"
+    },
+    {
+      "name": "gpleiss",
+      "email": "gpleiss@gmail.com"
+    },
+    {
+      "name": "ial-ahmed",
+      "email": "issaq_al-ahmed@outlook.com"
+    },
+    {
+      "name": "kennyw1019",
+      "email": "kennyw1019@gmail.com"
+    },
+    {
+      "name": "mattroyal",
+      "email": "mroyal@pivotal.io"
+    },
+    {
+      "name": "pivotal-ui",
+      "email": "pivotal-ui@pivotal.io"
+    },
+    {
+      "name": "rdy",
+      "email": "ryan.dy@gmail.com"
+    },
+    {
+      "name": "stubbornella",
+      "email": "nicole@stubbornella.org"
+    },
+    {
+      "name": "vinsonchuong",
+      "email": "vinsonchuong@gmail.com"
+    }
+  ],
+  "directories": {}
+}

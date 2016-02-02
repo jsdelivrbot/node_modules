@@ -1,0 +1,56 @@
+{
+  "name": "sorty",
+  "version": "1.2.0",
+  "description": "Utility for sorting object arrays on multiple properties",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test",
+    "test-w": "make test-w",
+    "test-debug": "mocha --debug-brk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/radubrehar/sorty.git"
+  },
+  "keywords": [
+    "sort",
+    "object",
+    "array",
+    "multi",
+    "multiple",
+    "property"
+  ],
+  "author": {
+    "name": "Radu Brehar"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/radubrehar/sorty/issues"
+  },
+  "homepage": "https://github.com/radubrehar/sorty",
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "should": "^4.3.0"
+  },
+  "gitHead": "527445d7516ff58c66b67329bc8ec8870f4c4857",
+  "_id": "sorty@1.2.0",
+  "_shasum": "2511a07f8353fac5b25d75b6628e54a761f11527",
+  "_from": "sorty@>=1.2.0 <2.0.0",
+  "_npmVersion": "1.4.28",
+  "_npmUser": {
+    "name": "radubrehar",
+    "email": "radu@evanghelic.ro"
+  },
+  "maintainers": [
+    {
+      "name": "radubrehar",
+      "email": "radu@evanghelic.ro"
+    }
+  ],
+  "dist": {
+    "shasum": "2511a07f8353fac5b25d75b6628e54a761f11527",
+    "tarball": "http://registry.npmjs.org/sorty/-/sorty-1.2.0.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/sorty/-/sorty-1.2.0.tgz"
+}

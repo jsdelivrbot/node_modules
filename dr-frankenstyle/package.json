@@ -1,0 +1,120 @@
+{
+  "name": "dr-frankenstyle",
+  "version": "0.2.7",
+  "description": "Resolves CSS dependencies between node packages",
+  "main": "dr-frankenstyle.js",
+  "preferGlobal": "true",
+  "bin": {
+    "dr-frankenstyle": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/dr-frankenstyle.git"
+  },
+  "keywords": [
+    "pivotal ui",
+    "css"
+  ],
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/dr-frankenstyle/issues"
+  },
+  "devDependencies": {
+    "babel": "^5.5.4",
+    "babel-eslint": "^4.0.10",
+    "child-process-promise": "^1.1.0",
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0",
+    "gulp-eslint": "^0.12.0",
+    "gulp-header": "^1.2.2",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-plumber": "^1.0.0",
+    "highland": "^2.5.0",
+    "jasmine": "^2.2.0",
+    "jasmine-es6": "0.0.2",
+    "merge-stream": "^0.1.7",
+    "npm": "^2.10.1",
+    "proxyquire": "^1.5.0",
+    "require-dir": "^0.3.0",
+    "rimraf": "^2.3.2",
+    "run-sequence": "^1.1.0"
+  },
+  "dependencies": {
+    "babel-runtime": "5.5.4",
+    "dag-map": "^1.0.2",
+    "debuglog": "^1.0.1",
+    "es6-promisify": "^1.1.1",
+    "event-stream": "^3.3.1",
+    "fs-promise": "^0.3.1",
+    "glob": "^5.0.9",
+    "lodash.uniq": "^3.1.0",
+    "mkdirp": "^0.5.0",
+    "stream-reduce": "^1.0.3",
+    "through2": "^0.6.5",
+    "vinyl": "^0.4.6",
+    "vinyl-fs": "^1.0.0",
+    "yargs": "^3.9.0"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "homepage": "https://github.com/pivotal-cf/dr-frankenstyle#readme",
+  "_id": "dr-frankenstyle@0.2.7",
+  "_shasum": "f10ccdcd100441de95b18dc6c53a5fc79af0af95",
+  "_from": "dr-frankenstyle@>=0.2.7 <0.3.0",
+  "_resolved": "https://registry.npmjs.org/dr-frankenstyle/-/dr-frankenstyle-0.2.7.tgz",
+  "_npmVersion": "2.14.2",
+  "_nodeVersion": "0.12.7",
+  "_npmUser": {
+    "name": "rdy",
+    "email": "ryan.dy@gmail.com"
+  },
+  "dist": {
+    "shasum": "f10ccdcd100441de95b18dc6c53a5fc79af0af95",
+    "tarball": "http://registry.npmjs.org/dr-frankenstyle/-/dr-frankenstyle-0.2.7.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "atomanyih",
+      "email": "august.toman.yih@gmail.com"
+    },
+    {
+      "name": "charleshansen",
+      "email": "chansen87@gmail.com"
+    },
+    {
+      "name": "ctaymor",
+      "email": "ctaymor@gmail.com"
+    },
+    {
+      "name": "d-reinhold",
+      "email": "dom.reinhold@gmail.com"
+    },
+    {
+      "name": "kennyw1019",
+      "email": "kennyw1019@gmail.com"
+    },
+    {
+      "name": "pivotal-ui",
+      "email": "pivotal-ui@pivotal.io"
+    },
+    {
+      "name": "rdy",
+      "email": "ryan.dy@gmail.com"
+    },
+    {
+      "name": "stubbornella",
+      "email": "nicole@stubbornella.org"
+    },
+    {
+      "name": "vinsonchuong",
+      "email": "vinsonchuong@gmail.com"
+    }
+  ],
+  "directories": {}
+}
