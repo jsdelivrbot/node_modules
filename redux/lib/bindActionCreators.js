@@ -1,7 +1,7 @@
 'use strict';
 
 exports.__esModule = true;
-exports['default'] = bindActionCreators;
+exports["default"] = bindActionCreators;
 function bindActionCreator(actionCreator, dispatch) {
   return function () {
     return dispatch(actionCreator.apply(undefined, arguments));
@@ -29,7 +29,6 @@ function bindActionCreator(actionCreator, dispatch) {
  * function as `actionCreators`, the return value will also be a single
  * function.
  */
-
 function bindActionCreators(actionCreators, dispatch) {
   if (typeof actionCreators === 'function') {
     return bindActionCreator(actionCreators, dispatch);
@@ -50,5 +49,3 @@ function bindActionCreators(actionCreators, dispatch) {
   }
   return boundActionCreators;
 }
-
-module.exports = exports['default'];
