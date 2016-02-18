@@ -1,13 +1,14 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _objectWithoutProperties = require('babel-runtime/helpers/object-without-properties')['default'];
-
 var _puiReactHelpers = require('pui-react-helpers');
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 var React = require('react');
 var types = React.PropTypes;
 var BootstrapRow = require('react-bootstrap/lib/Row');
+
 
 var Row = React.createClass({
   displayName: 'Row',
@@ -27,7 +28,7 @@ var Row = React.createClass({
       'row-gutter-md': gutter === 'md',
       'row-gutter-sm': gutter === 'sm'
     };
-    var props = _puiReactHelpers.mergeProps(other, { className: gutterClass });
+    var props = (0, _puiReactHelpers.mergeProps)(other, { className: gutterClass });
     return React.createElement(
       BootstrapRow,
       props,

@@ -1,17 +1,18 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _objectWithoutProperties = require('babel-runtime/helpers/object-without-properties')['default'];
-
-var _extends = require('babel-runtime/helpers/extends')['default'];
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _puiReactHelpers = require('pui-react-helpers');
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 var React = require('react');
 
 var _require = require('pui-react-typography');
 
 var DefaultH4 = _require.DefaultH4;
+
 
 var BsModal = require('react-bootstrap/lib/Modal');
 var BsModalHeader = require('react-bootstrap/lib/ModalHeader');
@@ -30,7 +31,6 @@ var BaseModal = React.createClass({
       onHide: function onHide() {}
     };
   },
-
   render: function render() {
     var _props = this.props;
     var show = _props.show;
@@ -42,7 +42,7 @@ var BaseModal = React.createClass({
 
     return React.createElement(
       BsModal,
-      _extends({ show: show, onHide: onHide }, _puiReactHelpers.mergeProps(modalProps, { className: 'modal-basic' })),
+      _extends({ show: show, onHide: onHide }, (0, _puiReactHelpers.mergeProps)(modalProps, { className: 'modal-basic' })),
       React.createElement(
         BsModalHeader,
         { className: 'modal-header', closeButton: true },
@@ -59,19 +59,15 @@ var BaseModal = React.createClass({
 
 var Modal = React.createClass({
   displayName: 'Modal',
-
   getInitialState: function getInitialState() {
     return { isVisible: false };
   },
-
   open: function open() {
     this.setState({ isVisible: true });
   },
-
   close: function close() {
     this.setState({ isVisible: false });
   },
-
   render: function render() {
     return React.createElement(BaseModal, _extends({ show: this.state.isVisible, onHide: this.close }, this.props));
   }
@@ -79,11 +75,10 @@ var Modal = React.createClass({
 
 var ModalBody = React.createClass({
   displayName: 'ModalBody',
-
   render: function render() {
     return React.createElement(
       'div',
-      _puiReactHelpers.mergeProps(this.props, { className: 'modal-body' }),
+      (0, _puiReactHelpers.mergeProps)(this.props, { className: 'modal-body' }),
       this.props.children
     );
   }
@@ -91,11 +86,10 @@ var ModalBody = React.createClass({
 
 var ModalFooter = React.createClass({
   displayName: 'ModalFooter',
-
   render: function render() {
     return React.createElement(
       'div',
-      _puiReactHelpers.mergeProps(this.props, { className: 'modal-footer' }),
+      (0, _puiReactHelpers.mergeProps)(this.props, { className: 'modal-footer' }),
       this.props.children
     );
   }

@@ -1,6 +1,6 @@
 {
   "name": "d3",
-  "version": "3.5.14",
+  "version": "3.5.16",
   "description": "A JavaScript visualization library for HTML and SVG.",
   "keywords": [
     "dom",
@@ -58,21 +58,27 @@
     "vows": "0.8"
   },
   "scripts": {
-    "test": "vows; echo"
+    "test": "vows && echo",
+    "prepublish": "npm test && rm -f package.js src/start.js d3.js d3.min.js d3.zip && bin/start > src/start.js && bin/meteor > package.js && smash src/d3.js | uglifyjs - -b indent-level=2 -o d3.js && bin/uglify d3.js > d3.min.js && chmod a-w d3.js d3.min.js package.js && zip d3.zip LICENSE d3.js d3.min.js",
+    "postpublish": "VERSION=`node -e 'console.log(require(\"./package.json\").version)'`; git push && git tag -am \"Release $VERSION.\" v${VERSION} && git push --tags && cp -v README.md LICENSE d3.js d3.min.js ../d3-bower && cd ../d3-bower && git add README.md LICENSE d3.js d3.min.js && git commit -m \"Release $VERSION.\" && git tag -am \"Release $VERSION.\" v${VERSION} && git push && git push --tags && cd - && cp -v d3.js ../d3.github.com/d3.v3.js && cp -v d3.min.js ../d3.github.com/d3.v3.min.js && cd ../d3.github.com && git add d3.v3.js d3.v3.min.js && git commit -m \"d3 ${VERSION}\" && git push"
   },
   "license": "BSD-3-Clause",
-  "gitHead": "05fd32dd68b49313502e9501792ef015bfc8c153",
+  "gitHead": "c36befc7361cd61538294048c387a8a407b65dd1",
   "bugs": {
     "url": "https://github.com/mbostock/d3/issues"
   },
-  "_id": "d3@3.5.14",
-  "_shasum": "70e73d175f52f2a829bfbc3a9c1d264852662366",
-  "_from": "d3@>=3.5.9 <4.0.0",
-  "_npmVersion": "2.11.3",
-  "_nodeVersion": "0.12.7",
+  "_id": "d3@3.5.16",
+  "_shasum": "a518d6ced154a3078f2cb78ae1f8ad95342b2734",
+  "_from": "d3@3.5.16",
+  "_npmVersion": "2.14.9",
+  "_nodeVersion": "0.12.8",
   "_npmUser": {
     "name": "mbostock",
-    "email": "mbostock@gmail.com"
+    "email": "mike@ocks.org"
+  },
+  "dist": {
+    "shasum": "a518d6ced154a3078f2cb78ae1f8ad95342b2734",
+    "tarball": "http://registry.npmjs.org/d3/-/d3-3.5.16.tgz"
   },
   "maintainers": [
     {
@@ -84,10 +90,10 @@
       "email": "jason@jasondavies.com"
     }
   ],
-  "dist": {
-    "shasum": "70e73d175f52f2a829bfbc3a9c1d264852662366",
-    "tarball": "http://registry.npmjs.org/d3/-/d3-3.5.14.tgz"
+  "_npmOperationalInternal": {
+    "host": "packages-6-west.internal.npmjs.com",
+    "tmp": "tmp/d3-3.5.16.tgz_1455759566344_0.6091886162757874"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/d3/-/d3-3.5.14.tgz"
+  "_resolved": "https://registry.npmjs.org/d3/-/d3-3.5.16.tgz"
 }

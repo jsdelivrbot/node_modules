@@ -1,13 +1,14 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _objectWithoutProperties = require('babel-runtime/helpers/object-without-properties')['default'];
-
-var _extends = require('babel-runtime/helpers/extends')['default'];
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _puiReactHelpers = require('pui-react-helpers');
 
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
 var React = require('react');
+
 
 var UIButton = React.createClass({
   displayName: 'UIButton',
@@ -35,7 +36,7 @@ var UIButton = React.createClass({
         'btn-lg': large
       }]
     };
-    var props = _puiReactHelpers.mergeProps(others, defaultProps);
+    var props = (0, _puiReactHelpers.mergeProps)(others, defaultProps);
 
     return this.props.href ? React.createElement(
       'a',

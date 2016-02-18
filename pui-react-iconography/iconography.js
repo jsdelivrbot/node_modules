@@ -1,15 +1,19 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _inherits = require('babel-runtime/helpers/inherits')['default'];
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _objectWithoutProperties = require('babel-runtime/helpers/object-without-properties')['default'];
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var _extends = require('babel-runtime/helpers/extends')['default'];
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-var _getIterator = require('babel-runtime/core-js/get-iterator')['default'];
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var React = require('react');
 var PropTypes = React.PropTypes;
@@ -18,31 +22,32 @@ var ReactFaIcon = require('react-fa/lib/Icon');
 var objectAssign = require('object-assign');
 var classnames = require('classnames');
 
-var Icon = (function (_React$Component) {
+var Icon = function (_React$Component) {
   _inherits(Icon, _React$Component);
 
   function Icon() {
     _classCallCheck(this, Icon);
 
-    _React$Component.apply(this, arguments);
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(Icon).apply(this, arguments));
   }
 
-  Icon.prototype.render = function render() {
-    var _classnames;
+  _createClass(Icon, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props;
+      var size = _props.size;
+      var className = _props.className;
 
-    var _props = this.props;
-    var size = _props.size;
-    var className = _props.className;
+      var props = _objectWithoutProperties(_props, ['size', 'className']);
 
-    var props = _objectWithoutProperties(_props, ['size', 'className']);
+      var classes = classnames(className, _defineProperty({}, 'fa-' + size, size));
 
-    var classes = classnames(className, (_classnames = {}, _classnames['fa-' + size] = size, _classnames));
-
-    return React.createElement(ReactFaIcon, _extends({ className: classes }, props));
-  };
+      return React.createElement(ReactFaIcon, _extends({ className: classes }, props));
+    }
+  }]);
 
   return Icon;
-})(React.Component);
+}(React.Component);
 
 function satisfiesOneOf() {
   for (var _len = arguments.length, propTypes = Array(_len), _key = 0; _key < _len; _key++) {
@@ -52,25 +57,33 @@ function satisfiesOneOf() {
   return function (props, propName, componentName) {
     var error;
     var errorMessages = [];
-    for (var _iterator = propTypes, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _getIterator(_iterator);;) {
-      var _ref;
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
 
-      if (_isArray) {
-        if (_i >= _iterator.length) break;
-        _ref = _iterator[_i++];
-      } else {
-        _i = _iterator.next();
-        if (_i.done) break;
-        _ref = _i.value;
+    try {
+      for (var _iterator = propTypes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var propType = _step.value;
+
+        error = propType(props, propName, componentName);
+        if (!error) {
+          return null;
+        } else {
+          errorMessages.push(error.message);
+        }
       }
-
-      var propType = _ref;
-
-      error = propType(props, propName, componentName);
-      if (!error) {
-        return null;
-      } else {
-        errorMessages.push(error.message);
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
       }
     }
 
