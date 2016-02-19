@@ -1,7 +1,7 @@
 {
   "name": "pui-css-tooltips",
   "style": "tooltips.css",
-  "version": "3.1.3",
+  "version": "3.2.0",
   "description": "tooltips css component for Pivotal UI based on Bootstrap",
   "repository": {
     "type": "git",
@@ -21,20 +21,20 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "homepage": "http://styleguide.pivotal.io/",
-  "_id": "pui-css-tooltips@3.1.3",
+  "_id": "pui-css-tooltips@3.2.0",
   "scripts": {},
-  "_shasum": "4339c0c7803ceda0edc16c40ae2afb25db2caf0d",
-  "_from": "pui-css-tooltips@3.1.3",
-  "_resolved": "https://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-3.1.3.tgz",
-  "_npmVersion": "2.14.18",
+  "_shasum": "471f211774596bd702733305e0b1e0062c1ca14c",
+  "_from": "pui-css-tooltips@3.2.0",
+  "_resolved": "https://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-3.2.0.tgz",
+  "_npmVersion": "2.14.19",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
     "name": "charleshansen",
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "4339c0c7803ceda0edc16c40ae2afb25db2caf0d",
-    "tarball": "http://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-3.1.3.tgz"
+    "shasum": "471f211774596bd702733305e0b1e0062c1ca14c",
+    "tarball": "http://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-3.2.0.tgz"
   },
   "maintainers": [
     {
@@ -99,8 +99,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-9-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-tooltips-3.1.3.tgz_1455304514677_0.09647532622329891"
+    "host": "packages-6-west.internal.npmjs.com",
+    "tmp": "tmp/pui-css-tooltips-3.2.0.tgz_1455844731180_0.2461797301657498"
   },
   "directories": {}
 }
