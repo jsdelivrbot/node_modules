@@ -19,7 +19,6 @@ var React = require('react');
 var types = React.PropTypes;
 var classnames = require('classnames');
 
-
 var paddingTypes = [];
 ['p', 'm'].forEach(function (type) {
   ['l', 'r', 't', 'b', 'h', 'v', 'a'].forEach(function (location) {
@@ -123,7 +122,6 @@ var PanelFooter = function (_React$Component2) {
     value: function render() {
       var footer = this.props.footer;
 
-
       if (footer) {
         return React.createElement(
           'div',
@@ -175,14 +173,18 @@ var Panel = function (_React$Component3) {
 
       return React.createElement(
         'div',
-        props,
+        null,
         React.createElement(PanelHeader, { actions: actions, header: header, subtitle: subtitle }),
         React.createElement(
           'div',
-          { className: classnames('panel-body', padding, innerClassName) },
-          children
-        ),
-        React.createElement(PanelFooter, { footer: footer })
+          props,
+          React.createElement(
+            'div',
+            { className: classnames('panel-body', padding, innerClassName) },
+            children
+          ),
+          React.createElement(PanelFooter, { footer: footer })
+        )
       );
     }
   }]);

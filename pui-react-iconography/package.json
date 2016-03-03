@@ -1,6 +1,6 @@
 {
   "name": "pui-react-iconography",
-  "version": "3.2.0",
+  "version": "3.3.2",
   "description": "A React component for rendering Font Awesome icons",
   "main": "iconography.js",
   "repository": {
@@ -28,23 +28,23 @@
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
     "react-fa": "^4.0.0",
-    "pui-css-iconography": "^3.2.0",
+    "pui-css-iconography": "^3.3.2",
     "object-assign": "^2.0.0"
   },
-  "_id": "pui-react-iconography@3.2.0",
+  "_id": "pui-react-iconography@3.3.2",
   "scripts": {},
-  "_shasum": "5ed8eb9608c4272fa2ad4778f374a59d4ef2b97a",
-  "_from": "pui-react-iconography@3.2.0",
-  "_resolved": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-3.2.0.tgz",
-  "_npmVersion": "2.14.19",
+  "_shasum": "b3acc06e8455c913960734ce7e79aac28671eb9e",
+  "_from": "pui-react-iconography@3.3.2",
+  "_resolved": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-3.3.2.tgz",
+  "_npmVersion": "2.14.17",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
     "name": "charleshansen",
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "5ed8eb9608c4272fa2ad4778f374a59d4ef2b97a",
-    "tarball": "http://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-3.2.0.tgz"
+    "shasum": "b3acc06e8455c913960734ce7e79aac28671eb9e",
+    "tarball": "http://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-3.3.2.tgz"
   },
   "maintainers": [
     {
@@ -109,8 +109,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-5-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-iconography-3.2.0.tgz_1455844794447_0.9821641540620476"
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-iconography-3.3.2.tgz_1456943053197_0.3427117788232863"
   },
   "directories": {}
 }

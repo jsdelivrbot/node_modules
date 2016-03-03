@@ -9,7 +9,6 @@ var React = require('react');
 var types = React.PropTypes;
 var BootstrapRow = require('react-bootstrap/lib/Row');
 
-
 var Row = React.createClass({
   displayName: 'Row',
 

@@ -1,7 +1,7 @@
 {
   "name": "pui-css-colors",
   "style": "colors.css",
-  "version": "3.2.0",
+  "version": "3.3.2",
   "description": "colors css component for Pivotal UI based on Bootstrap",
   "repository": {
     "type": "git",
@@ -22,20 +22,20 @@
   },
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {},
-  "_id": "pui-css-colors@3.2.0",
+  "_id": "pui-css-colors@3.3.2",
   "scripts": {},
-  "_shasum": "791f491508199888e130b9bc4bfcf646ff3a3e17",
-  "_from": "pui-css-colors@3.2.0",
-  "_resolved": "https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-3.2.0.tgz",
-  "_npmVersion": "2.14.19",
+  "_shasum": "d78eb529d92c4e81bbfde0ed80044f27396478aa",
+  "_from": "pui-css-colors@3.3.2",
+  "_resolved": "https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-3.3.2.tgz",
+  "_npmVersion": "2.14.17",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
     "name": "charleshansen",
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "791f491508199888e130b9bc4bfcf646ff3a3e17",
-    "tarball": "http://registry.npmjs.org/pui-css-colors/-/pui-css-colors-3.2.0.tgz"
+    "shasum": "d78eb529d92c4e81bbfde0ed80044f27396478aa",
+    "tarball": "http://registry.npmjs.org/pui-css-colors/-/pui-css-colors-3.3.2.tgz"
   },
   "maintainers": [
     {
@@ -100,8 +100,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-9-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-colors-3.2.0.tgz_1455844619593_0.512436339398846"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-css-colors-3.3.2.tgz_1456942984461_0.07668684050440788"
   },
   "directories": {}
 }
