@@ -53,7 +53,7 @@ coverageReporter: {
 coverageReporter: {
   dir: 'coverage',
   subdir: function(browser) {
-    // normalization process to keep a consistent browser name accross different
+    // normalization process to keep a consistent browser name across different
     // OS
     return browser.toLowerCase().split(/[ /-]/)[0];
   }
@@ -195,7 +195,7 @@ CoffeeScript files) with:
 
 ```javascript
 coverageReporter: {
-  instrumenters: { ibrik : require('ibrik') }
+  instrumenters: { ibrik : require('ibrik') },
   instrumenter: {
     '**/*.coffee': 'ibrik'
   },
@@ -219,4 +219,27 @@ coverageReporter: {
     isparta: { to5 : to5Options }
   }
 }
+```
+
+### `useJSExtensionForCoffeeScript`
+
+**Type:** boolean
+
+**Description:** If set to `true`, then CoffeeScript files instrumented
+with [Ibrik](https://github.com/Constellation/ibrik) will use the `.js`
+extension for the transpiled source (without this option, the JavaScript
+files will keep the original `.coffee` extension). This option is required
+if you use a module loader such as [RequireJS](http://requirejs.org/) that
+expects files to use a `.js` extension.
+
+Example of using RequireJS with CoffeeScript:
+
+```coffeescript
+coverageReporter:
+  useJSExtensionForCoffeeScript: true
+  instrumenters:
+    ibrik : require('ibrik')
+  instrumenter:
+    '**/*.coffee': 'ibrik'
+# ...
 ```
