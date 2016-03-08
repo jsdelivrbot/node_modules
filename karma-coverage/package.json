@@ -1,6 +1,6 @@
 {
   "name": "karma-coverage",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "A Karma plugin. Generate code coverage.",
   "main": "lib/index.js",
   "scripts": {
@@ -75,36 +75,36 @@
       "email": "timkang@ucla.edu"
     },
     {
-      "name": "Maksim Ryzhikov",
-      "email": "rv.maksim@gmail.com"
-    },
-    {
       "name": "Nick Malaguti",
       "email": "nmalaguti@palantir.com"
     },
     {
-      "name": "Douglas Duteil",
-      "email": "douglasduteil@gmail.com"
+      "name": "Maksim Ryzhikov",
+      "email": "rv.maksim@gmail.com"
     },
     {
-      "name": "Tanguy Krotoff",
-      "email": "tkrotoff@gmail.com"
-    },
-    {
-      "name": "Wei Kin Huang",
-      "email": "weikin.huang04@gmail.com"
-    },
-    {
-      "name": "Matt Winchester",
-      "email": "m_winche@yahoo.com"
+      "name": "nicojs",
+      "email": "jansennico@gmail.com"
     },
     {
       "name": "Allen Bierbaum",
       "email": "abierbaum@gmail.com"
     },
     {
-      "name": "Maciej Rzepiński",
-      "email": "maciej.rzepinski@gmail.com"
+      "name": "Wei Kin Huang",
+      "email": "weikin.huang04@gmail.com"
+    },
+    {
+      "name": "Tanguy Krotoff",
+      "email": "tkrotoff@gmail.com"
+    },
+    {
+      "name": "Douglas Duteil",
+      "email": "douglasduteil@gmail.com"
+    },
+    {
+      "name": "Matt Winchester",
+      "email": "m_winche@yahoo.com"
     },
     {
       "name": "Mark Ethan Trostler",
@@ -179,10 +179,6 @@
       "email": "fbergr@gmail.com"
     },
     {
-      "name": "nicojs",
-      "email": "jansennico@gmail.com"
-    },
-    {
       "name": "piecyk",
       "email": "piecyk@gmail.com"
     },
@@ -233,16 +229,20 @@
     {
       "name": "Lloyd Smith II",
       "email": "lloyd@trove.com"
+    },
+    {
+      "name": "Maciej Rzepiński",
+      "email": "maciej.rzepinski@gmail.com"
     }
   ],
-  "gitHead": "879d3d115561c465ac392b6b225fbedc61efe149",
+  "gitHead": "aafab9dd187c2bb65a78a2bcb5bbe97953e1bdd9",
   "bugs": {
     "url": "https://github.com/karma-runner/karma-coverage/issues"
   },
   "homepage": "https://github.com/karma-runner/karma-coverage#readme",
-  "_id": "karma-coverage@0.5.4",
-  "_shasum": "8b58ffb9b9d55a2db10d9509ec1b7fa48a7511fe",
-  "_from": "karma-coverage@0.5.4",
+  "_id": "karma-coverage@0.5.5",
+  "_shasum": "b0d58b1025d59d5c6620263186f1d58f5d5348c5",
+  "_from": "karma-coverage@0.5.5",
   "_npmVersion": "3.6.0",
   "_nodeVersion": "5.6.0",
   "_npmUser": {
@@ -250,8 +250,8 @@
     "email": "dignifiedquire@gmail.com"
   },
   "dist": {
-    "shasum": "8b58ffb9b9d55a2db10d9509ec1b7fa48a7511fe",
-    "tarball": "http://registry.npmjs.org/karma-coverage/-/karma-coverage-0.5.4.tgz"
+    "shasum": "b0d58b1025d59d5c6620263186f1d58f5d5348c5",
+    "tarball": "http://registry.npmjs.org/karma-coverage/-/karma-coverage-0.5.5.tgz"
   },
   "maintainers": [
     {
@@ -269,8 +269,8 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/karma-coverage-0.5.4.tgz_1457008868330_0.9256619019433856"
+    "tmp": "tmp/karma-coverage-0.5.5.tgz_1457351870902_0.4762285719625652"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/karma-coverage/-/karma-coverage-0.5.4.tgz"
+  "_resolved": "https://registry.npmjs.org/karma-coverage/-/karma-coverage-0.5.5.tgz"
 }
