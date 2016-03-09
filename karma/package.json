@@ -1068,7 +1068,7 @@
   "engines": {
     "node": "0.10 || 0.12 || 4 || 5"
   },
-  "version": "0.13.21",
+  "version": "0.13.22",
   "license": "MIT",
   "scripts": {
     "lint": "grunt lint",
@@ -1084,19 +1084,19 @@
       "commit-msg": "validate-commit-msg"
     }
   },
-  "gitHead": "a75624253758d420a6f5a5b05441fd2405be1515",
-  "_id": "karma@0.13.21",
-  "_shasum": "da6496799c98b3dd258a8da3db55cfe93565d159",
-  "_from": "karma@0.13.21",
-  "_npmVersion": "3.7.1",
-  "_nodeVersion": "4.1.2",
+  "gitHead": "fe8d4e25b61541cf0b6babcf5907099e0637a8be",
+  "_id": "karma@0.13.22",
+  "_shasum": "07750b1bd063d7e7e7b91bcd2e6354d8f2aa8744",
+  "_from": "karma@0.13.22",
+  "_npmVersion": "3.6.0",
+  "_nodeVersion": "5.7.0",
   "_npmUser": {
     "name": "dignifiedquire",
     "email": "dignifiedquire@gmail.com"
   },
   "dist": {
-    "shasum": "da6496799c98b3dd258a8da3db55cfe93565d159",
-    "tarball": "http://registry.npmjs.org/karma/-/karma-0.13.21.tgz"
+    "shasum": "07750b1bd063d7e7e7b91bcd2e6354d8f2aa8744",
+    "tarball": "http://registry.npmjs.org/karma/-/karma-0.13.22.tgz"
   },
   "maintainers": [
     {
@@ -1117,9 +1117,9 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-9-west.internal.npmjs.com",
-    "tmp": "tmp/karma-0.13.21.tgz_1455316181481_0.8540189263876528"
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/karma-0.13.22.tgz_1457473937999_0.16654653870500624"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/karma/-/karma-0.13.21.tgz"
+  "_resolved": "https://registry.npmjs.org/karma/-/karma-0.13.22.tgz"
 }
