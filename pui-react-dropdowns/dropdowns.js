@@ -17,6 +17,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var React = require('react');
 
+
 var BsDropdown = require('react-bootstrap/lib/Dropdown');
 
 function defDropdown(props) {
@@ -39,10 +40,10 @@ function defDropdown(props) {
 
       var others = _objectWithoutProperties(_props, ['buttonClassName', 'style', 'title', 'children', 'border']);
 
-      var _others = others;
-      var id = _others.id;
+      var id = others.id;
       var defaultBtnClassName = props.buttonClassName;
       var bsStyle = props.bsStyle;
+
 
       var btnClass = (0, _classnames2.default)(buttonClassName, defaultBtnClassName);
       var borderClass = border ? 'dropdown-border' : null;

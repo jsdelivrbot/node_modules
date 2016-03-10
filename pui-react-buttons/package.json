@@ -1,6 +1,6 @@
 {
   "name": "pui-react-buttons",
-  "version": "3.3.2",
+  "version": "3.4.0",
   "description": "A collection of React components providing styled buttons and links",
   "main": "buttons.js",
   "repository": {
@@ -26,23 +26,23 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-buttons": "^3.3.2",
-    "pui-react-helpers": "^3.3.2"
+    "pui-css-buttons": "^3.4.0",
+    "pui-react-helpers": "^3.4.0"
   },
-  "_id": "pui-react-buttons@3.3.2",
+  "_id": "pui-react-buttons@3.4.0",
   "scripts": {},
-  "_shasum": "04a8ca468c34d73781969c3f65f3f45f10a91c67",
-  "_from": "pui-react-buttons@3.3.2",
-  "_resolved": "https://registry.npmjs.org/pui-react-buttons/-/pui-react-buttons-3.3.2.tgz",
-  "_npmVersion": "2.14.17",
+  "_shasum": "6d7f94428b9d68bbb25e59dc216b24def99a94f3",
+  "_from": "pui-react-buttons@3.4.0",
+  "_resolved": "https://registry.npmjs.org/pui-react-buttons/-/pui-react-buttons-3.4.0.tgz",
+  "_npmVersion": "2.14.22",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
     "name": "charleshansen",
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "04a8ca468c34d73781969c3f65f3f45f10a91c67",
-    "tarball": "http://registry.npmjs.org/pui-react-buttons/-/pui-react-buttons-3.3.2.tgz"
+    "shasum": "6d7f94428b9d68bbb25e59dc216b24def99a94f3",
+    "tarball": "http://registry.npmjs.org/pui-react-buttons/-/pui-react-buttons-3.4.0.tgz"
   },
   "maintainers": [
     {
@@ -107,8 +107,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-buttons-3.3.2.tgz_1456943039013_0.648794112727046"
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-buttons-3.4.0.tgz_1457560856307_0.45285304402932525"
   },
   "directories": {}
 }

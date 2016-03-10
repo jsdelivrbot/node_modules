@@ -19,6 +19,7 @@ var React = require('react');
 var types = React.PropTypes;
 var classnames = require('classnames');
 
+
 var paddingTypes = [];
 ['p', 'm'].forEach(function (type) {
   ['l', 'r', 't', 'b', 'h', 'v', 'a'].forEach(function (location) {
@@ -122,6 +123,7 @@ var PanelFooter = function (_React$Component2) {
     value: function render() {
       var footer = this.props.footer;
 
+
       if (footer) {
         return React.createElement(
           'div',
@@ -165,26 +167,26 @@ var Panel = function (_React$Component3) {
 
       var other = _objectWithoutProperties(_props3, ['actions', 'children', 'footer', 'header', 'innerClassName', 'padding', 'scrollable', 'subtitle']);
 
-      var panelStyle = typeof scrollable === 'number' ? { maxHeight: scrollable + 'px' } : null;
+      var scrollableStyle = typeof scrollable === 'number' ? { maxHeight: scrollable + 'px' } : null;
       var props = (0, _puiReactHelpers.mergeProps)(other, {
-        className: ['panel', this.kind, { 'panel-scrollable': scrollable }],
-        style: panelStyle
+        className: ['panel', this.kind]
       });
+
+      var bodyProps = {
+        className: classnames('panel-body', padding, innerClassName, { 'panel-scrollable': scrollable }),
+        style: scrollableStyle
+      };
 
       return React.createElement(
         'div',
-        null,
+        props,
         React.createElement(PanelHeader, { actions: actions, header: header, subtitle: subtitle }),
         React.createElement(
           'div',
-          props,
-          React.createElement(
-            'div',
-            { className: classnames('panel-body', padding, innerClassName) },
-            children
-          ),
-          React.createElement(PanelFooter, { footer: footer })
-        )
+          bodyProps,
+          children
+        ),
+        React.createElement(PanelFooter, { footer: footer })
       );
     }
   }]);

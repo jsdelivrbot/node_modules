@@ -1,6 +1,6 @@
 {
   "name": "pui-react-grids",
-  "version": "3.3.2",
+  "version": "3.4.0",
   "description": "React components for laying-out content in a grid",
   "main": "grids.js",
   "repository": {
@@ -26,24 +26,24 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-grids": "^3.3.2",
+    "pui-css-grids": "^3.4.0",
     "react-bootstrap": "0.28.2",
-    "pui-react-helpers": "^3.3.2"
+    "pui-react-helpers": "^3.4.0"
   },
-  "_id": "pui-react-grids@3.3.2",
+  "_id": "pui-react-grids@3.4.0",
   "scripts": {},
-  "_shasum": "0226bc755f1a45ee9074988c97f292f83db24b10",
-  "_from": "pui-react-grids@3.3.2",
-  "_resolved": "https://registry.npmjs.org/pui-react-grids/-/pui-react-grids-3.3.2.tgz",
-  "_npmVersion": "2.14.17",
+  "_shasum": "4b995b1bb0931eba58f096fa36d1755faefb4b6c",
+  "_from": "pui-react-grids@3.4.0",
+  "_resolved": "https://registry.npmjs.org/pui-react-grids/-/pui-react-grids-3.4.0.tgz",
+  "_npmVersion": "2.14.22",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
     "name": "charleshansen",
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "0226bc755f1a45ee9074988c97f292f83db24b10",
-    "tarball": "http://registry.npmjs.org/pui-react-grids/-/pui-react-grids-3.3.2.tgz"
+    "shasum": "4b995b1bb0931eba58f096fa36d1755faefb4b6c",
+    "tarball": "http://registry.npmjs.org/pui-react-grids/-/pui-react-grids-3.4.0.tgz"
   },
   "maintainers": [
     {
@@ -108,8 +108,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-13-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-grids-3.3.2.tgz_1456943049847_0.11226004757918417"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-grids-3.4.0.tgz_1457560865259_0.4432524249423295"
   },
   "directories": {}
 }

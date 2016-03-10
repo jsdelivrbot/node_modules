@@ -1,6 +1,6 @@
 {
   "name": "pui-react-dropdowns",
-  "version": "3.3.2",
+  "version": "3.4.0",
   "description": "A React dropdown component",
   "main": "dropdowns.js",
   "repository": {
@@ -27,27 +27,27 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "react-bootstrap": "0.28.2",
-    "pui-css-dropdowns": "^3.3.2",
-    "pui-css-iconography": "^3.3.2",
-    "pui-css-buttons": "^3.3.2",
-    "pui-css-button-group": "^3.3.2",
+    "pui-css-dropdowns": "^3.4.0",
+    "pui-css-iconography": "^3.4.0",
+    "pui-css-buttons": "^3.4.0",
+    "pui-css-button-group": "^3.4.0",
     "classnames": "^2.1.2",
     "lodash.uniqueid": "^3.0.0"
   },
-  "_id": "pui-react-dropdowns@3.3.2",
+  "_id": "pui-react-dropdowns@3.4.0",
   "scripts": {},
-  "_shasum": "bbb646b4a792e4b32df81ca8f50a3b3a0ecdfd07",
-  "_from": "pui-react-dropdowns@3.3.2",
-  "_resolved": "https://registry.npmjs.org/pui-react-dropdowns/-/pui-react-dropdowns-3.3.2.tgz",
-  "_npmVersion": "2.14.17",
+  "_shasum": "5d2ab4d4db2dead5bb3307319674e707ec5d1f66",
+  "_from": "pui-react-dropdowns@3.4.0",
+  "_resolved": "https://registry.npmjs.org/pui-react-dropdowns/-/pui-react-dropdowns-3.4.0.tgz",
+  "_npmVersion": "2.14.22",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
     "name": "charleshansen",
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "bbb646b4a792e4b32df81ca8f50a3b3a0ecdfd07",
-    "tarball": "http://registry.npmjs.org/pui-react-dropdowns/-/pui-react-dropdowns-3.3.2.tgz"
+    "shasum": "5d2ab4d4db2dead5bb3307319674e707ec5d1f66",
+    "tarball": "http://registry.npmjs.org/pui-react-dropdowns/-/pui-react-dropdowns-3.4.0.tgz"
   },
   "maintainers": [
     {
@@ -104,8 +104,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-dropdowns-3.3.2.tgz_1456943047275_0.14934620540589094"
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-dropdowns-3.4.0.tgz_1457560862162_0.6989431930705905"
   },
   "directories": {}
 }

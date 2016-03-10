@@ -9,6 +9,7 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 var React = require('react');
 
+
 var TypographyMixin = {
   propTypes: {
     allCaps: React.PropTypes.bool,

@@ -125,7 +125,7 @@ var BaseTabs = _react2.default.createClass({
     var largeScreenClasses = (0, _classnames2.default)([tabType, largeScreenClassName, className]);
     var smallScreenClasses = (0, _classnames2.default)([tabType + '-small-screen', smallScreenClassName, className]);
 
-    var tabs = undefined;
+    var tabs = void 0;
 
     if (this.state.smallScreen) {
       var childrenAsPanels = _react2.default.Children.map(children, function (child) {
