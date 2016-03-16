@@ -1,0 +1,112 @@
+{
+  "name": "pui-react-alerts",
+  "version": "3.4.2",
+  "description": "React components to display flash messages to the user",
+  "main": "alerts.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "peerDependencies": {
+    "react": "^0.14.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "react-bootstrap": "0.28.2",
+    "pui-css-alerts": "^3.4.2",
+    "pui-css-iconography": "^3.4.2",
+    "pui-react-media": "^3.4.2"
+  },
+  "_id": "pui-react-alerts@3.4.2",
+  "scripts": {},
+  "_shasum": "1805b50a220715152df906c179e0169f1481a29e",
+  "_from": "pui-react-alerts@3.4.2",
+  "_resolved": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-3.4.2.tgz",
+  "_npmVersion": "2.14.22",
+  "_nodeVersion": "5.5.0",
+  "_npmUser": {
+    "name": "charleshansen",
+    "email": "chansen87@gmail.com"
+  },
+  "dist": {
+    "shasum": "1805b50a220715152df906c179e0169f1481a29e",
+    "tarball": "http://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-3.4.2.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "aberkovec",
+      "email": "aberkovec@pivotal.io"
+    },
+    {
+      "name": "atomanyih",
+      "email": "august.toman.yih@gmail.com"
+    },
+    {
+      "name": "charleshansen",
+      "email": "chansen87@gmail.com"
+    },
+    {
+      "name": "ctaymor",
+      "email": "ctaymor@gmail.com"
+    },
+    {
+      "name": "cthompson",
+      "email": "cthompson@pivotal.io"
+    },
+    {
+      "name": "d-reinhold",
+      "email": "dom.reinhold@gmail.com"
+    },
+    {
+      "name": "esharma",
+      "email": "esharma@pivotal.io"
+    },
+    {
+      "name": "gpleiss",
+      "email": "gpleiss@gmail.com"
+    },
+    {
+      "name": "kennyw1019",
+      "email": "kennyw1019@gmail.com"
+    },
+    {
+      "name": "mattroyal",
+      "email": "mroyal@pivotal.io"
+    },
+    {
+      "name": "pivotal-ui",
+      "email": "pivotal-ui@pivotal.io"
+    },
+    {
+      "name": "rdy",
+      "email": "ryan.dy@gmail.com"
+    },
+    {
+      "name": "stubbornella",
+      "email": "nicole@stubbornella.org"
+    },
+    {
+      "name": "vinsonchuong",
+      "email": "vinsonchuong@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-alerts-3.4.2.tgz_1457655841489_0.7155766186770052"
+  },
+  "directories": {}
+}
