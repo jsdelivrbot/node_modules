@@ -1,6 +1,6 @@
 {
   "name": "pui-react-modals",
-  "version": "3.4.0",
+  "version": "3.4.2",
   "description": "React components for opening and closing modal windows",
   "main": "modals.js",
   "repository": {
@@ -26,16 +26,16 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-modals": "^3.4.0",
-    "pui-react-typography": "^3.4.0",
-    "pui-react-helpers": "^3.4.0",
+    "pui-css-modals": "^3.4.2",
+    "pui-react-typography": "^3.4.2",
+    "pui-react-helpers": "^3.4.2",
     "react-bootstrap": "0.28.2"
   },
-  "_id": "pui-react-modals@3.4.0",
+  "_id": "pui-react-modals@3.4.2",
   "scripts": {},
-  "_shasum": "6c196e4c22416c808346672bad165a43abb1d7a4",
-  "_from": "pui-react-modals@3.4.0",
-  "_resolved": "https://registry.npmjs.org/pui-react-modals/-/pui-react-modals-3.4.0.tgz",
+  "_shasum": "a9e6faad7e94cff82bbea4ba4011c558cb5904ba",
+  "_from": "pui-react-modals@3.4.2",
+  "_resolved": "https://registry.npmjs.org/pui-react-modals/-/pui-react-modals-3.4.2.tgz",
   "_npmVersion": "2.14.22",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -43,8 +43,8 @@
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "6c196e4c22416c808346672bad165a43abb1d7a4",
-    "tarball": "http://registry.npmjs.org/pui-react-modals/-/pui-react-modals-3.4.0.tgz"
+    "shasum": "a9e6faad7e94cff82bbea4ba4011c558cb5904ba",
+    "tarball": "http://registry.npmjs.org/pui-react-modals/-/pui-react-modals-3.4.2.tgz"
   },
   "maintainers": [
     {
@@ -109,8 +109,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-13-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-modals-3.4.0.tgz_1457560876564_0.2979508030693978"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-modals-3.4.2.tgz_1457655864220_0.9140475546009839"
   },
   "directories": {}
 }

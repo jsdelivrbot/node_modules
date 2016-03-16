@@ -1,6 +1,6 @@
 {
   "name": "pui-react-tabs",
-  "version": "3.4.0",
+  "version": "3.4.2",
   "description": "React components for tab-based content toggling",
   "main": "tabs.js",
   "repository": {
@@ -28,16 +28,16 @@
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
     "lodash.uniqueid": "^3.0.0",
-    "pui-css-collapse": "^3.4.0",
-    "pui-css-tabs": "^3.4.0",
+    "pui-css-collapse": "^3.4.2",
+    "pui-css-tabs": "^3.4.2",
     "raf": "^3.1.0",
     "react-bootstrap": "0.28.2"
   },
-  "_id": "pui-react-tabs@3.4.0",
+  "_id": "pui-react-tabs@3.4.2",
   "scripts": {},
-  "_shasum": "1b3df95766c118053b0edae2b35e26caea25c939",
-  "_from": "pui-react-tabs@3.4.0",
-  "_resolved": "https://registry.npmjs.org/pui-react-tabs/-/pui-react-tabs-3.4.0.tgz",
+  "_shasum": "9e81af5dbfd6d781dc2f64a4db8e9a0b1b654d72",
+  "_from": "pui-react-tabs@3.4.2",
+  "_resolved": "https://registry.npmjs.org/pui-react-tabs/-/pui-react-tabs-3.4.2.tgz",
   "_npmVersion": "2.14.22",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -45,8 +45,8 @@
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "1b3df95766c118053b0edae2b35e26caea25c939",
-    "tarball": "http://registry.npmjs.org/pui-react-tabs/-/pui-react-tabs-3.4.0.tgz"
+    "shasum": "9e81af5dbfd6d781dc2f64a4db8e9a0b1b654d72",
+    "tarball": "http://registry.npmjs.org/pui-react-tabs/-/pui-react-tabs-3.4.2.tgz"
   },
   "maintainers": [
     {
@@ -108,7 +108,7 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-13-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-tabs-3.4.0.tgz_1457560904841_0.4460139055736363"
+    "tmp": "tmp/pui-react-tabs-3.4.2.tgz_1457655880787_0.2830186174251139"
   },
   "directories": {}
 }

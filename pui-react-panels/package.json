@@ -1,6 +1,6 @@
 {
   "name": "pui-react-panels",
-  "version": "3.4.0",
+  "version": "3.4.2",
   "description": "React components that provide containers for related content",
   "main": "panels.js",
   "repository": {
@@ -27,14 +27,14 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
-    "pui-css-panels": "^3.4.0",
-    "pui-react-helpers": "^3.4.0"
+    "pui-css-panels": "^3.4.2",
+    "pui-react-helpers": "^3.4.2"
   },
-  "_id": "pui-react-panels@3.4.0",
+  "_id": "pui-react-panels@3.4.2",
   "scripts": {},
-  "_shasum": "acb2287dce3a787e5b98aec3395168d495181058",
-  "_from": "pui-react-panels@3.4.0",
-  "_resolved": "https://registry.npmjs.org/pui-react-panels/-/pui-react-panels-3.4.0.tgz",
+  "_shasum": "98704d75bc3e26440e0293ecede3beb4475c7c62",
+  "_from": "pui-react-panels@3.4.2",
+  "_resolved": "https://registry.npmjs.org/pui-react-panels/-/pui-react-panels-3.4.2.tgz",
   "_npmVersion": "2.14.22",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -42,8 +42,8 @@
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "acb2287dce3a787e5b98aec3395168d495181058",
-    "tarball": "http://registry.npmjs.org/pui-react-panels/-/pui-react-panels-3.4.0.tgz"
+    "shasum": "98704d75bc3e26440e0293ecede3beb4475c7c62",
+    "tarball": "http://registry.npmjs.org/pui-react-panels/-/pui-react-panels-3.4.2.tgz"
   },
   "maintainers": [
     {
@@ -105,7 +105,7 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-panels-3.4.0.tgz_1457560880059_0.7608215021900833"
+    "tmp": "tmp/pui-react-panels-3.4.2.tgz_1457655867404_0.7603048468008637"
   },
   "directories": {}
 }

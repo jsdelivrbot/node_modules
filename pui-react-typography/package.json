@@ -1,6 +1,6 @@
 {
   "name": "pui-react-typography",
-  "version": "3.4.0",
+  "version": "3.4.2",
   "description": "A collection of React components that provide standard typographical headers",
   "main": "typography.js",
   "repository": {
@@ -26,14 +26,14 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-typography": "^3.4.0",
-    "pui-react-helpers": "^3.4.0"
+    "pui-css-typography": "^3.4.2",
+    "pui-react-helpers": "^3.4.2"
   },
-  "_id": "pui-react-typography@3.4.0",
+  "_id": "pui-react-typography@3.4.2",
   "scripts": {},
-  "_shasum": "98446a517badbf27f76b773e26f44e0e9a0be0c8",
-  "_from": "pui-react-typography@3.4.0",
-  "_resolved": "https://registry.npmjs.org/pui-react-typography/-/pui-react-typography-3.4.0.tgz",
+  "_shasum": "e939ff1b01d0dbb5168e3a906e9e66391c9ef73b",
+  "_from": "pui-react-typography@3.4.2",
+  "_resolved": "https://registry.npmjs.org/pui-react-typography/-/pui-react-typography-3.4.2.tgz",
   "_npmVersion": "2.14.22",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -41,8 +41,8 @@
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "98446a517badbf27f76b773e26f44e0e9a0be0c8",
-    "tarball": "http://registry.npmjs.org/pui-react-typography/-/pui-react-typography-3.4.0.tgz"
+    "shasum": "e939ff1b01d0dbb5168e3a906e9e66391c9ef73b",
+    "tarball": "http://registry.npmjs.org/pui-react-typography/-/pui-react-typography-3.4.2.tgz"
   },
   "maintainers": [
     {
@@ -103,8 +103,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-typography-3.4.0.tgz_1457560910029_0.39835051517002285"
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-typography-3.4.2.tgz_1457655885056_0.7151434558909386"
   },
   "directories": {}
 }
