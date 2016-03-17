@@ -90,7 +90,7 @@ The sort direction is specified in the **dir** property. Valid values are:
 
 If you specify 0 (or any valsy value) for the sort direction, the sorting will not be done for the given property, but only for all other properties.
 
-You can specify custom sort functions in the **fn** property. Those should always sort in ascending order!
+You can specify custom sort functions in the **fn** property. Those should always sort in ascending order! If there is a name on the sort info, sort function will recive values from those keys or it will receive the objects from the data array.
 
 ## API
 

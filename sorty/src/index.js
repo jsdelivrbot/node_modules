@@ -41,8 +41,8 @@ var getSingleSortFunction = function(info){
     var fn = info.fn
 
     return function(first, second){
-        var a = first[field]
-        var b = second[field]
+        var a = field? first[field] : first
+        var b = field? second[field] : second
 
         return dir * fn(a, b)
     }

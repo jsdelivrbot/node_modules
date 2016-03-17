@@ -1,6 +1,6 @@
 {
   "name": "sorty",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Utility for sorting object arrays on multiple properties",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/radubrehar/sorty.git"
+    "url": "git+ssh://git@github.com/zippyui/sorty.git"
   },
   "keywords": [
     "sort",
@@ -32,25 +32,38 @@
     "mocha": "^2.0.1",
     "should": "^4.3.0"
   },
-  "gitHead": "527445d7516ff58c66b67329bc8ec8870f4c4857",
-  "_id": "sorty@1.2.0",
-  "_shasum": "2511a07f8353fac5b25d75b6628e54a761f11527",
-  "_from": "sorty@>=1.2.0 <2.0.0",
-  "_npmVersion": "1.4.28",
+  "gitHead": "f3dc171e97312935d73714142b88f4f28f19fc44",
+  "_id": "sorty@1.2.1",
+  "_shasum": "d6a580ca9763284c294448c871eddb0897a561b3",
+  "_from": "sorty@1.2.1",
+  "_npmVersion": "2.14.12",
+  "_nodeVersion": "4.3.1",
   "_npmUser": {
-    "name": "radubrehar",
-    "email": "radu@evanghelic.ro"
+    "name": "bogdanpetru",
+    "email": "bogdanpintican@gmail.com"
+  },
+  "dist": {
+    "shasum": "d6a580ca9763284c294448c871eddb0897a561b3",
+    "tarball": "http://registry.npmjs.org/sorty/-/sorty-1.2.1.tgz"
   },
   "maintainers": [
     {
+      "name": "bogdanpetru",
+      "email": "bogdanpintican@gmail.com"
+    },
+    {
       "name": "radubrehar",
       "email": "radu@evanghelic.ro"
+    },
+    {
+      "name": "zippyui",
+      "email": "contact@zippyui.com"
     }
   ],
-  "dist": {
-    "shasum": "2511a07f8353fac5b25d75b6628e54a761f11527",
-    "tarball": "http://registry.npmjs.org/sorty/-/sorty-1.2.0.tgz"
+  "_npmOperationalInternal": {
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/sorty-1.2.1.tgz_1458127426258_0.832936150720343"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/sorty/-/sorty-1.2.0.tgz"
+  "_resolved": "https://registry.npmjs.org/sorty/-/sorty-1.2.1.tgz"
 }
