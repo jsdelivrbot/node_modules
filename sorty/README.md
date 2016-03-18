@@ -9,6 +9,10 @@ sorty
 $ npm install --save sorty
 ```
 
+## Note
+
+#### `sorty` sorts the array in-place, as it uses `Array.sort`! See [Array.sort on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
 ## Usage
 
 Example 1

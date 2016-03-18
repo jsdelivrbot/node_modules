@@ -1,6 +1,6 @@
 {
   "name": "sorty",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Utility for sorting object arrays on multiple properties",
   "main": "index.js",
   "scripts": {
@@ -32,19 +32,19 @@
     "mocha": "^2.0.1",
     "should": "^4.3.0"
   },
-  "gitHead": "f3dc171e97312935d73714142b88f4f28f19fc44",
-  "_id": "sorty@1.2.1",
-  "_shasum": "d6a580ca9763284c294448c871eddb0897a561b3",
-  "_from": "sorty@1.2.1",
+  "gitHead": "f9ec894cf9ea6ec66283326fff2a13d2d898510a",
+  "_id": "sorty@1.2.2",
+  "_shasum": "7a723468e462b4320773d3387b4c8da2584747a6",
+  "_from": "sorty@1.2.2",
   "_npmVersion": "2.14.12",
-  "_nodeVersion": "4.3.1",
+  "_nodeVersion": "4.3.0",
   "_npmUser": {
-    "name": "bogdanpetru",
-    "email": "bogdanpintican@gmail.com"
+    "name": "zippyui",
+    "email": "contact@zippyui.com"
   },
   "dist": {
-    "shasum": "d6a580ca9763284c294448c871eddb0897a561b3",
-    "tarball": "http://registry.npmjs.org/sorty/-/sorty-1.2.1.tgz"
+    "shasum": "7a723468e462b4320773d3387b4c8da2584747a6",
+    "tarball": "http://registry.npmjs.org/sorty/-/sorty-1.2.2.tgz"
   },
   "maintainers": [
     {
@@ -62,8 +62,8 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-13-west.internal.npmjs.com",
-    "tmp": "tmp/sorty-1.2.1.tgz_1458127426258_0.832936150720343"
+    "tmp": "tmp/sorty-1.2.2.tgz_1458207245644_0.46742880274541676"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/sorty/-/sorty-1.2.1.tgz"
+  "_resolved": "https://registry.npmjs.org/sorty/-/sorty-1.2.2.tgz"
 }
