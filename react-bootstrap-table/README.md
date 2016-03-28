@@ -10,26 +10,29 @@
 
 It's a [react.js](http://facebook.github.io/react/) table for bootstrap, named reactbsTable. It's a configurable, functional table component and make you build a Bootstrap Table more efficiency and easy in your React application, However ```react-bootstrap-table``` support these features:
 
-- column align
-- column hidden
+- striped, borderless, condensed table
+- column align, hidden, width, sort
 - scrolling table
-- data sort
 - cell format
 - pagination
 - row selection
-- column filter
+- column filter with multi type
 - cell edit with multi type editor
 - insert & delete Row
-- row and column style customize
-- search
-- export CSV file
+- row and column style customization
+- global search
+- export to CSV file
 - rich function hooks
 - large columns table
 
-You can see more about [react-bootstrap-table](http://allenfang.github.io/react-bootstrap-table/index.html).
-[Here](https://github.com/AllenFang/react-bootstrap-table/tree/master/examples/js) are a lots of examples.</br>
-You can check [this](http://allenfang.github.io/react-bootstrap-table/advance.html) for more advance usage for ```react-bootstrap-table```. Feel free to ask more examples.</br>
+Explore more example on [examples](https://github.com/AllenFang/react-bootstrap-table/tree/master/examples/js) folder</br>
+See more about [react-bootstrap-table](http://allenfang.github.io/react-bootstrap-table/index.html).</br>
+Check [this](http://allenfang.github.io/react-bootstrap-table/advance.html) for more advance usage for ```react-bootstrap-table```. Feel free to ask more examples.</br>
 Check the <a href='https://github.com/AllenFang/react-bootstrap-table/blob/master/CHANGELOG.md'>CHANGELOG</a> for more detail release notes.
+
+## Notes
+***```v2.0.0``` has been released, the main patches are fixing the unalign or wrong size column on different browsers and improving the table structure. Please check [this](https://github.com/AllenFang/react-bootstrap-table/issues/331) for more detail explanation.<br/>***
+
 
 ## Development
 ```react-bootstrap-table``` dependencies on react 0.14.x and Bootstrap 3 written by ES6 and use gulp and browserify for building and bundling.
@@ -54,22 +57,39 @@ npm install react-bootstrap-table --save
 ```
 
 ### b.Import Module
-Use react-bootstrap-table in your react app, you should import this component as first. About importing this component, there'r two way in the following you can choose:
-##### Module(CommonJS/AMD)
+To use react-bootstrap-table in your react app, you should import it first.
+You can do this in two ways:
+
+##### With a module bundler
+With a module bundler like [webpack](https://webpack.github.io/) that supports either CommonJS or ES2015 modules, use as you would anything else.  
+You can include source maps on your build system to debug on development. Don't forget to Uglify on production.
+
 ```js
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';  // in ECMAScript 6
+// in ECMAScript 6
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 // or in ECMAScript 5
-var ReactBSTable = require("react-bootstrap-table");  
+var ReactBSTable = require('react-bootstrap-table');  
 var BootstrapTable = ReactBSTable.BootstrapTable;
 var TableHeaderColumn = ReactBSTable.TableHeaderColumn;
 ```
 ##### Browser global(window object)
+In the `dist` folder you have a UMD bundle with source maps (`react-bootstrap-table.js`) as well as a minified version (`react-bootstrap-table.min.js`).
+
 ```html
 <script src="path/to/react-bootstrap-table/dist/react-bootstrap-table.min.js" />
 <script>
   var ReactBsTable = window.BootstrapTable;
   //...
 <script/>
+```
+
+The UMD build is also available on [npmcdn](https://npmcdn.com):
+
+```html
+// source maps: https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.js.map
+<script src="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.js"></script>
+// or use the min version
+<script src="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.min.js"></script>
 ```
 
 ### c.Import CSS
