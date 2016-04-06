@@ -442,6 +442,7 @@ var BootstrapTable = (function (_Component) {
           width: column.props.width,
           text: column.props.children,
           sortFunc: column.props.sortFunc,
+          sortFuncExtraData: column.props.sortFuncExtraData,
           index: i
         };
       });
@@ -786,6 +787,7 @@ var BootstrapTable = (function (_Component) {
             columns: columns,
             searchPlaceholder: this.props.searchPlaceholder,
             exportCSVText: this.props.options.exportCSVText,
+            ignoreEditable: this.props.options.ignoreEditable,
             onAddRow: this.handleAddRow,
             onDropRow: this.handleDropRow,
             onSearch: this.handleSearch,
@@ -889,14 +891,15 @@ BootstrapTable.propTypes = {
     onSortChange: _react.PropTypes.func,
     onPageChange: _react.PropTypes.func,
     onSizePerPageList: _react.PropTypes.func,
-    noDataText: _react.PropTypes.string,
+    noDataText: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
     handleConfirmDeleteRow: _react.PropTypes.func,
     prePage: _react.PropTypes.string,
     nextPage: _react.PropTypes.string,
     firstPage: _react.PropTypes.string,
     lastPage: _react.PropTypes.string,
     searchDelayTime: _react.PropTypes.number,
-    exportCSVText: _react.PropTypes.text
+    exportCSVText: _react.PropTypes.text,
+    ignoreEditable: _react.PropTypes.bool
   }),
   fetchInfo: _react.PropTypes.shape({
     dataTotalSize: _react.PropTypes.number
@@ -963,7 +966,8 @@ BootstrapTable.defaultProps = {
     firstPage: _Const2['default'].FIRST_PAGE,
     lastPage: _Const2['default'].LAST_PAGE,
     searchDelayTime: undefined,
-    exportCSVText: _Const2['default'].EXPORT_CSV_TEXT
+    exportCSVText: _Const2['default'].EXPORT_CSV_TEXT,
+    ignoreEditable: false
   },
   fetchInfo: {
     dataTotalSize: 0

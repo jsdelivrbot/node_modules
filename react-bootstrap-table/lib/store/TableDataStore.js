@@ -18,16 +18,29 @@ var _Const = require('../Const');
 
 var _Const2 = _interopRequireDefault(_Const);
 
-function _sort(arr, sortField, order, sortFunc) {
+function _sort(arr, sortField, order, sortFunc, sortFuncExtraData) {
   order = order.toLowerCase();
+  var isDesc = order === _Const2['default'].SORT_DESC;
   arr.sort(function (a, b) {
     if (sortFunc) {
-      return sortFunc(a, b, order, sortField);
+      return sortFunc(a, b, order, sortField, sortFuncExtraData);
     } else {
-      if (order === _Const2['default'].SORT_DESC) {
-        return a[sortField] > b[sortField] ? -1 : a[sortField] < b[sortField] ? 1 : 0;
+      if (isDesc) {
+        if (b[sortField] === null) return false;
+        if (a[sortField] === null) return true;
+        if (typeof b[sortField] === 'string') {
+          return b[sortField].localeCompare(a[sortField]);
+        } else {
+          return a[sortField] > b[sortField] ? -1 : a[sortField] < b[sortField] ? 1 : 0;
+        }
       } else {
-        return a[sortField] < b[sortField] ? -1 : a[sortField] > b[sortField] ? 1 : 0;
+        if (b[sortField] === null) return true;
+        if (a[sortField] === null) return false;
+        if (typeof a[sortField] === 'string') {
+          return a[sortField].localeCompare(b[sortField]);
+        } else {
+          return a[sortField] < b[sortField] ? -1 : a[sortField] > b[sortField] ? 1 : 0;
+        }
       }
     }
   });
@@ -66,13 +79,7 @@ var TableDataStore = (function () {
     key: 'setData',
     value: function setData(data) {
       this.data = data;
-      if (this.isOnFilter) {
-        if (this.filterObj !== null) this.filter(this.filterObj);
-        if (this.searchText !== null) this.search(this.searchText);
-      }
-      if (this.sortObj) {
-        this.sort(this.sortObj.order, this.sortObj.sortField);
-      }
+      this._refresh();
     }
   }, {
     key: 'getSortInfo',
@@ -93,6 +100,17 @@ var TableDataStore = (function () {
     key: 'getCurrentDisplayData',
     value: function getCurrentDisplayData() {
       if (this.isOnFilter) return this.filteredData;else return this.data;
+    }
+  }, {
+    key: '_refresh',
+    value: function _refresh() {
+      if (this.isOnFilter) {
+        if (this.filterObj !== null) this.filter(this.filterObj);
+        if (this.searchText !== null) this.search(this.searchText);
+      }
+      if (this.sortObj) {
+        this.sort(this.sortObj.order, this.sortObj.sortField);
+      }
     }
   }, {
     key: 'ignoreNonSelected',
@@ -120,9 +138,11 @@ var TableDataStore = (function () {
       var currentDisplayData = this.getCurrentDisplayData();
       if (!this.colInfos[sortField]) return this;
 
-      var sortFunc = this.colInfos[sortField].sortFunc;
+      var _colInfos$sortField = this.colInfos[sortField];
+      var sortFunc = _colInfos$sortField.sortFunc;
+      var sortFuncExtraData = _colInfos$sortField.sortFuncExtraData;
 
-      currentDisplayData = _sort(currentDisplayData, sortField, order, sortFunc);
+      currentDisplayData = _sort(currentDisplayData, sortField, order, sortFunc, sortFuncExtraData);
 
       return this;
     }
@@ -172,6 +192,7 @@ var TableDataStore = (function () {
       if (this.isOnFilter) {
         this.data.unshift(newObj);
       }
+      this._refresh();
     }
   }, {
     key: 'add',
@@ -190,6 +211,7 @@ var TableDataStore = (function () {
       if (this.isOnFilter) {
         this.data.push(newObj);
       }
+      this._refresh();
     }
   }, {
     key: 'remove',
@@ -360,6 +382,9 @@ var TableDataStore = (function () {
   }, {
     key: 'filterDate',
     value: function filterDate(targetVal, filterVal) {
+      if (!targetVal) {
+        return false;
+      }
       return targetVal.getDate() === filterVal.getDate() && targetVal.getMonth() === filterVal.getMonth() && targetVal.getFullYear() === filterVal.getFullYear();
     }
   }, {

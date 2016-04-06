@@ -140,13 +140,19 @@ var TableHeader = (function (_Component2) {
 
       if (Array.isArray(children)) {
         for (var i = 0; i < children.length; i++) {
-          var field = children[i].props.dataField;
-          var sort = field === sortName ? sortOrder : undefined;
+          var _children$i$props = children[i].props;
+          var dataField = _children$i$props.dataField;
+          var dataSort = _children$i$props.dataSort;
+
+          var sort = dataSort && dataField === sortName ? sortOrder : undefined;
           this.props.children[i] = _react2['default'].cloneElement(children[i], { key: i, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
         }
       } else {
-        var field = children.props.dataField;
-        var sort = field === sortName ? sortOrder : undefined;
+        var _children$props = children.props;
+        var dataField = _children$props.dataField;
+        var dataSort = _children$props.dataSort;
+
+        var sort = dataSort && dataField === sortName ? sortOrder : undefined;
         this.props.children = _react2['default'].cloneElement(children, { key: 0, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
       }
     }

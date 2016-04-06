@@ -140,14 +140,14 @@ var TableHeaderColumn = (function (_Component) {
       }
       var sortCaret = this.props.sort ? _util2['default'].renderReactSortCaret(this.props.sort) : defaultCaret;
       var classes = this.props.className + ' ' + (this.props.dataSort ? 'sort-column' : '');
-
+      var title = typeof this.props.children === 'string' ? { title: this.props.children } : null;
       return _react2['default'].createElement(
         'th',
-        { ref: 'header-col',
+        _extends({ ref: 'header-col',
           className: classes,
           style: thStyle,
-          title: this.props.children,
-          onClick: this.handleColumnClick },
+          onClick: this.handleColumnClick
+        }, title),
         this.props.children,
         sortCaret,
         _react2['default'].createElement(
@@ -182,6 +182,7 @@ TableHeaderColumn.propTypes = {
   className: _react.PropTypes.string,
   width: _react.PropTypes.string,
   sortFunc: _react.PropTypes.func,
+  sortFuncExtraData: _react.PropTypes.any,
   columnClassName: _react.PropTypes.any,
   filterFormatted: _react.PropTypes.bool,
   sort: _react.PropTypes.string,
@@ -217,6 +218,7 @@ TableHeaderColumn.defaultProps = {
   filterFormatted: false,
   sort: undefined,
   formatExtraData: undefined,
+  sortFuncExtraData: undefined,
   filter: undefined,
   sortIndicator: true
 };

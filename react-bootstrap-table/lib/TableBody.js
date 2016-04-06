@@ -111,8 +111,9 @@ var TableBody = (function (_Component) {
         }
       };
 
-      if (_this.props.selectRow.clickToSelectAndEditCell) {
-        _this.handleSelectRow(rowIndex + 1, true);
+      if (_this.props.selectRow.clickToSelectAndEditCell && _this.props.cellEdit.mode !== _Const2['default'].CELL_EDIT_DBCLICK) {
+        var selected = _this.props.selectedRowKeys.indexOf(_this.props.data[rowIndex][_this.props.keyField]) !== -1;
+        _this.handleSelectRow(rowIndex + 1, !selected);
       }
       _this.setState(stateObj);
     };
@@ -325,7 +326,7 @@ TableBody.propTypes = {
   selectedRowKeys: _react.PropTypes.array,
   onRowClick: _react.PropTypes.func,
   onSelectRow: _react.PropTypes.func,
-  noDataText: _react.PropTypes.string,
+  noDataText: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
   style: _react.PropTypes.object
 };
 exports['default'] = TableBody;
