@@ -228,7 +228,15 @@ var BootstrapTable = (function (_Component) {
 
     this.handleFilterData = function (filterObj) {
       _this.store.filter(filterObj);
+
+      var sortObj = _this.store.getSortInfo();
+
+      if (sortObj) {
+        _this.store.sort(sortObj.order, sortObj.sortField);
+      }
+
       var result = undefined;
+
       if (_this.props.pagination) {
         var sizePerPage = _this.state.sizePerPage;
 

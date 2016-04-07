@@ -311,7 +311,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    this.handleFilterData = function (filterObj) {
 	      _this.store.filter(filterObj);
+
+	      var sortObj = _this.store.getSortInfo();
+
+	      if (sortObj) {
+	        _this.store.sort(sortObj.order, sortObj.sortField);
+	      }
+
 	      var result = undefined;
+
 	      if (_this.props.pagination) {
 	        var sizePerPage = _this.state.sizePerPage;
 
@@ -2192,7 +2200,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _react2 = _interopRequireDefault(_react);
 
 	var editor = function editor(editable, attr, format, editorClass, defaultValue, ignoreEditable) {
-	  if (editable === true || ignoreEditable || typeof editable === 'string') {
+	  if (editable === true || editable === false && ignoreEditable || typeof editable === 'string') {
 	    // simple declare
 	    var type = editable ? 'text' : editable;
 	    return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
@@ -6111,6 +6119,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        );
 	      }
 	      var sortCaret = this.props.sort ? _util2['default'].renderReactSortCaret(this.props.sort) : defaultCaret;
+	      if (this.props.caretRender) {
+	        sortCaret = this.props.caretRender(this.props.sort);
+	      }
+
 	      var classes = this.props.className + ' ' + (this.props.dataSort ? 'sort-column' : '');
 	      var title = typeof this.props.children === 'string' ? { title: this.props.children } : null;
 	      return _react2['default'].createElement(
@@ -6158,6 +6170,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  columnClassName: _react.PropTypes.any,
 	  filterFormatted: _react.PropTypes.bool,
 	  sort: _react.PropTypes.string,
+	  caretRender: _react.PropTypes.func,
 	  formatExtraData: _react.PropTypes.any,
 	  filter: _react.PropTypes.shape({
 	    type: _react.PropTypes.oneOf(filterTypeArray),

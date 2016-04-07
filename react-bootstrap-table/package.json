@@ -1,8 +1,8 @@
 {
   "name": "react-bootstrap-table",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "It's a react table for bootstrap",
-  "main": "./lib/index.js",
+  "main": "./dist/react-bootstrap-table.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AllenFang/react-bootstrap-table.git"
@@ -79,14 +79,14 @@
       "<rootDir>/node_modules/react"
     ]
   },
-  "gitHead": "ec0e2bd501ac10f39ca975510ac06fcb10774511",
+  "gitHead": "3dc615b95fca05ef9fc5ed161111b9adaacb4b07",
   "bugs": {
     "url": "https://github.com/AllenFang/react-bootstrap-table/issues"
   },
   "homepage": "https://github.com/AllenFang/react-bootstrap-table#readme",
-  "_id": "react-bootstrap-table@2.1.1",
-  "_shasum": "f51a4994b1a10ac97fd98cb276835a28cd29ca5d",
-  "_from": "react-bootstrap-table@2.1.1",
+  "_id": "react-bootstrap-table@2.1.2",
+  "_shasum": "9f8ec9b2adfacaa5d49d422a4fa0f8857273a432",
+  "_from": "react-bootstrap-table@2.1.2",
   "_npmVersion": "2.11.3",
   "_nodeVersion": "4.2.1",
   "_npmUser": {
@@ -94,8 +94,8 @@
     "email": "ayu780129@hotmail.com"
   },
   "dist": {
-    "shasum": "f51a4994b1a10ac97fd98cb276835a28cd29ca5d",
-    "tarball": "https://registry.npmjs.org/react-bootstrap-table/-/react-bootstrap-table-2.1.1.tgz"
+    "shasum": "9f8ec9b2adfacaa5d49d422a4fa0f8857273a432",
+    "tarball": "https://registry.npmjs.org/react-bootstrap-table/-/react-bootstrap-table-2.1.2.tgz"
   },
   "maintainers": [
     {
@@ -105,8 +105,8 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/react-bootstrap-table-2.1.1.tgz_1459521474787_0.8651365216355771"
+    "tmp": "tmp/react-bootstrap-table-2.1.2.tgz_1459948679465_0.2663208730518818"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/react-bootstrap-table/-/react-bootstrap-table-2.1.1.tgz"
+  "_resolved": "https://registry.npmjs.org/react-bootstrap-table/-/react-bootstrap-table-2.1.2.tgz"
 }

@@ -139,6 +139,10 @@ var TableHeaderColumn = (function (_Component) {
         );
       }
       var sortCaret = this.props.sort ? _util2['default'].renderReactSortCaret(this.props.sort) : defaultCaret;
+      if (this.props.caretRender) {
+        sortCaret = this.props.caretRender(this.props.sort);
+      }
+
       var classes = this.props.className + ' ' + (this.props.dataSort ? 'sort-column' : '');
       var title = typeof this.props.children === 'string' ? { title: this.props.children } : null;
       return _react2['default'].createElement(
@@ -186,6 +190,7 @@ TableHeaderColumn.propTypes = {
   columnClassName: _react.PropTypes.any,
   filterFormatted: _react.PropTypes.bool,
   sort: _react.PropTypes.string,
+  caretRender: _react.PropTypes.func,
   formatExtraData: _react.PropTypes.any,
   filter: _react.PropTypes.shape({
     type: _react.PropTypes.oneOf(filterTypeArray),
