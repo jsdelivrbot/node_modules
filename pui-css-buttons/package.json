@@ -1,7 +1,7 @@
 {
   "name": "pui-css-buttons",
   "style": "buttons.css",
-  "version": "4.0.6",
+  "version": "4.0.8",
   "main": "index.js",
   "description": "buttons css component for Pivotal UI based on Bootstrap",
   "repository": {
@@ -23,14 +23,14 @@
   },
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-bootstrap": "^4.0.6",
-    "pui-css-typography": "^4.0.6"
+    "pui-css-bootstrap": "^4.0.8",
+    "pui-css-typography": "^4.0.8"
   },
-  "_id": "pui-css-buttons@4.0.6",
+  "_id": "pui-css-buttons@4.0.8",
   "scripts": {},
-  "_shasum": "1128d5bf956e5c1ce5a285da891ef7ac76fb7f00",
-  "_from": "pui-css-buttons@4.0.6",
-  "_resolved": "https://registry.npmjs.org/pui-css-buttons/-/pui-css-buttons-4.0.6.tgz",
+  "_shasum": "33556217c1c5e8363accfd63c5bbd548f93bb843",
+  "_from": "pui-css-buttons@4.0.8",
+  "_resolved": "https://registry.npmjs.org/pui-css-buttons/-/pui-css-buttons-4.0.8.tgz",
   "_npmVersion": "2.15.2",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -38,8 +38,8 @@
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "1128d5bf956e5c1ce5a285da891ef7ac76fb7f00",
-    "tarball": "https://registry.npmjs.org/pui-css-buttons/-/pui-css-buttons-4.0.6.tgz"
+    "shasum": "33556217c1c5e8363accfd63c5bbd548f93bb843",
+    "tarball": "https://registry.npmjs.org/pui-css-buttons/-/pui-css-buttons-4.0.8.tgz"
   },
   "maintainers": [
     {
@@ -104,8 +104,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-buttons-4.0.6.tgz_1459351514125_0.6605900302529335"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-css-buttons-4.0.8.tgz_1460162049893_0.7095902517903596"
   },
   "directories": {}
 }

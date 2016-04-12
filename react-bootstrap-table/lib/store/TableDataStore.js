@@ -261,6 +261,11 @@ var TableDataStore = (function () {
                   filterVal = typeof filterObj[key].value === 'object' ? undefined : typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
                   break;
                 }
+              case _Const2['default'].FILTER_TYPE.DATE:
+                {
+                  filterVal = filterObj[key].value.date;
+                  break;
+                }
               case _Const2['default'].FILTER_TYPE.REGEX:
                 {
                   filterVal = filterObj[key].value;
@@ -296,7 +301,7 @@ var TableDataStore = (function () {
                 }
               case _Const2['default'].FILTER_TYPE.DATE:
                 {
-                  valid = _this3.filterDate(targetVal, filterVal);
+                  valid = _this3.filterDate(targetVal, filterVal, filterObj[key].value.comparator);
                   break;
                 }
               case _Const2['default'].FILTER_TYPE.REGEX:
@@ -381,11 +386,68 @@ var TableDataStore = (function () {
     }
   }, {
     key: 'filterDate',
-    value: function filterDate(targetVal, filterVal) {
-      if (!targetVal) {
-        return false;
+    value: function filterDate(targetVal, filterVal, comparator) {
+      // if (!targetVal) {
+      //   return false;
+      // }
+      // return (targetVal.getDate() === filterVal.getDate() &&
+      //     targetVal.getMonth() === filterVal.getMonth() &&
+      //     targetVal.getFullYear() === filterVal.getFullYear());
+
+      var valid = true;
+      switch (comparator) {
+        case '=':
+          {
+            if (targetVal != filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        case '>':
+          {
+            if (targetVal <= filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        case '>=':
+          {
+            // console.log(targetVal);
+            // console.log(filterVal);
+            // console.log(filterVal.getDate());
+            if (targetVal < filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        case '<':
+          {
+            if (targetVal >= filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        case '<=':
+          {
+            if (targetVal > filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        case '!=':
+          {
+            if (targetVal == filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        default:
+          {
+            console.error('Date comparator provided is not supported');
+            break;
+          }
       }
-      return targetVal.getDate() === filterVal.getDate() && targetVal.getMonth() === filterVal.getMonth() && targetVal.getFullYear() === filterVal.getFullYear();
+      return valid;
     }
   }, {
     key: 'filterRegex',

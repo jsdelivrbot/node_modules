@@ -1,6 +1,6 @@
 {
   "name": "webpack",
-  "version": "1.12.14",
+  "version": "1.12.15",
   "author": {
     "name": "Tobias Koppers @sokra"
   },
@@ -90,13 +90,13 @@
     "cover": "istanbul cover -x *.runtime.js node_modules/mocha/bin/_mocha",
     "publish-patch": "npm run lint && npm run beautify-lint && mocha && npm version patch && git push && git push --tags && npm publish"
   },
-  "gitHead": "3ed27836b488401a7e9be2de1491a868a8b6f123",
+  "gitHead": "ee1b8c43b474b22a20bfc25daf0ee153dfb2ef9f",
   "bugs": {
     "url": "https://github.com/webpack/webpack/issues"
   },
-  "_id": "webpack@1.12.14",
-  "_shasum": "365517443abfb3cb43299ea444655be89aff91d5",
-  "_from": "webpack@1.12.14",
+  "_id": "webpack@1.12.15",
+  "_shasum": "d4611335a5d455269850aeb9b4ae74cc35192286",
+  "_from": "webpack@1.12.15",
   "_npmVersion": "3.3.3",
   "_nodeVersion": "5.4.1",
   "_npmUser": {
@@ -104,8 +104,8 @@
     "email": "tobias.koppers@googlemail.com"
   },
   "dist": {
-    "shasum": "365517443abfb3cb43299ea444655be89aff91d5",
-    "tarball": "http://registry.npmjs.org/webpack/-/webpack-1.12.14.tgz"
+    "shasum": "d4611335a5d455269850aeb9b4ae74cc35192286",
+    "tarball": "https://registry.npmjs.org/webpack/-/webpack-1.12.15.tgz"
   },
   "maintainers": [
     {
@@ -114,9 +114,9 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-5-east.internal.npmjs.com",
-    "tmp": "tmp/webpack-1.12.14.tgz_1456178711542_0.7575033956672996"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/webpack-1.12.15.tgz_1460328491713_0.6776255145668983"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/webpack/-/webpack-1.12.14.tgz"
+  "_resolved": "https://registry.npmjs.org/webpack/-/webpack-1.12.15.tgz"
 }

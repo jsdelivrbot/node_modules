@@ -69,14 +69,14 @@ function connect(mapStateToProps, mapDispatchToProps, mergeProps) {
   var mapDispatch = (0, _isPlainObject2["default"])(mapDispatchToProps) ? (0, _wrapActionCreators2["default"])(mapDispatchToProps) : mapDispatchToProps || defaultMapDispatchToProps;
 
   var finalMergeProps = mergeProps || defaultMergeProps;
-  var checkMergedEquals = finalMergeProps !== defaultMergeProps;
   var _options$pure = options.pure;
   var pure = _options$pure === undefined ? true : _options$pure;
   var _options$withRef = options.withRef;
   var withRef = _options$withRef === undefined ? false : _options$withRef;
 
-  // Helps track hot reloading.
+  var checkMergedEquals = pure && finalMergeProps !== defaultMergeProps;
 
+  // Helps track hot reloading.
   var version = nextVersion++;
 
   function computeMergedProps(stateProps, dispatchProps, parentProps) {

@@ -158,14 +158,14 @@ var BootstrapTable = (function (_Component) {
       });
     };
 
-    this.handleSelectRow = function (row, isSelected) {
+    this.handleSelectRow = function (row, isSelected, e) {
       var result = true;
       var currSelected = _this.store.getSelectedRowKeys();
       var rowKey = row[_this.store.getKeyField()];
       var selectRow = _this.props.selectRow;
 
       if (selectRow.onSelect) {
-        result = selectRow.onSelect(row, isSelected);
+        result = selectRow.onSelect(row, isSelected, e);
       }
 
       if (typeof result === 'undefined' || result !== false) {
@@ -405,13 +405,15 @@ var BootstrapTable = (function (_Component) {
   }, {
     key: 'getTableData',
     value: function getTableData() {
+      var result = [];
       var _props = this.props;
       var options = _props.options;
       var pagination = _props.pagination;
 
-      var result = [];
-      if (options.sortName && options.sortOrder) {
-        this.store.sort(options.sortOrder, options.sortName);
+      var sortName = options.defaultSortName || options.sortName;
+      var sortOrder = options.defaultSortOrder || options.sortOrder;
+      if (sortName && sortOrder) {
+        this.store.sort(sortOrder, sortName);
       }
 
       if (pagination) {
@@ -885,6 +887,8 @@ BootstrapTable.propTypes = {
     clearSearch: _react.PropTypes.bool,
     sortName: _react.PropTypes.string,
     sortOrder: _react.PropTypes.string,
+    defaultSortName: _react.PropTypes.string,
+    defaultSortOrder: _react.PropTypes.string,
     sortIndicator: _react.PropTypes.bool,
     afterTableComplete: _react.PropTypes.func,
     afterDeleteRow: _react.PropTypes.func,
@@ -951,6 +955,8 @@ BootstrapTable.defaultProps = {
     clearSearch: false,
     sortName: undefined,
     sortOrder: undefined,
+    defaultSortName: undefined,
+    defaultSortOrder: undefined,
     sortIndicator: true,
     afterTableComplete: undefined,
     afterDeleteRow: undefined,

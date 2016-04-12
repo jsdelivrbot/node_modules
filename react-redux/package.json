@@ -1,6 +1,6 @@
 {
   "name": "react-redux",
-  "version": "4.4.1",
+  "version": "4.4.2",
   "description": "Official React bindings for Redux",
   "main": "./lib/index.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaearon/react-redux.git"
+    "url": "https://github.com/reactjs/react-redux.git"
   },
   "files": [
     "dist",
@@ -99,7 +99,7 @@
     "loose-envify": "^1.1.0"
   },
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0-rc.1",
+    "react": "^0.14.0 || ^15.0.0-0",
     "redux": "^2.0.0 || ^3.0.0"
   },
   "browserify": {
@@ -107,10 +107,10 @@
       "loose-envify"
     ]
   },
-  "gitHead": "4e01d9fbd7ecc7e8bb75679349c5b2499c55b729",
-  "_id": "react-redux@4.4.1",
-  "_shasum": "f0be889d3dff0b9caf9f4e31fdcc0d0b481aa311",
-  "_from": "react-redux@4.4.1",
+  "gitHead": "e55e93a25562cbf6a69ce21aadbbf8d5e939bd48",
+  "_id": "react-redux@4.4.2",
+  "_shasum": "963486fa0fbebe50b8f3012cb1f9179ce29973f8",
+  "_from": "react-redux@4.4.2",
   "_npmVersion": "3.3.12",
   "_nodeVersion": "5.3.0",
   "_npmUser": {
@@ -118,8 +118,8 @@
     "email": "dan.abramov@gmail.com"
   },
   "dist": {
-    "shasum": "f0be889d3dff0b9caf9f4e31fdcc0d0b481aa311",
-    "tarball": "http://registry.npmjs.org/react-redux/-/react-redux-4.4.1.tgz"
+    "shasum": "963486fa0fbebe50b8f3012cb1f9179ce29973f8",
+    "tarball": "https://registry.npmjs.org/react-redux/-/react-redux-4.4.2.tgz"
   },
   "maintainers": [
     {
@@ -128,9 +128,9 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-13-west.internal.npmjs.com",
-    "tmp": "tmp/react-redux-4.4.1.tgz_1457827783585_0.09612803859636188"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/react-redux-4.4.2.tgz_1460157555977_0.6216265358962119"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/react-redux/-/react-redux-4.4.1.tgz"
+  "_resolved": "https://registry.npmjs.org/react-redux/-/react-redux-4.4.2.tgz"
 }
