@@ -1,0 +1,114 @@
+{
+  "name": "pui-react-media",
+  "version": "4.0.8",
+  "description": "React components for laying out images/audio/video next to text content",
+  "main": "media.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "peerDependencies": {
+    "react": "^0.14.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "classnames": "^2.2.0",
+    "pui-css-media": "^4.0.8"
+  },
+  "_id": "pui-react-media@4.0.8",
+  "scripts": {},
+  "_shasum": "c155d395154d1cdf491bca0f5a0af4305027835d",
+  "_from": "pui-react-media@4.0.8",
+  "_resolved": "https://registry.npmjs.org/pui-react-media/-/pui-react-media-4.0.8.tgz",
+  "_npmVersion": "2.15.2",
+  "_nodeVersion": "5.5.0",
+  "_npmUser": {
+    "name": "charleshansen",
+    "email": "chansen87@gmail.com"
+  },
+  "dist": {
+    "shasum": "c155d395154d1cdf491bca0f5a0af4305027835d",
+    "tarball": "https://registry.npmjs.org/pui-react-media/-/pui-react-media-4.0.8.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "aberkovec",
+      "email": "aberkovec@pivotal.io"
+    },
+    {
+      "name": "atomanyih",
+      "email": "august.toman.yih@gmail.com"
+    },
+    {
+      "name": "charleshansen",
+      "email": "chansen87@gmail.com"
+    },
+    {
+      "name": "ctaymor",
+      "email": "ctaymor@gmail.com"
+    },
+    {
+      "name": "cthompson",
+      "email": "cthompson@pivotal.io"
+    },
+    {
+      "name": "d-reinhold",
+      "email": "dom.reinhold@gmail.com"
+    },
+    {
+      "name": "esharma",
+      "email": "esharma@pivotal.io"
+    },
+    {
+      "name": "gpleiss",
+      "email": "gpleiss@gmail.com"
+    },
+    {
+      "name": "ial-ahmed",
+      "email": "issaq_al-ahmed@outlook.com"
+    },
+    {
+      "name": "kennyw1019",
+      "email": "kennyw1019@gmail.com"
+    },
+    {
+      "name": "mattroyal",
+      "email": "mroyal@pivotal.io"
+    },
+    {
+      "name": "pivotal-ui",
+      "email": "pivotal-ui@pivotal.io"
+    },
+    {
+      "name": "rdy",
+      "email": "ryan.dy@gmail.com"
+    },
+    {
+      "name": "stubbornella",
+      "email": "nicole@stubbornella.org"
+    },
+    {
+      "name": "vinsonchuong",
+      "email": "vinsonchuong@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-react-media-4.0.8.tgz_1460162156007_0.6968886191025376"
+  },
+  "directories": {}
+}

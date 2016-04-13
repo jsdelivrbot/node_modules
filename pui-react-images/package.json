@@ -1,0 +1,106 @@
+{
+  "name": "pui-react-images",
+  "version": "4.0.8",
+  "description": "A React component for rendering responsive and linked images",
+  "main": "images.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "peerDependencies": {
+    "react": "^0.14.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "pui-css-images": "^4.0.8",
+    "pui-react-helpers": "^4.0.8"
+  },
+  "_id": "pui-react-images@4.0.8",
+  "scripts": {},
+  "_shasum": "4c2a8c0f51d570a7fb0ad30669983eea95749c90",
+  "_from": "pui-react-images@4.0.8",
+  "_resolved": "https://registry.npmjs.org/pui-react-images/-/pui-react-images-4.0.8.tgz",
+  "_npmVersion": "2.15.2",
+  "_nodeVersion": "5.5.0",
+  "_npmUser": {
+    "name": "charleshansen",
+    "email": "chansen87@gmail.com"
+  },
+  "dist": {
+    "shasum": "4c2a8c0f51d570a7fb0ad30669983eea95749c90",
+    "tarball": "https://registry.npmjs.org/pui-react-images/-/pui-react-images-4.0.8.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "aberkovec",
+      "email": "aberkovec@pivotal.io"
+    },
+    {
+      "name": "atomanyih",
+      "email": "august.toman.yih@gmail.com"
+    },
+    {
+      "name": "charleshansen",
+      "email": "chansen87@gmail.com"
+    },
+    {
+      "name": "ctaymor",
+      "email": "ctaymor@gmail.com"
+    },
+    {
+      "name": "cthompson",
+      "email": "cthompson@pivotal.io"
+    },
+    {
+      "name": "d-reinhold",
+      "email": "dom.reinhold@gmail.com"
+    },
+    {
+      "name": "esharma",
+      "email": "esharma@pivotal.io"
+    },
+    {
+      "name": "gpleiss",
+      "email": "gpleiss@gmail.com"
+    },
+    {
+      "name": "kennyw1019",
+      "email": "kennyw1019@gmail.com"
+    },
+    {
+      "name": "mattroyal",
+      "email": "mroyal@pivotal.io"
+    },
+    {
+      "name": "rdy",
+      "email": "ryan.dy@gmail.com"
+    },
+    {
+      "name": "stubbornella",
+      "email": "nicole@stubbornella.org"
+    },
+    {
+      "name": "vinsonchuong",
+      "email": "vinsonchuong@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-react-images-4.0.8.tgz_1460162147404_0.9776270189322531"
+  },
+  "directories": {}
+}
