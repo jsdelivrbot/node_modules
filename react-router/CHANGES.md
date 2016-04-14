@@ -1,3 +1,12 @@
+## [v2.2.1]
+> April 14, 2016
+
+- **Bugfix:** Fix `this` in `getComponent` and `getComponents` ([#3306])
+
+[v2.2.1]: https://github.com/reactjs/react-router/compare/v2.2.0...v2.2.1
+[#3306]: https://github.com/reactjs/react-router/pull/3306
+
+
 ## [v2.2.0]
 > April 13, 2016
 
