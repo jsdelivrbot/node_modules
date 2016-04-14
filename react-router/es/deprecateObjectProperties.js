@@ -1,16 +1,10 @@
 'use strict';
 
-exports.__esModule = true;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _routerWarning = require('./routerWarning');
-
-var _routerWarning2 = _interopRequireDefault(_routerWarning);
+import warning from './routerWarning';
 
 var canUseMembrane = false;
 
-exports.canUseMembrane = canUseMembrane;
+export { canUseMembrane };
 // No-op by default.
 var deprecateObjectProperties = function deprecateObjectProperties(object) {
   return object;
@@ -21,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
     if (Object.defineProperty({}, 'x', { get: function get() {
         return true;
       } }).x) {
-      exports.canUseMembrane = canUseMembrane = true;
+      canUseMembrane = true;
     }
     /* eslint-disable no-empty */
   } catch (e) {}
@@ -40,7 +34,7 @@ if (process.env.NODE_ENV !== 'production') {
         if (typeof object[prop] === 'function') {
           // Can't use fat arrow here because of use of arguments below.
           membrane[prop] = function () {
-            process.env.NODE_ENV !== 'production' ? _routerWarning2['default'](false, message) : undefined;
+            process.env.NODE_ENV !== 'production' ? warning(false, message) : undefined;
             return object[prop].apply(object, arguments);
           };
           return 'continue';
@@ -53,7 +47,7 @@ if (process.env.NODE_ENV !== 'production') {
         // otherwise support proxies.
         Object.defineProperty(membrane, prop, {
           get: function get() {
-            process.env.NODE_ENV !== 'production' ? _routerWarning2['default'](false, message) : undefined;
+            process.env.NODE_ENV !== 'production' ? warning(false, message) : undefined;
             return object[prop];
           }
         });
@@ -70,4 +64,4 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
-exports['default'] = deprecateObjectProperties;
+export default deprecateObjectProperties;

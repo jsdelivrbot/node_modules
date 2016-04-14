@@ -1,18 +1,10 @@
 'use strict';
 
-exports.__esModule = true;
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var _AsyncUtils = require('./AsyncUtils');
-
-var _deprecateObjectProperties = require('./deprecateObjectProperties');
-
-var _routerWarning = require('./routerWarning');
-
-var _routerWarning2 = _interopRequireDefault(_routerWarning);
+import { mapAsync } from './AsyncUtils';
+import { canUseMembrane } from './deprecateObjectProperties';
+import warning from './routerWarning';
 
 function getComponentsForRoute(nextState, route, callback) {
   if (route.component || route.components) {
@@ -26,7 +18,7 @@ function getComponentsForRoute(nextState, route, callback) {
       var nextStateWithLocation = _extends({}, nextState);
       var location = nextState.location;
 
-      if (process.env.NODE_ENV !== 'production' && _deprecateObjectProperties.canUseMembrane) {
+      if (process.env.NODE_ENV !== 'production' && canUseMembrane) {
         var _loop = function (prop) {
           if (!Object.prototype.hasOwnProperty.call(location, prop)) {
             return 'continue';
@@ -34,7 +26,7 @@ function getComponentsForRoute(nextState, route, callback) {
 
           Object.defineProperty(nextStateWithLocation, prop, {
             get: function get() {
-              process.env.NODE_ENV !== 'production' ? _routerWarning2['default'](false, 'Accessing location properties from the first argument to `getComponent` and `getComponents` is deprecated. That argument is now the router state (`nextState`) rather than the location. To access the location, use `nextState.location`.') : undefined;
+              process.env.NODE_ENV !== 'production' ? warning(false, 'Accessing location properties from the first argument to `getComponent` and `getComponents` is deprecated. That argument is now the router state (`nextState`) rather than the location. To access the location, use `nextState.location`.') : undefined;
               return location[prop];
             }
           });
@@ -72,10 +64,9 @@ function getComponentsForRoute(nextState, route, callback) {
  * asynchronous getComponents method.
  */
 function getComponents(nextState, callback) {
-  _AsyncUtils.mapAsync(nextState.routes, function (route, index, callback) {
+  mapAsync(nextState.routes, function (route, index, callback) {
     getComponentsForRoute(nextState, route, callback);
   }, callback);
 }
 
-exports['default'] = getComponents;
-module.exports = exports['default'];
+export default getComponents;

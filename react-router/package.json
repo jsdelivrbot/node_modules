@@ -1,16 +1,16 @@
 {
   "name": "react-router",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "A complete routing library for React.js",
   "files": [
     "*.md",
     "docs",
-    "es6",
+    "es",
     "lib",
     "umd"
   ],
   "main": "lib/index",
-  "jsnext:main": "es6/index",
+  "jsnext:main": "es/index",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reactjs/react-router.git"
@@ -20,9 +20,9 @@
     "url": "https://github.com/reactjs/react-router/issues"
   },
   "scripts": {
-    "build": "npm run build-cjs && npm run build-es6",
+    "build": "npm run build-cjs && npm run build-es",
     "build-cjs": "rimraf lib && babel ./modules -d lib --ignore '__tests__'",
-    "build-es6": "rimraf es6 && babel ./modules -d es6 --blacklist=es6.modules --ignore '__tests__'",
+    "build-es": "rimraf es && babel ./modules -d es --blacklist=es6.modules --ignore '__tests__'",
     "build-umd": "NODE_ENV=development webpack modules/index.js umd/ReactRouter.js",
     "build-min": "NODE_ENV=production webpack -p modules/index.js umd/ReactRouter.min.js",
     "lint": "eslint modules examples",
@@ -91,34 +91,38 @@
     "routes",
     "router"
   ],
-  "gitHead": "e3e1545db24c410565dd4a4e7256407de86328e5",
-  "_id": "react-router@2.1.1",
-  "_shasum": "5ac7ae86ca091a59cde635de1a594293bc2b5905",
-  "_from": "react-router@2.1.1",
-  "_npmVersion": "3.5.2",
-  "_nodeVersion": "4.2.1",
+  "gitHead": "581f4a472dc9d8fbde2a27a20885c244df9c3bb7",
+  "_id": "react-router@2.2.0",
+  "_shasum": "d59a6674f69e90b5fc14c45e79a58a59b66929f1",
+  "_from": "react-router@2.2.0",
+  "_npmVersion": "3.8.7",
+  "_nodeVersion": "5.10.1",
   "_npmUser": {
-    "name": "ryanflorence",
-    "email": "rpflorence@gmail.com"
+    "name": "taion",
+    "email": "tesrin@gmail.com"
+  },
+  "dist": {
+    "shasum": "d59a6674f69e90b5fc14c45e79a58a59b66929f1",
+    "tarball": "https://registry.npmjs.org/react-router/-/react-router-2.2.0.tgz"
   },
   "maintainers": [
+    {
+      "name": "mjackson",
+      "email": "mjijackson@gmail.com"
+    },
     {
       "name": "ryanflorence",
       "email": "rpflorence@gmail.com"
     },
     {
-      "name": "mjackson",
-      "email": "mjijackson@gmail.com"
+      "name": "taion",
+      "email": "tesrin@gmail.com"
     }
   ],
-  "dist": {
-    "shasum": "5ac7ae86ca091a59cde635de1a594293bc2b5905",
-    "tarball": "https://registry.npmjs.org/react-router/-/react-router-2.1.1.tgz"
-  },
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/react-router-2.1.1.tgz_1460408504167_0.6190917056519538"
+    "tmp": "tmp/react-router-2.2.0.tgz_1460590797869_0.6457097374368459"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/react-router/-/react-router-2.1.1.tgz"
+  "_resolved": "https://registry.npmjs.org/react-router/-/react-router-2.2.0.tgz"
 }

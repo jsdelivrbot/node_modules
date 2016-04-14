@@ -11,10 +11,6 @@ function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function escapeSource(string) {
-  return escapeRegExp(string).replace(/\/+/g, '/+');
-}
-
 function _compilePattern(pattern) {
   var regexpSource = '';
   var paramNames = [];
@@ -26,7 +22,7 @@ function _compilePattern(pattern) {
   while (match = matcher.exec(pattern)) {
     if (match.index !== lastIndex) {
       tokens.push(pattern.slice(lastIndex, match.index));
-      regexpSource += escapeSource(pattern.slice(lastIndex, match.index));
+      regexpSource += escapeRegExp(pattern.slice(lastIndex, match.index));
     }
 
     if (match[1]) {
@@ -51,7 +47,7 @@ function _compilePattern(pattern) {
 
   if (lastIndex !== pattern.length) {
     tokens.push(pattern.slice(lastIndex, pattern.length));
-    regexpSource += escapeSource(pattern.slice(lastIndex, pattern.length));
+    regexpSource += escapeRegExp(pattern.slice(lastIndex, pattern.length));
   }
 
   return {
@@ -91,12 +87,9 @@ function compilePattern(pattern) {
  */
 
 function matchPattern(pattern, pathname) {
-  // Make leading slashes consistent between pattern and pathname.
+  // Ensure pattern starts with leading slash for consistency with pathname.
   if (pattern.charAt(0) !== '/') {
     pattern = '/' + pattern;
-  }
-  if (pathname.charAt(0) !== '/') {
-    pathname = '/' + pathname;
   }
 
   var _compilePattern2 = compilePattern(pattern);
@@ -105,7 +98,9 @@ function matchPattern(pattern, pathname) {
   var paramNames = _compilePattern2.paramNames;
   var tokens = _compilePattern2.tokens;
 
-  regexpSource += '/*'; // Capture path separators
+  if (pattern.charAt(pattern.length - 1) !== '/') {
+    regexpSource += '/?'; // Allow optional path separator at end.
+  }
 
   // Special-case patterns like '*' for catch-all routes.
   if (tokens[tokens.length - 1] === '*') {
@@ -120,15 +115,20 @@ function matchPattern(pattern, pathname) {
     var matchedPath = match[0];
     remainingPathname = pathname.substr(matchedPath.length);
 
-    // If we didn't match the entire pathname, then make sure that the match we
-    // did get ends at a path separator (potentially the one we added above at
-    // the beginning of the path, if the actual match was empty).
-    if (remainingPathname && matchedPath.charAt(matchedPath.length - 1) !== '/') {
-      return {
-        remainingPathname: null,
-        paramNames: paramNames,
-        paramValues: null
-      };
+    if (remainingPathname) {
+      // Require that the match ends at a path separator, if we didn't match
+      // the full path, so any remaining pathname is a new path segment.
+      if (matchedPath.charAt(matchedPath.length - 1) !== '/') {
+        return {
+          remainingPathname: null,
+          paramNames: paramNames,
+          paramValues: null
+        };
+      }
+
+      // If there is a remaining pathname, treat the path separator as part of
+      // the remaining pathname for properly continuing the match.
+      remainingPathname = '/' + remainingPathname;
     }
 
     paramValues = match.slice(1).map(function (v) {

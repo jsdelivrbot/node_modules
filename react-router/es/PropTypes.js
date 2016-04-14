@@ -17,9 +17,11 @@ function falsy(props, propName, componentName) {
 
 var history = shape({
   listen: func.isRequired,
-  pushState: func.isRequired,
-  replaceState: func.isRequired,
-  go: func.isRequired
+  push: func.isRequired,
+  replace: func.isRequired,
+  go: func.isRequired,
+  goBack: func.isRequired,
+  goForward: func.isRequired
 });
 
 export { history };
@@ -41,11 +43,19 @@ export { route };
 var routes = oneOfType([route, arrayOf(route)]);
 
 export { routes };
+var router = shape({
+  push: func.isRequired,
+  replace: func.isRequired,
+  go: func.isRequired,
+  goBack: func.isRequired,
+  goForward: func.isRequired,
+  setRouteLeaveHook: func.isRequired,
+  isActive: func.isRequired
+});
+
+export { router };
 export default {
-  falsy: falsy,
   history: history,
   location: location,
-  component: component,
-  components: components,
-  route: route
+  router: router
 };

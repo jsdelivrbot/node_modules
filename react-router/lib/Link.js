@@ -89,7 +89,6 @@ var Link = _react2['default'].createClass({
   getDefaultProps: function getDefaultProps() {
     return {
       onlyActiveOnIndex: false,
-      className: '',
       style: {}
     };
   },
@@ -149,7 +148,13 @@ var Link = _react2['default'].createClass({
 
       if (activeClassName || activeStyle != null && !isEmptyObject(activeStyle)) {
         if (router.isActive(_location2, onlyActiveOnIndex)) {
-          if (activeClassName) props.className += props.className === '' ? activeClassName : ' ' + activeClassName;
+          if (activeClassName) {
+            if (props.className) {
+              props.className += ' ' + activeClassName;
+            } else {
+              props.className = activeClassName;
+            }
+          }
 
           if (activeStyle) props.style = _extends({}, props.style, activeStyle);
         }
