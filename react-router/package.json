@@ -1,6 +1,6 @@
 {
   "name": "react-router",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "A complete routing library for React.js",
   "files": [
     "*.md",
@@ -91,10 +91,10 @@
     "routes",
     "router"
   ],
-  "gitHead": "b5175b15bf0999e5fb151f57a8126aca3537a7c9",
-  "_id": "react-router@2.2.1",
-  "_shasum": "b0f80a181c6e017f1cf577fa7c73dbdde392970c",
-  "_from": "react-router@2.2.1",
+  "gitHead": "c58c806b82ed7dec960f042e31b24091bee7dad0",
+  "_id": "react-router@2.2.2",
+  "_shasum": "3b474221c3cf3a3ad7fe901f532ff0cd5c490379",
+  "_from": "react-router@2.2.2",
   "_npmVersion": "3.8.7",
   "_nodeVersion": "5.10.1",
   "_npmUser": {
@@ -102,8 +102,8 @@
     "email": "tesrin@gmail.com"
   },
   "dist": {
-    "shasum": "b0f80a181c6e017f1cf577fa7c73dbdde392970c",
-    "tarball": "https://registry.npmjs.org/react-router/-/react-router-2.2.1.tgz"
+    "shasum": "3b474221c3cf3a3ad7fe901f532ff0cd5c490379",
+    "tarball": "https://registry.npmjs.org/react-router/-/react-router-2.2.2.tgz"
   },
   "maintainers": [
     {
@@ -121,8 +121,8 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/react-router-2.2.1.tgz_1460612289487_0.1572297397069633"
+    "tmp": "tmp/react-router-2.2.2.tgz_1460652181603_0.18195841857232153"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/react-router/-/react-router-2.2.1.tgz"
+  "_resolved": "https://registry.npmjs.org/react-router/-/react-router-2.2.2.tgz"
 }

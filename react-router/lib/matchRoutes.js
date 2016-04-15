@@ -103,13 +103,17 @@ function matchRouteDeep(route, location, remainingPathname, paramNames, paramVal
     paramValues = [];
   }
 
-  if (remainingPathname !== null) {
+  // Only try to match the path if the route actually has a pattern, and if
+  // we're not just searching for potential nested absolute paths.
+  if (remainingPathname !== null && pattern) {
     var matched = _PatternUtils.matchPattern(pattern, remainingPathname);
     remainingPathname = matched.remainingPathname;
     paramNames = [].concat(paramNames, matched.paramNames);
     paramValues = [].concat(paramValues, matched.paramValues);
 
-    if (remainingPathname === '' && route.path) {
+    // By assumption, pattern is non-empty here, which is the prerequisite for
+    // actually terminating a match.
+    if (remainingPathname === '') {
       var _ret2 = (function () {
         var match = {
           routes: [route],
@@ -135,6 +139,7 @@ function matchRouteDeep(route, location, remainingPathname, paramNames, paramVal
             callback(null, match);
           }
         });
+
         return {
           v: undefined
         };
