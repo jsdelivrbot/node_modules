@@ -154,7 +154,6 @@ var TableBody = (function (_Component) {
             var format = column.format ? function (value) {
               return column.format(value, data, column.formatExtraData).replace(/<.*?>/g, '');
             } : false;
-
             if (isFun(column.editable)) {
               editable = column.editable(fieldValue, data, r, i);
             }

@@ -1,3 +1,14 @@
+## [v2.2.3]
+> April 15, 2016
+
+- **Bugfix:** Don't use `Object.assign` in `getComponentsForRoute` ([#3331])
+- **Minor:** Speed up checking index path active status ([#3313])
+
+[v2.2.3]: https://github.com/reactjs/react-router/compare/v2.2.2...v2.2.3
+[#3313]: https://github.com/reactjs/react-router/pull/3313
+[#3331]: https://github.com/reactjs/react-router/pull/3331
+
+
 ## [v2.2.2]
 > April 14, 2016
 

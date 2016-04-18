@@ -1,6 +1,6 @@
 {
   "name": "react-router",
-  "version": "2.2.2",
+  "version": "2.2.4",
   "description": "A complete routing library for React.js",
   "files": [
     "*.md",
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/reactjs/react-router.git"
   },
-  "homepage": "https://reactjs.org/react-router/",
+  "homepage": "https://github.com/reactjs/react-router#readme",
   "bugs": {
     "url": "https://github.com/reactjs/react-router/issues"
   },
@@ -91,10 +91,10 @@
     "routes",
     "router"
   ],
-  "gitHead": "c58c806b82ed7dec960f042e31b24091bee7dad0",
-  "_id": "react-router@2.2.2",
-  "_shasum": "3b474221c3cf3a3ad7fe901f532ff0cd5c490379",
-  "_from": "react-router@2.2.2",
+  "gitHead": "c9adeeab27a609bf6c01636d93d32bbafe6acbde",
+  "_id": "react-router@2.2.4",
+  "_shasum": "6ec84ae380717b743cca90c695b5688befb2ea7c",
+  "_from": "react-router@2.2.4",
   "_npmVersion": "3.8.7",
   "_nodeVersion": "5.10.1",
   "_npmUser": {
@@ -102,8 +102,8 @@
     "email": "tesrin@gmail.com"
   },
   "dist": {
-    "shasum": "3b474221c3cf3a3ad7fe901f532ff0cd5c490379",
-    "tarball": "https://registry.npmjs.org/react-router/-/react-router-2.2.2.tgz"
+    "shasum": "6ec84ae380717b743cca90c695b5688befb2ea7c",
+    "tarball": "https://registry.npmjs.org/react-router/-/react-router-2.2.4.tgz"
   },
   "maintainers": [
     {
@@ -121,8 +121,8 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/react-router-2.2.2.tgz_1460652181603_0.18195841857232153"
+    "tmp": "tmp/react-router-2.2.4.tgz_1460754513244_0.7122524313163012"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/react-router/-/react-router-2.2.2.tgz"
+  "_resolved": "https://registry.npmjs.org/react-router/-/react-router-2.2.4.tgz"
 }

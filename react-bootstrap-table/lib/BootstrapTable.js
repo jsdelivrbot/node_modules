@@ -610,16 +610,20 @@ var BootstrapTable = (function (_Component) {
   }, {
     key: 'isSelectAll',
     value: function isSelectAll() {
+      if (this.store.isEmpty()) return false;
+
       var defaultSelectRowKeys = this.store.getSelectedRowKeys();
       var allRowKeys = this.store.getAllRowkey();
-      if (defaultSelectRowKeys.length !== allRowKeys.length) {
-        return defaultSelectRowKeys.length === 0 ? false : 'indeterminate';
-      } else {
-        if (this.store.isEmpty()) {
-          return false;
-        }
-        return true;
-      }
+
+      if (defaultSelectRowKeys.length === 0) return false;
+      var match = 0;
+      var noFound = 0;
+      defaultSelectRowKeys.forEach(function (selected) {
+        if (allRowKeys.indexOf(selected) !== -1) match++;else noFound++;
+      });
+
+      if (noFound === defaultSelectRowKeys.length) return false;
+      return match === allRowKeys.length ? true : 'indeterminate';
     }
   }, {
     key: 'cleanSelected',

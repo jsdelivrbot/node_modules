@@ -23,6 +23,10 @@ var editor = function editor(editable, attr, format, editorClass, defaultValue, 
     return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
       disabled: 'disabled',
       className: (editorClass || '') + ' form-control editor edit-text' }));
+  } else if (editable && (editable.type === undefined || editable.type === null || editable.type.trim() === '')) {
+    var type = editable ? 'text' : editable;
+    return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
+      className: (editorClass || '') + ' form-control editor edit-text' }));
   } else if (editable.type) {
     // standard declare
     // put style if exist

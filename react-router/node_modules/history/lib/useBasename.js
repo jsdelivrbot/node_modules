@@ -31,7 +31,7 @@ function useBasename(createHistory) {
     if (basename == null && _ExecutionEnvironment.canUseDOM) {
       var base = document.getElementsByTagName('base')[0];
 
-      if (base) basename = _PathUtils.extractPath(base.href);
+      if (base) basename = base.getAttribute('href');
     }
 
     function addBasename(location) {

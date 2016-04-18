@@ -3,7 +3,7 @@
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 import { canUseDOM } from './ExecutionEnvironment';
-import { extractPath, parsePath } from './PathUtils';
+import { parsePath } from './PathUtils';
 import runTransitionHook from './runTransitionHook';
 import deprecate from './deprecate';
 
@@ -20,7 +20,7 @@ function useBasename(createHistory) {
     if (basename == null && canUseDOM) {
       var base = document.getElementsByTagName('base')[0];
 
-      if (base) basename = extractPath(base.href);
+      if (base) basename = base.getAttribute('href');
     }
 
     function addBasename(location) {
