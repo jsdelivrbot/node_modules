@@ -1,6 +1,6 @@
 {
   "name": "pui-react-inputs",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "A collection of React components providing styled inputs",
   "main": "inputs.js",
   "repository": {
@@ -27,14 +27,14 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
-    "pui-css-forms": "^4.0.8",
-    "pui-react-helpers": "^4.0.8"
+    "pui-css-forms": "^4.0.9",
+    "pui-react-helpers": "^4.0.9"
   },
-  "_id": "pui-react-inputs@4.0.8",
+  "_id": "pui-react-inputs@4.0.9",
   "scripts": {},
-  "_shasum": "8392ad1f959ea2b83fcd788329fa6928d504219e",
-  "_from": "pui-react-inputs@4.0.8",
-  "_resolved": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-4.0.8.tgz",
+  "_shasum": "e44802813d6f0b89169d6361db1c4af78a902763",
+  "_from": "pui-react-inputs@4.0.9",
+  "_resolved": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-4.0.9.tgz",
   "_npmVersion": "2.15.2",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -42,8 +42,8 @@
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "8392ad1f959ea2b83fcd788329fa6928d504219e",
-    "tarball": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-4.0.8.tgz"
+    "shasum": "e44802813d6f0b89169d6361db1c4af78a902763",
+    "tarball": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-4.0.9.tgz"
   },
   "maintainers": [
     {
@@ -72,8 +72,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-inputs-4.0.8.tgz_1460162150404_0.4541103227529675"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-inputs-4.0.9.tgz_1460995307081_0.7546942727640271"
   },
   "directories": {}
 }

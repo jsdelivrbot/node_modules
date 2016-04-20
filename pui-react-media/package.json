@@ -1,6 +1,6 @@
 {
   "name": "pui-react-media",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "React components for laying out images/audio/video next to text content",
   "main": "media.js",
   "repository": {
@@ -27,13 +27,13 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
-    "pui-css-media": "^4.0.8"
+    "pui-css-media": "^4.0.9"
   },
-  "_id": "pui-react-media@4.0.8",
+  "_id": "pui-react-media@4.0.9",
   "scripts": {},
-  "_shasum": "c155d395154d1cdf491bca0f5a0af4305027835d",
-  "_from": "pui-react-media@4.0.8",
-  "_resolved": "https://registry.npmjs.org/pui-react-media/-/pui-react-media-4.0.8.tgz",
+  "_shasum": "cdda254628ab7f1b1af954c9e0fdd7565a8a61aa",
+  "_from": "pui-react-media@4.0.9",
+  "_resolved": "https://registry.npmjs.org/pui-react-media/-/pui-react-media-4.0.9.tgz",
   "_npmVersion": "2.15.2",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -41,8 +41,8 @@
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "c155d395154d1cdf491bca0f5a0af4305027835d",
-    "tarball": "https://registry.npmjs.org/pui-react-media/-/pui-react-media-4.0.8.tgz"
+    "shasum": "cdda254628ab7f1b1af954c9e0fdd7565a8a61aa",
+    "tarball": "https://registry.npmjs.org/pui-react-media/-/pui-react-media-4.0.9.tgz"
   },
   "maintainers": [
     {
@@ -108,7 +108,7 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-media-4.0.8.tgz_1460162156007_0.6968886191025376"
+    "tmp": "tmp/pui-react-media-4.0.9.tgz_1460995313979_0.020867361454293132"
   },
   "directories": {}
 }

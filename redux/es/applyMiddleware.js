@@ -26,7 +26,7 @@ export default function applyMiddleware() {
   return function (createStore) {
     return function (reducer, initialState, enhancer) {
       var store = createStore(reducer, initialState, enhancer);
-      var _dispatch = store.dispatch;
+      var _dispatch;
       var chain = [];
 
       var middlewareAPI = {

@@ -1,6 +1,6 @@
 {
   "name": "pui-react-checkbox",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "A React Checkbox component",
   "main": "checkbox.js",
   "repository": {
@@ -27,13 +27,13 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
-    "pui-css-forms": "^4.0.8"
+    "pui-css-forms": "^4.0.9"
   },
-  "_id": "pui-react-checkbox@4.0.8",
+  "_id": "pui-react-checkbox@4.0.9",
   "scripts": {},
-  "_shasum": "cdf525f203eac63609b382b2ccbf211c1b6ada0b",
-  "_from": "pui-react-checkbox@4.0.8",
-  "_resolved": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-4.0.8.tgz",
+  "_shasum": "94d1ec001f0c928e5b4f718d101a1888b7a634cd",
+  "_from": "pui-react-checkbox@4.0.9",
+  "_resolved": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-4.0.9.tgz",
   "_npmVersion": "2.15.2",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -41,8 +41,8 @@
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "cdf525f203eac63609b382b2ccbf211c1b6ada0b",
-    "tarball": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-4.0.8.tgz"
+    "shasum": "94d1ec001f0c928e5b4f718d101a1888b7a634cd",
+    "tarball": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-4.0.9.tgz"
   },
   "maintainers": [
     {
@@ -72,7 +72,7 @@
   ],
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-checkbox-4.0.8.tgz_1460162122593_0.1699540598783642"
+    "tmp": "tmp/pui-react-checkbox-4.0.9.tgz_1460995278963_0.18627155548892915"
   },
   "directories": {}
 }

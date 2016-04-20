@@ -1,6 +1,6 @@
 {
   "name": "pui-react-images",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "A React component for rendering responsive and linked images",
   "main": "images.js",
   "repository": {
@@ -26,14 +26,14 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-images": "^4.0.8",
-    "pui-react-helpers": "^4.0.8"
+    "pui-css-images": "^4.0.9",
+    "pui-react-helpers": "^4.0.9"
   },
-  "_id": "pui-react-images@4.0.8",
+  "_id": "pui-react-images@4.0.9",
   "scripts": {},
-  "_shasum": "4c2a8c0f51d570a7fb0ad30669983eea95749c90",
-  "_from": "pui-react-images@4.0.8",
-  "_resolved": "https://registry.npmjs.org/pui-react-images/-/pui-react-images-4.0.8.tgz",
+  "_shasum": "f39db45b375894d8fb442562ae98d88ff4ebfd16",
+  "_from": "pui-react-images@4.0.9",
+  "_resolved": "https://registry.npmjs.org/pui-react-images/-/pui-react-images-4.0.9.tgz",
   "_npmVersion": "2.15.2",
   "_nodeVersion": "5.5.0",
   "_npmUser": {
@@ -41,8 +41,8 @@
     "email": "chansen87@gmail.com"
   },
   "dist": {
-    "shasum": "4c2a8c0f51d570a7fb0ad30669983eea95749c90",
-    "tarball": "https://registry.npmjs.org/pui-react-images/-/pui-react-images-4.0.8.tgz"
+    "shasum": "f39db45b375894d8fb442562ae98d88ff4ebfd16",
+    "tarball": "https://registry.npmjs.org/pui-react-images/-/pui-react-images-4.0.9.tgz"
   },
   "maintainers": [
     {
@@ -99,8 +99,8 @@
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-images-4.0.8.tgz_1460162147404_0.9776270189322531"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-images-4.0.9.tgz_1460995306175_0.6843210563529283"
   },
   "directories": {}
 }
