@@ -2,6 +2,7 @@
  * @fileoverview Rule to enforce consistent naming of "this" context variables
  * @author Raphael Pigulla
  * @copyright 2015 Timothy Jones. All rights reserved.
+ * @copyright 2015 David Aurelio. All rights reserved.
  */
 "use strict";
 
@@ -52,39 +53,35 @@ module.exports = function(context) {
      */
     function ensureWasAssigned() {
         var scope = context.getScope();
+        var variable = scope.set.get(alias);
+        if (!variable) {
+            return;
+        }
 
-        scope.variables.some(function (variable) {
-            var lookup;
+        if (variable.defs.some(function(def) {
+            return def.node.type === "VariableDeclarator" &&
+                def.node.init !== null;
+        })) {
+            return;
+        }
 
-            if (variable.name === alias) {
-                if (variable.defs.some(function (def) {
-                    return def.node.type === "VariableDeclarator" &&
-                        def.node.init !== null;
-                })) {
-                    return true;
-                }
+        var lookup = (variable.references.length === 0 && scope.type === "global") ? scope : variable;
 
-                lookup = scope.type === "global" ? scope : variable;
+        // The alias has been declared and not assigned: check it was
+        // assigned later in the same scope.
+        if (!lookup.references.some(function(reference) {
+            var write = reference.writeExpr;
 
-                // The alias has been declared and not assigned: check it was
-                // assigned later in the same scope.
-                if (!lookup.references.some(function (reference) {
-                    var write = reference.writeExpr;
-
-                    if (reference.from === scope &&
-                            write && write.type === "ThisExpression" &&
-                            write.parent.operator === "=") {
-                        return true;
-                    }
-                })) {
-                    variable.defs.map(function (def) {
-                        return def.node;
-                    }).forEach(reportBadAssignment);
-                }
-
+            if (reference.from === scope &&
+                    write && write.type === "ThisExpression" &&
+                    write.parent.operator === "=") {
                 return true;
             }
-        });
+        })) {
+            variable.defs.map(function(def) {
+                return def.node;
+            }).forEach(reportBadAssignment);
+        }
     }
 
     return {
@@ -92,13 +89,17 @@ module.exports = function(context) {
         "FunctionExpression:exit": ensureWasAssigned,
         "FunctionDeclaration:exit": ensureWasAssigned,
 
-        "VariableDeclarator": function (node) {
-            if (node.init !== null) {
-                checkAssignment(node, node.id.name, node.init);
+        "VariableDeclarator": function(node) {
+            var id = node.id;
+            var isDestructuring =
+                id.type === "ArrayPattern" || id.type === "ObjectPattern";
+
+            if (node.init !== null && !isDestructuring) {
+                checkAssignment(node, id.name, node.init);
             }
         },
 
-        "AssignmentExpression": function (node) {
+        "AssignmentExpression": function(node) {
             if (node.left.type === "Identifier") {
                 checkAssignment(node, node.left.name, node.right);
             }
@@ -106,3 +107,9 @@ module.exports = function(context) {
     };
 
 };
+
+module.exports.schema = [
+    {
+        "type": "string"
+    }
+];
