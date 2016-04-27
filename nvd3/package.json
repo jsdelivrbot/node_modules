@@ -1,6 +1,6 @@
 {
   "name": "nvd3",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "description": "A reusable charting library written in d3.js",
   "url": "https://github.com/novus/nvd3",
   "main": "build/nv.d3.js",
@@ -42,14 +42,14 @@
     "karma-spec-reporter": "0.0.13",
     "mocha": "^1.21.4"
   },
-  "gitHead": "f6c337cfd18b57ba89ccff850b8bc7ce4eafc223",
+  "gitHead": "ab2cd9a2ec71e20fac2ec5dd698e20c87ab79cd7",
   "bugs": {
     "url": "https://github.com/novus/nvd3/issues"
   },
   "homepage": "https://github.com/novus/nvd3",
-  "_id": "nvd3@1.8.2",
-  "_shasum": "787f94f603bc645afb854bcbc53d8a07ff094e47",
-  "_from": "nvd3@>=1.8.1 <2.0.0",
+  "_id": "nvd3@1.8.3",
+  "_shasum": "bf9bca6cefabb6c129dd283bd842e683883dc310",
+  "_from": "nvd3@1.8.3",
   "_npmVersion": "1.4.28",
   "_npmUser": {
     "name": "liquidpele",
@@ -62,9 +62,13 @@
     }
   ],
   "dist": {
-    "shasum": "787f94f603bc645afb854bcbc53d8a07ff094e47",
-    "tarball": "http://registry.npmjs.org/nvd3/-/nvd3-1.8.2.tgz"
+    "shasum": "bf9bca6cefabb6c129dd283bd842e683883dc310",
+    "tarball": "https://registry.npmjs.org/nvd3/-/nvd3-1.8.3.tgz"
+  },
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/nvd3-1.8.3.tgz_1461688987337_0.2693495729472488"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/nvd3/-/nvd3-1.8.2.tgz"
+  "_resolved": "https://registry.npmjs.org/nvd3/-/nvd3-1.8.3.tgz"
 }

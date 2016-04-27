@@ -94,7 +94,7 @@ var TableHeader = (function (_Component2) {
 
       return _react2['default'].createElement(
         'div',
-        { ref: 'container', className: containerClasses },
+        { ref: 'container', className: containerClasses, style: this.props.style },
         _react2['default'].createElement(
           'table',
           { className: tableClasses },
@@ -162,6 +162,7 @@ var TableHeader = (function (_Component2) {
 })(_react.Component);
 
 TableHeader.propTypes = {
+  style: _react.PropTypes.object,
   rowSelectType: _react.PropTypes.string,
   onSort: _react.PropTypes.func,
   onSelectAllRow: _react.PropTypes.func,
