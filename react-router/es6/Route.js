@@ -3,7 +3,7 @@
 import React from 'react';
 import invariant from 'invariant';
 import { createRouteFromReactElement } from './RouteUtils';
-import { component, components } from './InternalPropTypes';
+import { component, components } from './PropTypes';
 
 var _React$PropTypes = React.PropTypes;
 var string = _React$PropTypes.string;

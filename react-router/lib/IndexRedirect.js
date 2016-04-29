@@ -20,7 +20,7 @@ var _Redirect = require('./Redirect');
 
 var _Redirect2 = _interopRequireDefault(_Redirect);
 
-var _InternalPropTypes = require('./InternalPropTypes');
+var _PropTypes = require('./PropTypes');
 
 var _React$PropTypes = _react2['default'].PropTypes;
 var string = _React$PropTypes.string;
@@ -49,8 +49,8 @@ var IndexRedirect = _react2['default'].createClass({
     to: string.isRequired,
     query: object,
     state: object,
-    onEnter: _InternalPropTypes.falsy,
-    children: _InternalPropTypes.falsy
+    onEnter: _PropTypes.falsy,
+    children: _PropTypes.falsy
   },
 
   /* istanbul ignore next: sanity check */

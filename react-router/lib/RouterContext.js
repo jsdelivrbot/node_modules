@@ -119,7 +119,7 @@ var RouterContext = _react2['default'].createClass({
           props.children = element;
         } else if (element) {
           for (var prop in element) {
-            if (Object.prototype.hasOwnProperty.call(element, prop)) props[prop] = element[prop];
+            if (element.hasOwnProperty(prop)) props[prop] = element[prop];
           }
         }
 
@@ -127,7 +127,7 @@ var RouterContext = _react2['default'].createClass({
           var elements = {};
 
           for (var key in components) {
-            if (Object.prototype.hasOwnProperty.call(components, key)) {
+            if (components.hasOwnProperty(key)) {
               // Pass through the key as a prop to createElement to allow
               // custom createElement functions to know which named component
               // they're rendering, for e.g. matching up to fetched data.

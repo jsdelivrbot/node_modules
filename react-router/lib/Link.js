@@ -16,8 +16,6 @@ var _routerWarning = require('./routerWarning');
 
 var _routerWarning2 = _interopRequireDefault(_routerWarning);
 
-var _PropTypes = require('./PropTypes');
-
 var _React$PropTypes = _react2['default'].PropTypes;
 var bool = _React$PropTypes.bool;
 var object = _React$PropTypes.object;
@@ -33,10 +31,9 @@ function isModifiedEvent(event) {
   return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 }
 
-// TODO: De-duplicate against hasAnyProperties in createTransitionManager.
 function isEmptyObject(object) {
   for (var p in object) {
-    if (Object.prototype.hasOwnProperty.call(object, p)) return false;
+    if (object.hasOwnProperty(p)) return false;
   }return true;
 }
 
@@ -74,7 +71,7 @@ var Link = _react2['default'].createClass({
   displayName: 'Link',
 
   contextTypes: {
-    router: _PropTypes.routerShape
+    router: object
   },
 
   propTypes: {
@@ -91,6 +88,7 @@ var Link = _react2['default'].createClass({
   getDefaultProps: function getDefaultProps() {
     return {
       onlyActiveOnIndex: false,
+      className: '',
       style: {}
     };
   },
@@ -150,13 +148,7 @@ var Link = _react2['default'].createClass({
 
       if (activeClassName || activeStyle != null && !isEmptyObject(activeStyle)) {
         if (router.isActive(_location2, onlyActiveOnIndex)) {
-          if (activeClassName) {
-            if (props.className) {
-              props.className += ' ' + activeClassName;
-            } else {
-              props.className = activeClassName;
-            }
-          }
+          if (activeClassName) props.className += props.className === '' ? activeClassName : ' ' + activeClassName;
 
           if (activeStyle) props.style = _extends({}, props.style, activeStyle);
         }

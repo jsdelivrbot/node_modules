@@ -8,7 +8,7 @@ var _routerWarning = require('./routerWarning');
 
 var _routerWarning2 = _interopRequireDefault(_routerWarning);
 
-var _InternalPropTypes = require('./InternalPropTypes');
+var _PropTypes = require('./PropTypes');
 
 /**
  * A mixin that adds the "history" instance variable to components.
@@ -16,7 +16,7 @@ var _InternalPropTypes = require('./InternalPropTypes');
 var History = {
 
   contextTypes: {
-    history: _InternalPropTypes.history
+    history: _PropTypes.history
   },
 
   componentWillMount: function componentWillMount() {

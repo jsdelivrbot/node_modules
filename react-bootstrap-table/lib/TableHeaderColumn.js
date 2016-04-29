@@ -139,19 +139,15 @@ var TableHeaderColumn = (function (_Component) {
         );
       }
       var sortCaret = this.props.sort ? _util2['default'].renderReactSortCaret(this.props.sort) : defaultCaret;
-      if (this.props.caretRender) {
-        sortCaret = this.props.caretRender(this.props.sort);
-      }
-
       var classes = this.props.className + ' ' + (this.props.dataSort ? 'sort-column' : '');
-      var title = typeof this.props.children === 'string' ? { title: this.props.children } : null;
+
       return _react2['default'].createElement(
         'th',
-        _extends({ ref: 'header-col',
+        { ref: 'header-col',
           className: classes,
           style: thStyle,
-          onClick: this.handleColumnClick
-        }, title),
+          title: this.props.children,
+          onClick: this.handleColumnClick },
         this.props.children,
         sortCaret,
         _react2['default'].createElement(
@@ -186,11 +182,9 @@ TableHeaderColumn.propTypes = {
   className: _react.PropTypes.string,
   width: _react.PropTypes.string,
   sortFunc: _react.PropTypes.func,
-  sortFuncExtraData: _react.PropTypes.any,
   columnClassName: _react.PropTypes.any,
   filterFormatted: _react.PropTypes.bool,
   sort: _react.PropTypes.string,
-  caretRender: _react.PropTypes.func,
   formatExtraData: _react.PropTypes.any,
   filter: _react.PropTypes.shape({
     type: _react.PropTypes.oneOf(filterTypeArray),
@@ -223,7 +217,6 @@ TableHeaderColumn.defaultProps = {
   filterFormatted: false,
   sort: undefined,
   formatExtraData: undefined,
-  sortFuncExtraData: undefined,
   filter: undefined,
   sortIndicator: true
 };

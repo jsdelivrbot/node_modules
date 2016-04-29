@@ -4,7 +4,7 @@ import React from 'react';
 import warning from './routerWarning';
 import invariant from 'invariant';
 import Redirect from './Redirect';
-import { falsy } from './InternalPropTypes';
+import { falsy } from './PropTypes';
 
 var _React$PropTypes = React.PropTypes;
 var string = _React$PropTypes.string;

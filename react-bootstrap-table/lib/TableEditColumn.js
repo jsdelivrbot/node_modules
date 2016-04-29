@@ -76,7 +76,7 @@ var TableEditColumn = (function (_Component) {
       var ts = this;
       if (ts.props.editable.validator) {
         var valid = ts.props.editable.validator(value);
-        if (valid !== true) {
+        if (!valid) {
           ts.refs.notifier.notice('error', valid, 'Pressed ESC can cancel');
           var input = ts.refs.inputRef;
           // animate input

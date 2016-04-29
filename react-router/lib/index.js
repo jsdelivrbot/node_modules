@@ -98,8 +98,6 @@ var _PropTypes2 = require('./PropTypes');
 var _PropTypes3 = _interopRequireDefault(_PropTypes2);
 
 exports.PropTypes = _PropTypes3['default'];
-exports.locationShape = _PropTypes2.locationShape;
-exports.routerShape = _PropTypes2.routerShape;
 
 var _match2 = require('./match');
 
@@ -116,12 +114,6 @@ exports.useRouterHistory = _useRouterHistory3['default'];
 var _PatternUtils = require('./PatternUtils');
 
 exports.formatPattern = _PatternUtils.formatPattern;
-
-var _applyRouterMiddleware2 = require('./applyRouterMiddleware');
-
-var _applyRouterMiddleware3 = _interopRequireDefault(_applyRouterMiddleware2);
-
-exports.applyRouterMiddleware = _applyRouterMiddleware3['default'];
 
 /* histories */
 

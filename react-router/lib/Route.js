@@ -14,7 +14,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _RouteUtils = require('./RouteUtils');
 
-var _InternalPropTypes = require('./InternalPropTypes');
+var _PropTypes = require('./PropTypes');
 
 var _React$PropTypes = _react2['default'].PropTypes;
 var string = _React$PropTypes.string;
@@ -39,8 +39,8 @@ var Route = _react2['default'].createClass({
 
   propTypes: {
     path: string,
-    component: _InternalPropTypes.component,
-    components: _InternalPropTypes.components,
+    component: _PropTypes.component,
+    components: _PropTypes.components,
     getComponent: func,
     getComponents: func
   },

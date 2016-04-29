@@ -43,7 +43,7 @@ var TableColumn = (function (_Component) {
           sel.removeAllRanges();
         }
       }
-      _this.props.onEdit(e.currentTarget.parentElement.rowIndex + 1, e.currentTarget.cellIndex, e);
+      _this.props.onEdit(e.currentTarget.parentElement.rowIndex + 1, e.currentTarget.cellIndex);
     };
   }
 

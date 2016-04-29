@@ -94,7 +94,7 @@ var TableHeader = (function (_Component2) {
 
       return _react2['default'].createElement(
         'div',
-        { ref: 'container', className: containerClasses, style: this.props.style },
+        { ref: 'container', className: containerClasses },
         _react2['default'].createElement(
           'table',
           { className: tableClasses },
@@ -140,19 +140,13 @@ var TableHeader = (function (_Component2) {
 
       if (Array.isArray(children)) {
         for (var i = 0; i < children.length; i++) {
-          var _children$i$props = children[i].props;
-          var dataField = _children$i$props.dataField;
-          var dataSort = _children$i$props.dataSort;
-
-          var sort = dataSort && dataField === sortName ? sortOrder : undefined;
+          var field = children[i].props.dataField;
+          var sort = field === sortName ? sortOrder : undefined;
           this.props.children[i] = _react2['default'].cloneElement(children[i], { key: i, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
         }
       } else {
-        var _children$props = children.props;
-        var dataField = _children$props.dataField;
-        var dataSort = _children$props.dataSort;
-
-        var sort = dataSort && dataField === sortName ? sortOrder : undefined;
+        var field = children.props.dataField;
+        var sort = field === sortName ? sortOrder : undefined;
         this.props.children = _react2['default'].cloneElement(children, { key: 0, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
       }
     }
@@ -162,7 +156,6 @@ var TableHeader = (function (_Component2) {
 })(_react.Component);
 
 TableHeader.propTypes = {
-  style: _react.PropTypes.object,
   rowSelectType: _react.PropTypes.string,
   onSort: _react.PropTypes.func,
   onSelectAllRow: _react.PropTypes.func,

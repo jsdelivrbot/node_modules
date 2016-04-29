@@ -76,7 +76,7 @@ var TableBody = (function (_Component) {
       onRowClick(selectedRow);
     };
 
-    this.handleSelectRow = function (rowIndex, isSelected, e) {
+    this.handleSelectRow = function (rowIndex, isSelected) {
       var selectedRow = undefined;
       var _props2 = _this.props;
       var data = _props2.data;
@@ -88,16 +88,16 @@ var TableBody = (function (_Component) {
           return false;
         }
       });
-      onSelectRow(selectedRow, isSelected, e);
+      onSelectRow(selectedRow, isSelected);
     };
 
     this.handleSelectRowColumChange = function (e) {
       if (!_this.props.selectRow.clickToSelect || !_this.props.selectRow.clickToSelectAndEditCell) {
-        _this.handleSelectRow(e.currentTarget.parentElement.parentElement.rowIndex + 1, e.currentTarget.checked, e);
+        _this.handleSelectRow(e.currentTarget.parentElement.parentElement.rowIndex + 1, e.currentTarget.checked);
       }
     };
 
-    this.handleEditCell = function (rowIndex, columnIndex, e) {
+    this.handleEditCell = function (rowIndex, columnIndex) {
       _this.editing = true;
       if (_this._isSelectRowDefined()) {
         columnIndex--;
@@ -111,9 +111,8 @@ var TableBody = (function (_Component) {
         }
       };
 
-      if (_this.props.selectRow.clickToSelectAndEditCell && _this.props.cellEdit.mode !== _Const2['default'].CELL_EDIT_DBCLICK) {
-        var selected = _this.props.selectedRowKeys.indexOf(_this.props.data[rowIndex][_this.props.keyField]) !== -1;
-        _this.handleSelectRow(rowIndex + 1, !selected, e);
+      if (_this.props.selectRow.clickToSelectAndEditCell) {
+        _this.handleSelectRow(rowIndex + 1, true);
       }
       _this.setState(stateObj);
     };
@@ -154,6 +153,7 @@ var TableBody = (function (_Component) {
             var format = column.format ? function (value) {
               return column.format(value, data, column.formatExtraData).replace(/<.*?>/g, '');
             } : false;
+
             if (isFun(column.editable)) {
               editable = column.editable(fieldValue, data, r, i);
             }
@@ -325,7 +325,7 @@ TableBody.propTypes = {
   selectedRowKeys: _react.PropTypes.array,
   onRowClick: _react.PropTypes.func,
   onSelectRow: _react.PropTypes.func,
-  noDataText: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
+  noDataText: _react.PropTypes.string,
   style: _react.PropTypes.object
 };
 exports['default'] = TableBody;

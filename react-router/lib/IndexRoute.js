@@ -18,7 +18,7 @@ var _invariant2 = _interopRequireDefault(_invariant);
 
 var _RouteUtils = require('./RouteUtils');
 
-var _InternalPropTypes = require('./InternalPropTypes');
+var _PropTypes = require('./PropTypes');
 
 var func = _react2['default'].PropTypes.func;
 
@@ -43,9 +43,9 @@ var IndexRoute = _react2['default'].createClass({
   },
 
   propTypes: {
-    path: _InternalPropTypes.falsy,
-    component: _InternalPropTypes.component,
-    components: _InternalPropTypes.components,
+    path: _PropTypes.falsy,
+    component: _PropTypes.component,
+    components: _PropTypes.components,
     getComponent: func,
     getComponents: func
   },

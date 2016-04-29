@@ -6,8 +6,6 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -160,14 +158,14 @@ var BootstrapTable = (function (_Component) {
       });
     };
 
-    this.handleSelectRow = function (row, isSelected, e) {
+    this.handleSelectRow = function (row, isSelected) {
       var result = true;
       var currSelected = _this.store.getSelectedRowKeys();
       var rowKey = row[_this.store.getKeyField()];
       var selectRow = _this.props.selectRow;
 
       if (selectRow.onSelect) {
-        result = selectRow.onSelect(row, isSelected, e);
+        result = selectRow.onSelect(row, isSelected);
       }
 
       if (typeof result === 'undefined' || result !== false) {
@@ -230,15 +228,7 @@ var BootstrapTable = (function (_Component) {
 
     this.handleFilterData = function (filterObj) {
       _this.store.filter(filterObj);
-
-      var sortObj = _this.store.getSortInfo();
-
-      if (sortObj) {
-        _this.store.sort(sortObj.order, sortObj.sortField);
-      }
-
       var result = undefined;
-
       if (_this.props.pagination) {
         var sizePerPage = _this.state.sizePerPage;
 
@@ -407,15 +397,13 @@ var BootstrapTable = (function (_Component) {
   }, {
     key: 'getTableData',
     value: function getTableData() {
-      var result = [];
       var _props = this.props;
       var options = _props.options;
       var pagination = _props.pagination;
 
-      var sortName = options.defaultSortName || options.sortName;
-      var sortOrder = options.defaultSortOrder || options.sortOrder;
-      if (sortName && sortOrder) {
-        this.store.sort(sortOrder, sortName);
+      var result = [];
+      if (options.sortName && options.sortOrder) {
+        this.store.sort(options.sortOrder, options.sortName);
       }
 
       if (pagination) {
@@ -454,7 +442,6 @@ var BootstrapTable = (function (_Component) {
           width: column.props.width,
           text: column.props.children,
           sortFunc: column.props.sortFunc,
-          sortFuncExtraData: column.props.sortFuncExtraData,
           index: i
         };
       });
@@ -562,18 +549,17 @@ var BootstrapTable = (function (_Component) {
       if (typeof this.props.options.sortIndicator === 'undefined') sortIndicator = true;
       return _react2['default'].createElement(
         'div',
-        { className: 'react-bs-table-container', style: this.props.containerStyle },
+        { className: 'react-bs-table-container' },
         toolBar,
         _react2['default'].createElement(
           'div',
-          { className: 'react-bs-table', ref: 'table', style: _extends({}, style, this.props.tableStyle),
+          { className: 'react-bs-table', ref: 'table', style: style,
             onMouseEnter: this.handleMouseEnter,
             onMouseLeave: this.handleMouseLeave },
           _react2['default'].createElement(
             _TableHeader2['default'],
             {
               ref: 'header',
-              style: this.props.headerStyle,
               rowSelectType: this.props.selectRow.mode,
               hideSelectColumn: this.props.selectRow.hideSelectColumn,
               sortName: sortInfo ? sortInfo.sortField : undefined,
@@ -588,7 +574,7 @@ var BootstrapTable = (function (_Component) {
             this.props.children
           ),
           _react2['default'].createElement(_TableBody2['default'], { ref: 'body',
-            style: _extends({}, style, this.props.bodyStyle),
+            style: style,
             data: this.state.data,
             columns: columns,
             trClassName: this.props.trClassName,
@@ -613,20 +599,16 @@ var BootstrapTable = (function (_Component) {
   }, {
     key: 'isSelectAll',
     value: function isSelectAll() {
-      if (this.store.isEmpty()) return false;
-
       var defaultSelectRowKeys = this.store.getSelectedRowKeys();
       var allRowKeys = this.store.getAllRowkey();
-
-      if (defaultSelectRowKeys.length === 0) return false;
-      var match = 0;
-      var noFound = 0;
-      defaultSelectRowKeys.forEach(function (selected) {
-        if (allRowKeys.indexOf(selected) !== -1) match++;else noFound++;
-      });
-
-      if (noFound === defaultSelectRowKeys.length) return false;
-      return match === allRowKeys.length ? true : 'indeterminate';
+      if (defaultSelectRowKeys.length !== allRowKeys.length) {
+        return defaultSelectRowKeys.length === 0 ? false : 'indeterminate';
+      } else {
+        if (this.store.isEmpty()) {
+          return false;
+        }
+        return true;
+      }
     }
   }, {
     key: 'cleanSelected',
@@ -742,7 +724,6 @@ var BootstrapTable = (function (_Component) {
             changePage: this.handlePaginationData,
             sizePerPage: this.state.sizePerPage,
             sizePerPageList: options.sizePerPageList || _Const2['default'].SIZE_PER_PAGE_LIST,
-            paginationShowsTotal: options.paginationShowsTotal,
             paginationSize: options.paginationSize || _Const2['default'].PAGINATION_SIZE,
             remote: this.isRemoteDataSource(),
             dataSize: dataSize,
@@ -805,7 +786,6 @@ var BootstrapTable = (function (_Component) {
             columns: columns,
             searchPlaceholder: this.props.searchPlaceholder,
             exportCSVText: this.props.options.exportCSVText,
-            ignoreEditable: this.props.options.ignoreEditable,
             onAddRow: this.handleAddRow,
             onDropRow: this.handleDropRow,
             onSearch: this.handleSearch,
@@ -891,16 +871,10 @@ BootstrapTable.propTypes = {
   search: _react.PropTypes.bool,
   columnFilter: _react.PropTypes.bool,
   trClassName: _react.PropTypes.any,
-  tableStyle: _react.PropTypes.object,
-  containerStyle: _react.PropTypes.object,
-  headerStyle: _react.PropTypes.object,
-  bodyStyle: _react.PropTypes.object,
   options: _react.PropTypes.shape({
     clearSearch: _react.PropTypes.bool,
     sortName: _react.PropTypes.string,
     sortOrder: _react.PropTypes.string,
-    defaultSortName: _react.PropTypes.string,
-    defaultSortOrder: _react.PropTypes.string,
     sortIndicator: _react.PropTypes.bool,
     afterTableComplete: _react.PropTypes.func,
     afterDeleteRow: _react.PropTypes.func,
@@ -909,22 +883,20 @@ BootstrapTable.propTypes = {
     afterColumnFilter: _react.PropTypes.func,
     onRowClick: _react.PropTypes.func,
     page: _react.PropTypes.number,
-    paginationShowsTotal: _react.PropTypes.bool,
     sizePerPageList: _react.PropTypes.array,
     sizePerPage: _react.PropTypes.number,
     paginationSize: _react.PropTypes.number,
     onSortChange: _react.PropTypes.func,
     onPageChange: _react.PropTypes.func,
     onSizePerPageList: _react.PropTypes.func,
-    noDataText: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
+    noDataText: _react.PropTypes.string,
     handleConfirmDeleteRow: _react.PropTypes.func,
     prePage: _react.PropTypes.string,
     nextPage: _react.PropTypes.string,
     firstPage: _react.PropTypes.string,
     lastPage: _react.PropTypes.string,
     searchDelayTime: _react.PropTypes.number,
-    exportCSVText: _react.PropTypes.text,
-    ignoreEditable: _react.PropTypes.bool
+    exportCSVText: _react.PropTypes.text
   }),
   fetchInfo: _react.PropTypes.shape({
     dataTotalSize: _react.PropTypes.number
@@ -964,16 +936,10 @@ BootstrapTable.defaultProps = {
   multiColumnSearch: false,
   columnFilter: false,
   trClassName: '',
-  tableStyle: undefined,
-  containerStyle: undefined,
-  headerStyle: undefined,
-  bodyStyle: undefined,
   options: {
     clearSearch: false,
     sortName: undefined,
     sortOrder: undefined,
-    defaultSortName: undefined,
-    defaultSortOrder: undefined,
     sortIndicator: true,
     afterTableComplete: undefined,
     afterDeleteRow: undefined,
@@ -986,7 +952,6 @@ BootstrapTable.defaultProps = {
     onRowMouseOut: undefined,
     onRowMouseOver: undefined,
     page: undefined,
-    paginationShowsTotal: false,
     sizePerPageList: _Const2['default'].SIZE_PER_PAGE_LIST,
     sizePerPage: undefined,
     paginationSize: _Const2['default'].PAGINATION_SIZE,
@@ -998,8 +963,7 @@ BootstrapTable.defaultProps = {
     firstPage: _Const2['default'].FIRST_PAGE,
     lastPage: _Const2['default'].LAST_PAGE,
     searchDelayTime: undefined,
-    exportCSVText: _Const2['default'].EXPORT_CSV_TEXT,
-    ignoreEditable: false
+    exportCSVText: _Const2['default'].EXPORT_CSV_TEXT
   },
   fetchInfo: {
     dataTotalSize: 0

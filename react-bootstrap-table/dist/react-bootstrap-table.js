@@ -89,8 +89,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -243,14 +241,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	    };
 
-	    this.handleSelectRow = function (row, isSelected, e) {
+	    this.handleSelectRow = function (row, isSelected) {
 	      var result = true;
 	      var currSelected = _this.store.getSelectedRowKeys();
 	      var rowKey = row[_this.store.getKeyField()];
 	      var selectRow = _this.props.selectRow;
 
 	      if (selectRow.onSelect) {
-	        result = selectRow.onSelect(row, isSelected, e);
+	        result = selectRow.onSelect(row, isSelected);
 	      }
 
 	      if (typeof result === 'undefined' || result !== false) {
@@ -313,15 +311,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    this.handleFilterData = function (filterObj) {
 	      _this.store.filter(filterObj);
-
-	      var sortObj = _this.store.getSortInfo();
-
-	      if (sortObj) {
-	        _this.store.sort(sortObj.order, sortObj.sortField);
-	      }
-
 	      var result = undefined;
-
 	      if (_this.props.pagination) {
 	        var sizePerPage = _this.state.sizePerPage;
 
@@ -490,15 +480,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'getTableData',
 	    value: function getTableData() {
-	      var result = [];
 	      var _props = this.props;
 	      var options = _props.options;
 	      var pagination = _props.pagination;
 
-	      var sortName = options.defaultSortName || options.sortName;
-	      var sortOrder = options.defaultSortOrder || options.sortOrder;
-	      if (sortName && sortOrder) {
-	        this.store.sort(sortOrder, sortName);
+	      var result = [];
+	      if (options.sortName && options.sortOrder) {
+	        this.store.sort(options.sortOrder, options.sortName);
 	      }
 
 	      if (pagination) {
@@ -537,7 +525,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	          width: column.props.width,
 	          text: column.props.children,
 	          sortFunc: column.props.sortFunc,
-	          sortFuncExtraData: column.props.sortFuncExtraData,
 	          index: i
 	        };
 	      });
@@ -645,18 +632,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (typeof this.props.options.sortIndicator === 'undefined') sortIndicator = true;
 	      return _react2['default'].createElement(
 	        'div',
-	        { className: 'react-bs-table-container', style: this.props.containerStyle },
+	        { className: 'react-bs-table-container' },
 	        toolBar,
 	        _react2['default'].createElement(
 	          'div',
-	          { className: 'react-bs-table', ref: 'table', style: _extends({}, style, this.props.tableStyle),
+	          { className: 'react-bs-table', ref: 'table', style: style,
 	            onMouseEnter: this.handleMouseEnter,
 	            onMouseLeave: this.handleMouseLeave },
 	          _react2['default'].createElement(
 	            _TableHeader2['default'],
 	            {
 	              ref: 'header',
-	              style: this.props.headerStyle,
 	              rowSelectType: this.props.selectRow.mode,
 	              hideSelectColumn: this.props.selectRow.hideSelectColumn,
 	              sortName: sortInfo ? sortInfo.sortField : undefined,
@@ -671,7 +657,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.props.children
 	          ),
 	          _react2['default'].createElement(_TableBody2['default'], { ref: 'body',
-	            style: _extends({}, style, this.props.bodyStyle),
+	            style: style,
 	            data: this.state.data,
 	            columns: columns,
 	            trClassName: this.props.trClassName,
@@ -696,20 +682,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'isSelectAll',
 	    value: function isSelectAll() {
-	      if (this.store.isEmpty()) return false;
-
 	      var defaultSelectRowKeys = this.store.getSelectedRowKeys();
 	      var allRowKeys = this.store.getAllRowkey();
-
-	      if (defaultSelectRowKeys.length === 0) return false;
-	      var match = 0;
-	      var noFound = 0;
-	      defaultSelectRowKeys.forEach(function (selected) {
-	        if (allRowKeys.indexOf(selected) !== -1) match++;else noFound++;
-	      });
-
-	      if (noFound === defaultSelectRowKeys.length) return false;
-	      return match === allRowKeys.length ? true : 'indeterminate';
+	      if (defaultSelectRowKeys.length !== allRowKeys.length) {
+	        return defaultSelectRowKeys.length === 0 ? false : 'indeterminate';
+	      } else {
+	        if (this.store.isEmpty()) {
+	          return false;
+	        }
+	        return true;
+	      }
 	    }
 	  }, {
 	    key: 'cleanSelected',
@@ -825,7 +807,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            changePage: this.handlePaginationData,
 	            sizePerPage: this.state.sizePerPage,
 	            sizePerPageList: options.sizePerPageList || _Const2['default'].SIZE_PER_PAGE_LIST,
-	            paginationShowsTotal: options.paginationShowsTotal,
 	            paginationSize: options.paginationSize || _Const2['default'].PAGINATION_SIZE,
 	            remote: this.isRemoteDataSource(),
 	            dataSize: dataSize,
@@ -888,7 +869,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            columns: columns,
 	            searchPlaceholder: this.props.searchPlaceholder,
 	            exportCSVText: this.props.options.exportCSVText,
-	            ignoreEditable: this.props.options.ignoreEditable,
 	            onAddRow: this.handleAddRow,
 	            onDropRow: this.handleDropRow,
 	            onSearch: this.handleSearch,
@@ -974,16 +954,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  search: _react.PropTypes.bool,
 	  columnFilter: _react.PropTypes.bool,
 	  trClassName: _react.PropTypes.any,
-	  tableStyle: _react.PropTypes.object,
-	  containerStyle: _react.PropTypes.object,
-	  headerStyle: _react.PropTypes.object,
-	  bodyStyle: _react.PropTypes.object,
 	  options: _react.PropTypes.shape({
 	    clearSearch: _react.PropTypes.bool,
 	    sortName: _react.PropTypes.string,
 	    sortOrder: _react.PropTypes.string,
-	    defaultSortName: _react.PropTypes.string,
-	    defaultSortOrder: _react.PropTypes.string,
 	    sortIndicator: _react.PropTypes.bool,
 	    afterTableComplete: _react.PropTypes.func,
 	    afterDeleteRow: _react.PropTypes.func,
@@ -992,22 +966,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	    afterColumnFilter: _react.PropTypes.func,
 	    onRowClick: _react.PropTypes.func,
 	    page: _react.PropTypes.number,
-	    paginationShowsTotal: _react.PropTypes.bool,
 	    sizePerPageList: _react.PropTypes.array,
 	    sizePerPage: _react.PropTypes.number,
 	    paginationSize: _react.PropTypes.number,
 	    onSortChange: _react.PropTypes.func,
 	    onPageChange: _react.PropTypes.func,
 	    onSizePerPageList: _react.PropTypes.func,
-	    noDataText: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
+	    noDataText: _react.PropTypes.string,
 	    handleConfirmDeleteRow: _react.PropTypes.func,
 	    prePage: _react.PropTypes.string,
 	    nextPage: _react.PropTypes.string,
 	    firstPage: _react.PropTypes.string,
 	    lastPage: _react.PropTypes.string,
 	    searchDelayTime: _react.PropTypes.number,
-	    exportCSVText: _react.PropTypes.text,
-	    ignoreEditable: _react.PropTypes.bool
+	    exportCSVText: _react.PropTypes.text
 	  }),
 	  fetchInfo: _react.PropTypes.shape({
 	    dataTotalSize: _react.PropTypes.number
@@ -1047,16 +1019,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  multiColumnSearch: false,
 	  columnFilter: false,
 	  trClassName: '',
-	  tableStyle: undefined,
-	  containerStyle: undefined,
-	  headerStyle: undefined,
-	  bodyStyle: undefined,
 	  options: {
 	    clearSearch: false,
 	    sortName: undefined,
 	    sortOrder: undefined,
-	    defaultSortName: undefined,
-	    defaultSortOrder: undefined,
 	    sortIndicator: true,
 	    afterTableComplete: undefined,
 	    afterDeleteRow: undefined,
@@ -1069,7 +1035,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    onRowMouseOut: undefined,
 	    onRowMouseOver: undefined,
 	    page: undefined,
-	    paginationShowsTotal: false,
 	    sizePerPageList: _Const2['default'].SIZE_PER_PAGE_LIST,
 	    sizePerPage: undefined,
 	    paginationSize: _Const2['default'].PAGINATION_SIZE,
@@ -1081,8 +1046,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    firstPage: _Const2['default'].FIRST_PAGE,
 	    lastPage: _Const2['default'].LAST_PAGE,
 	    searchDelayTime: undefined,
-	    exportCSVText: _Const2['default'].EXPORT_CSV_TEXT,
-	    ignoreEditable: false
+	    exportCSVText: _Const2['default'].EXPORT_CSV_TEXT
 	  },
 	  fetchInfo: {
 	    dataTotalSize: 0
@@ -1242,7 +1206,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      return _react2['default'].createElement(
 	        'div',
-	        { ref: 'container', className: containerClasses, style: this.props.style },
+	        { ref: 'container', className: containerClasses },
 	        _react2['default'].createElement(
 	          'table',
 	          { className: tableClasses },
@@ -1288,19 +1252,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      if (Array.isArray(children)) {
 	        for (var i = 0; i < children.length; i++) {
-	          var _children$i$props = children[i].props;
-	          var dataField = _children$i$props.dataField;
-	          var dataSort = _children$i$props.dataSort;
-
-	          var sort = dataSort && dataField === sortName ? sortOrder : undefined;
+	          var field = children[i].props.dataField;
+	          var sort = field === sortName ? sortOrder : undefined;
 	          this.props.children[i] = _react2['default'].cloneElement(children[i], { key: i, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
 	        }
 	      } else {
-	        var _children$props = children.props;
-	        var dataField = _children$props.dataField;
-	        var dataSort = _children$props.dataSort;
-
-	        var sort = dataSort && dataField === sortName ? sortOrder : undefined;
+	        var field = children.props.dataField;
+	        var sort = field === sortName ? sortOrder : undefined;
 	        this.props.children = _react2['default'].cloneElement(children, { key: 0, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
 	      }
 	    }
@@ -1310,7 +1268,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_react.Component);
 
 	TableHeader.propTypes = {
-	  style: _react.PropTypes.object,
 	  rowSelectType: _react.PropTypes.string,
 	  onSort: _react.PropTypes.func,
 	  onSelectAllRow: _react.PropTypes.func,
@@ -1522,7 +1479,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      onRowClick(selectedRow);
 	    };
 
-	    this.handleSelectRow = function (rowIndex, isSelected, e) {
+	    this.handleSelectRow = function (rowIndex, isSelected) {
 	      var selectedRow = undefined;
 	      var _props2 = _this.props;
 	      var data = _props2.data;
@@ -1534,16 +1491,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return false;
 	        }
 	      });
-	      onSelectRow(selectedRow, isSelected, e);
+	      onSelectRow(selectedRow, isSelected);
 	    };
 
 	    this.handleSelectRowColumChange = function (e) {
 	      if (!_this.props.selectRow.clickToSelect || !_this.props.selectRow.clickToSelectAndEditCell) {
-	        _this.handleSelectRow(e.currentTarget.parentElement.parentElement.rowIndex + 1, e.currentTarget.checked, e);
+	        _this.handleSelectRow(e.currentTarget.parentElement.parentElement.rowIndex + 1, e.currentTarget.checked);
 	      }
 	    };
 
-	    this.handleEditCell = function (rowIndex, columnIndex, e) {
+	    this.handleEditCell = function (rowIndex, columnIndex) {
 	      _this.editing = true;
 	      if (_this._isSelectRowDefined()) {
 	        columnIndex--;
@@ -1557,9 +1514,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      };
 
-	      if (_this.props.selectRow.clickToSelectAndEditCell && _this.props.cellEdit.mode !== _Const2['default'].CELL_EDIT_DBCLICK) {
-	        var selected = _this.props.selectedRowKeys.indexOf(_this.props.data[rowIndex][_this.props.keyField]) !== -1;
-	        _this.handleSelectRow(rowIndex + 1, !selected, e);
+	      if (_this.props.selectRow.clickToSelectAndEditCell) {
+	        _this.handleSelectRow(rowIndex + 1, true);
 	      }
 	      _this.setState(stateObj);
 	    };
@@ -1600,6 +1556,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var format = column.format ? function (value) {
 	              return column.format(value, data, column.formatExtraData).replace(/<.*?>/g, '');
 	            } : false;
+
 	            if (isFun(column.editable)) {
 	              editable = column.editable(fieldValue, data, r, i);
 	            }
@@ -1771,7 +1728,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  selectedRowKeys: _react.PropTypes.array,
 	  onRowClick: _react.PropTypes.func,
 	  onSelectRow: _react.PropTypes.func,
-	  noDataText: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
+	  noDataText: _react.PropTypes.string,
 	  style: _react.PropTypes.object
 	};
 	exports['default'] = TableBody;
@@ -1819,7 +1776,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          var rowIndex = e.currentTarget.rowIndex + 1;
 	          if (_this.props.selectRow) {
 	            if (_this.props.selectRow.clickToSelect) {
-	              _this.props.onSelectRow(rowIndex, !_this.props.isSelected, e);
+	              _this.props.onSelectRow(rowIndex, !_this.props.isSelected);
 	            } else if (_this.props.selectRow.clickToSelectAndEditCell) {
 	              _this.clickNum++;
 	              /** if clickToSelectAndEditCell is enabled,
@@ -1828,7 +1785,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              **/
 	              setTimeout(function () {
 	                if (_this.clickNum === 1) {
-	                  _this.props.onSelectRow(rowIndex, !_this.props.isSelected, e);
+	                  _this.props.onSelectRow(rowIndex, !_this.props.isSelected);
 	                }
 	                _this.clickNum = 0;
 	              }, 200);
@@ -1950,7 +1907,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          sel.removeAllRanges();
 	        }
 	      }
-	      _this.props.onEdit(e.currentTarget.parentElement.rowIndex + 1, e.currentTarget.cellIndex, e);
+	      _this.props.onEdit(e.currentTarget.parentElement.rowIndex + 1, e.currentTarget.cellIndex);
 	    };
 	  }
 
@@ -2111,7 +2068,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var ts = this;
 	      if (ts.props.editable.validator) {
 	        var valid = ts.props.editable.validator(value);
-	        if (valid !== true) {
+	        if (!valid) {
 	          ts.refs.notifier.notice('error', valid, 'Pressed ESC can cancel');
 	          var input = ts.refs.inputRef;
 	          // animate input
@@ -2223,8 +2180,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var editor = function editor(editable, attr, format, editorClass, defaultValue, ignoreEditable) {
-	  if (editable === true || editable === false && ignoreEditable || typeof editable === 'string') {
+	var editor = function editor(editable, attr, format, editorClass, defaultValue) {
+	  if (editable === true || typeof editable === 'string') {
 	    // simple declare
 	    var type = editable ? 'text' : editable;
 	    return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
@@ -2233,10 +2190,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var type = editable ? 'text' : editable;
 	    return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
 	      disabled: 'disabled',
-	      className: (editorClass || '') + ' form-control editor edit-text' }));
-	  } else if (editable && (editable.type === undefined || editable.type === null || editable.type.trim() === '')) {
-	    var type = editable ? 'text' : editable;
-	    return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
 	      className: (editorClass || '') + ' form-control editor edit-text' }));
 	  } else if (editable.type) {
 	    // standard declare
@@ -3795,11 +3748,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this2 = this;
 
 	      var _props2 = this.props;
-	      var currPage = _props2.currPage;
 	      var dataSize = _props2.dataSize;
 	      var sizePerPage = _props2.sizePerPage;
 	      var sizePerPageList = _props2.sizePerPageList;
-	      var paginationShowsTotal = _props2.paginationShowsTotal;
 
 	      this.totalPages = Math.ceil(dataSize / sizePerPage);
 	      var pageBtns = this.makePage();
@@ -3822,16 +3773,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	          )
 	        );
 	      });
-	      var total = paginationShowsTotal ? _react2['default'].createElement(
-	        'span',
-	        null,
-	        'Showing rows ',
-	        (currPage - 1) * sizePerPage + 1,
-	        ' to ',
-	        Math.min(currPage * sizePerPage, dataSize),
-	        ' of ',
-	        dataSize
-	      ) : null;
 
 	      return _react2['default'].createElement(
 	        'div',
@@ -3842,10 +3783,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _react2['default'].createElement(
 	            'div',
 	            { className: 'col-md-6' },
-	            total,
-	            ' ',
 	            _react2['default'].createElement(
-	              'span',
+	              'div',
 	              { className: 'dropdown' },
 	              _react2['default'].createElement(
 	                'button',
@@ -3878,20 +3817,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	          )
 	        ) : _react2['default'].createElement(
 	          'div',
-	          null,
+	          { className: 'col-md-12' },
 	          _react2['default'].createElement(
-	            'div',
-	            { className: 'col-md-6' },
-	            total
-	          ),
-	          _react2['default'].createElement(
-	            'div',
-	            { className: 'col-md-6' },
-	            _react2['default'].createElement(
-	              'ul',
-	              { className: 'pagination', style: pageListStyle },
-	              pageBtns
-	            )
+	            'ul',
+	            { className: 'pagination', style: pageListStyle },
+	            pageBtns
 	          )
 	        )
 	      );
@@ -3969,7 +3899,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  dataSize: _react.PropTypes.number,
 	  changePage: _react.PropTypes.func,
 	  sizePerPageList: _react.PropTypes.array,
-	  paginationShowsTotal: _react.PropTypes.bool,
 	  paginationSize: _react.PropTypes.number,
 	  remote: _react.PropTypes.bool,
 	  onSizePerPageList: _react.PropTypes.func,
@@ -4186,9 +4115,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 	    };
 
-	    this.handleKeyUp = function (event) {
-	      event.persist();
-	      _this.debounceCallback(event);
+	    this.handleKeyUp = function () {
+	      var delay = _this.props.searchDelayTime ? _this.props.searchDelayTime : 0;
+	      _this.handleDebounce(function () {
+	        _this.props.onSearch(_this.refs.seachInput.value);
+	      }, delay)();
 	    };
 
 	    this.handleExportCSV = function () {
@@ -4211,16 +4142,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  _createClass(ToolBar, [{
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      var _this2 = this;
-
-	      var delay = this.props.searchDelayTime ? this.props.searchDelayTime : 0;
-	      this.debounceCallback = this.handleDebounce(function () {
-	        _this2.props.onSearch(_this2.refs.seachInput.value);
-	      }, delay);
-	    }
-	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
 	      this.clearTimeout();
@@ -4246,7 +4167,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'checkAndParseForm',
 	    value: function checkAndParseForm() {
-	      var _this3 = this;
+	      var _this2 = this;
 
 	      var newObj = {};
 	      var validateState = {};
@@ -4291,7 +4212,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.refs.notifier.notice('error', 'Form validate errors, please checking!', 'Pressed ESC can cancel');
 	        // clear animate class
 	        this.timeouteClear = setTimeout(function () {
-	          _this3.setState({ shakeEditor: false });
+	          _this2.setState({ shakeEditor: false });
 	        }, 300);
 	        return null;
 	      }
@@ -4425,8 +4346,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'renderInsertRowModal',
 	    value: function renderInsertRowModal() {
-	      var _this4 = this;
-
 	      var validateState = this.state.validateState || {};
 	      var shakeEditor = this.state.shakeEditor;
 	      var inputField = this.props.columns.map(function (column, i) {
@@ -4462,7 +4381,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            null,
 	            name
 	          ),
-	          (0, _Editor2['default'])(editable, attr, format, '', undefined, _this4.props.ignoreEditable),
+	          (0, _Editor2['default'])(editable, attr, format, ''),
 	          error
 	        );
 	      });
@@ -4551,8 +4470,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  columns: _react.PropTypes.array,
 	  searchPlaceholder: _react.PropTypes.string,
 	  exportCSVText: _react.PropTypes.string,
-	  clearSearch: _react.PropTypes.bool,
-	  ignoreEditable: _react.PropTypes.bool
+	  clearSearch: _react.PropTypes.bool
 	};
 
 	ToolBar.defaultProps = {
@@ -4560,8 +4478,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  enableDelete: false,
 	  enableSearch: false,
 	  enableShowOnlySelected: false,
-	  clearSearch: false,
-	  ignoreEditable: false
+	  clearSearch: false
 	};
 
 	exports['default'] = ToolBar;
@@ -4726,29 +4643,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Const2 = _interopRequireDefault(_Const);
 
-	function _sort(arr, sortField, order, sortFunc, sortFuncExtraData) {
+	function _sort(arr, sortField, order, sortFunc) {
 	  order = order.toLowerCase();
-	  var isDesc = order === _Const2['default'].SORT_DESC;
 	  arr.sort(function (a, b) {
 	    if (sortFunc) {
-	      return sortFunc(a, b, order, sortField, sortFuncExtraData);
+	      return sortFunc(a, b, order, sortField);
 	    } else {
-	      if (isDesc) {
-	        if (b[sortField] === null) return false;
-	        if (a[sortField] === null) return true;
-	        if (typeof b[sortField] === 'string') {
-	          return b[sortField].localeCompare(a[sortField]);
-	        } else {
-	          return a[sortField] > b[sortField] ? -1 : a[sortField] < b[sortField] ? 1 : 0;
-	        }
+	      if (order === _Const2['default'].SORT_DESC) {
+	        return a[sortField] > b[sortField] ? -1 : a[sortField] < b[sortField] ? 1 : 0;
 	      } else {
-	        if (b[sortField] === null) return true;
-	        if (a[sortField] === null) return false;
-	        if (typeof a[sortField] === 'string') {
-	          return a[sortField].localeCompare(b[sortField]);
-	        } else {
-	          return a[sortField] < b[sortField] ? -1 : a[sortField] > b[sortField] ? 1 : 0;
-	        }
+	        return a[sortField] < b[sortField] ? -1 : a[sortField] > b[sortField] ? 1 : 0;
 	      }
 	    }
 	  });
@@ -4787,7 +4691,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'setData',
 	    value: function setData(data) {
 	      this.data = data;
-	      this._refresh();
+	      if (this.isOnFilter) {
+	        if (this.filterObj !== null) this.filter(this.filterObj);
+	        if (this.searchText !== null) this.search(this.searchText);
+	      }
+	      if (this.sortObj) {
+	        this.sort(this.sortObj.order, this.sortObj.sortField);
+	      }
 	    }
 	  }, {
 	    key: 'getSortInfo',
@@ -4808,17 +4718,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'getCurrentDisplayData',
 	    value: function getCurrentDisplayData() {
 	      if (this.isOnFilter) return this.filteredData;else return this.data;
-	    }
-	  }, {
-	    key: '_refresh',
-	    value: function _refresh() {
-	      if (this.isOnFilter) {
-	        if (this.filterObj !== null) this.filter(this.filterObj);
-	        if (this.searchText !== null) this.search(this.searchText);
-	      }
-	      if (this.sortObj) {
-	        this.sort(this.sortObj.order, this.sortObj.sortField);
-	      }
 	    }
 	  }, {
 	    key: 'ignoreNonSelected',
@@ -4846,11 +4745,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var currentDisplayData = this.getCurrentDisplayData();
 	      if (!this.colInfos[sortField]) return this;
 
-	      var _colInfos$sortField = this.colInfos[sortField];
-	      var sortFunc = _colInfos$sortField.sortFunc;
-	      var sortFuncExtraData = _colInfos$sortField.sortFuncExtraData;
+	      var sortFunc = this.colInfos[sortField].sortFunc;
 
-	      currentDisplayData = _sort(currentDisplayData, sortField, order, sortFunc, sortFuncExtraData);
+	      currentDisplayData = _sort(currentDisplayData, sortField, order, sortFunc);
 
 	      return this;
 	    }
@@ -4900,7 +4797,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (this.isOnFilter) {
 	        this.data.unshift(newObj);
 	      }
-	      this._refresh();
 	    }
 	  }, {
 	    key: 'add',
@@ -4919,7 +4815,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (this.isOnFilter) {
 	        this.data.push(newObj);
 	      }
-	      this._refresh();
 	    }
 	  }, {
 	    key: 'remove',
@@ -4969,11 +4864,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                  filterVal = typeof filterObj[key].value === 'object' ? undefined : typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
 	                  break;
 	                }
-	              case _Const2['default'].FILTER_TYPE.DATE:
-	                {
-	                  filterVal = filterObj[key].value.date;
-	                  break;
-	                }
 	              case _Const2['default'].FILTER_TYPE.REGEX:
 	                {
 	                  filterVal = filterObj[key].value;
@@ -5009,7 +4899,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	              case _Const2['default'].FILTER_TYPE.DATE:
 	                {
-	                  valid = _this3.filterDate(targetVal, filterVal, filterObj[key].value.comparator);
+	                  valid = _this3.filterDate(targetVal, filterVal);
 	                  break;
 	                }
 	              case _Const2['default'].FILTER_TYPE.REGEX:
@@ -5094,68 +4984,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, {
 	    key: 'filterDate',
-	    value: function filterDate(targetVal, filterVal, comparator) {
-	      // if (!targetVal) {
-	      //   return false;
-	      // }
-	      // return (targetVal.getDate() === filterVal.getDate() &&
-	      //     targetVal.getMonth() === filterVal.getMonth() &&
-	      //     targetVal.getFullYear() === filterVal.getFullYear());
-
-	      var valid = true;
-	      switch (comparator) {
-	        case '=':
-	          {
-	            if (targetVal != filterVal) {
-	              valid = false;
-	            }
-	            break;
-	          }
-	        case '>':
-	          {
-	            if (targetVal <= filterVal) {
-	              valid = false;
-	            }
-	            break;
-	          }
-	        case '>=':
-	          {
-	            // console.log(targetVal);
-	            // console.log(filterVal);
-	            // console.log(filterVal.getDate());
-	            if (targetVal < filterVal) {
-	              valid = false;
-	            }
-	            break;
-	          }
-	        case '<':
-	          {
-	            if (targetVal >= filterVal) {
-	              valid = false;
-	            }
-	            break;
-	          }
-	        case '<=':
-	          {
-	            if (targetVal > filterVal) {
-	              valid = false;
-	            }
-	            break;
-	          }
-	        case '!=':
-	          {
-	            if (targetVal == filterVal) {
-	              valid = false;
-	            }
-	            break;
-	          }
-	        default:
-	          {
-	            console.error('Date comparator provided is not supported');
-	            break;
-	          }
-	      }
-	      return valid;
+	    value: function filterDate(targetVal, filterVal) {
+	      return targetVal.getDate() === filterVal.getDate() && targetVal.getMonth() === filterVal.getMonth() && targetVal.getFullYear() === filterVal.getFullYear();
 	    }
 	  }, {
 	    key: 'filterRegex',
@@ -6233,19 +6063,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	        );
 	      }
 	      var sortCaret = this.props.sort ? _util2['default'].renderReactSortCaret(this.props.sort) : defaultCaret;
-	      if (this.props.caretRender) {
-	        sortCaret = this.props.caretRender(this.props.sort);
-	      }
-
 	      var classes = this.props.className + ' ' + (this.props.dataSort ? 'sort-column' : '');
-	      var title = typeof this.props.children === 'string' ? { title: this.props.children } : null;
+
 	      return _react2['default'].createElement(
 	        'th',
-	        _extends({ ref: 'header-col',
+	        { ref: 'header-col',
 	          className: classes,
 	          style: thStyle,
-	          onClick: this.handleColumnClick
-	        }, title),
+	          title: this.props.children,
+	          onClick: this.handleColumnClick },
 	        this.props.children,
 	        sortCaret,
 	        _react2['default'].createElement(
@@ -6280,11 +6106,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  className: _react.PropTypes.string,
 	  width: _react.PropTypes.string,
 	  sortFunc: _react.PropTypes.func,
-	  sortFuncExtraData: _react.PropTypes.any,
 	  columnClassName: _react.PropTypes.any,
 	  filterFormatted: _react.PropTypes.bool,
 	  sort: _react.PropTypes.string,
-	  caretRender: _react.PropTypes.func,
 	  formatExtraData: _react.PropTypes.any,
 	  filter: _react.PropTypes.shape({
 	    type: _react.PropTypes.oneOf(filterTypeArray),
@@ -6317,7 +6141,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  filterFormatted: false,
 	  sort: undefined,
 	  formatExtraData: undefined,
-	  sortFuncExtraData: undefined,
 	  filter: undefined,
 	  sortIndicator: true
 	};
@@ -6355,12 +6178,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Const2 = _interopRequireDefault(_Const);
 
-	var legalComparators = ['=', '>', '>=', '<', '<=', '!='];
-
-	function dateParser(d) {
-	  return d.getFullYear() + '-' + ("0" + (d.getMonth() + 1)).slice(-2) + '-' + ("0" + d.getDate()).slice(-2);
-	}
-
 	var DateFilter = (function (_Component) {
 	  _inherits(DateFilter, _Component);
 
@@ -6368,55 +6185,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, DateFilter);
 
 	    _get(Object.getPrototypeOf(DateFilter.prototype), 'constructor', this).call(this, props);
-	    this.dateComparators = this.props.dateComparators || legalComparators;
 	    this.filter = this.filter.bind(this);
-	    this.onChangeComparator = this.onChangeComparator.bind(this);
 	  }
 
 	  _createClass(DateFilter, [{
 	    key: 'setDefaultDate',
 	    value: function setDefaultDate() {
 	      var defaultDate = '';
-	      var defaultValue = this.props.defaultValue;
-
-	      if (defaultValue && defaultValue.date) {
+	      if (this.props.defaultValue) {
 	        // Set the appropriate format for the input type=date, i.e. "YYYY-MM-DD"
-	        defaultDate = dateParser(new Date(defaultValue.date));
+	        var defaultValue = new Date(this.props.defaultValue);
+	        defaultDate = defaultValue.getFullYear() + '-' + ("0" + (defaultValue.getMonth() + 1)).slice(-2) + '-' + ("0" + defaultValue.getDate()).slice(-2);
 	      }
 	      return defaultDate;
 	    }
 	  }, {
-	    key: 'onChangeComparator',
-	    value: function onChangeComparator(event) {
-	      var date = this.refs.inputDate.value;
-	      var comparator = event.target.value;
-	      if (date === '') {
-	        return;
-	      }
-	      date = new Date(date);
-	      this.props.filterHandler({ date: date, comparator: comparator }, _Const2['default'].FILTER_TYPE.DATE);
-	    }
-	  }, {
-	    key: 'getComparatorOptions',
-	    value: function getComparatorOptions() {
-	      var optionTags = [];
-	      optionTags.push(_react2['default'].createElement('option', { key: '-1' }));
-	      for (var i = 0; i < this.dateComparators.length; i++) {
-	        optionTags.push(_react2['default'].createElement(
-	          'option',
-	          { key: i, value: this.dateComparators[i] },
-	          this.dateComparators[i]
-	        ));
-	      }
-	      return optionTags;
-	    }
-	  }, {
 	    key: 'filter',
 	    value: function filter(event) {
-	      var comparator = this.refs.dateFilterComparator.value;
 	      var dateValue = event.target.value;
 	      if (dateValue) {
-	        this.props.filterHandler({ date: new Date(dateValue), comparator: comparator }, _Const2['default'].FILTER_TYPE.DATE);
+	        this.props.filterHandler(new Date(dateValue), _Const2['default'].FILTER_TYPE.DATE);
 	      } else {
 	        this.props.filterHandler(null, _Const2['default'].FILTER_TYPE.DATE);
 	      }
@@ -6424,34 +6212,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var comparator = this.refs.dateFilterComparator.value;
 	      var dateValue = this.refs.inputDate.defaultValue;
-	      if (comparator && dateValue) {
-	        this.props.filterHandler({ date: new Date(dateValue), comparator: comparator }, _Const2['default'].FILTER_TYPE.DATE);
+	      if (dateValue) {
+	        this.props.filterHandler(new Date(dateValue), _Const2['default'].FILTER_TYPE.DATE);
 	      }
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var defaultValue = this.props.defaultValue;
-
-	      return _react2['default'].createElement(
-	        'div',
-	        { className: 'filter date-filter' },
-	        _react2['default'].createElement(
-	          'select',
-	          { ref: 'dateFilterComparator',
-	            className: 'date-filter-comparator form-control',
-	            onChange: this.onChangeComparator,
-	            defaultValue: defaultValue ? defaultValue.comparator : '' },
-	          this.getComparatorOptions()
-	        ),
-	        _react2['default'].createElement('input', { ref: 'inputDate',
-	          className: 'filter date-filter-input form-control',
-	          type: 'date',
-	          onChange: this.filter,
-	          defaultValue: this.setDefaultDate() })
-	      );
+	      return _react2['default'].createElement('input', { ref: 'inputDate',
+	        className: 'filter date-filter form-control',
+	        type: 'date',
+	        onChange: this.filter,
+	        defaultValue: this.setDefaultDate() });
 	    }
 	  }]);
 
@@ -6460,28 +6233,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	DateFilter.propTypes = {
 	  filterHandler: _react.PropTypes.func.isRequired,
-	  defaultValue: _react.PropTypes.shape({
-	    date: _react.PropTypes.object,
-	    comparator: _react.PropTypes.oneOf(legalComparators)
-	  }),
-	  /* eslint consistent-return: 0 */
-	  dateComparators: function dateComparators(props, propName) {
-	    if (!props[propName]) {
-	      return;
-	    }
-	    for (var i = 0; i < props[propName].length; i++) {
-	      var comparatorIsValid = false;
-	      for (var j = 0; j < legalComparators.length; j++) {
-	        if (legalComparators[j] === props[propName][i]) {
-	          comparatorIsValid = true;
-	          break;
-	        }
-	      }
-	      if (!comparatorIsValid) {
-	        return new Error('Date comparator provided is not supported.\n          Use only ' + legalComparators);
-	      }
-	    }
-	  },
+	  defaultValue: _react.PropTypes.object,
 	  columnName: _react.PropTypes.string
 	};
 

@@ -1,7 +1,7 @@
 'use strict';
 
 import warning from './routerWarning';
-import { history } from './InternalPropTypes';
+import { history } from './PropTypes';
 
 /**
  * A mixin that adds the "history" instance variable to components.

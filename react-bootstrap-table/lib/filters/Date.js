@@ -24,12 +24,6 @@ var _Const = require('../Const');
 
 var _Const2 = _interopRequireDefault(_Const);
 
-var legalComparators = ['=', '>', '>=', '<', '<=', '!='];
-
-function dateParser(d) {
-  return d.getFullYear() + '-' + ("0" + (d.getMonth() + 1)).slice(-2) + '-' + ("0" + d.getDate()).slice(-2);
-}
-
 var DateFilter = (function (_Component) {
   _inherits(DateFilter, _Component);
 
@@ -37,55 +31,26 @@ var DateFilter = (function (_Component) {
     _classCallCheck(this, DateFilter);
 
     _get(Object.getPrototypeOf(DateFilter.prototype), 'constructor', this).call(this, props);
-    this.dateComparators = this.props.dateComparators || legalComparators;
     this.filter = this.filter.bind(this);
-    this.onChangeComparator = this.onChangeComparator.bind(this);
   }
 
   _createClass(DateFilter, [{
     key: 'setDefaultDate',
     value: function setDefaultDate() {
       var defaultDate = '';
-      var defaultValue = this.props.defaultValue;
-
-      if (defaultValue && defaultValue.date) {
+      if (this.props.defaultValue) {
         // Set the appropriate format for the input type=date, i.e. "YYYY-MM-DD"
-        defaultDate = dateParser(new Date(defaultValue.date));
+        var defaultValue = new Date(this.props.defaultValue);
+        defaultDate = defaultValue.getFullYear() + '-' + ("0" + (defaultValue.getMonth() + 1)).slice(-2) + '-' + ("0" + defaultValue.getDate()).slice(-2);
       }
       return defaultDate;
     }
   }, {
-    key: 'onChangeComparator',
-    value: function onChangeComparator(event) {
-      var date = this.refs.inputDate.value;
-      var comparator = event.target.value;
-      if (date === '') {
-        return;
-      }
-      date = new Date(date);
-      this.props.filterHandler({ date: date, comparator: comparator }, _Const2['default'].FILTER_TYPE.DATE);
-    }
-  }, {
-    key: 'getComparatorOptions',
-    value: function getComparatorOptions() {
-      var optionTags = [];
-      optionTags.push(_react2['default'].createElement('option', { key: '-1' }));
-      for (var i = 0; i < this.dateComparators.length; i++) {
-        optionTags.push(_react2['default'].createElement(
-          'option',
-          { key: i, value: this.dateComparators[i] },
-          this.dateComparators[i]
-        ));
-      }
-      return optionTags;
-    }
-  }, {
     key: 'filter',
     value: function filter(event) {
-      var comparator = this.refs.dateFilterComparator.value;
       var dateValue = event.target.value;
       if (dateValue) {
-        this.props.filterHandler({ date: new Date(dateValue), comparator: comparator }, _Const2['default'].FILTER_TYPE.DATE);
+        this.props.filterHandler(new Date(dateValue), _Const2['default'].FILTER_TYPE.DATE);
       } else {
         this.props.filterHandler(null, _Const2['default'].FILTER_TYPE.DATE);
       }
@@ -93,34 +58,19 @@ var DateFilter = (function (_Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var comparator = this.refs.dateFilterComparator.value;
       var dateValue = this.refs.inputDate.defaultValue;
-      if (comparator && dateValue) {
-        this.props.filterHandler({ date: new Date(dateValue), comparator: comparator }, _Const2['default'].FILTER_TYPE.DATE);
+      if (dateValue) {
+        this.props.filterHandler(new Date(dateValue), _Const2['default'].FILTER_TYPE.DATE);
       }
     }
   }, {
     key: 'render',
     value: function render() {
-      var defaultValue = this.props.defaultValue;
-
-      return _react2['default'].createElement(
-        'div',
-        { className: 'filter date-filter' },
-        _react2['default'].createElement(
-          'select',
-          { ref: 'dateFilterComparator',
-            className: 'date-filter-comparator form-control',
-            onChange: this.onChangeComparator,
-            defaultValue: defaultValue ? defaultValue.comparator : '' },
-          this.getComparatorOptions()
-        ),
-        _react2['default'].createElement('input', { ref: 'inputDate',
-          className: 'filter date-filter-input form-control',
-          type: 'date',
-          onChange: this.filter,
-          defaultValue: this.setDefaultDate() })
-      );
+      return _react2['default'].createElement('input', { ref: 'inputDate',
+        className: 'filter date-filter form-control',
+        type: 'date',
+        onChange: this.filter,
+        defaultValue: this.setDefaultDate() });
     }
   }]);
 
@@ -129,28 +79,7 @@ var DateFilter = (function (_Component) {
 
 DateFilter.propTypes = {
   filterHandler: _react.PropTypes.func.isRequired,
-  defaultValue: _react.PropTypes.shape({
-    date: _react.PropTypes.object,
-    comparator: _react.PropTypes.oneOf(legalComparators)
-  }),
-  /* eslint consistent-return: 0 */
-  dateComparators: function dateComparators(props, propName) {
-    if (!props[propName]) {
-      return;
-    }
-    for (var i = 0; i < props[propName].length; i++) {
-      var comparatorIsValid = false;
-      for (var j = 0; j < legalComparators.length; j++) {
-        if (legalComparators[j] === props[propName][i]) {
-          comparatorIsValid = true;
-          break;
-        }
-      }
-      if (!comparatorIsValid) {
-        return new Error('Date comparator provided is not supported.\n          Use only ' + legalComparators);
-      }
-    }
-  },
+  defaultValue: _react.PropTypes.object,
   columnName: _react.PropTypes.string
 };
 

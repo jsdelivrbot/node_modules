@@ -36,7 +36,7 @@ var TableRow = (function (_Component) {
           var rowIndex = e.currentTarget.rowIndex + 1;
           if (_this.props.selectRow) {
             if (_this.props.selectRow.clickToSelect) {
-              _this.props.onSelectRow(rowIndex, !_this.props.isSelected, e);
+              _this.props.onSelectRow(rowIndex, !_this.props.isSelected);
             } else if (_this.props.selectRow.clickToSelectAndEditCell) {
               _this.clickNum++;
               /** if clickToSelectAndEditCell is enabled,
@@ -45,7 +45,7 @@ var TableRow = (function (_Component) {
               **/
               setTimeout(function () {
                 if (_this.clickNum === 1) {
-                  _this.props.onSelectRow(rowIndex, !_this.props.isSelected, e);
+                  _this.props.onSelectRow(rowIndex, !_this.props.isSelected);
                 }
                 _this.clickNum = 0;
               }, 200);

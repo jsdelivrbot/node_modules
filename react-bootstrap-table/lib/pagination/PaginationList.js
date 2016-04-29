@@ -86,11 +86,9 @@ var PaginationList = (function (_Component) {
       var _this2 = this;
 
       var _props2 = this.props;
-      var currPage = _props2.currPage;
       var dataSize = _props2.dataSize;
       var sizePerPage = _props2.sizePerPage;
       var sizePerPageList = _props2.sizePerPageList;
-      var paginationShowsTotal = _props2.paginationShowsTotal;
 
       this.totalPages = Math.ceil(dataSize / sizePerPage);
       var pageBtns = this.makePage();
@@ -113,16 +111,6 @@ var PaginationList = (function (_Component) {
           )
         );
       });
-      var total = paginationShowsTotal ? _react2['default'].createElement(
-        'span',
-        null,
-        'Showing rows ',
-        (currPage - 1) * sizePerPage + 1,
-        ' to ',
-        Math.min(currPage * sizePerPage, dataSize),
-        ' of ',
-        dataSize
-      ) : null;
 
       return _react2['default'].createElement(
         'div',
@@ -133,10 +121,8 @@ var PaginationList = (function (_Component) {
           _react2['default'].createElement(
             'div',
             { className: 'col-md-6' },
-            total,
-            ' ',
             _react2['default'].createElement(
-              'span',
+              'div',
               { className: 'dropdown' },
               _react2['default'].createElement(
                 'button',
@@ -169,20 +155,11 @@ var PaginationList = (function (_Component) {
           )
         ) : _react2['default'].createElement(
           'div',
-          null,
+          { className: 'col-md-12' },
           _react2['default'].createElement(
-            'div',
-            { className: 'col-md-6' },
-            total
-          ),
-          _react2['default'].createElement(
-            'div',
-            { className: 'col-md-6' },
-            _react2['default'].createElement(
-              'ul',
-              { className: 'pagination', style: pageListStyle },
-              pageBtns
-            )
+            'ul',
+            { className: 'pagination', style: pageListStyle },
+            pageBtns
           )
         )
       );
@@ -260,7 +237,6 @@ PaginationList.propTypes = {
   dataSize: _react.PropTypes.number,
   changePage: _react.PropTypes.func,
   sizePerPageList: _react.PropTypes.array,
-  paginationShowsTotal: _react.PropTypes.bool,
   paginationSize: _react.PropTypes.number,
   remote: _react.PropTypes.bool,
   onSizePerPageList: _react.PropTypes.func,

@@ -18,29 +18,16 @@ var _Const = require('../Const');
 
 var _Const2 = _interopRequireDefault(_Const);
 
-function _sort(arr, sortField, order, sortFunc, sortFuncExtraData) {
+function _sort(arr, sortField, order, sortFunc) {
   order = order.toLowerCase();
-  var isDesc = order === _Const2['default'].SORT_DESC;
   arr.sort(function (a, b) {
     if (sortFunc) {
-      return sortFunc(a, b, order, sortField, sortFuncExtraData);
+      return sortFunc(a, b, order, sortField);
     } else {
-      if (isDesc) {
-        if (b[sortField] === null) return false;
-        if (a[sortField] === null) return true;
-        if (typeof b[sortField] === 'string') {
-          return b[sortField].localeCompare(a[sortField]);
-        } else {
-          return a[sortField] > b[sortField] ? -1 : a[sortField] < b[sortField] ? 1 : 0;
-        }
+      if (order === _Const2['default'].SORT_DESC) {
+        return a[sortField] > b[sortField] ? -1 : a[sortField] < b[sortField] ? 1 : 0;
       } else {
-        if (b[sortField] === null) return true;
-        if (a[sortField] === null) return false;
-        if (typeof a[sortField] === 'string') {
-          return a[sortField].localeCompare(b[sortField]);
-        } else {
-          return a[sortField] < b[sortField] ? -1 : a[sortField] > b[sortField] ? 1 : 0;
-        }
+        return a[sortField] < b[sortField] ? -1 : a[sortField] > b[sortField] ? 1 : 0;
       }
     }
   });
@@ -79,7 +66,13 @@ var TableDataStore = (function () {
     key: 'setData',
     value: function setData(data) {
       this.data = data;
-      this._refresh();
+      if (this.isOnFilter) {
+        if (this.filterObj !== null) this.filter(this.filterObj);
+        if (this.searchText !== null) this.search(this.searchText);
+      }
+      if (this.sortObj) {
+        this.sort(this.sortObj.order, this.sortObj.sortField);
+      }
     }
   }, {
     key: 'getSortInfo',
@@ -100,17 +93,6 @@ var TableDataStore = (function () {
     key: 'getCurrentDisplayData',
     value: function getCurrentDisplayData() {
       if (this.isOnFilter) return this.filteredData;else return this.data;
-    }
-  }, {
-    key: '_refresh',
-    value: function _refresh() {
-      if (this.isOnFilter) {
-        if (this.filterObj !== null) this.filter(this.filterObj);
-        if (this.searchText !== null) this.search(this.searchText);
-      }
-      if (this.sortObj) {
-        this.sort(this.sortObj.order, this.sortObj.sortField);
-      }
     }
   }, {
     key: 'ignoreNonSelected',
@@ -138,11 +120,9 @@ var TableDataStore = (function () {
       var currentDisplayData = this.getCurrentDisplayData();
       if (!this.colInfos[sortField]) return this;
 
-      var _colInfos$sortField = this.colInfos[sortField];
-      var sortFunc = _colInfos$sortField.sortFunc;
-      var sortFuncExtraData = _colInfos$sortField.sortFuncExtraData;
+      var sortFunc = this.colInfos[sortField].sortFunc;
 
-      currentDisplayData = _sort(currentDisplayData, sortField, order, sortFunc, sortFuncExtraData);
+      currentDisplayData = _sort(currentDisplayData, sortField, order, sortFunc);
 
       return this;
     }
@@ -192,7 +172,6 @@ var TableDataStore = (function () {
       if (this.isOnFilter) {
         this.data.unshift(newObj);
       }
-      this._refresh();
     }
   }, {
     key: 'add',
@@ -211,7 +190,6 @@ var TableDataStore = (function () {
       if (this.isOnFilter) {
         this.data.push(newObj);
       }
-      this._refresh();
     }
   }, {
     key: 'remove',
@@ -261,11 +239,6 @@ var TableDataStore = (function () {
                   filterVal = typeof filterObj[key].value === 'object' ? undefined : typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
                   break;
                 }
-              case _Const2['default'].FILTER_TYPE.DATE:
-                {
-                  filterVal = filterObj[key].value.date;
-                  break;
-                }
               case _Const2['default'].FILTER_TYPE.REGEX:
                 {
                   filterVal = filterObj[key].value;
@@ -301,7 +274,7 @@ var TableDataStore = (function () {
                 }
               case _Const2['default'].FILTER_TYPE.DATE:
                 {
-                  valid = _this3.filterDate(targetVal, filterVal, filterObj[key].value.comparator);
+                  valid = _this3.filterDate(targetVal, filterVal);
                   break;
                 }
               case _Const2['default'].FILTER_TYPE.REGEX:
@@ -386,68 +359,8 @@ var TableDataStore = (function () {
     }
   }, {
     key: 'filterDate',
-    value: function filterDate(targetVal, filterVal, comparator) {
-      // if (!targetVal) {
-      //   return false;
-      // }
-      // return (targetVal.getDate() === filterVal.getDate() &&
-      //     targetVal.getMonth() === filterVal.getMonth() &&
-      //     targetVal.getFullYear() === filterVal.getFullYear());
-
-      var valid = true;
-      switch (comparator) {
-        case '=':
-          {
-            if (targetVal != filterVal) {
-              valid = false;
-            }
-            break;
-          }
-        case '>':
-          {
-            if (targetVal <= filterVal) {
-              valid = false;
-            }
-            break;
-          }
-        case '>=':
-          {
-            // console.log(targetVal);
-            // console.log(filterVal);
-            // console.log(filterVal.getDate());
-            if (targetVal < filterVal) {
-              valid = false;
-            }
-            break;
-          }
-        case '<':
-          {
-            if (targetVal >= filterVal) {
-              valid = false;
-            }
-            break;
-          }
-        case '<=':
-          {
-            if (targetVal > filterVal) {
-              valid = false;
-            }
-            break;
-          }
-        case '!=':
-          {
-            if (targetVal == filterVal) {
-              valid = false;
-            }
-            break;
-          }
-        default:
-          {
-            console.error('Date comparator provided is not supported');
-            break;
-          }
-      }
-      return valid;
+    value: function filterDate(targetVal, filterVal) {
+      return targetVal.getDate() === filterVal.getDate() && targetVal.getMonth() === filterVal.getMonth() && targetVal.getFullYear() === filterVal.getFullYear();
     }
   }, {
     key: 'filterRegex',

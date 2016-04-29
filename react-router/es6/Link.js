@@ -6,7 +6,6 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 import React from 'react';
 import warning from './routerWarning';
-import { routerShape } from './PropTypes';
 
 var _React$PropTypes = React.PropTypes;
 var bool = _React$PropTypes.bool;
@@ -23,10 +22,9 @@ function isModifiedEvent(event) {
   return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 }
 
-// TODO: De-duplicate against hasAnyProperties in createTransitionManager.
 function isEmptyObject(object) {
   for (var p in object) {
-    if (Object.prototype.hasOwnProperty.call(object, p)) return false;
+    if (object.hasOwnProperty(p)) return false;
   }return true;
 }
 
@@ -64,7 +62,7 @@ var Link = React.createClass({
   displayName: 'Link',
 
   contextTypes: {
-    router: routerShape
+    router: object
   },
 
   propTypes: {
@@ -81,6 +79,7 @@ var Link = React.createClass({
   getDefaultProps: function getDefaultProps() {
     return {
       onlyActiveOnIndex: false,
+      className: '',
       style: {}
     };
   },
@@ -140,13 +139,7 @@ var Link = React.createClass({
 
       if (activeClassName || activeStyle != null && !isEmptyObject(activeStyle)) {
         if (router.isActive(_location2, onlyActiveOnIndex)) {
-          if (activeClassName) {
-            if (props.className) {
-              props.className += ' ' + activeClassName;
-            } else {
-              props.className = activeClassName;
-            }
-          }
+          if (activeClassName) props.className += props.className === '' ? activeClassName : ' ' + activeClassName;
 
           if (activeStyle) props.style = _extends({}, props.style, activeStyle);
         }
