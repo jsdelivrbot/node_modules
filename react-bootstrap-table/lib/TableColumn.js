@@ -43,7 +43,7 @@ var TableColumn = (function (_Component) {
           sel.removeAllRanges();
         }
       }
-      _this.props.onEdit(e.currentTarget.parentElement.rowIndex + 1, e.currentTarget.cellIndex);
+      _this.props.onEdit(e.currentTarget.parentElement.rowIndex + 1, e.currentTarget.cellIndex, e);
     };
   }
 
@@ -98,7 +98,10 @@ var TableColumn = (function (_Component) {
       }
       return _react2['default'].createElement(
         'td',
-        _extends({ style: tdStyle, className: this.props.className }, opts),
+        _extends({ style: tdStyle,
+          title: this.props.columnTitle,
+          className: this.props.className
+        }, opts),
         this.props.children
       );
     }
@@ -111,6 +114,7 @@ TableColumn.propTypes = {
   dataAlign: _react.PropTypes.string,
   hidden: _react.PropTypes.bool,
   className: _react.PropTypes.string,
+  columnTitle: _react.PropTypes.string,
   children: _react.PropTypes.node
 };
 

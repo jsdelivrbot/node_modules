@@ -16,6 +16,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -36,7 +40,7 @@ var TableRow = (function (_Component) {
           var rowIndex = e.currentTarget.rowIndex + 1;
           if (_this.props.selectRow) {
             if (_this.props.selectRow.clickToSelect) {
-              _this.props.onSelectRow(rowIndex, !_this.props.isSelected);
+              _this.props.onSelectRow(rowIndex, !_this.props.isSelected, e);
             } else if (_this.props.selectRow.clickToSelectAndEditCell) {
               _this.clickNum++;
               /** if clickToSelectAndEditCell is enabled,
@@ -45,7 +49,7 @@ var TableRow = (function (_Component) {
               **/
               setTimeout(function () {
                 if (_this.clickNum === 1) {
-                  _this.props.onSelectRow(rowIndex, !_this.props.isSelected);
+                  _this.props.onSelectRow(rowIndex, !_this.props.isSelected, e);
                 }
                 _this.clickNum = 0;
               }, 200);
@@ -79,7 +83,7 @@ var TableRow = (function (_Component) {
         style: {
           backgroundColor: this.props.isSelected ? this.props.selectRow.bgColor : null
         },
-        className: (this.props.isSelected && this.props.selectRow.className ? this.props.selectRow.className : '') + (this.props.className || '')
+        className: (0, _classnames2['default'])(this.props.isSelected ? this.props.selectRow.className : null, this.props.className)
       };
 
       if (this.props.selectRow && (this.props.selectRow.clickToSelect || this.props.selectRow.clickToSelectAndEditCell) || this.props.onRowClick) {

@@ -49,7 +49,7 @@ var RegexFilter = (function (_Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var value = this.refs.inputText.defaultValue;
+      var value = this.refs.inputText.value;
       if (value) {
         this.props.filterHandler(value, _Const2['default'].FILTER_TYPE.REGEX);
       }

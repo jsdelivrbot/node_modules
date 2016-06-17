@@ -1,3 +1,195 @@
+<a name="v2.3.4"></a>
+# [v2.3.4](https://github.com/AllenFang/react-bootstrap-table/compare/v2.3.3...v2.3.4) (2016-06-05)
+### Bug fixes
+* Fix a next page showing if there's no data([ddf7fc9](https://github.com/AllenFang/react-bootstrap-table/commit/ddf7fc9614e48ae3bfbd38c5dbc186db78db8fc7))
+* Fix the wrong class on selection row if a ```trClassName``` given([2d3d1cb](https://github.com/AllenFang/react-bootstrap-table/commit/2d3d1cb527ca87de55dd2bfe0cf737395285ef3a))
+	* Check [#488](https://github.com/AllenFang/react-bootstrap-table/issues/488)
+* Fix the save button doesn't work in textarea editing if disable ```blurToSave```([2e0eca5](https://github.com/AllenFang/react-bootstrap-table/commit/2e0eca5a4d326aa6ab2fdc24a1bb50ad60c39ce1))
+
+### Features
+* Able to hide the pagination if there's only one page([4739d43](https://github.com/AllenFang/react-bootstrap-table/commit/4739d433d873fbf0d5ede829ee878ab9965e3e81))
+	* Enable ```ignoreSinglePage``` on ```<BootstrapTable>```
+* Able to hide the sizePerPage doprdown([7c88a3b](https://github.com/AllenFang/react-bootstrap-table/commit/7c88a3bbf83e09810db24d684655071a91207f1a))
+	* Add ```hideSizePerPage``` in ```options``` props on ```<BootstrapTable>```
+* Support to customize the csv header text([ef11be9](https://github.com/AllenFang/react-bootstrap-table/commit/ef11be9e78b419c435bd9bc79a276fdf7e1e8bbe))
+	* Use ```csvHeader``` on ```<TableHeaderColumn>```
+
+### Enhancement
+* Fix confirm grammar for row delete([cd26ba9](https://github.com/AllenFang/react-bootstrap-table/commit/cd26ba98233b43b214a37a9c027d2760dbc5adc8))
+
+<a name="v2.3.3"></a>
+# [v2.3.3](https://github.com/AllenFang/react-bootstrap-table/compare/v2.3.2...v2.3.3) (2016-05-29)
+### Bug fixes
+* Fix warning: NaN is an invalid value for the width css style property([4018df5](https://github.com/AllenFang/react-bootstrap-table/commit/4018df53f1c65d8d072b28b52ce71f103a76d81b))
+* Fix uncaught TypeError: Cannot read property 'filter' of undefined([dc67221](https://github.com/AllenFang/react-bootstrap-table/commit/dc672211e32cfd10b83557418bd82c2956d41b3c))
+* Fix search then filter will ignore the search([dc67221](https://github.com/AllenFang/react-bootstrap-table/commit/dc672211e32cfd10b83557418bd82c2956d41b3c))
+
+### Features
+* Custom text for ```paginationShowsTotal```([07b3e7a](https://github.com/AllenFang/react-bootstrap-table/commit/07b3e7a59f1c8cf0b71fbdabdb95410f8d9fb5e0))
+	* ```paginationShowsTotal``` accept a bool value or a function, if a function given you need return the customize JSX.
+	* Check [example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/pagination/custom-pagination-table.js#L43)
+* Support hide field in insert modal([9a7e93a](https://github.com/AllenFang/react-bootstrap-table/commit/9a7e93a7a87783e1405968cfae9970a3d55323c3))
+	* Use ```hiddenOnInsert``` on ```<TableHeaderColumn>```
+
+### Enhancement
+* Ability to return unselected rows in ```onSelectAll```([a23c290](https://github.com/AllenFang/react-bootstrap-table/commit/a23c2902a2ec33ca5f783fce6740892af359e74a))
+	* On select all, the second argument will be the current display rows on table.
+	* On unselect all, the second argument will be the unselect rows.
+	* Check [example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/selection/select-hook-table.js#L34)
+
+* Improve the validation on ```onSelectAll```([4666523](https://github.com/AllenFang/react-bootstrap-table/commit/4666523c4ff87132655810bbdbfa5ef306a8cce8))
+	* If return true/false in ```onSelectAll```, means agree/disard this select all event.
+	* If return an array of rowKeys in ```onSelectAll```, means the final selected result for this select event.
+	* Check [select validation example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/selection/select-validation-table.js)
+
+
+<a name="v2.3.2"></a>
+# [v2.3.2](https://github.com/AllenFang/react-bootstrap-table/compare/v2.3.1...v2.3.2) (2016-05-23)
+### Bug fixes
+* Fix sorting on null value([6a1c88b](https://github.com/AllenFang/react-bootstrap-table/commit/6a1c88bbdee921bd6373f713cb16e69676f2cda0))
+
+### Features
+* Support for pagination start index([98499b2](https://github.com/AllenFang/react-bootstrap-table/commit/98499b2d3de0149f27e85a75e753d948e25d32a7))
+	* Use ```pageStartIndex``` in ```options```
+	* Check [example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/pagination/custom-pagination-table.js#L28)
+* Able to add classname on <table> tag([866e07d](https://github.com/AllenFang/react-bootstrap-table/commit/866e07d1fe3932557afcd87addd65c725c9023a5))
+	* ```tableHeaderClass``` for header table and ```tableBodyClass``` for body table
+	* Check [example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/style/table-class-table.js)
+
+<a name="v2.3.1"></a>
+# [v2.3.1](https://github.com/AllenFang/react-bootstrap-table/compare/v2.3.0...v2.3.1) (2016-05-11)
+### Bug fixes
+* Unminified the index.js([9607b82](https://github.com/AllenFang/react-bootstrap-table/commit/9607b82de63cf26f6290898e34062ac65f21d2ad))
+
+### Features
+* Support column title([e77bd32](https://github.com/AllenFang/react-bootstrap-table/commit/e77bd32cec69e35de7bc588cbb64713a827674fa))
+	* Enable ```columnTitle``` on ```<TableHeaderColumn>```
+* Support csv format on column([acd12b1](https://github.com/AllenFang/react-bootstrap-table/commit/acd12b178d8dd46f1e06e6051ff16f829b6fff78))
+	* Because ```dataFormat``` is not appropriate on column when exporting csv file, so ```csvFormat``` been supported.
+	* Check [this](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/manipulation/export-csv-table.js#L33) example
+* Enable to custom the save and close button text in insert modal([072eeee](https://github.com/AllenFang/react-bootstrap-table/commit/072eeeef1e8ab9b374f4c225e6600dcdb0c3a700))
+	* [Example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/manipulation/custom-btn-text-table.js#L28-L29) on here
+
+<a name="v2.3.0"></a>
+# [v2.3.0](https://github.com/AllenFang/react-bootstrap-table/compare/v2.2.0...v2.3.0) (2016-05-04)
+### Bug fixes
+* Fix filters doesn't work when the column contains null values([2199431](https://github.com/AllenFang/react-bootstrap-table/commit/21994312daa042e0cfc1aea911d4811eb6909e8d))
+
+### Features
+* Support remote data([818f11b](https://github.com/AllenFang/react-bootstrap-table/commit/818f11befa5c30b3e9e1180d612c10aafa9e54bb))
+	* Check [examples](https://github.com/AllenFang/react-bootstrap-table/tree/master/examples/js/remote)
+
+<a name="v2.2.0"></a>
+# [v2.2.0](https://github.com/AllenFang/react-bootstrap-table/compare/v2.1.5...v2.2.0) (2016-04-29)
+### Bug fixes
+* Fix default value on filter are broken when upgrade to ```react@15.0.0```([b455582](https://github.com/AllenFang/react-bootstrap-table/commit/b455582c736d77aeb739ffb3d8c1815c7cb79442))
+* Fix column header pulse when sorting([4ec7521](https://github.com/AllenFang/react-bootstrap-table/commit/4ec75213627e0dd1a651e13ae9fde2276041612f))
+* Fix Cannot assign to read only property 'children' of object '#<Object>' on single column table([3a95495](https://github.com/AllenFang/react-bootstrap-table/commit/3a95495e5886b84fce9c8c4f484c745ef9351413))
+
+### Features
+* Compatible on both ```react@0.14.x``` and ```react@15.x```([8487ea7](https://github.com/AllenFang/react-bootstrap-table/pull/423/commits/8487ea7997815edd951f23af1ddb47f227a1dde4))
+* Customization text on Delete and Insert row button([0f2e6b7](https://github.com/AllenFang/react-bootstrap-table/commit/0f2e6b7735e423586f31b80a091a173fd7bf952a))
+	* [example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/manipulation/custom-btn-text-table.js)
+
+<a name="v2.1.5"></a>
+# [v2.1.5](https://github.com/AllenFang/react-bootstrap-table/compare/v2.1.4...v2.1.5) (2016-04-26)
+### Features
+* Support position and total pages([8c6393b](https://github.com/AllenFang/react-bootstrap-table/commit/8c6393b93bfb6ca814d5f650a4160734cc429369))
+	* Enable ```paginationShowsTotal``` in ```options``` props
+	* check [example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/pagination/custom-pagination-table.js#L33)
+
+### Enhancement
+* Allow developer to define inline styling on ```react-bootstrap-table```([e60e607](https://github.com/AllenFang/react-bootstrap-table/commit/e60e607ca8a01ec89cd728196f083636bd7f99bf))
+	* Check [example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/style/inline-style-table.js)
+	* ```containerStyle``` props is corresponding to the ```react-bs-table-container``` class.
+	* ```tableStyle``` props is corresponding to the ```react-bs-table``` class.
+	* ```headerStyle``` props is corresponding to the ```react-bs-container-header``` class.
+	* ```bodyStyle``` props is corresponding to the ```react-bs-container-body``` class.
+
+<a name="v2.1.4"></a>
+# [v2.1.4](https://github.com/AllenFang/react-bootstrap-table/compare/v2.1.3...v2.1.4) (2016-04-15)
+### Bug fixes
+* Fix data loss on cell edit when only a validator given([d652e63](https://github.com/AllenFang/react-bootstrap-table/commit/d652e635c4f505b7292f4e024c7d58e8d1145ef4))
+
+* Fix select state still remain when update state on table([9ffea48](https://github.com/AllenFang/react-bootstrap-table/commit/9ffea4869a9a264e34e734429d2f938915952536))
+	* check the [scenario](https://github.com/AllenFang/react-bootstrap-table/issues/403)
+
+<a name="v2.1.3"></a>
+# [v2.1.3](https://github.com/AllenFang/react-bootstrap-table/compare/v2.1.2...v2.1.3) (2016-04-11)
+### Features
+* Support comparator on date filter([bf5b4d2](https://github.com/AllenFang/react-bootstrap-table/commit/bf5b4d2358ba43646f721ddcd352446e977df7a9))
+
+### Enhancement
+* Pass event object as third argument on ```onRowSelect``` callback function([b1e8d18](https://github.com/AllenFang/react-bootstrap-table/commit/b1e8d18b0183e9116e4defdbe8e71027e193a9a2))
+* Support a better mechanism for default sorting([ac0dd35](https://github.com/AllenFang/react-bootstrap-table/commit/ac0dd3516d5b03cfbd8093e329613b4e554dae9f))
+	* Check [example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/sort/default-sort-table.js)
+
+<a name="v2.1.2"></a>
+# [v2.1.2](https://github.com/AllenFang/react-bootstrap-table/compare/v2.1.1...v2.1.2) (2016-04-06)
+### Bug fixes
+* Fix editor type broken if enable ```ignoreEditable```([b92481d](https://github.com/AllenFang/react-bootstrap-table/commit/b92481d9a42f71e97a848e8419282a05142049b0))
+* Fix sort broken after doing column filter([47cad29](https://github.com/AllenFang/react-bootstrap-table/commit/47cad293e5cd10afa4f9ced5c1d322a6c7a4af0f))
+
+### Features
+* Support to customize sort caret([d9799f5](https://github.com/AllenFang/react-bootstrap-table/commit/d9799f567e4be59fb08367b67cee1839f9b201c7))
+	* Check [example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/sort/custom-caret-sort-table.js)
+
+<a name="v2.1.1"></a>
+# [v2.1.1](https://github.com/AllenFang/react-bootstrap-table/compare/v2.1.0...v2.1.1) (2016-04-01)
+### Bug fixes
+* Fix the delay search bug(it not real to wait for typing nothing)[d601337](https://github.com/AllenFang/react-bootstrap-table/commit/d60133724c4a53b1bcd7a037476ad30b1168d520)
+* Fix a error if cell is empty on date filter([40b4a40](https://github.com/AllenFang/react-bootstrap-table/commit/40b4a4077e3ac171db2f8973bdf6c48a4d0ff3d2))
+* Fix a bug when insert row with sort and filter([027c0ec](https://github.com/AllenFang/react-bootstrap-table/commit/027c0ecc6294445116fbc3d6f1c6ffa02997c351))
+	* Check [#366](https://github.com/AllenFang/react-bootstrap-table/issues/366)
+* Give a workaround for fixing a bug when sort on same field([16d8488](https://github.com/AllenFang/react-bootstrap-table/commit/16d84882e3c0179005c0976fd56cd153233b64ec))
+* Fix [#375](https://github.com/AllenFang/react-bootstrap-table/issues/375)([cf28f8f](https://github.com/AllenFang/react-bootstrap-table/commit/cf28f8fa755484f8539c2f9e4e26b116aaed01c7))
+
+### Features
+* Allow noDataText to accept JSX([97a08ff](https://github.com/AllenFang/react-bootstrap-table/commit/97a08ff91f88e6c2efdfe2491f99ff84db9243d2))
+* Ignore editable configuration when insert row([61b60d1](https://github.com/AllenFang/react-bootstrap-table/commit/61b60d1355110905c3bcfab824658f6dc5d067d9))
+	* Check [this comment](https://github.com/AllenFang/react-bootstrap-table/issues/380#issuecomment-204424114)
+
+### Enhancement
+* Able to provide extra data with a custom sort function([509ce22](https://github.com/AllenFang/react-bootstrap-table/commit/509ce225ece070142386a235fcbddbd97919ee1f))
+	* Check [PR#368](https://github.com/AllenFang/react-bootstrap-table/pull/368)
+	* [Example](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/sort/custom-sort-with-extra-data-table.js)
+* Avoid '[object Object]' shown as title on column header([5da38c3](https://github.com/AllenFang/react-bootstrap-table/commit/5da38c399570eada37e93dbba92e2561d6f9ea4b))
+
+<a name="v2.1.0"></a>
+# [v2.1.0](https://github.com/AllenFang/react-bootstrap-table/compare/v2.0.3...v2.1.0) (2016-03-26)
+### Bug fixes
+* Fix the select all checkbox should be empty if there is no data in table([449eb1b](https://github.com/AllenFang/react-bootstrap-table/commit/449eb1be3cdb9261d3254ab796da235ae7f771f0))
+* Fix a SSR issue on csv export module([d46ca49](https://github.com/AllenFang/react-bootstrap-table/commit/d46ca49489b665aef0da36af3f470797be49a1c4))
+* Fix a SSR issue when enable ```insertRow```([fbc4654](https://github.com/AllenFang/react-bootstrap-table/commit/fbc465463bac8c15e96f405ccc3927cada912160))
+	* Check [#348](https://github.com/AllenFang/react-bootstrap-table/issues/348)
+* Fix search broke with a backspace([d24f1c4](https://github.com/AllenFang/react-bootstrap-table/commit/d24f1c4c6b5f2378194bf6b782adecc74407b972))
+
+### Features
+* ```TableDataSet``` has been removed on ```v2.1.0```([239d8b1](https://github.com/AllenFang/react-bootstrap-table/commit/239d8b1c39d07c71db62b1b4850663801fb17517))
+* Support a delay when typing search text([b54f84a](https://github.com/AllenFang/react-bootstrap-table/commit/b54f84a4a3aea6a81cb8cf27f2cbffa44dd1ac9b))
+	* Check example at [here](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/manipulation/debounce-search-table.js)
+* It's able to get the page number by rowKey([55d475f](https://github.com/AllenFang/react-bootstrap-table/commit/55d475f61977932c9e5e46be16b9ad9db70be75f))
+	* [#353](https://github.com/AllenFang/react-bootstrap-table/issues/353)
+	* Check example at [here](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/others/expose-api-table.js)
+* Allow user to change the text on export CSV button([f6171fa](https://github.com/AllenFang/react-bootstrap-table/commit/f6171fae78fd7cad17ea123c024f486efcf126e3))
+	* use ```exportCSVText``` in ```option``` props
+	```js
+	render() {
+		const options = { exportCSVText: 'MY_CUSTOM_TEXT' };
+		return (
+			<div>
+				<BootstrapTable ref='table' options={ options }>
+	        		....
+				</BootstrapTable>
+			</div>
+		);
+	}
+	```
+
+### Enhancement
+* Pass rowKey as parameter for ```handleConfirmDeleteRow``` callback function([c2f8ce1](https://github.com/AllenFang/react-bootstrap-table/commit/c2f8ce187f39f516fffa475729b54e9ea416b9d1))
+	* Check example at [here](https://github.com/AllenFang/react-bootstrap-table/blob/master/examples/js/manipulation/del-row-custom-confirm.js)
+
 <a name="v2.0.3"></a>
 # [v2.0.3](https://github.com/AllenFang/react-bootstrap-table/compare/v2.0.2...v2.0.3) (2016-03-22)
 ### Enhancement

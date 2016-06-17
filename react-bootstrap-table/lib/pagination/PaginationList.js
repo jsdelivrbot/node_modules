@@ -38,6 +38,7 @@ var PaginationList = (function (_Component) {
 
     this.changePage = function (page) {
       var _props = _this.props;
+      var pageStartIndex = _props.pageStartIndex;
       var prePage = _props.prePage;
       var currPage = _props.currPage;
       var nextPage = _props.nextPage;
@@ -46,13 +47,13 @@ var PaginationList = (function (_Component) {
       var sizePerPage = _props.sizePerPage;
 
       if (page === prePage) {
-        page = currPage - 1 < 1 ? 1 : currPage - 1;
+        page = currPage - 1 < pageStartIndex ? pageStartIndex : currPage - 1;
       } else if (page === nextPage) {
-        page = currPage + 1 > _this.totalPages ? _this.totalPages : currPage + 1;
+        page = currPage + 1 > _this.lastPage ? _this.lastPage : currPage + 1;
       } else if (page === lastPage) {
-        page = _this.totalPages;
+        page = _this.lastPage;
       } else if (page === firstPage) {
-        page = 1;
+        page = pageStartIndex;
       } else {
         page = parseInt(page, 10);
       }
@@ -70,8 +71,8 @@ var PaginationList = (function (_Component) {
 
       if (selectSize !== _this.props.sizePerPage) {
         _this.totalPages = Math.ceil(_this.props.dataSize / selectSize);
-        if (currPage > _this.totalPages) currPage = _this.totalPages;
-
+        _this.lastPage = _this.props.pageStartIndex + _this.totalPages - 1;
+        if (currPage > _this.lastPage) currPage = _this.lastPage;
         _this.props.changePage(currPage, selectSize);
         if (_this.props.onSizePerPageList) {
           _this.props.onSizePerPageList(selectSize);
@@ -86,11 +87,16 @@ var PaginationList = (function (_Component) {
       var _this2 = this;
 
       var _props2 = this.props;
+      var currPage = _props2.currPage;
       var dataSize = _props2.dataSize;
       var sizePerPage = _props2.sizePerPage;
       var sizePerPageList = _props2.sizePerPageList;
+      var paginationShowsTotal = _props2.paginationShowsTotal;
+      var pageStartIndex = _props2.pageStartIndex;
+      var hideSizePerPage = _props2.hideSizePerPage;
 
       this.totalPages = Math.ceil(dataSize / sizePerPage);
+      this.lastPage = this.props.pageStartIndex + this.totalPages - 1;
       var pageBtns = this.makePage();
       var pageListStyle = {
         float: 'right',
@@ -112,6 +118,28 @@ var PaginationList = (function (_Component) {
         );
       });
 
+      var offset = Math.abs(_Const2['default'].PAGE_START_INDEX - pageStartIndex);
+      var start = (currPage - pageStartIndex) * sizePerPage;
+      var to = Math.min(sizePerPage * (currPage + offset) - 1, dataSize);
+      var total = paginationShowsTotal ? _react2['default'].createElement(
+        'span',
+        null,
+        'Showing rows ',
+        start,
+        ' to ',
+        to,
+        ' of ',
+        dataSize
+      ) : null;
+
+      if (typeof paginationShowsTotal === 'function') {
+        total = paginationShowsTotal(start, to, dataSize);
+      }
+
+      var dropDownStyle = {
+        visibility: hideSizePerPage ? 'hidden' : 'visible'
+      };
+
       return _react2['default'].createElement(
         'div',
         { className: 'row', style: { marginTop: 15 } },
@@ -121,9 +149,11 @@ var PaginationList = (function (_Component) {
           _react2['default'].createElement(
             'div',
             { className: 'col-md-6' },
+            total,
+            ' ',
             _react2['default'].createElement(
-              'div',
-              { className: 'dropdown' },
+              'span',
+              { className: 'dropdown', style: dropDownStyle },
               _react2['default'].createElement(
                 'button',
                 { className: 'btn btn-default dropdown-toggle',
@@ -155,11 +185,20 @@ var PaginationList = (function (_Component) {
           )
         ) : _react2['default'].createElement(
           'div',
-          { className: 'col-md-12' },
+          null,
           _react2['default'].createElement(
-            'ul',
-            { className: 'pagination', style: pageListStyle },
-            pageBtns
+            'div',
+            { className: 'col-md-6' },
+            total
+          ),
+          _react2['default'].createElement(
+            'div',
+            { className: 'col-md-6' },
+            _react2['default'].createElement(
+              'ul',
+              { className: 'pagination', style: pageListStyle },
+              pageBtns
+            )
           )
         )
       );
@@ -172,11 +211,11 @@ var PaginationList = (function (_Component) {
         var isActive = page === this.props.currPage;
         var disabled = false;
         var hidden = false;
-        if (this.props.currPage === 1 && (page === this.props.firstPage || page === this.props.prePage)) {
+        if (this.props.currPage === this.props.pageStartIndex && (page === this.props.firstPage || page === this.props.prePage)) {
           disabled = true;
           hidden = true;
         }
-        if (this.props.currPage === this.totalPages && (page === this.props.nextPage || page === this.props.lastPage)) {
+        if (this.props.currPage === this.lastPage && (page === this.props.nextPage || page === this.props.lastPage)) {
           disabled = true;
           hidden = true;
         }
@@ -195,18 +234,17 @@ var PaginationList = (function (_Component) {
     key: 'getPages',
     value: function getPages() {
       var pages = undefined;
-      var startPage = 1;
       var endPage = this.totalPages;
-
-      startPage = Math.max(this.props.currPage - Math.floor(this.props.paginationSize / 2), 1);
+      if (endPage <= 0) return [];
+      var startPage = Math.max(this.props.currPage - Math.floor(this.props.paginationSize / 2), this.props.pageStartIndex);
       endPage = startPage + this.props.paginationSize - 1;
 
-      if (endPage > this.totalPages) {
-        endPage = this.totalPages;
+      if (endPage > this.lastPage) {
+        endPage = this.lastPage;
         startPage = endPage - this.props.paginationSize + 1;
       }
 
-      if (startPage !== 1 && this.totalPages > this.props.paginationSize) {
+      if (startPage !== this.props.pageStartIndex && this.totalPages > this.props.paginationSize) {
         pages = [this.props.firstPage, this.props.prePage];
       } else if (this.totalPages > 1) {
         pages = [this.props.prePage];
@@ -215,15 +253,16 @@ var PaginationList = (function (_Component) {
       }
 
       for (var i = startPage; i <= endPage; i++) {
-        if (i > 0) pages.push(i);
+        if (i >= this.props.pageStartIndex) pages.push(i);
       }
 
-      if (endPage !== this.totalPages) {
+      if (endPage < this.lastPage) {
         pages.push(this.props.nextPage);
         pages.push(this.props.lastPage);
-      } else if (this.totalPages > 1) {
+      } else if (endPage === this.lastPage && this.props.currPage !== this.lastPage) {
         pages.push(this.props.nextPage);
       }
+
       return pages;
     }
   }]);
@@ -237,14 +276,18 @@ PaginationList.propTypes = {
   dataSize: _react.PropTypes.number,
   changePage: _react.PropTypes.func,
   sizePerPageList: _react.PropTypes.array,
+  paginationShowsTotal: _react.PropTypes.bool,
   paginationSize: _react.PropTypes.number,
   remote: _react.PropTypes.bool,
   onSizePerPageList: _react.PropTypes.func,
-  prePage: _react.PropTypes.string
+  prePage: _react.PropTypes.string,
+  pageStartIndex: _react.PropTypes.number,
+  hideSizePerPage: _react.PropTypes.bool
 };
 
 PaginationList.defaultProps = {
-  sizePerPage: _Const2['default'].SIZE_PER_PAGE
+  sizePerPage: _Const2['default'].SIZE_PER_PAGE,
+  pageStartIndex: _Const2['default'].PAGE_START_INDEX
 };
 
 exports['default'] = PaginationList;

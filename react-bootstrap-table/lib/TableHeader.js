@@ -83,18 +83,19 @@ var TableHeader = (function (_Component2) {
   _createClass(TableHeader, [{
     key: 'render',
     value: function render() {
+      var _this = this;
+
       var containerClasses = (0, _classnames2['default'])('react-bs-container-header', 'table-header-wrapper');
       var tableClasses = (0, _classnames2['default'])('table', 'table-hover', {
         'table-bordered': this.props.bordered,
         'table-condensed': this.props.condensed
-      });
+      }, this.props.tableHeaderClass);
       var selectRowHeaderCol = null;
       if (!this.props.hideSelectColumn) selectRowHeaderCol = this.renderSelectRowHeader();
-      this._attachClearSortCaretFunc();
-
+      var i = 0;
       return _react2['default'].createElement(
         'div',
-        { ref: 'container', className: containerClasses },
+        { ref: 'container', className: containerClasses, style: this.props.style },
         _react2['default'].createElement(
           'table',
           { className: tableClasses },
@@ -105,7 +106,19 @@ var TableHeader = (function (_Component2) {
               'tr',
               { ref: 'header' },
               selectRowHeaderCol,
-              this.props.children
+              _react2['default'].Children.map(this.props.children, function (elm) {
+                var _props = _this.props;
+                var sortIndicator = _props.sortIndicator;
+                var sortName = _props.sortName;
+                var sortOrder = _props.sortOrder;
+                var onSort = _props.onSort;
+                var _elm$props = elm.props;
+                var dataField = _elm$props.dataField;
+                var dataSort = _elm$props.dataSort;
+
+                var sort = dataSort && dataField === sortName ? sortOrder : undefined;
+                return _react2['default'].cloneElement(elm, { key: i++, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
+              })
             )
           )
         )
@@ -128,34 +141,14 @@ var TableHeader = (function (_Component2) {
         return null;
       }
     }
-  }, {
-    key: '_attachClearSortCaretFunc',
-    value: function _attachClearSortCaretFunc() {
-      var _props = this.props;
-      var sortIndicator = _props.sortIndicator;
-      var children = _props.children;
-      var sortName = _props.sortName;
-      var sortOrder = _props.sortOrder;
-      var onSort = _props.onSort;
-
-      if (Array.isArray(children)) {
-        for (var i = 0; i < children.length; i++) {
-          var field = children[i].props.dataField;
-          var sort = field === sortName ? sortOrder : undefined;
-          this.props.children[i] = _react2['default'].cloneElement(children[i], { key: i, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
-        }
-      } else {
-        var field = children.props.dataField;
-        var sort = field === sortName ? sortOrder : undefined;
-        this.props.children = _react2['default'].cloneElement(children, { key: 0, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
-      }
-    }
   }]);
 
   return TableHeader;
 })(_react.Component);
 
 TableHeader.propTypes = {
+  tableHeaderClass: _react.PropTypes.string,
+  style: _react.PropTypes.object,
   rowSelectType: _react.PropTypes.string,
   onSort: _react.PropTypes.func,
   onSelectAllRow: _react.PropTypes.func,

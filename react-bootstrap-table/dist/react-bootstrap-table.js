@@ -89,6 +89,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -154,6 +156,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _this.props.options.onSortChange(sortField, order, _this.props);
 	      }
 
+	      if (_this.isRemoteDataSource()) {
+	        _this.store.setSortInfo(order, sortField);
+	        return;
+	      }
+
 	      var result = _this.store.sort(order, sortField).get();
 	      _this.setState({
 	        data: result
@@ -161,22 +168,36 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    this.handlePaginationData = function (page, sizePerPage) {
-	      var onPageChange = _this.props.options.onPageChange;
+	      var _props$options = _this.props.options;
+	      var onPageChange = _props$options.onPageChange;
+	      var pageStartIndex = _props$options.pageStartIndex;
 
 	      if (onPageChange) {
 	        onPageChange(page, sizePerPage);
 	      }
 
+	      _this.setState({
+	        currPage: page,
+	        sizePerPage: sizePerPage
+	      });
+
 	      if (_this.isRemoteDataSource()) {
 	        return;
 	      }
 
-	      var result = _this.store.page(page, sizePerPage).get();
-	      _this.setState({
-	        data: result,
-	        currPage: page,
-	        sizePerPage: sizePerPage
-	      });
+	      // We calculate an offset here in order to properly fetch the indexed data,
+	      // despite the page start index not always being 1
+	      var normalizedPage = undefined;
+	      if (pageStartIndex !== undefined) {
+	        var offset = Math.abs(_Const2['default'].PAGE_START_INDEX - pageStartIndex);
+	        normalizedPage = page + offset;
+	      } else {
+	        normalizedPage = page;
+	      }
+
+	      var result = _this.store.page(normalizedPage, sizePerPage).get();
+
+	      _this.setState({ data: result });
 	    };
 
 	    this.handleMouseLeave = function () {
@@ -214,12 +235,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var selectedRowKeys = [];
 	      var result = true;
 	      if (_this.props.selectRow.onSelectAll) {
-	        result = _this.props.selectRow.onSelectAll(isSelected, isSelected ? _this.store.get() : []);
+	        result = _this.props.selectRow.onSelectAll(isSelected, isSelected ? _this.store.get() : _this.store.getRowByKey(_this.state.selectedRowKeys));
 	      }
 
-	      if (typeof result === 'undefined' || result !== false) {
+	      if (typeof result == 'undefined' || result !== false) {
 	        if (isSelected) {
-	          selectedRowKeys = _this.store.getAllRowkey();
+	          selectedRowKeys = Array.isArray(result) ? result : _this.store.getAllRowkey();
 	        }
 
 	        _this.store.setSelectedRowKey(selectedRowKeys);
@@ -237,18 +258,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      _this.setState({
 	        data: result,
-	        currPage: 1
+	        currPage: _this.props.options.pageStartIndex || _Const2['default'].PAGE_START_INDEX
 	      });
 	    };
 
-	    this.handleSelectRow = function (row, isSelected) {
+	    this.handleSelectRow = function (row, isSelected, e) {
 	      var result = true;
 	      var currSelected = _this.store.getSelectedRowKeys();
 	      var rowKey = row[_this.store.getKeyField()];
 	      var selectRow = _this.props.selectRow;
 
 	      if (selectRow.onSelect) {
-	        result = selectRow.onSelect(row, isSelected);
+	        result = selectRow.onSelect(row, isSelected, e);
 	      }
 
 	      if (typeof result === 'undefined' || result !== false) {
@@ -272,6 +293,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    this.handleAddRow = function (newObj) {
+	      var onAddRow = _this.props.options.onAddRow;
+
+	      if (onAddRow) {
+	        var colInfos = _this.store.getColInfos();
+	        onAddRow(newObj, colInfos);
+	      }
+
+	      if (_this.isRemoteDataSource()) {
+	        if (_this.props.options.afterInsertRow) {
+	          _this.props.options.afterInsertRow(newObj);
+	        }
+	        return null;
+	      }
+
 	      try {
 	        _this.store.add(newObj);
 	      } catch (e) {
@@ -303,15 +338,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _this.props.options.handleConfirmDeleteRow(function () {
 	            _this.deleteRow(dropRowKeys);
 	          }, dropRowKeys);
-	        } else if (confirm('Are you sure want delete?')) {
+	        } else if (confirm('Are you sure you want to delete?')) {
 	          _this.deleteRow(dropRowKeys);
 	        }
 	      }
 	    };
 
 	    this.handleFilterData = function (filterObj) {
+	      var onFilterChange = _this.props.options.onFilterChange;
+
+	      if (onFilterChange) {
+	        var colInfos = _this.store.getColInfos();
+	        onFilterChange(filterObj, colInfos);
+	      }
+
+	      _this.setState({
+	        currPage: _this.props.options.pageStartIndex || _Const2['default'].PAGE_START_INDEX
+	      });
+
+	      if (_this.isRemoteDataSource()) {
+	        if (_this.props.options.afterColumnFilter) {
+	          _this.props.options.afterColumnFilter(filterObj, _this.store.getDataIgnoringPagination());
+	        }
+	        return;
+	      }
+
 	      _this.store.filter(filterObj);
+
+	      var sortObj = _this.store.getSortInfo();
+
+	      if (sortObj) {
+	        _this.store.sort(sortObj.order, sortObj.sortField);
+	      }
+
 	      var result = undefined;
+
 	      if (_this.props.pagination) {
 	        var sizePerPage = _this.state.sizePerPage;
 
@@ -323,23 +384,58 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _this.props.options.afterColumnFilter(filterObj, _this.store.getDataIgnoringPagination());
 	      }
 	      _this.setState({
-	        data: result,
-	        currPage: 1
+	        data: result
 	      });
 	    };
 
 	    this.handleExportCSV = function () {
-	      var result = _this.store.getDataIgnoringPagination();
+	      var result = {};
+
+	      var onExportToCSV = _this.props.options.onExportToCSV;
+
+	      if (onExportToCSV) {
+	        result = onExportToCSV();
+	      }
+
 	      var keys = [];
 	      _this.props.children.map(function (column) {
 	        if (column.props.hidden === false) {
-	          keys.push(column.props.dataField);
+	          keys.push({
+	            field: column.props.dataField,
+	            format: column.props.csvFormat,
+	            header: column.props.csvHeader || column.props.dataField
+	          });
 	        }
 	      });
+
+	      if (_this.isRemoteDataSource()) {
+	        (0, _csv_export_util2['default'])(result, keys, _this.props.csvFileName);
+	        return;
+	      }
+
+	      result = _this.store.getDataIgnoringPagination();
 	      (0, _csv_export_util2['default'])(result, keys, _this.props.csvFileName);
 	    };
 
 	    this.handleSearch = function (searchText) {
+	      var onSearchChange = _this.props.options.onSearchChange;
+
+	      if (onSearchChange) {
+	        var colInfos = _this.store.getColInfos();
+	        onSearchChange(searchText, colInfos, _this.props.multiColumnSearch);
+	      }
+
+	      _this.setState({
+	        currPage: _this.props.options.pageStartIndex || _Const2['default'].PAGE_START_INDEX
+	      });
+
+	      if (_this.isRemoteDataSource()) {
+	        if (_this.props.options.afterSearch) {
+	          _this.props.options.afterSearch(searchText, _this.store.getDataIgnoringPagination());
+	        }
+	        return;
+	      }
+
 	      _this.store.search(searchText);
 	      var result = undefined;
 	      if (_this.props.pagination) {
@@ -353,8 +449,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _this.props.options.afterSearch(searchText, _this.store.getDataIgnoringPagination());
 	      }
 	      _this.setState({
-	        data: result,
-	        currPage: 1
+	        data: result
 	      });
 	    };
 
@@ -428,7 +523,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    this.state = {
 	      data: this.getTableData(),
-	      currPage: this.props.options.page || 1,
+	      currPage: this.props.options.page || this.props.options.pageStartIndex || _Const2['default'].PAGE_START_INDEX,
 	      sizePerPage: this.props.options.sizePerPage || _Const2['default'].SIZE_PER_PAGE_LIST[0],
 	      selectedRowKeys: this.store.getSelectedRowKeys()
 	    };
@@ -460,7 +555,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      });
 
-	      var colInfos = this.getColumnsDescription(props).reduce(function (prev, curr) {
+	      this.colInfos = this.getColumnsDescription(props).reduce(function (prev, curr) {
 	        prev[curr.name] = curr;
 	        return prev;
 	      }, {});
@@ -472,7 +567,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.store.setProps({
 	        isPagination: props.pagination,
 	        keyField: keyField,
-	        colInfos: colInfos,
+	        colInfos: this.colInfos,
 	        multiColumnSearch: props.multiColumnSearch,
 	        remote: this.isRemoteDataSource()
 	      });
@@ -480,13 +575,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'getTableData',
 	    value: function getTableData() {
+	      var result = [];
 	      var _props = this.props;
 	      var options = _props.options;
 	      var pagination = _props.pagination;
 
-	      var result = [];
-	      if (options.sortName && options.sortOrder) {
-	        this.store.sort(options.sortOrder, options.sortName);
+	      var sortName = options.defaultSortName || options.sortName;
+	      var sortOrder = options.defaultSortOrder || options.sortOrder;
+	      if (sortName && sortOrder) {
+	        this.store.sort(sortOrder, sortName);
 	      }
 
 	      if (pagination) {
@@ -520,11 +617,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	          filterFormatted: column.props.filterFormatted,
 	          editable: column.props.editable,
 	          hidden: column.props.hidden,
+	          hiddenOnInsert: column.props.hiddenOnInsert,
 	          searchable: column.props.searchable,
 	          className: column.props.columnClassName,
+	          columnTitle: column.props.columnTitle,
 	          width: column.props.width,
 	          text: column.props.children,
 	          sortFunc: column.props.sortFunc,
+	          sortFuncExtraData: column.props.sortFuncExtraData,
 	          index: i
 	        };
 	      });
@@ -537,23 +637,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var selectRow = nextProps.selectRow;
 
 	      this.store.setData(nextProps.data.slice());
-	      var page = options.page || this.state.currPage;
-	      var sizePerPage = options.sizePerPage || this.state.sizePerPage;
 
-	      // #125
-	      if (!options.page && page >= Math.ceil(nextProps.data.length / sizePerPage)) {
-	        page = 1;
+	      // from #481
+	      var page = this.state.currPage;
+	      if (this.props.options.page !== options.page) {
+	        page = options.page;
 	      }
-	      var sortInfo = this.store.getSortInfo();
-	      var sortField = options.sortName || (sortInfo ? sortInfo.sortField : undefined);
-	      var sortOrder = options.sortOrder || (sortInfo ? sortInfo.order : undefined);
-	      if (sortField && sortOrder) this.store.sort(sortOrder, sortField);
-	      var data = this.store.page(page, sizePerPage).get();
-	      this.setState({
-	        data: data,
-	        currPage: page,
-	        sizePerPage: sizePerPage
-	      });
+	      // from #481
+	      var sizePerPage = this.state.sizePerPage;
+	      if (this.props.options.sizePerPage !== options.sizePerPage) {
+	        sizePerPage = options.sizePerPage;
+	      }
+
+	      if (this.isRemoteDataSource()) {
+	        this.setState({
+	          data: nextProps.data.slice(),
+	          currPage: page
+	        });
+	      } else {
+	        // #125
+	        if (!options.page && page >= Math.ceil(nextProps.data.length / sizePerPage)) {
+	          page = 1;
+	        }
+	        var sortInfo = this.store.getSortInfo();
+	        var sortField = options.sortName || (sortInfo ? sortInfo.sortField : undefined);
+	        var sortOrder = options.sortOrder || (sortInfo ? sortInfo.order : undefined);
+	        if (sortField && sortOrder) this.store.sort(sortOrder, sortField);
+	        var data = this.store.page(page, sizePerPage).get();
+	        this.setState({
+	          data: data,
+	          currPage: page,
+	          sizePerPage: sizePerPage
+	        });
+	      }
 
 	      if (selectRow && selectRow.selected) {
 	        // set default select rows to store.
@@ -632,17 +748,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (typeof this.props.options.sortIndicator === 'undefined') sortIndicator = true;
 	      return _react2['default'].createElement(
 	        'div',
-	        { className: 'react-bs-table-container' },
+	        { className: 'react-bs-table-container', style: this.props.containerStyle },
 	        toolBar,
 	        _react2['default'].createElement(
 	          'div',
-	          { className: 'react-bs-table', ref: 'table', style: style,
+	          { className: 'react-bs-table', ref: 'table', style: _extends({}, style, this.props.tableStyle),
 	            onMouseEnter: this.handleMouseEnter,
 	            onMouseLeave: this.handleMouseLeave },
 	          _react2['default'].createElement(
 	            _TableHeader2['default'],
 	            {
 	              ref: 'header',
+	              tableHeaderClass: this.props.tableHeaderClass,
+	              style: this.props.headerStyle,
 	              rowSelectType: this.props.selectRow.mode,
 	              hideSelectColumn: this.props.selectRow.hideSelectColumn,
 	              sortName: sortInfo ? sortInfo.sortField : undefined,
@@ -657,7 +775,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.props.children
 	          ),
 	          _react2['default'].createElement(_TableBody2['default'], { ref: 'body',
-	            style: style,
+	            tableBodyClass: this.props.tableBodyClass,
+	            style: _extends({}, style, this.props.bodyStyle),
 	            data: this.state.data,
 	            columns: columns,
 	            trClassName: this.props.trClassName,
@@ -682,16 +801,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'isSelectAll',
 	    value: function isSelectAll() {
+	      if (this.store.isEmpty()) return false;
+
 	      var defaultSelectRowKeys = this.store.getSelectedRowKeys();
 	      var allRowKeys = this.store.getAllRowkey();
-	      if (defaultSelectRowKeys.length !== allRowKeys.length) {
-	        return defaultSelectRowKeys.length === 0 ? false : 'indeterminate';
-	      } else {
-	        if (this.store.isEmpty()) {
-	          return false;
-	        }
-	        return true;
-	      }
+
+	      if (defaultSelectRowKeys.length === 0) return false;
+	      var match = 0;
+	      var noFound = 0;
+	      defaultSelectRowKeys.forEach(function (selected) {
+	        if (allRowKeys.indexOf(selected) !== -1) match++;else noFound++;
+	      });
+
+	      if (noFound === defaultSelectRowKeys.length) return false;
+	      return match === allRowKeys.length ? true : 'indeterminate';
 	    }
 	  }, {
 	    key: 'cleanSelected',
@@ -758,10 +881,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'deleteRow',
 	    value: function deleteRow(dropRowKeys) {
-	      var result = undefined;
-	      this.store.remove(dropRowKeys); // remove selected Row
+	      var onDeleteRow = this.props.options.onDeleteRow;
+
+	      if (onDeleteRow) {
+	        onDeleteRow(dropRowKeys);
+	      }
+
 	      this.store.setSelectedRowKey([]); // clear selected row key
 
+	      if (this.isRemoteDataSource()) {
+	        if (this.props.options.afterDeleteRow) {
+	          this.props.options.afterDeleteRow(dropRowKeys);
+	        }
+	        return;
+	      }
+
+	      this.store.remove(dropRowKeys); // remove selected Row
+	      var result = undefined;
 	      if (this.props.pagination) {
 	        var sizePerPage = this.state.sizePerPage;
 
@@ -798,6 +934,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	        var options = this.props.options;
 
+	        if (Math.ceil(dataSize / this.state.sizePerPage) <= 1 && this.props.ignoreSinglePage) return null;
 	        return _react2['default'].createElement(
 	          'div',
 	          { className: 'react-bs-table-pagination' },
@@ -807,6 +944,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            changePage: this.handlePaginationData,
 	            sizePerPage: this.state.sizePerPage,
 	            sizePerPageList: options.sizePerPageList || _Const2['default'].SIZE_PER_PAGE_LIST,
+	            pageStartIndex: options.pageStartIndex,
+	            paginationShowsTotal: options.paginationShowsTotal,
 	            paginationSize: options.paginationSize || _Const2['default'].PAGINATION_SIZE,
 	            remote: this.isRemoteDataSource(),
 	            dataSize: dataSize,
@@ -814,7 +953,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            prePage: options.prePage || _Const2['default'].PRE_PAGE,
 	            nextPage: options.nextPage || _Const2['default'].NEXT_PAGE,
 	            firstPage: options.firstPage || _Const2['default'].FIRST_PAGE,
-	            lastPage: options.lastPage || _Const2['default'].LAST_PAGE })
+	            lastPage: options.lastPage || _Const2['default'].LAST_PAGE,
+	            hideSizePerPage: options.hideSizePerPage })
 	        );
 	      }
 	      return null;
@@ -839,6 +979,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return {
 	              name: props.children,
 	              field: props.dataField,
+	              hiddenOnInsert: props.hiddenOnInsert,
 	              // when you want same auto generate value and not allow edit, example ID field
 	              autoValue: props.autoValue || false,
 	              // for create editor, no params for column.editable() indicate that editor for new row
@@ -852,7 +993,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          columns = [{
 	            name: children.props.children,
 	            field: children.props.dataField,
-	            editable: children.props.editable
+	            editable: children.props.editable,
+	            hiddenOnInsert: children.props.hiddenOnInsert
 	          }];
 	        }
 	        return _react2['default'].createElement(
@@ -869,6 +1011,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	            columns: columns,
 	            searchPlaceholder: this.props.searchPlaceholder,
 	            exportCSVText: this.props.options.exportCSVText,
+	            insertText: this.props.options.insertText,
+	            deleteText: this.props.options.deleteText,
+	            saveText: this.props.options.saveText,
+	            closeText: this.props.options.closeText,
+	            ignoreEditable: this.props.options.ignoreEditable,
 	            onAddRow: this.handleAddRow,
 	            onDropRow: this.handleDropRow,
 	            onSearch: this.handleSearch,
@@ -954,10 +1101,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  search: _react.PropTypes.bool,
 	  columnFilter: _react.PropTypes.bool,
 	  trClassName: _react.PropTypes.any,
+	  tableStyle: _react.PropTypes.object,
+	  containerStyle: _react.PropTypes.object,
+	  headerStyle: _react.PropTypes.object,
+	  bodyStyle: _react.PropTypes.object,
+	  tableHeaderClass: _react.PropTypes.string,
+	  tableBodyClass: _react.PropTypes.string,
 	  options: _react.PropTypes.shape({
 	    clearSearch: _react.PropTypes.bool,
 	    sortName: _react.PropTypes.string,
 	    sortOrder: _react.PropTypes.string,
+	    defaultSortName: _react.PropTypes.string,
+	    defaultSortOrder: _react.PropTypes.string,
 	    sortIndicator: _react.PropTypes.bool,
 	    afterTableComplete: _react.PropTypes.func,
 	    afterDeleteRow: _react.PropTypes.func,
@@ -966,26 +1121,39 @@ return /******/ (function(modules) { // webpackBootstrap
 	    afterColumnFilter: _react.PropTypes.func,
 	    onRowClick: _react.PropTypes.func,
 	    page: _react.PropTypes.number,
+	    pageStartIndex: _react.PropTypes.number,
+	    paginationShowsTotal: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.func]),
 	    sizePerPageList: _react.PropTypes.array,
 	    sizePerPage: _react.PropTypes.number,
 	    paginationSize: _react.PropTypes.number,
+	    hideSizePerPage: _react.PropTypes.bool,
 	    onSortChange: _react.PropTypes.func,
 	    onPageChange: _react.PropTypes.func,
 	    onSizePerPageList: _react.PropTypes.func,
-	    noDataText: _react.PropTypes.string,
+	    onFilterChange: _react2['default'].PropTypes.func,
+	    onSearchChange: _react2['default'].PropTypes.func,
+	    onAddRow: _react2['default'].PropTypes.func,
+	    onExportToCSV: _react2['default'].PropTypes.func,
+	    noDataText: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
 	    handleConfirmDeleteRow: _react.PropTypes.func,
 	    prePage: _react.PropTypes.string,
 	    nextPage: _react.PropTypes.string,
 	    firstPage: _react.PropTypes.string,
 	    lastPage: _react.PropTypes.string,
 	    searchDelayTime: _react.PropTypes.number,
-	    exportCSVText: _react.PropTypes.text
+	    exportCSVText: _react.PropTypes.string,
+	    insertText: _react.PropTypes.string,
+	    deleteText: _react.PropTypes.string,
+	    saveText: _react.PropTypes.string,
+	    closeText: _react.PropTypes.string,
+	    ignoreEditable: _react.PropTypes.bool
 	  }),
 	  fetchInfo: _react.PropTypes.shape({
 	    dataTotalSize: _react.PropTypes.number
 	  }),
 	  exportCSV: _react.PropTypes.bool,
-	  csvFileName: _react.PropTypes.string
+	  csvFileName: _react.PropTypes.string,
+	  ignoreSinglePage: _react.PropTypes.bool
 	};
 	BootstrapTable.defaultProps = {
 	  height: '100%',
@@ -1019,10 +1187,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  multiColumnSearch: false,
 	  columnFilter: false,
 	  trClassName: '',
+	  tableStyle: undefined,
+	  containerStyle: undefined,
+	  headerStyle: undefined,
+	  bodyStyle: undefined,
+	  tableHeaderClass: null,
+	  tableBodyClass: null,
 	  options: {
 	    clearSearch: false,
 	    sortName: undefined,
 	    sortOrder: undefined,
+	    defaultSortName: undefined,
+	    defaultSortOrder: undefined,
 	    sortIndicator: true,
 	    afterTableComplete: undefined,
 	    afterDeleteRow: undefined,
@@ -1035,9 +1211,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	    onRowMouseOut: undefined,
 	    onRowMouseOver: undefined,
 	    page: undefined,
+	    paginationShowsTotal: false,
 	    sizePerPageList: _Const2['default'].SIZE_PER_PAGE_LIST,
 	    sizePerPage: undefined,
 	    paginationSize: _Const2['default'].PAGINATION_SIZE,
+	    hideSizePerPage: false,
 	    onSizePerPageList: undefined,
 	    noDataText: undefined,
 	    handleConfirmDeleteRow: undefined,
@@ -1045,14 +1223,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    nextPage: _Const2['default'].NEXT_PAGE,
 	    firstPage: _Const2['default'].FIRST_PAGE,
 	    lastPage: _Const2['default'].LAST_PAGE,
+	    pageStartIndex: undefined,
 	    searchDelayTime: undefined,
-	    exportCSVText: _Const2['default'].EXPORT_CSV_TEXT
+	    exportCSVText: _Const2['default'].EXPORT_CSV_TEXT,
+	    insertText: _Const2['default'].INSERT_BTN_TEXT,
+	    deleteText: _Const2['default'].DELETE_BTN_TEXT,
+	    saveText: _Const2['default'].SAVE_BTN_TEXT,
+	    closeText: _Const2['default'].CLOSE_BTN_TEXT,
+	    ignoreEditable: false
 	  },
 	  fetchInfo: {
 	    dataTotalSize: 0
 	  },
 	  exportCSV: false,
-	  csvFileName: undefined
+	  csvFileName: 'spreadsheet.csv',
+	  ignoreSinglePage: false
 	};
 
 	exports['default'] = BootstrapTable;
@@ -1081,6 +1266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  LAST_PAGE: '>>',
 	  PRE_PAGE: '<',
 	  FIRST_PAGE: '<<',
+	  PAGE_START_INDEX: 1,
 	  ROW_SELECT_BG_COLOR: '',
 	  ROW_SELECT_NONE: 'none',
 	  ROW_SELECT_SINGLE: 'radio',
@@ -1094,6 +1280,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  SHOW_ONLY_SELECT: 'Show Selected Only',
 	  SHOW_ALL: 'Show All',
 	  EXPORT_CSV_TEXT: 'Export to CSV',
+	  INSERT_BTN_TEXT: 'New',
+	  DELETE_BTN_TEXT: 'Delete',
+	  SAVE_BTN_TEXT: 'Save',
+	  CLOSE_BTN_TEXT: 'Close',
 	  FILTER_DELAY: 500,
 	  FILTER_TYPE: {
 	    TEXT: 'TextFilter',
@@ -1195,18 +1385,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(TableHeader, [{
 	    key: 'render',
 	    value: function render() {
+	      var _this = this;
+
 	      var containerClasses = (0, _classnames2['default'])('react-bs-container-header', 'table-header-wrapper');
 	      var tableClasses = (0, _classnames2['default'])('table', 'table-hover', {
 	        'table-bordered': this.props.bordered,
 	        'table-condensed': this.props.condensed
-	      });
+	      }, this.props.tableHeaderClass);
 	      var selectRowHeaderCol = null;
 	      if (!this.props.hideSelectColumn) selectRowHeaderCol = this.renderSelectRowHeader();
-	      this._attachClearSortCaretFunc();
-
+	      var i = 0;
 	      return _react2['default'].createElement(
 	        'div',
-	        { ref: 'container', className: containerClasses },
+	        { ref: 'container', className: containerClasses, style: this.props.style },
 	        _react2['default'].createElement(
 	          'table',
 	          { className: tableClasses },
@@ -1217,7 +1408,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	              'tr',
 	              { ref: 'header' },
 	              selectRowHeaderCol,
-	              this.props.children
+	              _react2['default'].Children.map(this.props.children, function (elm) {
+	                var _props = _this.props;
+	                var sortIndicator = _props.sortIndicator;
+	                var sortName = _props.sortName;
+	                var sortOrder = _props.sortOrder;
+	                var onSort = _props.onSort;
+	                var _elm$props = elm.props;
+	                var dataField = _elm$props.dataField;
+	                var dataSort = _elm$props.dataSort;
+
+	                var sort = dataSort && dataField === sortName ? sortOrder : undefined;
+	                return _react2['default'].cloneElement(elm, { key: i++, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
+	              })
 	            )
 	          )
 	        )
@@ -1240,34 +1443,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return null;
 	      }
 	    }
-	  }, {
-	    key: '_attachClearSortCaretFunc',
-	    value: function _attachClearSortCaretFunc() {
-	      var _props = this.props;
-	      var sortIndicator = _props.sortIndicator;
-	      var children = _props.children;
-	      var sortName = _props.sortName;
-	      var sortOrder = _props.sortOrder;
-	      var onSort = _props.onSort;
-
-	      if (Array.isArray(children)) {
-	        for (var i = 0; i < children.length; i++) {
-	          var field = children[i].props.dataField;
-	          var sort = field === sortName ? sortOrder : undefined;
-	          this.props.children[i] = _react2['default'].cloneElement(children[i], { key: i, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
-	        }
-	      } else {
-	        var field = children.props.dataField;
-	        var sort = field === sortName ? sortOrder : undefined;
-	        this.props.children = _react2['default'].cloneElement(children, { key: 0, onSort: onSort, sort: sort, sortIndicator: sortIndicator });
-	      }
-	    }
 	  }]);
 
 	  return TableHeader;
 	})(_react.Component);
 
 	TableHeader.propTypes = {
+	  tableHeaderClass: _react.PropTypes.string,
+	  style: _react.PropTypes.object,
 	  rowSelectType: _react.PropTypes.string,
 	  onSort: _react.PropTypes.func,
 	  onSelectAllRow: _react.PropTypes.func,
@@ -1479,7 +1662,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      onRowClick(selectedRow);
 	    };
 
-	    this.handleSelectRow = function (rowIndex, isSelected) {
+	    this.handleSelectRow = function (rowIndex, isSelected, e) {
 	      var selectedRow = undefined;
 	      var _props2 = _this.props;
 	      var data = _props2.data;
@@ -1491,16 +1674,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	          return false;
 	        }
 	      });
-	      onSelectRow(selectedRow, isSelected);
+	      onSelectRow(selectedRow, isSelected, e);
 	    };
 
 	    this.handleSelectRowColumChange = function (e) {
 	      if (!_this.props.selectRow.clickToSelect || !_this.props.selectRow.clickToSelectAndEditCell) {
-	        _this.handleSelectRow(e.currentTarget.parentElement.parentElement.rowIndex + 1, e.currentTarget.checked);
+	        _this.handleSelectRow(e.currentTarget.parentElement.parentElement.rowIndex + 1, e.currentTarget.checked, e);
 	      }
 	    };
 
-	    this.handleEditCell = function (rowIndex, columnIndex) {
+	    this.handleEditCell = function (rowIndex, columnIndex, e) {
 	      _this.editing = true;
 	      if (_this._isSelectRowDefined()) {
 	        columnIndex--;
@@ -1514,8 +1697,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      };
 
-	      if (_this.props.selectRow.clickToSelectAndEditCell) {
-	        _this.handleSelectRow(rowIndex + 1, true);
+	      if (_this.props.selectRow.clickToSelectAndEditCell && _this.props.cellEdit.mode !== _Const2['default'].CELL_EDIT_DBCLICK) {
+	        var selected = _this.props.selectedRowKeys.indexOf(_this.props.data[rowIndex][_this.props.keyField]) !== -1;
+	        _this.handleSelectRow(rowIndex + 1, !selected, e);
 	      }
 	      _this.setState(stateObj);
 	    };
@@ -1541,7 +1725,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        'table-bordered': this.props.bordered,
 	        'table-hover': this.props.hover,
 	        'table-condensed': this.props.condensed
-	      });
+	      }, this.props.tableBodyClass);
 
 	      var isSelectRowDefined = this._isSelectRowDefined();
 	      var tableHeader = this.renderTableHeader(isSelectRowDefined);
@@ -1556,7 +1740,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var format = column.format ? function (value) {
 	              return column.format(value, data, column.formatExtraData).replace(/<.*?>/g, '');
 	            } : false;
-
 	            if (isFun(column.editable)) {
 	              editable = column.editable(fieldValue, data, r, i);
 	            }
@@ -1577,6 +1760,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          } else {
 	            // add by bluespring for className customize
 	            var columnChild = fieldValue;
+	            var columnTitle = null;
 	            var tdClassName = column.className;
 	            if (isFun(column.className)) {
 	              tdClassName = column.className(fieldValue, data, r, i);
@@ -1588,13 +1772,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	                columnChild = _react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: formattedValue } });
 	              } else {
 	                columnChild = formattedValue;
+	                columnTitle = column.columnTitle && formattedValue ? formattedValue.toString() : null;
 	              }
+	            } else {
+	              columnTitle = column.columnTitle && fieldValue ? fieldValue.toString() : null;
 	            }
 	            return _react2['default'].createElement(
 	              _TableColumn2['default'],
 	              { key: i,
 	                dataAlign: column.align,
 	                className: tdClassName,
+	                columnTitle: columnTitle,
 	                cellEdit: this.props.cellEdit,
 	                hidden: column.hidden,
 	                onEdit: this.handleEditCell,
@@ -1670,14 +1858,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	      }
 	      var theader = this.props.columns.map(function (column, i) {
-	        var width = column.width === null ? column.width : parseInt(column.width, 10);
 	        var style = {
-	          display: column.hidden ? 'none' : null,
-	          width: width,
-	          minWidth: width
+	          display: column.hidden ? 'none' : null
+	        };
+	        if (column.width) {
+	          var width = parseInt(column.width, 10);
+	          style.width = width;
 	          /** add min-wdth to fix user assign column width
 	          not eq offsetWidth in large column table **/
-	        };
+	          style.minWidth = width;
+	        }
 	        return _react2['default'].createElement('col', { style: style, key: i, className: column.className });
 	      });
 
@@ -1728,8 +1918,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  selectedRowKeys: _react.PropTypes.array,
 	  onRowClick: _react.PropTypes.func,
 	  onSelectRow: _react.PropTypes.func,
-	  noDataText: _react.PropTypes.string,
-	  style: _react.PropTypes.object
+	  noDataText: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
+	  style: _react.PropTypes.object,
+	  tableBodyClass: _react.PropTypes.string
 	};
 	exports['default'] = TableBody;
 	module.exports = exports['default'];
@@ -1756,6 +1947,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var _classnames = __webpack_require__(6);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -1776,7 +1971,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          var rowIndex = e.currentTarget.rowIndex + 1;
 	          if (_this.props.selectRow) {
 	            if (_this.props.selectRow.clickToSelect) {
-	              _this.props.onSelectRow(rowIndex, !_this.props.isSelected);
+	              _this.props.onSelectRow(rowIndex, !_this.props.isSelected, e);
 	            } else if (_this.props.selectRow.clickToSelectAndEditCell) {
 	              _this.clickNum++;
 	              /** if clickToSelectAndEditCell is enabled,
@@ -1785,7 +1980,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              **/
 	              setTimeout(function () {
 	                if (_this.clickNum === 1) {
-	                  _this.props.onSelectRow(rowIndex, !_this.props.isSelected);
+	                  _this.props.onSelectRow(rowIndex, !_this.props.isSelected, e);
 	                }
 	                _this.clickNum = 0;
 	              }, 200);
@@ -1819,7 +2014,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        style: {
 	          backgroundColor: this.props.isSelected ? this.props.selectRow.bgColor : null
 	        },
-	        className: (this.props.isSelected && this.props.selectRow.className ? this.props.selectRow.className : '') + (this.props.className || '')
+	        className: (0, _classnames2['default'])(this.props.isSelected ? this.props.selectRow.className : null, this.props.className)
 	      };
 
 	      if (this.props.selectRow && (this.props.selectRow.clickToSelect || this.props.selectRow.clickToSelectAndEditCell) || this.props.onRowClick) {
@@ -1907,7 +2102,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          sel.removeAllRanges();
 	        }
 	      }
-	      _this.props.onEdit(e.currentTarget.parentElement.rowIndex + 1, e.currentTarget.cellIndex);
+	      _this.props.onEdit(e.currentTarget.parentElement.rowIndex + 1, e.currentTarget.cellIndex, e);
 	    };
 	  }
 
@@ -1962,7 +2157,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      return _react2['default'].createElement(
 	        'td',
-	        _extends({ style: tdStyle, className: this.props.className }, opts),
+	        _extends({ style: tdStyle,
+	          title: this.props.columnTitle,
+	          className: this.props.className
+	        }, opts),
 	        this.props.children
 	      );
 	    }
@@ -1975,6 +2173,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  dataAlign: _react.PropTypes.string,
 	  hidden: _react.PropTypes.bool,
 	  className: _react.PropTypes.string,
+	  columnTitle: _react.PropTypes.string,
 	  children: _react.PropTypes.node
 	};
 
@@ -2043,10 +2242,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _this.props.completeEdit(value, _this.props.rowIndex, _this.props.colIndex);
 	      } else if (e.keyCode === 27) {
 	        _this.props.completeEdit(null, _this.props.rowIndex, _this.props.colIndex);
+	      } else if (e.type === 'click') {
+	        // textarea click save button
+	        var value = e.target.parentElement.firstChild.value;
+	        if (!_this.validator(value)) {
+	          return;
+	        }
+	        _this.props.completeEdit(value, _this.props.rowIndex, _this.props.colIndex);
 	      }
 	    };
 
 	    this.handleBlur = function (e) {
+	      e.stopPropagation();
 	      if (_this.props.blurToSave) {
 	        var value = e.currentTarget.type === 'checkbox' ? _this._getCheckBoxValue(e) : e.currentTarget.value;
 	        if (!_this.validator(value)) {
@@ -2068,7 +2275,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var ts = this;
 	      if (ts.props.editable.validator) {
 	        var valid = ts.props.editable.validator(value);
-	        if (!valid) {
+	        if (valid !== true) {
 	          ts.refs.notifier.notice('error', valid, 'Pressed ESC can cancel');
 	          var input = ts.refs.inputRef;
 	          // animate input
@@ -2180,8 +2387,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var editor = function editor(editable, attr, format, editorClass, defaultValue) {
-	  if (editable === true || typeof editable === 'string') {
+	var editor = function editor(editable, attr, format, editorClass, defaultValue, ignoreEditable) {
+	  if (editable === true || editable === false && ignoreEditable || typeof editable === 'string') {
 	    // simple declare
 	    var type = editable ? 'text' : editable;
 	    return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
@@ -2190,6 +2397,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var type = editable ? 'text' : editable;
 	    return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
 	      disabled: 'disabled',
+	      className: (editorClass || '') + ' form-control editor edit-text' }));
+	  } else if (editable && (editable.type === undefined || editable.type === null || editable.type.trim() === '')) {
+	    var type = editable ? 'text' : editable;
+	    return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
 	      className: (editorClass || '') + ' form-control editor edit-text' }));
 	  } else if (editable.type) {
 	    // standard declare
@@ -3700,6 +3911,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	    this.changePage = function (page) {
 	      var _props = _this.props;
+	      var pageStartIndex = _props.pageStartIndex;
 	      var prePage = _props.prePage;
 	      var currPage = _props.currPage;
 	      var nextPage = _props.nextPage;
@@ -3708,13 +3920,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var sizePerPage = _props.sizePerPage;
 
 	      if (page === prePage) {
-	        page = currPage - 1 < 1 ? 1 : currPage - 1;
+	        page = currPage - 1 < pageStartIndex ? pageStartIndex : currPage - 1;
 	      } else if (page === nextPage) {
-	        page = currPage + 1 > _this.totalPages ? _this.totalPages : currPage + 1;
+	        page = currPage + 1 > _this.lastPage ? _this.lastPage : currPage + 1;
 	      } else if (page === lastPage) {
-	        page = _this.totalPages;
+	        page = _this.lastPage;
 	      } else if (page === firstPage) {
-	        page = 1;
+	        page = pageStartIndex;
 	      } else {
 	        page = parseInt(page, 10);
 	      }
@@ -3732,8 +3944,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      if (selectSize !== _this.props.sizePerPage) {
 	        _this.totalPages = Math.ceil(_this.props.dataSize / selectSize);
-	        if (currPage > _this.totalPages) currPage = _this.totalPages;
-
+	        _this.lastPage = _this.props.pageStartIndex + _this.totalPages - 1;
+	        if (currPage > _this.lastPage) currPage = _this.lastPage;
 	        _this.props.changePage(currPage, selectSize);
 	        if (_this.props.onSizePerPageList) {
 	          _this.props.onSizePerPageList(selectSize);
@@ -3748,11 +3960,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var _this2 = this;
 
 	      var _props2 = this.props;
+	      var currPage = _props2.currPage;
 	      var dataSize = _props2.dataSize;
 	      var sizePerPage = _props2.sizePerPage;
 	      var sizePerPageList = _props2.sizePerPageList;
+	      var paginationShowsTotal = _props2.paginationShowsTotal;
+	      var pageStartIndex = _props2.pageStartIndex;
+	      var hideSizePerPage = _props2.hideSizePerPage;
 
 	      this.totalPages = Math.ceil(dataSize / sizePerPage);
+	      this.lastPage = this.props.pageStartIndex + this.totalPages - 1;
 	      var pageBtns = this.makePage();
 	      var pageListStyle = {
 	        float: 'right',
@@ -3774,6 +3991,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	        );
 	      });
 
+	      var offset = Math.abs(_Const2['default'].PAGE_START_INDEX - pageStartIndex);
+	      var start = (currPage - pageStartIndex) * sizePerPage;
+	      var to = Math.min(sizePerPage * (currPage + offset) - 1, dataSize);
+	      var total = paginationShowsTotal ? _react2['default'].createElement(
+	        'span',
+	        null,
+	        'Showing rows ',
+	        start,
+	        ' to ',
+	        to,
+	        ' of ',
+	        dataSize
+	      ) : null;
+
+	      if (typeof paginationShowsTotal === 'function') {
+	        total = paginationShowsTotal(start, to, dataSize);
+	      }
+
+	      var dropDownStyle = {
+	        visibility: hideSizePerPage ? 'hidden' : 'visible'
+	      };
+
 	      return _react2['default'].createElement(
 	        'div',
 	        { className: 'row', style: { marginTop: 15 } },
@@ -3783,9 +4022,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	          _react2['default'].createElement(
 	            'div',
 	            { className: 'col-md-6' },
+	            total,
+	            ' ',
 	            _react2['default'].createElement(
-	              'div',
-	              { className: 'dropdown' },
+	              'span',
+	              { className: 'dropdown', style: dropDownStyle },
 	              _react2['default'].createElement(
 	                'button',
 	                { className: 'btn btn-default dropdown-toggle',
@@ -3817,11 +4058,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	          )
 	        ) : _react2['default'].createElement(
 	          'div',
-	          { className: 'col-md-12' },
+	          null,
 	          _react2['default'].createElement(
-	            'ul',
-	            { className: 'pagination', style: pageListStyle },
-	            pageBtns
+	            'div',
+	            { className: 'col-md-6' },
+	            total
+	          ),
+	          _react2['default'].createElement(
+	            'div',
+	            { className: 'col-md-6' },
+	            _react2['default'].createElement(
+	              'ul',
+	              { className: 'pagination', style: pageListStyle },
+	              pageBtns
+	            )
 	          )
 	        )
 	      );
@@ -3834,11 +4084,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var isActive = page === this.props.currPage;
 	        var disabled = false;
 	        var hidden = false;
-	        if (this.props.currPage === 1 && (page === this.props.firstPage || page === this.props.prePage)) {
+	        if (this.props.currPage === this.props.pageStartIndex && (page === this.props.firstPage || page === this.props.prePage)) {
 	          disabled = true;
 	          hidden = true;
 	        }
-	        if (this.props.currPage === this.totalPages && (page === this.props.nextPage || page === this.props.lastPage)) {
+	        if (this.props.currPage === this.lastPage && (page === this.props.nextPage || page === this.props.lastPage)) {
 	          disabled = true;
 	          hidden = true;
 	        }
@@ -3857,18 +4107,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'getPages',
 	    value: function getPages() {
 	      var pages = undefined;
-	      var startPage = 1;
 	      var endPage = this.totalPages;
-
-	      startPage = Math.max(this.props.currPage - Math.floor(this.props.paginationSize / 2), 1);
+	      if (endPage <= 0) return [];
+	      var startPage = Math.max(this.props.currPage - Math.floor(this.props.paginationSize / 2), this.props.pageStartIndex);
 	      endPage = startPage + this.props.paginationSize - 1;
 
-	      if (endPage > this.totalPages) {
-	        endPage = this.totalPages;
+	      if (endPage > this.lastPage) {
+	        endPage = this.lastPage;
 	        startPage = endPage - this.props.paginationSize + 1;
 	      }
 
-	      if (startPage !== 1 && this.totalPages > this.props.paginationSize) {
+	      if (startPage !== this.props.pageStartIndex && this.totalPages > this.props.paginationSize) {
 	        pages = [this.props.firstPage, this.props.prePage];
 	      } else if (this.totalPages > 1) {
 	        pages = [this.props.prePage];
@@ -3877,15 +4126,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 
 	      for (var i = startPage; i <= endPage; i++) {
-	        if (i > 0) pages.push(i);
+	        if (i >= this.props.pageStartIndex) pages.push(i);
 	      }
 
-	      if (endPage !== this.totalPages) {
+	      if (endPage < this.lastPage) {
 	        pages.push(this.props.nextPage);
 	        pages.push(this.props.lastPage);
-	      } else if (this.totalPages > 1) {
+	      } else if (endPage === this.lastPage && this.props.currPage !== this.lastPage) {
 	        pages.push(this.props.nextPage);
 	      }
+
 	      return pages;
 	    }
 	  }]);
@@ -3899,14 +4149,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  dataSize: _react.PropTypes.number,
 	  changePage: _react.PropTypes.func,
 	  sizePerPageList: _react.PropTypes.array,
+	  paginationShowsTotal: _react.PropTypes.bool,
 	  paginationSize: _react.PropTypes.number,
 	  remote: _react.PropTypes.bool,
 	  onSizePerPageList: _react.PropTypes.func,
-	  prePage: _react.PropTypes.string
+	  prePage: _react.PropTypes.string,
+	  pageStartIndex: _react.PropTypes.number,
+	  hideSizePerPage: _react.PropTypes.bool
 	};
 
 	PaginationList.defaultProps = {
-	  sizePerPage: _Const2['default'].SIZE_PER_PAGE
+	  sizePerPage: _Const2['default'].SIZE_PER_PAGE,
+	  pageStartIndex: _Const2['default'].PAGE_START_INDEX
 	};
 
 	exports['default'] = PaginationList;
@@ -4115,11 +4369,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      };
 	    };
 
-	    this.handleKeyUp = function () {
-	      var delay = _this.props.searchDelayTime ? _this.props.searchDelayTime : 0;
-	      _this.handleDebounce(function () {
-	        _this.props.onSearch(_this.refs.seachInput.value);
-	      }, delay)();
+	    this.handleKeyUp = function (event) {
+	      event.persist();
+	      _this.debounceCallback(event);
 	    };
 
 	    this.handleExportCSV = function () {
@@ -4142,6 +4394,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 
 	  _createClass(ToolBar, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      var _this2 = this;
+
+	      var delay = this.props.searchDelayTime ? this.props.searchDelayTime : 0;
+	      this.debounceCallback = this.handleDebounce(function () {
+	        _this2.props.onSearch(_this2.refs.seachInput.value);
+	      }, delay);
+	    }
+	  }, {
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
 	      this.clearTimeout();
@@ -4167,7 +4429,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'checkAndParseForm',
 	    value: function checkAndParseForm() {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      var newObj = {};
 	      var validateState = {};
@@ -4180,6 +4442,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	          // when you want same auto generate value and not allow edit, example ID field
 	          var time = new Date().getTime();
 	          tempValue = typeof column.autoValue === 'function' ? column.autoValue() : 'autovalue-' + time;
+	        } else if (column.hiddenOnInsert) {
+	          tempValue = '';
 	        } else {
 	          var dom = this.refs[column.field + i];
 	          tempValue = dom.value;
@@ -4212,7 +4476,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.refs.notifier.notice('error', 'Form validate errors, please checking!', 'Pressed ESC can cancel');
 	        // clear animate class
 	        this.timeouteClear = setTimeout(function () {
-	          _this2.setState({ shakeEditor: false });
+	          _this3.setState({ shakeEditor: false });
 	        }, 300);
 	        return null;
 	      }
@@ -4239,7 +4503,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            'data-toggle': 'modal',
 	            'data-target': '.' + this.modalClassName },
 	          _react2['default'].createElement('i', { className: 'glyphicon glyphicon-plus' }),
-	          ' New'
+	          ' ',
+	          this.props.insertText
 	        );
 	      }
 
@@ -4253,7 +4518,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            title: 'Drop selected row',
 	            onClick: this.handleDropRowBtnClick },
 	          _react2['default'].createElement('i', { className: 'glyphicon glyphicon-trash' }),
-	          ' Delete'
+	          ' ',
+	          this.props.deleteText
 	        );
 	      }
 
@@ -4346,6 +4612,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'renderInsertRowModal',
 	    value: function renderInsertRowModal() {
+	      var _this4 = this;
+
 	      var validateState = this.state.validateState || {};
 	      var shakeEditor = this.state.shakeEditor;
 	      var inputField = this.props.columns.map(function (column, i) {
@@ -4354,13 +4622,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var field = column.field;
 	        var name = column.name;
 	        var autoValue = column.autoValue;
+	        var hiddenOnInsert = column.hiddenOnInsert;
 
 	        var attr = {
 	          ref: field + i,
 	          placeholder: editable.placeholder ? editable.placeholder : name
 	        };
 
-	        if (autoValue) {
+	        if (autoValue || hiddenOnInsert) {
 	          // when you want same auto generate value
 	          // and not allow edit, for example ID field
 	          return null;
@@ -4381,7 +4650,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            null,
 	            name
 	          ),
-	          (0, _Editor2['default'])(editable, attr, format, ''),
+	          (0, _Editor2['default'])(editable, attr, format, '', undefined, _this4.props.ignoreEditable),
 	          error
 	        );
 	      });
@@ -4440,14 +4709,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	                { type: 'button',
 	                  className: 'btn btn-default',
 	                  'data-dismiss': 'modal' },
-	                'Close'
+	                this.props.closeText
 	              ),
 	              _react2['default'].createElement(
 	                'button',
 	                { type: 'button',
 	                  className: 'btn btn-info',
 	                  onClick: this.handleSaveBtnClick },
-	                'Save'
+	                this.props.saveText
 	              )
 	            )
 	          )
@@ -4470,7 +4739,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  columns: _react.PropTypes.array,
 	  searchPlaceholder: _react.PropTypes.string,
 	  exportCSVText: _react.PropTypes.string,
-	  clearSearch: _react.PropTypes.bool
+	  insertText: _react.PropTypes.string,
+	  deleteText: _react.PropTypes.string,
+	  saveText: _react.PropTypes.string,
+	  closeText: _react.PropTypes.string,
+	  clearSearch: _react.PropTypes.bool,
+	  ignoreEditable: _react.PropTypes.bool
 	};
 
 	ToolBar.defaultProps = {
@@ -4478,7 +4752,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  enableDelete: false,
 	  enableSearch: false,
 	  enableShowOnlySelected: false,
-	  clearSearch: false
+	  clearSearch: false,
+	  ignoreEditable: false,
+	  exportCSVText: _Const2['default'].EXPORT_CSV_TEXT,
+	  insertText: _Const2['default'].INSERT_BTN_TEXT,
+	  deleteText: _Const2['default'].DELETE_BTN_TEXT,
+	  saveText: _Const2['default'].SAVE_BTN_TEXT,
+	  closeText: _Const2['default'].CLOSE_BTN_TEXT
 	};
 
 	exports['default'] = ToolBar;
@@ -4643,16 +4923,27 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Const2 = _interopRequireDefault(_Const);
 
-	function _sort(arr, sortField, order, sortFunc) {
+	function _sort(arr, sortField, order, sortFunc, sortFuncExtraData) {
 	  order = order.toLowerCase();
+	  var isDesc = order === _Const2['default'].SORT_DESC;
 	  arr.sort(function (a, b) {
 	    if (sortFunc) {
-	      return sortFunc(a, b, order, sortField);
+	      return sortFunc(a, b, order, sortField, sortFuncExtraData);
 	    } else {
-	      if (order === _Const2['default'].SORT_DESC) {
-	        return a[sortField] > b[sortField] ? -1 : a[sortField] < b[sortField] ? 1 : 0;
+	      var valueA = a[sortField] === null ? '' : a[sortField];
+	      var valueB = b[sortField] === null ? '' : b[sortField];
+	      if (isDesc) {
+	        if (typeof valueB === 'string') {
+	          return valueB.localeCompare(valueA);
+	        } else {
+	          return valueA > valueB ? -1 : valueA < valueB ? 1 : 0;
+	        }
 	      } else {
-	        return a[sortField] < b[sortField] ? -1 : a[sortField] > b[sortField] ? 1 : 0;
+	        if (typeof valueA === 'string') {
+	          return valueA.localeCompare(valueB);
+	        } else {
+	          return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
+	        }
 	      }
 	    }
 	  });
@@ -4691,13 +4982,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'setData',
 	    value: function setData(data) {
 	      this.data = data;
-	      if (this.isOnFilter) {
-	        if (this.filterObj !== null) this.filter(this.filterObj);
-	        if (this.searchText !== null) this.search(this.searchText);
+	      if (this.remote) {
+	        return;
 	      }
-	      if (this.sortObj) {
-	        this.sort(this.sortObj.order, this.sortObj.sortField);
-	      }
+
+	      this._refresh(true);
+	    }
+	  }, {
+	    key: 'getColInfos',
+	    value: function getColInfos() {
+	      return this.colInfos;
 	    }
 	  }, {
 	    key: 'getSortInfo',
@@ -4705,9 +4999,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return this.sortObj;
 	    }
 	  }, {
+	    key: 'setSortInfo',
+	    value: function setSortInfo(order, sortField) {
+	      this.sortObj = {
+	        order: order,
+	        sortField: sortField
+	      };
+	    }
+	  }, {
 	    key: 'setSelectedRowKey',
 	    value: function setSelectedRowKey(selectedRowKeys) {
 	      this.selected = selectedRowKeys;
+	    }
+	  }, {
+	    key: 'getRowByKey',
+	    value: function getRowByKey(keys) {
+	      var _this = this;
+
+	      return keys.map(function (key) {
+	        var result = _this.data.filter(function (d) {
+	          return d[_this.keyField] === key;
+	        });
+	        if (result.length !== 0) return result[0];
+	      });
 	    }
 	  }, {
 	    key: 'getSelectedRowKeys',
@@ -4720,16 +5034,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (this.isOnFilter) return this.filteredData;else return this.data;
 	    }
 	  }, {
+	    key: '_refresh',
+	    value: function _refresh(skipSorting) {
+	      if (this.isOnFilter) {
+	        if (this.filterObj !== null) this.filter(this.filterObj);
+	        if (this.searchText !== null) this.search(this.searchText);
+	      }
+	      if (!skipSorting && this.sortObj) {
+	        this.sort(this.sortObj.order, this.sortObj.sortField);
+	      }
+	    }
+	  }, {
 	    key: 'ignoreNonSelected',
 	    value: function ignoreNonSelected() {
-	      var _this = this;
+	      var _this2 = this;
 
 	      this.showOnlySelected = !this.showOnlySelected;
 	      if (this.showOnlySelected) {
 	        this.isOnFilter = true;
 	        this.filteredData = this.data.filter(function (row) {
-	          var result = _this.selected.find(function (x) {
-	            return row[_this.keyField] === x;
+	          var result = _this2.selected.find(function (x) {
+	            return row[_this2.keyField] === x;
 	          });
 	          return typeof result !== 'undefined' ? true : false;
 	        });
@@ -4740,14 +5065,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'sort',
 	    value: function sort(order, sortField) {
-	      this.sortObj = { order: order, sortField: sortField };
+	      this.setSortInfo(order, sortField);
 
 	      var currentDisplayData = this.getCurrentDisplayData();
 	      if (!this.colInfos[sortField]) return this;
 
-	      var sortFunc = this.colInfos[sortField].sortFunc;
+	      var _colInfos$sortField = this.colInfos[sortField];
+	      var sortFunc = _colInfos$sortField.sortFunc;
+	      var sortFuncExtraData = _colInfos$sortField.sortFuncExtraData;
 
-	      currentDisplayData = _sort(currentDisplayData, sortField, order, sortFunc);
+	      currentDisplayData = _sort(currentDisplayData, sortField, order, sortFunc, sortFuncExtraData);
 
 	      return this;
 	    }
@@ -4797,6 +5124,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (this.isOnFilter) {
 	        this.data.unshift(newObj);
 	      }
+	      this._refresh(false);
 	    }
 	  }, {
 	    key: 'add',
@@ -4815,20 +5143,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (this.isOnFilter) {
 	        this.data.push(newObj);
 	      }
+	      this._refresh(false);
 	    }
 	  }, {
 	    key: 'remove',
 	    value: function remove(rowKey) {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      var currentDisplayData = this.getCurrentDisplayData();
 	      var result = currentDisplayData.filter(function (row) {
-	        return rowKey.indexOf(row[_this2.keyField]) === -1;
+	        return rowKey.indexOf(row[_this3.keyField]) === -1;
 	      });
 
 	      if (this.isOnFilter) {
 	        this.data = this.data.filter(function (row) {
-	          return rowKey.indexOf(row[_this2.keyField]) === -1;
+	          return rowKey.indexOf(row[_this3.keyField]) === -1;
 	        });
 	        this.filteredData = result;
 	      } else {
@@ -4838,93 +5167,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'filter',
 	    value: function filter(filterObj) {
-	      var _this3 = this;
-
 	      if (Object.keys(filterObj).length === 0) {
 	        this.filteredData = null;
 	        this.isOnFilter = false;
 	        this.filterObj = null;
-	        if (this.searchText !== null) this.search(this.searchText);
+	        if (this.searchText) this._search(this.data);
 	      } else {
+	        var source = this.data;
 	        this.filterObj = filterObj;
-	        this.filteredData = this.data.filter(function (row) {
-	          var valid = true;
-	          var filterVal = undefined;
-	          for (var key in filterObj) {
-	            var targetVal = row[key];
-
-	            switch (filterObj[key].type) {
-	              case _Const2['default'].FILTER_TYPE.NUMBER:
-	                {
-	                  filterVal = filterObj[key].value.number;
-	                  break;
-	                }
-	              case _Const2['default'].FILTER_TYPE.CUSTOM:
-	                {
-	                  filterVal = typeof filterObj[key].value === 'object' ? undefined : typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
-	                  break;
-	                }
-	              case _Const2['default'].FILTER_TYPE.REGEX:
-	                {
-	                  filterVal = filterObj[key].value;
-	                  break;
-	                }
-	              default:
-	                {
-	                  filterVal = typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
-	                  if (filterVal === undefined) {
-	                    // Support old filter
-	                    filterVal = filterObj[key].toLowerCase();
-	                  }
-	                  break;
-	                }
-	            }
-
-	            if (_this3.colInfos[key]) {
-	              var _colInfos$key = _this3.colInfos[key];
-	              var format = _colInfos$key.format;
-	              var filterFormatted = _colInfos$key.filterFormatted;
-	              var formatExtraData = _colInfos$key.formatExtraData;
-
-	              if (filterFormatted && format) {
-	                targetVal = format(row[key], row, formatExtraData);
-	              }
-	            }
-
-	            switch (filterObj[key].type) {
-	              case _Const2['default'].FILTER_TYPE.NUMBER:
-	                {
-	                  valid = _this3.filterNumber(targetVal, filterVal, filterObj[key].value.comparator);
-	                  break;
-	                }
-	              case _Const2['default'].FILTER_TYPE.DATE:
-	                {
-	                  valid = _this3.filterDate(targetVal, filterVal);
-	                  break;
-	                }
-	              case _Const2['default'].FILTER_TYPE.REGEX:
-	                {
-	                  valid = _this3.filterRegex(targetVal, filterVal);
-	                  break;
-	                }
-	              case _Const2['default'].FILTER_TYPE.CUSTOM:
-	                {
-	                  valid = _this3.filterCustom(targetVal, filterVal, filterObj[key].value);
-	                  break;
-	                }
-	              default:
-	                {
-	                  valid = _this3.filterText(targetVal, filterVal);
-	                  break;
-	                }
-	            }
-	            if (!valid) {
-	              break;
-	            }
-	          }
-	          return valid;
-	        });
-	        this.isOnFilter = true;
+	        if (this.searchText) {
+	          this._search(source);
+	          source = this.filteredData;
+	        }
+	        this._filter(source);
 	      }
 	    }
 	  }, {
@@ -4984,8 +5239,68 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, {
 	    key: 'filterDate',
-	    value: function filterDate(targetVal, filterVal) {
-	      return targetVal.getDate() === filterVal.getDate() && targetVal.getMonth() === filterVal.getMonth() && targetVal.getFullYear() === filterVal.getFullYear();
+	    value: function filterDate(targetVal, filterVal, comparator) {
+	      // if (!targetVal) {
+	      //   return false;
+	      // }
+	      // return (targetVal.getDate() === filterVal.getDate() &&
+	      //     targetVal.getMonth() === filterVal.getMonth() &&
+	      //     targetVal.getFullYear() === filterVal.getFullYear());
+
+	      var valid = true;
+	      switch (comparator) {
+	        case '=':
+	          {
+	            if (targetVal != filterVal) {
+	              valid = false;
+	            }
+	            break;
+	          }
+	        case '>':
+	          {
+	            if (targetVal <= filterVal) {
+	              valid = false;
+	            }
+	            break;
+	          }
+	        case '>=':
+	          {
+	            // console.log(targetVal);
+	            // console.log(filterVal);
+	            // console.log(filterVal.getDate());
+	            if (targetVal < filterVal) {
+	              valid = false;
+	            }
+	            break;
+	          }
+	        case '<':
+	          {
+	            if (targetVal >= filterVal) {
+	              valid = false;
+	            }
+	            break;
+	          }
+	        case '<=':
+	          {
+	            if (targetVal > filterVal) {
+	              valid = false;
+	            }
+	            break;
+	          }
+	        case '!=':
+	          {
+	            if (targetVal == filterVal) {
+	              valid = false;
+	            }
+	            break;
+	          }
+	        default:
+	          {
+	            console.error('Date comparator provided is not supported');
+	            break;
+	          }
+	      }
+	      return valid;
 	    }
 	  }, {
 	    key: 'filterRegex',
@@ -5021,64 +5336,157 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'search',
 	    value: function search(searchText) {
-	      var _this4 = this;
-
 	      if (searchText.trim() === '') {
 	        this.filteredData = null;
 	        this.isOnFilter = false;
 	        this.searchText = null;
-	        if (this.filterObj !== null) this.filter(this.filterObj);
+	        if (this.filterObj) this._filter(this.data);
 	      } else {
-	        (function () {
-	          _this4.searchText = searchText;
-	          var searchTextArray = [];
+	        var source = this.data;
+	        this.searchText = searchText;
+	        if (this.filterObj) {
+	          this._filter(source);
+	          source = this.filteredData;
+	        }
+	        this._search(source);
+	      }
+	    }
+	  }, {
+	    key: '_filter',
+	    value: function _filter(source) {
+	      var _this4 = this;
 
-	          if (_this4.multiColumnSearch) {
-	            searchTextArray = searchText.split(' ');
-	          } else {
-	            searchTextArray.push(searchText);
+	      var filterObj = this.filterObj;
+	      this.filteredData = source.filter(function (row) {
+	        var valid = true;
+	        var filterVal = undefined;
+	        for (var key in filterObj) {
+	          var targetVal = row[key];
+	          if (targetVal === null) return false;
+
+	          switch (filterObj[key].type) {
+	            case _Const2['default'].FILTER_TYPE.NUMBER:
+	              {
+	                filterVal = filterObj[key].value.number;
+	                break;
+	              }
+	            case _Const2['default'].FILTER_TYPE.CUSTOM:
+	              {
+	                filterVal = typeof filterObj[key].value === 'object' ? undefined : typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
+	                break;
+	              }
+	            case _Const2['default'].FILTER_TYPE.DATE:
+	              {
+	                filterVal = filterObj[key].value.date;
+	                break;
+	              }
+	            case _Const2['default'].FILTER_TYPE.REGEX:
+	              {
+	                filterVal = filterObj[key].value;
+	                break;
+	              }
+	            default:
+	              {
+	                filterVal = typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
+	                if (filterVal === undefined) {
+	                  // Support old filter
+	                  filterVal = filterObj[key].toLowerCase();
+	                }
+	                break;
+	              }
 	          }
-	          // Mark following code for fixing #363
-	          // To avoid to search on a data which be searched or filtered
-	          // But this solution have a poor performance, because I do a filter again
-	          // const source = this.isOnFilter ? this.filteredData : this.data;
-	          var source = _this4.filterObj !== null ? _this4.filter(_this4.filterObj) : _this4.data;
 
-	          _this4.filteredData = source.filter(function (row) {
-	            var keys = Object.keys(row);
-	            var valid = false;
-	            // for loops are ugly, but performance matters here.
-	            // And you cant break from a forEach.
-	            // http://jsperf.com/for-vs-foreach/66
-	            for (var i = 0, keysLength = keys.length; i < keysLength; i++) {
-	              var key = keys[i];
-	              if (_this4.colInfos[key] && row[key]) {
-	                var _colInfos$key2 = _this4.colInfos[key];
-	                var format = _colInfos$key2.format;
-	                var filterFormatted = _colInfos$key2.filterFormatted;
-	                var formatExtraData = _colInfos$key2.formatExtraData;
-	                var searchable = _colInfos$key2.searchable;
+	          if (_this4.colInfos[key]) {
+	            var _colInfos$key = _this4.colInfos[key];
+	            var format = _colInfos$key.format;
+	            var filterFormatted = _colInfos$key.filterFormatted;
+	            var formatExtraData = _colInfos$key.formatExtraData;
 
-	                var targetVal = row[key];
-	                if (searchable) {
-	                  if (filterFormatted && format) {
-	                    targetVal = format(targetVal, row, formatExtraData);
-	                  }
-	                  for (var j = 0, textLength = searchTextArray.length; j < textLength; j++) {
-	                    var filterVal = searchTextArray[j].toLowerCase();
-	                    if (targetVal.toString().toLowerCase().indexOf(filterVal) !== -1) {
-	                      valid = true;
-	                      break;
-	                    }
-	                  }
+	            if (filterFormatted && format) {
+	              targetVal = format(row[key], row, formatExtraData);
+	            }
+	          }
+
+	          switch (filterObj[key].type) {
+	            case _Const2['default'].FILTER_TYPE.NUMBER:
+	              {
+	                valid = _this4.filterNumber(targetVal, filterVal, filterObj[key].value.comparator);
+	                break;
+	              }
+	            case _Const2['default'].FILTER_TYPE.DATE:
+	              {
+	                valid = _this4.filterDate(targetVal, filterVal, filterObj[key].value.comparator);
+	                break;
+	              }
+	            case _Const2['default'].FILTER_TYPE.REGEX:
+	              {
+	                valid = _this4.filterRegex(targetVal, filterVal);
+	                break;
+	              }
+	            case _Const2['default'].FILTER_TYPE.CUSTOM:
+	              {
+	                valid = _this4.filterCustom(targetVal, filterVal, filterObj[key].value);
+	                break;
+	              }
+	            default:
+	              {
+	                valid = _this4.filterText(targetVal, filterVal);
+	                break;
+	              }
+	          }
+	          if (!valid) {
+	            break;
+	          }
+	        }
+	        return valid;
+	      });
+	      this.isOnFilter = true;
+	    }
+	  }, {
+	    key: '_search',
+	    value: function _search(source) {
+	      var _this5 = this;
+
+	      var searchTextArray = [];
+
+	      if (this.multiColumnSearch) {
+	        searchTextArray = this.searchText.split(' ');
+	      } else {
+	        searchTextArray.push(this.searchText);
+	      }
+	      this.filteredData = source.filter(function (row) {
+	        var keys = Object.keys(row);
+	        var valid = false;
+	        // for loops are ugly, but performance matters here.
+	        // And you cant break from a forEach.
+	        // http://jsperf.com/for-vs-foreach/66
+	        for (var i = 0, keysLength = keys.length; i < keysLength; i++) {
+	          var key = keys[i];
+	          if (_this5.colInfos[key] && row[key]) {
+	            var _colInfos$key2 = _this5.colInfos[key];
+	            var format = _colInfos$key2.format;
+	            var filterFormatted = _colInfos$key2.filterFormatted;
+	            var formatExtraData = _colInfos$key2.formatExtraData;
+	            var searchable = _colInfos$key2.searchable;
+
+	            var targetVal = row[key];
+	            if (searchable) {
+	              if (filterFormatted && format) {
+	                targetVal = format(targetVal, row, formatExtraData);
+	              }
+	              for (var j = 0, textLength = searchTextArray.length; j < textLength; j++) {
+	                var filterVal = searchTextArray[j].toLowerCase();
+	                if (targetVal.toString().toLowerCase().indexOf(filterVal) !== -1) {
+	                  valid = true;
+	                  break;
 	                }
 	              }
 	            }
-	            return valid;
-	          });
-	          _this4.isOnFilter = true;
-	        })();
-	      }
+	          }
+	        }
+	        return valid;
+	      });
+	      this.isOnFilter = true;
 	    }
 	  }, {
 	    key: 'getDataIgnoringPagination',
@@ -5126,10 +5534,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'getAllRowkey',
 	    value: function getAllRowkey() {
-	      var _this5 = this;
+	      var _this6 = this;
 
 	      return this.data.map(function (row) {
-	        return row[_this5.keyField];
+	        return row[_this6.keyField];
 	      });
 	    }
 	  }]);
@@ -5171,7 +5579,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return _react2['default'].createElement(
 	      'span',
 	      { className: orderClass },
-	      _react2['default'].createElement('span', { className: 'caret', style: { margin: '0px 5px' } })
+	      _react2['default'].createElement('span', { className: 'caret', style: { margin: '10px 5px' } })
 	    );
 	  },
 
@@ -5236,11 +5644,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	  var dataString = '';
 	  if (data.length === 0) return dataString;
 
-	  dataString += keys.join(',') + '\n';
+	  dataString += keys.map(function (x) {
+	    return x.header;
+	  }).join(',') + '\n';
 
 	  data.map(function (row) {
 	    keys.map(function (col, i) {
-	      var cell = typeof row[col] !== 'undefined' ? '"' + row[col] + '"' : '';
+	      var field = col.field;
+	      var format = col.format;
+
+	      var value = typeof format !== 'undefined' ? format(row[field]) : row[field];
+	      var cell = typeof value !== 'undefined' ? '"' + value + '"' : '';
 	      dataString += cell;
 	      if (i + 1 < keys.length) dataString += ',';
 	    });
@@ -5254,7 +5668,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var exportCSV = function exportCSV(data, keys, filename) {
 	  var dataString = toString(data, keys);
 	  if (typeof window !== 'undefined') {
-	    saveAs(new Blob([dataString], { type: 'text/plain;charset=utf-8' }), filename || 'spreadsheet.csv');
+	    saveAs(new Blob([dataString], { type: 'text/plain;charset=utf-8' }), filename);
 	  }
 	};
 
@@ -6042,12 +6456,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: 'render',
 	    value: function render() {
 	      var defaultCaret = undefined;
+	      var _props = this.props;
+	      var dataAlign = _props.dataAlign;
+	      var headerAlign = _props.headerAlign;
+	      var hidden = _props.hidden;
+	      var sort = _props.sort;
+	      var dataSort = _props.dataSort;
+	      var sortIndicator = _props.sortIndicator;
+	      var children = _props.children;
+	      var caretRender = _props.caretRender;
+
 	      var thStyle = {
-	        textAlign: this.props.dataAlign,
-	        display: this.props.hidden ? 'none' : null
+	        textAlign: headerAlign || dataAlign,
+	        display: hidden ? 'none' : null
 	      };
-	      if (this.props.sortIndicator) {
-	        defaultCaret = !this.props.dataSort ? null : _react2['default'].createElement(
+	      if (sortIndicator) {
+	        defaultCaret = !dataSort ? null : _react2['default'].createElement(
 	          'span',
 	          { className: 'order' },
 	          _react2['default'].createElement(
@@ -6062,17 +6486,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	          )
 	        );
 	      }
-	      var sortCaret = this.props.sort ? _util2['default'].renderReactSortCaret(this.props.sort) : defaultCaret;
-	      var classes = this.props.className + ' ' + (this.props.dataSort ? 'sort-column' : '');
+	      var sortCaret = sort ? _util2['default'].renderReactSortCaret(sort) : defaultCaret;
+	      if (caretRender) {
+	        sortCaret = caretRender(sort);
+	      }
 
+	      var classes = this.props.className + ' ' + (dataSort ? 'sort-column' : '');
+	      var title = typeof children === 'string' ? { title: children } : null;
 	      return _react2['default'].createElement(
 	        'th',
-	        { ref: 'header-col',
+	        _extends({ ref: 'header-col',
 	          className: classes,
 	          style: thStyle,
-	          title: this.props.children,
-	          onClick: this.handleColumnClick },
-	        this.props.children,
+	          onClick: this.handleColumnClick
+	        }, title),
+	        children,
 	        sortCaret,
 	        _react2['default'].createElement(
 	          'div',
@@ -6096,19 +6524,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	TableHeaderColumn.propTypes = {
 	  dataField: _react.PropTypes.string,
 	  dataAlign: _react.PropTypes.string,
+	  headerAlign: _react.PropTypes.string,
 	  dataSort: _react.PropTypes.bool,
 	  onSort: _react.PropTypes.func,
 	  dataFormat: _react.PropTypes.func,
+	  csvFormat: _react.PropTypes.func,
+	  csvHeader: _react.PropTypes.string,
 	  isKey: _react.PropTypes.bool,
 	  editable: _react.PropTypes.any,
 	  hidden: _react.PropTypes.bool,
+	  hiddenOnInsert: _react.PropTypes.bool,
 	  searchable: _react.PropTypes.bool,
 	  className: _react.PropTypes.string,
 	  width: _react.PropTypes.string,
 	  sortFunc: _react.PropTypes.func,
+	  sortFuncExtraData: _react.PropTypes.any,
 	  columnClassName: _react.PropTypes.any,
+	  columnTitle: _react.PropTypes.bool,
 	  filterFormatted: _react.PropTypes.bool,
 	  sort: _react.PropTypes.string,
+	  caretRender: _react.PropTypes.func,
 	  formatExtraData: _react.PropTypes.any,
 	  filter: _react.PropTypes.shape({
 	    type: _react.PropTypes.oneOf(filterTypeArray),
@@ -6127,20 +6562,26 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	TableHeaderColumn.defaultProps = {
 	  dataAlign: 'left',
+	  headerAlign: undefined,
 	  dataSort: false,
 	  dataFormat: undefined,
+	  csvFormat: undefined,
+	  csvHeader: undefined,
 	  isKey: false,
 	  editable: true,
 	  onSort: undefined,
 	  hidden: false,
+	  hiddenOnInsert: false,
 	  searchable: true,
 	  className: '',
+	  columnTitle: false,
 	  width: null,
 	  sortFunc: undefined,
 	  columnClassName: '',
 	  filterFormatted: false,
 	  sort: undefined,
 	  formatExtraData: undefined,
+	  sortFuncExtraData: undefined,
 	  filter: undefined,
 	  sortIndicator: true
 	};
@@ -6178,6 +6619,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Const2 = _interopRequireDefault(_Const);
 
+	var legalComparators = ['=', '>', '>=', '<', '<=', '!='];
+
+	function dateParser(d) {
+	  return d.getFullYear() + '-' + ("0" + (d.getMonth() + 1)).slice(-2) + '-' + ("0" + d.getDate()).slice(-2);
+	}
+
 	var DateFilter = (function (_Component) {
 	  _inherits(DateFilter, _Component);
 
@@ -6185,26 +6632,55 @@ return /******/ (function(modules) { // webpackBootstrap
 	    _classCallCheck(this, DateFilter);
 
 	    _get(Object.getPrototypeOf(DateFilter.prototype), 'constructor', this).call(this, props);
+	    this.dateComparators = this.props.dateComparators || legalComparators;
 	    this.filter = this.filter.bind(this);
+	    this.onChangeComparator = this.onChangeComparator.bind(this);
 	  }
 
 	  _createClass(DateFilter, [{
 	    key: 'setDefaultDate',
 	    value: function setDefaultDate() {
 	      var defaultDate = '';
-	      if (this.props.defaultValue) {
+	      var defaultValue = this.props.defaultValue;
+
+	      if (defaultValue && defaultValue.date) {
 	        // Set the appropriate format for the input type=date, i.e. "YYYY-MM-DD"
-	        var defaultValue = new Date(this.props.defaultValue);
-	        defaultDate = defaultValue.getFullYear() + '-' + ("0" + (defaultValue.getMonth() + 1)).slice(-2) + '-' + ("0" + defaultValue.getDate()).slice(-2);
+	        defaultDate = dateParser(new Date(defaultValue.date));
 	      }
 	      return defaultDate;
 	    }
 	  }, {
+	    key: 'onChangeComparator',
+	    value: function onChangeComparator(event) {
+	      var date = this.refs.inputDate.value;
+	      var comparator = event.target.value;
+	      if (date === '') {
+	        return;
+	      }
+	      date = new Date(date);
+	      this.props.filterHandler({ date: date, comparator: comparator }, _Const2['default'].FILTER_TYPE.DATE);
+	    }
+	  }, {
+	    key: 'getComparatorOptions',
+	    value: function getComparatorOptions() {
+	      var optionTags = [];
+	      optionTags.push(_react2['default'].createElement('option', { key: '-1' }));
+	      for (var i = 0; i < this.dateComparators.length; i++) {
+	        optionTags.push(_react2['default'].createElement(
+	          'option',
+	          { key: i, value: this.dateComparators[i] },
+	          this.dateComparators[i]
+	        ));
+	      }
+	      return optionTags;
+	    }
+	  }, {
 	    key: 'filter',
 	    value: function filter(event) {
+	      var comparator = this.refs.dateFilterComparator.value;
 	      var dateValue = event.target.value;
 	      if (dateValue) {
-	        this.props.filterHandler(new Date(dateValue), _Const2['default'].FILTER_TYPE.DATE);
+	        this.props.filterHandler({ date: new Date(dateValue), comparator: comparator }, _Const2['default'].FILTER_TYPE.DATE);
 	      } else {
 	        this.props.filterHandler(null, _Const2['default'].FILTER_TYPE.DATE);
 	      }
@@ -6212,19 +6688,34 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var dateValue = this.refs.inputDate.defaultValue;
-	      if (dateValue) {
-	        this.props.filterHandler(new Date(dateValue), _Const2['default'].FILTER_TYPE.DATE);
+	      var comparator = this.refs.dateFilterComparator.value;
+	      var dateValue = this.refs.inputDate.value;
+	      if (comparator && dateValue) {
+	        this.props.filterHandler({ date: new Date(dateValue), comparator: comparator }, _Const2['default'].FILTER_TYPE.DATE);
 	      }
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2['default'].createElement('input', { ref: 'inputDate',
-	        className: 'filter date-filter form-control',
-	        type: 'date',
-	        onChange: this.filter,
-	        defaultValue: this.setDefaultDate() });
+	      var defaultValue = this.props.defaultValue;
+
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'filter date-filter' },
+	        _react2['default'].createElement(
+	          'select',
+	          { ref: 'dateFilterComparator',
+	            className: 'date-filter-comparator form-control',
+	            onChange: this.onChangeComparator,
+	            defaultValue: defaultValue ? defaultValue.comparator : '' },
+	          this.getComparatorOptions()
+	        ),
+	        _react2['default'].createElement('input', { ref: 'inputDate',
+	          className: 'filter date-filter-input form-control',
+	          type: 'date',
+	          onChange: this.filter,
+	          defaultValue: this.setDefaultDate() })
+	      );
 	    }
 	  }]);
 
@@ -6233,7 +6724,28 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	DateFilter.propTypes = {
 	  filterHandler: _react.PropTypes.func.isRequired,
-	  defaultValue: _react.PropTypes.object,
+	  defaultValue: _react.PropTypes.shape({
+	    date: _react.PropTypes.object,
+	    comparator: _react.PropTypes.oneOf(legalComparators)
+	  }),
+	  /* eslint consistent-return: 0 */
+	  dateComparators: function dateComparators(props, propName) {
+	    if (!props[propName]) {
+	      return;
+	    }
+	    for (var i = 0; i < props[propName].length; i++) {
+	      var comparatorIsValid = false;
+	      for (var j = 0; j < legalComparators.length; j++) {
+	        if (legalComparators[j] === props[propName][i]) {
+	          comparatorIsValid = true;
+	          break;
+	        }
+	      }
+	      if (!comparatorIsValid) {
+	        return new Error('Date comparator provided is not supported.\n          Use only ' + legalComparators);
+	      }
+	    }
+	  },
 	  columnName: _react.PropTypes.string
 	};
 
@@ -6295,7 +6807,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var defaultValue = this.refs.inputText.defaultValue;
+	      var defaultValue = this.refs.inputText.value;
 	      if (defaultValue) {
 	        this.props.filterHandler(defaultValue, _Const2['default'].FILTER_TYPE.TEXT);
 	      }
@@ -6395,7 +6907,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var value = this.refs.inputText.defaultValue;
+	      var value = this.refs.inputText.value;
 	      if (value) {
 	        this.props.filterHandler(value, _Const2['default'].FILTER_TYPE.REGEX);
 	      }

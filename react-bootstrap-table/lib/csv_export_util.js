@@ -23,11 +23,17 @@ function toString(data, keys) {
   var dataString = '';
   if (data.length === 0) return dataString;
 
-  dataString += keys.join(',') + '\n';
+  dataString += keys.map(function (x) {
+    return x.header;
+  }).join(',') + '\n';
 
   data.map(function (row) {
     keys.map(function (col, i) {
-      var cell = typeof row[col] !== 'undefined' ? '"' + row[col] + '"' : '';
+      var field = col.field;
+      var format = col.format;
+
+      var value = typeof format !== 'undefined' ? format(row[field]) : row[field];
+      var cell = typeof value !== 'undefined' ? '"' + value + '"' : '';
       dataString += cell;
       if (i + 1 < keys.length) dataString += ',';
     });
@@ -41,7 +47,7 @@ function toString(data, keys) {
 var exportCSV = function exportCSV(data, keys, filename) {
   var dataString = toString(data, keys);
   if (typeof window !== 'undefined') {
-    saveAs(new Blob([dataString], { type: 'text/plain;charset=utf-8' }), filename || 'spreadsheet.csv');
+    saveAs(new Blob([dataString], { type: 'text/plain;charset=utf-8' }), filename);
   }
 };
 

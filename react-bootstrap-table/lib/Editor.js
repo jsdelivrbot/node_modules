@@ -12,8 +12,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var editor = function editor(editable, attr, format, editorClass, defaultValue) {
-  if (editable === true || typeof editable === 'string') {
+var editor = function editor(editable, attr, format, editorClass, defaultValue, ignoreEditable) {
+  if (editable === true || editable === false && ignoreEditable || typeof editable === 'string') {
     // simple declare
     var type = editable ? 'text' : editable;
     return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
@@ -22,6 +22,10 @@ var editor = function editor(editable, attr, format, editorClass, defaultValue) 
     var type = editable ? 'text' : editable;
     return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
       disabled: 'disabled',
+      className: (editorClass || '') + ' form-control editor edit-text' }));
+  } else if (editable && (editable.type === undefined || editable.type === null || editable.type.trim() === '')) {
+    var type = editable ? 'text' : editable;
+    return _react2['default'].createElement('input', _extends({}, attr, { type: type, defaultValue: defaultValue,
       className: (editorClass || '') + ' form-control editor edit-text' }));
   } else if (editable.type) {
     // standard declare

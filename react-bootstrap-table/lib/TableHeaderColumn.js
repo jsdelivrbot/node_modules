@@ -118,12 +118,22 @@ var TableHeaderColumn = (function (_Component) {
     key: 'render',
     value: function render() {
       var defaultCaret = undefined;
+      var _props = this.props;
+      var dataAlign = _props.dataAlign;
+      var headerAlign = _props.headerAlign;
+      var hidden = _props.hidden;
+      var sort = _props.sort;
+      var dataSort = _props.dataSort;
+      var sortIndicator = _props.sortIndicator;
+      var children = _props.children;
+      var caretRender = _props.caretRender;
+
       var thStyle = {
-        textAlign: this.props.dataAlign,
-        display: this.props.hidden ? 'none' : null
+        textAlign: headerAlign || dataAlign,
+        display: hidden ? 'none' : null
       };
-      if (this.props.sortIndicator) {
-        defaultCaret = !this.props.dataSort ? null : _react2['default'].createElement(
+      if (sortIndicator) {
+        defaultCaret = !dataSort ? null : _react2['default'].createElement(
           'span',
           { className: 'order' },
           _react2['default'].createElement(
@@ -138,17 +148,21 @@ var TableHeaderColumn = (function (_Component) {
           )
         );
       }
-      var sortCaret = this.props.sort ? _util2['default'].renderReactSortCaret(this.props.sort) : defaultCaret;
-      var classes = this.props.className + ' ' + (this.props.dataSort ? 'sort-column' : '');
+      var sortCaret = sort ? _util2['default'].renderReactSortCaret(sort) : defaultCaret;
+      if (caretRender) {
+        sortCaret = caretRender(sort);
+      }
 
+      var classes = this.props.className + ' ' + (dataSort ? 'sort-column' : '');
+      var title = typeof children === 'string' ? { title: children } : null;
       return _react2['default'].createElement(
         'th',
-        { ref: 'header-col',
+        _extends({ ref: 'header-col',
           className: classes,
           style: thStyle,
-          title: this.props.children,
-          onClick: this.handleColumnClick },
-        this.props.children,
+          onClick: this.handleColumnClick
+        }, title),
+        children,
         sortCaret,
         _react2['default'].createElement(
           'div',
@@ -172,19 +186,26 @@ for (var key in _Const2['default'].FILTER_TYPE) {
 TableHeaderColumn.propTypes = {
   dataField: _react.PropTypes.string,
   dataAlign: _react.PropTypes.string,
+  headerAlign: _react.PropTypes.string,
   dataSort: _react.PropTypes.bool,
   onSort: _react.PropTypes.func,
   dataFormat: _react.PropTypes.func,
+  csvFormat: _react.PropTypes.func,
+  csvHeader: _react.PropTypes.string,
   isKey: _react.PropTypes.bool,
   editable: _react.PropTypes.any,
   hidden: _react.PropTypes.bool,
+  hiddenOnInsert: _react.PropTypes.bool,
   searchable: _react.PropTypes.bool,
   className: _react.PropTypes.string,
   width: _react.PropTypes.string,
   sortFunc: _react.PropTypes.func,
+  sortFuncExtraData: _react.PropTypes.any,
   columnClassName: _react.PropTypes.any,
+  columnTitle: _react.PropTypes.bool,
   filterFormatted: _react.PropTypes.bool,
   sort: _react.PropTypes.string,
+  caretRender: _react.PropTypes.func,
   formatExtraData: _react.PropTypes.any,
   filter: _react.PropTypes.shape({
     type: _react.PropTypes.oneOf(filterTypeArray),
@@ -203,20 +224,26 @@ TableHeaderColumn.propTypes = {
 
 TableHeaderColumn.defaultProps = {
   dataAlign: 'left',
+  headerAlign: undefined,
   dataSort: false,
   dataFormat: undefined,
+  csvFormat: undefined,
+  csvHeader: undefined,
   isKey: false,
   editable: true,
   onSort: undefined,
   hidden: false,
+  hiddenOnInsert: false,
   searchable: true,
   className: '',
+  columnTitle: false,
   width: null,
   sortFunc: undefined,
   columnClassName: '',
   filterFormatted: false,
   sort: undefined,
   formatExtraData: undefined,
+  sortFuncExtraData: undefined,
   filter: undefined,
   sortIndicator: true
 };

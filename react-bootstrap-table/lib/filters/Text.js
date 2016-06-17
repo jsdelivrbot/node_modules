@@ -49,7 +49,7 @@ var TextFilter = (function (_Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var defaultValue = this.refs.inputText.defaultValue;
+      var defaultValue = this.refs.inputText.value;
       if (defaultValue) {
         this.props.filterHandler(defaultValue, _Const2['default'].FILTER_TYPE.TEXT);
       }

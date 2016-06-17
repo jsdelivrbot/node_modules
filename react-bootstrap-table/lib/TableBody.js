@@ -76,7 +76,7 @@ var TableBody = (function (_Component) {
       onRowClick(selectedRow);
     };
 
-    this.handleSelectRow = function (rowIndex, isSelected) {
+    this.handleSelectRow = function (rowIndex, isSelected, e) {
       var selectedRow = undefined;
       var _props2 = _this.props;
       var data = _props2.data;
@@ -88,16 +88,16 @@ var TableBody = (function (_Component) {
           return false;
         }
       });
-      onSelectRow(selectedRow, isSelected);
+      onSelectRow(selectedRow, isSelected, e);
     };
 
     this.handleSelectRowColumChange = function (e) {
       if (!_this.props.selectRow.clickToSelect || !_this.props.selectRow.clickToSelectAndEditCell) {
-        _this.handleSelectRow(e.currentTarget.parentElement.parentElement.rowIndex + 1, e.currentTarget.checked);
+        _this.handleSelectRow(e.currentTarget.parentElement.parentElement.rowIndex + 1, e.currentTarget.checked, e);
       }
     };
 
-    this.handleEditCell = function (rowIndex, columnIndex) {
+    this.handleEditCell = function (rowIndex, columnIndex, e) {
       _this.editing = true;
       if (_this._isSelectRowDefined()) {
         columnIndex--;
@@ -111,8 +111,9 @@ var TableBody = (function (_Component) {
         }
       };
 
-      if (_this.props.selectRow.clickToSelectAndEditCell) {
-        _this.handleSelectRow(rowIndex + 1, true);
+      if (_this.props.selectRow.clickToSelectAndEditCell && _this.props.cellEdit.mode !== _Const2['default'].CELL_EDIT_DBCLICK) {
+        var selected = _this.props.selectedRowKeys.indexOf(_this.props.data[rowIndex][_this.props.keyField]) !== -1;
+        _this.handleSelectRow(rowIndex + 1, !selected, e);
       }
       _this.setState(stateObj);
     };
@@ -138,7 +139,7 @@ var TableBody = (function (_Component) {
         'table-bordered': this.props.bordered,
         'table-hover': this.props.hover,
         'table-condensed': this.props.condensed
-      });
+      }, this.props.tableBodyClass);
 
       var isSelectRowDefined = this._isSelectRowDefined();
       var tableHeader = this.renderTableHeader(isSelectRowDefined);
@@ -153,7 +154,6 @@ var TableBody = (function (_Component) {
             var format = column.format ? function (value) {
               return column.format(value, data, column.formatExtraData).replace(/<.*?>/g, '');
             } : false;
-
             if (isFun(column.editable)) {
               editable = column.editable(fieldValue, data, r, i);
             }
@@ -174,6 +174,7 @@ var TableBody = (function (_Component) {
           } else {
             // add by bluespring for className customize
             var columnChild = fieldValue;
+            var columnTitle = null;
             var tdClassName = column.className;
             if (isFun(column.className)) {
               tdClassName = column.className(fieldValue, data, r, i);
@@ -185,13 +186,17 @@ var TableBody = (function (_Component) {
                 columnChild = _react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: formattedValue } });
               } else {
                 columnChild = formattedValue;
+                columnTitle = column.columnTitle && formattedValue ? formattedValue.toString() : null;
               }
+            } else {
+              columnTitle = column.columnTitle && fieldValue ? fieldValue.toString() : null;
             }
             return _react2['default'].createElement(
               _TableColumn2['default'],
               { key: i,
                 dataAlign: column.align,
                 className: tdClassName,
+                columnTitle: columnTitle,
                 cellEdit: this.props.cellEdit,
                 hidden: column.hidden,
                 onEdit: this.handleEditCell,
@@ -267,14 +272,16 @@ var TableBody = (function (_Component) {
         }
       }
       var theader = this.props.columns.map(function (column, i) {
-        var width = column.width === null ? column.width : parseInt(column.width, 10);
         var style = {
-          display: column.hidden ? 'none' : null,
-          width: width,
-          minWidth: width
+          display: column.hidden ? 'none' : null
+        };
+        if (column.width) {
+          var width = parseInt(column.width, 10);
+          style.width = width;
           /** add min-wdth to fix user assign column width
           not eq offsetWidth in large column table **/
-        };
+          style.minWidth = width;
+        }
         return _react2['default'].createElement('col', { style: style, key: i, className: column.className });
       });
 
@@ -325,8 +332,9 @@ TableBody.propTypes = {
   selectedRowKeys: _react.PropTypes.array,
   onRowClick: _react.PropTypes.func,
   onSelectRow: _react.PropTypes.func,
-  noDataText: _react.PropTypes.string,
-  style: _react.PropTypes.object
+  noDataText: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
+  style: _react.PropTypes.object,
+  tableBodyClass: _react.PropTypes.string
 };
 exports['default'] = TableBody;
 module.exports = exports['default'];

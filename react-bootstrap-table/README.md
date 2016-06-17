@@ -33,6 +33,7 @@ Check the <a href='https://github.com/AllenFang/react-bootstrap-table/blob/maste
 ## Notes
 ***```v2.0.0``` has been released, the main patches are fixing the unalign or wrong size column on different browsers and improving the table structure. Please check [this](https://github.com/AllenFang/react-bootstrap-table/issues/331) for more detail explanation.<br/>***
 
+***```v3.0.0``` is under planning, check [Milestone to v3.0.0](https://github.com/AllenFang/react-bootstrap-table/issues/497).<br/>***
 
 ## Development
 ```react-bootstrap-table``` dependencies on react 0.14.x and Bootstrap 3 written by ES6 and use gulp and browserify for building and bundling.
@@ -99,7 +100,7 @@ Finally, you need to import the css file to your app, there are two css file you
 ```html
 <link rel="stylesheet" href="./css/react-bootstrap-table-all.min.css">
 ```
-CSS files you can find in the css folder.
+The CSS files you can find in the css folder.
 
 ### Quick Demo
 ```js
@@ -127,7 +128,7 @@ React.render(
 	document.getElementById("app")
 );
 ```
-### See react-bootstrap-table examples
+### More react-bootstrap-table examples
 The example source codes is in the [examples](https://github.com/AllenFang/react-bootstrap-table/tree/master/examples) folder. Run  the following commands for a live demo.</br>
 ```bash
 $ git clone https://github.com/AllenFang/react-bootstrap-table.git
@@ -136,8 +137,7 @@ $ npm install
 $ gulp example-server #after start, open browser and go to http://localhost:3004
 ```
 
-### Documentation
-Please see:  [docs](http://allenfang.github.io/react-bootstrap-table/docs.html)
+### [Documentation](http://allenfang.github.io/react-bootstrap-table/docs.html)
 
 ### Thanks
 **[luqin](https://github.com/luqin)**  

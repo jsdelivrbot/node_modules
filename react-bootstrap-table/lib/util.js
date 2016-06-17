@@ -26,7 +26,7 @@ exports['default'] = {
     return _react2['default'].createElement(
       'span',
       { className: orderClass },
-      _react2['default'].createElement('span', { className: 'caret', style: { margin: '0px 5px' } })
+      _react2['default'].createElement('span', { className: 'caret', style: { margin: '10px 5px' } })
     );
   },
 

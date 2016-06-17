@@ -51,10 +51,18 @@ var TableEditColumn = (function (_Component) {
         _this.props.completeEdit(value, _this.props.rowIndex, _this.props.colIndex);
       } else if (e.keyCode === 27) {
         _this.props.completeEdit(null, _this.props.rowIndex, _this.props.colIndex);
+      } else if (e.type === 'click') {
+        // textarea click save button
+        var value = e.target.parentElement.firstChild.value;
+        if (!_this.validator(value)) {
+          return;
+        }
+        _this.props.completeEdit(value, _this.props.rowIndex, _this.props.colIndex);
       }
     };
 
     this.handleBlur = function (e) {
+      e.stopPropagation();
       if (_this.props.blurToSave) {
         var value = e.currentTarget.type === 'checkbox' ? _this._getCheckBoxValue(e) : e.currentTarget.value;
         if (!_this.validator(value)) {
@@ -76,7 +84,7 @@ var TableEditColumn = (function (_Component) {
       var ts = this;
       if (ts.props.editable.validator) {
         var valid = ts.props.editable.validator(value);
-        if (!valid) {
+        if (valid !== true) {
           ts.refs.notifier.notice('error', valid, 'Pressed ESC can cancel');
           var input = ts.refs.inputRef;
           // animate input

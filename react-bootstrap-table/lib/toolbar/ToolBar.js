@@ -119,11 +119,9 @@ var ToolBar = (function (_Component) {
       };
     };
 
-    this.handleKeyUp = function () {
-      var delay = _this.props.searchDelayTime ? _this.props.searchDelayTime : 0;
-      _this.handleDebounce(function () {
-        _this.props.onSearch(_this.refs.seachInput.value);
-      }, delay)();
+    this.handleKeyUp = function (event) {
+      event.persist();
+      _this.debounceCallback(event);
     };
 
     this.handleExportCSV = function () {
@@ -146,6 +144,16 @@ var ToolBar = (function (_Component) {
   }
 
   _createClass(ToolBar, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      var delay = this.props.searchDelayTime ? this.props.searchDelayTime : 0;
+      this.debounceCallback = this.handleDebounce(function () {
+        _this2.props.onSearch(_this2.refs.seachInput.value);
+      }, delay);
+    }
+  }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.clearTimeout();
@@ -171,7 +179,7 @@ var ToolBar = (function (_Component) {
   }, {
     key: 'checkAndParseForm',
     value: function checkAndParseForm() {
-      var _this2 = this;
+      var _this3 = this;
 
       var newObj = {};
       var validateState = {};
@@ -184,6 +192,8 @@ var ToolBar = (function (_Component) {
           // when you want same auto generate value and not allow edit, example ID field
           var time = new Date().getTime();
           tempValue = typeof column.autoValue === 'function' ? column.autoValue() : 'autovalue-' + time;
+        } else if (column.hiddenOnInsert) {
+          tempValue = '';
         } else {
           var dom = this.refs[column.field + i];
           tempValue = dom.value;
@@ -216,7 +226,7 @@ var ToolBar = (function (_Component) {
         this.refs.notifier.notice('error', 'Form validate errors, please checking!', 'Pressed ESC can cancel');
         // clear animate class
         this.timeouteClear = setTimeout(function () {
-          _this2.setState({ shakeEditor: false });
+          _this3.setState({ shakeEditor: false });
         }, 300);
         return null;
       }
@@ -243,7 +253,8 @@ var ToolBar = (function (_Component) {
             'data-toggle': 'modal',
             'data-target': '.' + this.modalClassName },
           _react2['default'].createElement('i', { className: 'glyphicon glyphicon-plus' }),
-          ' New'
+          ' ',
+          this.props.insertText
         );
       }
 
@@ -257,7 +268,8 @@ var ToolBar = (function (_Component) {
             title: 'Drop selected row',
             onClick: this.handleDropRowBtnClick },
           _react2['default'].createElement('i', { className: 'glyphicon glyphicon-trash' }),
-          ' Delete'
+          ' ',
+          this.props.deleteText
         );
       }
 
@@ -350,6 +362,8 @@ var ToolBar = (function (_Component) {
   }, {
     key: 'renderInsertRowModal',
     value: function renderInsertRowModal() {
+      var _this4 = this;
+
       var validateState = this.state.validateState || {};
       var shakeEditor = this.state.shakeEditor;
       var inputField = this.props.columns.map(function (column, i) {
@@ -358,13 +372,14 @@ var ToolBar = (function (_Component) {
         var field = column.field;
         var name = column.name;
         var autoValue = column.autoValue;
+        var hiddenOnInsert = column.hiddenOnInsert;
 
         var attr = {
           ref: field + i,
           placeholder: editable.placeholder ? editable.placeholder : name
         };
 
-        if (autoValue) {
+        if (autoValue || hiddenOnInsert) {
           // when you want same auto generate value
           // and not allow edit, for example ID field
           return null;
@@ -385,7 +400,7 @@ var ToolBar = (function (_Component) {
             null,
             name
           ),
-          (0, _Editor2['default'])(editable, attr, format, ''),
+          (0, _Editor2['default'])(editable, attr, format, '', undefined, _this4.props.ignoreEditable),
           error
         );
       });
@@ -444,14 +459,14 @@ var ToolBar = (function (_Component) {
                 { type: 'button',
                   className: 'btn btn-default',
                   'data-dismiss': 'modal' },
-                'Close'
+                this.props.closeText
               ),
               _react2['default'].createElement(
                 'button',
                 { type: 'button',
                   className: 'btn btn-info',
                   onClick: this.handleSaveBtnClick },
-                'Save'
+                this.props.saveText
               )
             )
           )
@@ -474,7 +489,12 @@ ToolBar.propTypes = {
   columns: _react.PropTypes.array,
   searchPlaceholder: _react.PropTypes.string,
   exportCSVText: _react.PropTypes.string,
-  clearSearch: _react.PropTypes.bool
+  insertText: _react.PropTypes.string,
+  deleteText: _react.PropTypes.string,
+  saveText: _react.PropTypes.string,
+  closeText: _react.PropTypes.string,
+  clearSearch: _react.PropTypes.bool,
+  ignoreEditable: _react.PropTypes.bool
 };
 
 ToolBar.defaultProps = {
@@ -482,7 +502,13 @@ ToolBar.defaultProps = {
   enableDelete: false,
   enableSearch: false,
   enableShowOnlySelected: false,
-  clearSearch: false
+  clearSearch: false,
+  ignoreEditable: false,
+  exportCSVText: _Const2['default'].EXPORT_CSV_TEXT,
+  insertText: _Const2['default'].INSERT_BTN_TEXT,
+  deleteText: _Const2['default'].DELETE_BTN_TEXT,
+  saveText: _Const2['default'].SAVE_BTN_TEXT,
+  closeText: _Const2['default'].CLOSE_BTN_TEXT
 };
 
 exports['default'] = ToolBar;

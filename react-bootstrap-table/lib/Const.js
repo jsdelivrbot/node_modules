@@ -11,6 +11,7 @@ exports['default'] = {
   LAST_PAGE: '>>',
   PRE_PAGE: '<',
   FIRST_PAGE: '<<',
+  PAGE_START_INDEX: 1,
   ROW_SELECT_BG_COLOR: '',
   ROW_SELECT_NONE: 'none',
   ROW_SELECT_SINGLE: 'radio',
@@ -24,6 +25,10 @@ exports['default'] = {
   SHOW_ONLY_SELECT: 'Show Selected Only',
   SHOW_ALL: 'Show All',
   EXPORT_CSV_TEXT: 'Export to CSV',
+  INSERT_BTN_TEXT: 'New',
+  DELETE_BTN_TEXT: 'Delete',
+  SAVE_BTN_TEXT: 'Save',
+  CLOSE_BTN_TEXT: 'Close',
   FILTER_DELAY: 500,
   FILTER_TYPE: {
     TEXT: 'TextFilter',

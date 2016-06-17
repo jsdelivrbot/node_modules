@@ -18,16 +18,27 @@ var _Const = require('../Const');
 
 var _Const2 = _interopRequireDefault(_Const);
 
-function _sort(arr, sortField, order, sortFunc) {
+function _sort(arr, sortField, order, sortFunc, sortFuncExtraData) {
   order = order.toLowerCase();
+  var isDesc = order === _Const2['default'].SORT_DESC;
   arr.sort(function (a, b) {
     if (sortFunc) {
-      return sortFunc(a, b, order, sortField);
+      return sortFunc(a, b, order, sortField, sortFuncExtraData);
     } else {
-      if (order === _Const2['default'].SORT_DESC) {
-        return a[sortField] > b[sortField] ? -1 : a[sortField] < b[sortField] ? 1 : 0;
+      var valueA = a[sortField] === null ? '' : a[sortField];
+      var valueB = b[sortField] === null ? '' : b[sortField];
+      if (isDesc) {
+        if (typeof valueB === 'string') {
+          return valueB.localeCompare(valueA);
+        } else {
+          return valueA > valueB ? -1 : valueA < valueB ? 1 : 0;
+        }
       } else {
-        return a[sortField] < b[sortField] ? -1 : a[sortField] > b[sortField] ? 1 : 0;
+        if (typeof valueA === 'string') {
+          return valueA.localeCompare(valueB);
+        } else {
+          return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
+        }
       }
     }
   });
@@ -66,13 +77,16 @@ var TableDataStore = (function () {
     key: 'setData',
     value: function setData(data) {
       this.data = data;
-      if (this.isOnFilter) {
-        if (this.filterObj !== null) this.filter(this.filterObj);
-        if (this.searchText !== null) this.search(this.searchText);
+      if (this.remote) {
+        return;
       }
-      if (this.sortObj) {
-        this.sort(this.sortObj.order, this.sortObj.sortField);
-      }
+
+      this._refresh(true);
+    }
+  }, {
+    key: 'getColInfos',
+    value: function getColInfos() {
+      return this.colInfos;
     }
   }, {
     key: 'getSortInfo',
@@ -80,9 +94,29 @@ var TableDataStore = (function () {
       return this.sortObj;
     }
   }, {
+    key: 'setSortInfo',
+    value: function setSortInfo(order, sortField) {
+      this.sortObj = {
+        order: order,
+        sortField: sortField
+      };
+    }
+  }, {
     key: 'setSelectedRowKey',
     value: function setSelectedRowKey(selectedRowKeys) {
       this.selected = selectedRowKeys;
+    }
+  }, {
+    key: 'getRowByKey',
+    value: function getRowByKey(keys) {
+      var _this = this;
+
+      return keys.map(function (key) {
+        var result = _this.data.filter(function (d) {
+          return d[_this.keyField] === key;
+        });
+        if (result.length !== 0) return result[0];
+      });
     }
   }, {
     key: 'getSelectedRowKeys',
@@ -95,16 +129,27 @@ var TableDataStore = (function () {
       if (this.isOnFilter) return this.filteredData;else return this.data;
     }
   }, {
+    key: '_refresh',
+    value: function _refresh(skipSorting) {
+      if (this.isOnFilter) {
+        if (this.filterObj !== null) this.filter(this.filterObj);
+        if (this.searchText !== null) this.search(this.searchText);
+      }
+      if (!skipSorting && this.sortObj) {
+        this.sort(this.sortObj.order, this.sortObj.sortField);
+      }
+    }
+  }, {
     key: 'ignoreNonSelected',
     value: function ignoreNonSelected() {
-      var _this = this;
+      var _this2 = this;
 
       this.showOnlySelected = !this.showOnlySelected;
       if (this.showOnlySelected) {
         this.isOnFilter = true;
         this.filteredData = this.data.filter(function (row) {
-          var result = _this.selected.find(function (x) {
-            return row[_this.keyField] === x;
+          var result = _this2.selected.find(function (x) {
+            return row[_this2.keyField] === x;
           });
           return typeof result !== 'undefined' ? true : false;
         });
@@ -115,14 +160,16 @@ var TableDataStore = (function () {
   }, {
     key: 'sort',
     value: function sort(order, sortField) {
-      this.sortObj = { order: order, sortField: sortField };
+      this.setSortInfo(order, sortField);
 
       var currentDisplayData = this.getCurrentDisplayData();
       if (!this.colInfos[sortField]) return this;
 
-      var sortFunc = this.colInfos[sortField].sortFunc;
+      var _colInfos$sortField = this.colInfos[sortField];
+      var sortFunc = _colInfos$sortField.sortFunc;
+      var sortFuncExtraData = _colInfos$sortField.sortFuncExtraData;
 
-      currentDisplayData = _sort(currentDisplayData, sortField, order, sortFunc);
+      currentDisplayData = _sort(currentDisplayData, sortField, order, sortFunc, sortFuncExtraData);
 
       return this;
     }
@@ -172,6 +219,7 @@ var TableDataStore = (function () {
       if (this.isOnFilter) {
         this.data.unshift(newObj);
       }
+      this._refresh(false);
     }
   }, {
     key: 'add',
@@ -190,20 +238,21 @@ var TableDataStore = (function () {
       if (this.isOnFilter) {
         this.data.push(newObj);
       }
+      this._refresh(false);
     }
   }, {
     key: 'remove',
     value: function remove(rowKey) {
-      var _this2 = this;
+      var _this3 = this;
 
       var currentDisplayData = this.getCurrentDisplayData();
       var result = currentDisplayData.filter(function (row) {
-        return rowKey.indexOf(row[_this2.keyField]) === -1;
+        return rowKey.indexOf(row[_this3.keyField]) === -1;
       });
 
       if (this.isOnFilter) {
         this.data = this.data.filter(function (row) {
-          return rowKey.indexOf(row[_this2.keyField]) === -1;
+          return rowKey.indexOf(row[_this3.keyField]) === -1;
         });
         this.filteredData = result;
       } else {
@@ -213,93 +262,19 @@ var TableDataStore = (function () {
   }, {
     key: 'filter',
     value: function filter(filterObj) {
-      var _this3 = this;
-
       if (Object.keys(filterObj).length === 0) {
         this.filteredData = null;
         this.isOnFilter = false;
         this.filterObj = null;
-        if (this.searchText !== null) this.search(this.searchText);
+        if (this.searchText) this._search(this.data);
       } else {
+        var source = this.data;
         this.filterObj = filterObj;
-        this.filteredData = this.data.filter(function (row) {
-          var valid = true;
-          var filterVal = undefined;
-          for (var key in filterObj) {
-            var targetVal = row[key];
-
-            switch (filterObj[key].type) {
-              case _Const2['default'].FILTER_TYPE.NUMBER:
-                {
-                  filterVal = filterObj[key].value.number;
-                  break;
-                }
-              case _Const2['default'].FILTER_TYPE.CUSTOM:
-                {
-                  filterVal = typeof filterObj[key].value === 'object' ? undefined : typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
-                  break;
-                }
-              case _Const2['default'].FILTER_TYPE.REGEX:
-                {
-                  filterVal = filterObj[key].value;
-                  break;
-                }
-              default:
-                {
-                  filterVal = typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
-                  if (filterVal === undefined) {
-                    // Support old filter
-                    filterVal = filterObj[key].toLowerCase();
-                  }
-                  break;
-                }
-            }
-
-            if (_this3.colInfos[key]) {
-              var _colInfos$key = _this3.colInfos[key];
-              var format = _colInfos$key.format;
-              var filterFormatted = _colInfos$key.filterFormatted;
-              var formatExtraData = _colInfos$key.formatExtraData;
-
-              if (filterFormatted && format) {
-                targetVal = format(row[key], row, formatExtraData);
-              }
-            }
-
-            switch (filterObj[key].type) {
-              case _Const2['default'].FILTER_TYPE.NUMBER:
-                {
-                  valid = _this3.filterNumber(targetVal, filterVal, filterObj[key].value.comparator);
-                  break;
-                }
-              case _Const2['default'].FILTER_TYPE.DATE:
-                {
-                  valid = _this3.filterDate(targetVal, filterVal);
-                  break;
-                }
-              case _Const2['default'].FILTER_TYPE.REGEX:
-                {
-                  valid = _this3.filterRegex(targetVal, filterVal);
-                  break;
-                }
-              case _Const2['default'].FILTER_TYPE.CUSTOM:
-                {
-                  valid = _this3.filterCustom(targetVal, filterVal, filterObj[key].value);
-                  break;
-                }
-              default:
-                {
-                  valid = _this3.filterText(targetVal, filterVal);
-                  break;
-                }
-            }
-            if (!valid) {
-              break;
-            }
-          }
-          return valid;
-        });
-        this.isOnFilter = true;
+        if (this.searchText) {
+          this._search(source);
+          source = this.filteredData;
+        }
+        this._filter(source);
       }
     }
   }, {
@@ -359,8 +334,68 @@ var TableDataStore = (function () {
     }
   }, {
     key: 'filterDate',
-    value: function filterDate(targetVal, filterVal) {
-      return targetVal.getDate() === filterVal.getDate() && targetVal.getMonth() === filterVal.getMonth() && targetVal.getFullYear() === filterVal.getFullYear();
+    value: function filterDate(targetVal, filterVal, comparator) {
+      // if (!targetVal) {
+      //   return false;
+      // }
+      // return (targetVal.getDate() === filterVal.getDate() &&
+      //     targetVal.getMonth() === filterVal.getMonth() &&
+      //     targetVal.getFullYear() === filterVal.getFullYear());
+
+      var valid = true;
+      switch (comparator) {
+        case '=':
+          {
+            if (targetVal != filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        case '>':
+          {
+            if (targetVal <= filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        case '>=':
+          {
+            // console.log(targetVal);
+            // console.log(filterVal);
+            // console.log(filterVal.getDate());
+            if (targetVal < filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        case '<':
+          {
+            if (targetVal >= filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        case '<=':
+          {
+            if (targetVal > filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        case '!=':
+          {
+            if (targetVal == filterVal) {
+              valid = false;
+            }
+            break;
+          }
+        default:
+          {
+            console.error('Date comparator provided is not supported');
+            break;
+          }
+      }
+      return valid;
     }
   }, {
     key: 'filterRegex',
@@ -396,64 +431,157 @@ var TableDataStore = (function () {
   }, {
     key: 'search',
     value: function search(searchText) {
-      var _this4 = this;
-
       if (searchText.trim() === '') {
         this.filteredData = null;
         this.isOnFilter = false;
         this.searchText = null;
-        if (this.filterObj !== null) this.filter(this.filterObj);
+        if (this.filterObj) this._filter(this.data);
       } else {
-        (function () {
-          _this4.searchText = searchText;
-          var searchTextArray = [];
+        var source = this.data;
+        this.searchText = searchText;
+        if (this.filterObj) {
+          this._filter(source);
+          source = this.filteredData;
+        }
+        this._search(source);
+      }
+    }
+  }, {
+    key: '_filter',
+    value: function _filter(source) {
+      var _this4 = this;
 
-          if (_this4.multiColumnSearch) {
-            searchTextArray = searchText.split(' ');
-          } else {
-            searchTextArray.push(searchText);
+      var filterObj = this.filterObj;
+      this.filteredData = source.filter(function (row) {
+        var valid = true;
+        var filterVal = undefined;
+        for (var key in filterObj) {
+          var targetVal = row[key];
+          if (targetVal === null) return false;
+
+          switch (filterObj[key].type) {
+            case _Const2['default'].FILTER_TYPE.NUMBER:
+              {
+                filterVal = filterObj[key].value.number;
+                break;
+              }
+            case _Const2['default'].FILTER_TYPE.CUSTOM:
+              {
+                filterVal = typeof filterObj[key].value === 'object' ? undefined : typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
+                break;
+              }
+            case _Const2['default'].FILTER_TYPE.DATE:
+              {
+                filterVal = filterObj[key].value.date;
+                break;
+              }
+            case _Const2['default'].FILTER_TYPE.REGEX:
+              {
+                filterVal = filterObj[key].value;
+                break;
+              }
+            default:
+              {
+                filterVal = typeof filterObj[key].value === 'string' ? filterObj[key].value.toLowerCase() : filterObj[key].value;
+                if (filterVal === undefined) {
+                  // Support old filter
+                  filterVal = filterObj[key].toLowerCase();
+                }
+                break;
+              }
           }
-          // Mark following code for fixing #363
-          // To avoid to search on a data which be searched or filtered
-          // But this solution have a poor performance, because I do a filter again
-          // const source = this.isOnFilter ? this.filteredData : this.data;
-          var source = _this4.filterObj !== null ? _this4.filter(_this4.filterObj) : _this4.data;
 
-          _this4.filteredData = source.filter(function (row) {
-            var keys = Object.keys(row);
-            var valid = false;
-            // for loops are ugly, but performance matters here.
-            // And you cant break from a forEach.
-            // http://jsperf.com/for-vs-foreach/66
-            for (var i = 0, keysLength = keys.length; i < keysLength; i++) {
-              var key = keys[i];
-              if (_this4.colInfos[key] && row[key]) {
-                var _colInfos$key2 = _this4.colInfos[key];
-                var format = _colInfos$key2.format;
-                var filterFormatted = _colInfos$key2.filterFormatted;
-                var formatExtraData = _colInfos$key2.formatExtraData;
-                var searchable = _colInfos$key2.searchable;
+          if (_this4.colInfos[key]) {
+            var _colInfos$key = _this4.colInfos[key];
+            var format = _colInfos$key.format;
+            var filterFormatted = _colInfos$key.filterFormatted;
+            var formatExtraData = _colInfos$key.formatExtraData;
 
-                var targetVal = row[key];
-                if (searchable) {
-                  if (filterFormatted && format) {
-                    targetVal = format(targetVal, row, formatExtraData);
-                  }
-                  for (var j = 0, textLength = searchTextArray.length; j < textLength; j++) {
-                    var filterVal = searchTextArray[j].toLowerCase();
-                    if (targetVal.toString().toLowerCase().indexOf(filterVal) !== -1) {
-                      valid = true;
-                      break;
-                    }
-                  }
+            if (filterFormatted && format) {
+              targetVal = format(row[key], row, formatExtraData);
+            }
+          }
+
+          switch (filterObj[key].type) {
+            case _Const2['default'].FILTER_TYPE.NUMBER:
+              {
+                valid = _this4.filterNumber(targetVal, filterVal, filterObj[key].value.comparator);
+                break;
+              }
+            case _Const2['default'].FILTER_TYPE.DATE:
+              {
+                valid = _this4.filterDate(targetVal, filterVal, filterObj[key].value.comparator);
+                break;
+              }
+            case _Const2['default'].FILTER_TYPE.REGEX:
+              {
+                valid = _this4.filterRegex(targetVal, filterVal);
+                break;
+              }
+            case _Const2['default'].FILTER_TYPE.CUSTOM:
+              {
+                valid = _this4.filterCustom(targetVal, filterVal, filterObj[key].value);
+                break;
+              }
+            default:
+              {
+                valid = _this4.filterText(targetVal, filterVal);
+                break;
+              }
+          }
+          if (!valid) {
+            break;
+          }
+        }
+        return valid;
+      });
+      this.isOnFilter = true;
+    }
+  }, {
+    key: '_search',
+    value: function _search(source) {
+      var _this5 = this;
+
+      var searchTextArray = [];
+
+      if (this.multiColumnSearch) {
+        searchTextArray = this.searchText.split(' ');
+      } else {
+        searchTextArray.push(this.searchText);
+      }
+      this.filteredData = source.filter(function (row) {
+        var keys = Object.keys(row);
+        var valid = false;
+        // for loops are ugly, but performance matters here.
+        // And you cant break from a forEach.
+        // http://jsperf.com/for-vs-foreach/66
+        for (var i = 0, keysLength = keys.length; i < keysLength; i++) {
+          var key = keys[i];
+          if (_this5.colInfos[key] && row[key]) {
+            var _colInfos$key2 = _this5.colInfos[key];
+            var format = _colInfos$key2.format;
+            var filterFormatted = _colInfos$key2.filterFormatted;
+            var formatExtraData = _colInfos$key2.formatExtraData;
+            var searchable = _colInfos$key2.searchable;
+
+            var targetVal = row[key];
+            if (searchable) {
+              if (filterFormatted && format) {
+                targetVal = format(targetVal, row, formatExtraData);
+              }
+              for (var j = 0, textLength = searchTextArray.length; j < textLength; j++) {
+                var filterVal = searchTextArray[j].toLowerCase();
+                if (targetVal.toString().toLowerCase().indexOf(filterVal) !== -1) {
+                  valid = true;
+                  break;
                 }
               }
             }
-            return valid;
-          });
-          _this4.isOnFilter = true;
-        })();
-      }
+          }
+        }
+        return valid;
+      });
+      this.isOnFilter = true;
     }
   }, {
     key: 'getDataIgnoringPagination',
@@ -501,10 +629,10 @@ var TableDataStore = (function () {
   }, {
     key: 'getAllRowkey',
     value: function getAllRowkey() {
-      var _this5 = this;
+      var _this6 = this;
 
       return this.data.map(function (row) {
-        return row[_this5.keyField];
+        return row[_this6.keyField];
       });
     }
   }]);
