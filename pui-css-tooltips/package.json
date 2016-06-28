@@ -1,106 +1,142 @@
 {
-  "name": "pui-css-tooltips",
-  "style": "tooltips.css",
-  "version": "3.4.2",
-  "description": "tooltips css component for Pivotal UI based on Bootstrap",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  "_args": [
+    [
+      {
+        "name": "pui-css-tooltips",
+        "raw": "pui-css-tooltips@5.2.0",
+        "rawSpec": "5.2.0",
+        "scope": null,
+        "spec": "5.2.0",
+        "type": "version"
+      },
+      "/tmp/build/88bfaeb5/gpcc/frontend"
+    ]
+  ],
+  "_from": "pui-css-tooltips@5.2.0",
+  "_id": "pui-css-tooltips@5.2.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/pui-css-tooltips",
+  "_nodeVersion": "5.5.0",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-css-tooltips-5.2.0.tgz_1465927748400_0.10002352250739932"
   },
+  "_npmUser": {
+    "email": "chansen87@gmail.com",
+    "name": "charleshansen"
+  },
+  "_npmVersion": "2.15.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pui-css-tooltips",
+    "raw": "pui-css-tooltips@5.2.0",
+    "rawSpec": "5.2.0",
+    "scope": null,
+    "spec": "5.2.0",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-5.2.0.tgz",
+  "_shasum": "8a06f221482b67ac294157949326339b49b57011",
+  "_shrinkwrap": null,
+  "_spec": "pui-css-tooltips@5.2.0",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "dependencies": {},
+  "description": "tooltips css component for Pivotal UI based on Bootstrap",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "8a06f221482b67ac294157949326339b49b57011",
+    "tarball": "https://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-5.2.0.tgz"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
     "bootstrap",
     "pivotal ui",
     "pivotal ui modularized",
     "css"
   ],
-  "author": {
-    "name": "Pivotal Software, Inc"
-  },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
-  },
-  "homepage": "http://styleguide.pivotal.io/",
-  "_id": "pui-css-tooltips@3.4.2",
-  "scripts": {},
-  "_shasum": "e6c29a20e4d9b89d0db45cc3bc7f67073da36ba3",
-  "_from": "pui-css-tooltips@3.4.2",
-  "_resolved": "https://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-3.4.2.tgz",
-  "_npmVersion": "2.14.22",
-  "_nodeVersion": "5.5.0",
-  "_npmUser": {
-    "name": "charleshansen",
-    "email": "chansen87@gmail.com"
-  },
-  "dist": {
-    "shasum": "e6c29a20e4d9b89d0db45cc3bc7f67073da36ba3",
-    "tarball": "http://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-3.4.2.tgz"
-  },
+  "main": "index.js",
   "maintainers": [
     {
-      "name": "aberkovec",
-      "email": "aberkovec@pivotal.io"
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
     },
     {
-      "name": "atomanyih",
-      "email": "august.toman.yih@gmail.com"
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
     },
     {
-      "name": "charleshansen",
-      "email": "chansen87@gmail.com"
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
     },
     {
-      "name": "ctaymor",
-      "email": "ctaymor@gmail.com"
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
     },
     {
-      "name": "cthompson",
-      "email": "cthompson@pivotal.io"
+      "email": "cthompson@pivotal.io",
+      "name": "cthompson"
     },
     {
-      "name": "d-reinhold",
-      "email": "dom.reinhold@gmail.com"
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
     },
     {
-      "name": "esharma",
-      "email": "esharma@pivotal.io"
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
     },
     {
-      "name": "gpleiss",
-      "email": "gpleiss@gmail.com"
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
     },
     {
-      "name": "ial-ahmed",
-      "email": "issaq_al-ahmed@outlook.com"
+      "email": "issaq_al-ahmed@outlook.com",
+      "name": "ial-ahmed"
     },
     {
-      "name": "kennyw1019",
-      "email": "kennyw1019@gmail.com"
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
     },
     {
-      "name": "mattroyal",
-      "email": "mroyal@pivotal.io"
+      "email": "mroyal@pivotal.io",
+      "name": "mattroyal"
     },
     {
-      "name": "pivotal-ui",
-      "email": "pivotal-ui@pivotal.io"
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
     },
     {
-      "name": "rdy",
-      "email": "ryan.dy@gmail.com"
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
     },
     {
-      "name": "stubbornella",
-      "email": "nicole@stubbornella.org"
+      "email": "nicole@stubbornella.org",
+      "name": "stubbornella"
     },
     {
-      "name": "vinsonchuong",
-      "email": "vinsonchuong@gmail.com"
+      "email": "vinsonchuong@gmail.com",
+      "name": "vinsonchuong"
     }
   ],
-  "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-tooltips-3.4.2.tgz_1457655832884_0.8173395949415863"
+  "name": "pui-css-tooltips",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
-  "directories": {}
+  "scripts": {},
+  "style": "tooltips.css",
+  "version": "5.2.0"
 }

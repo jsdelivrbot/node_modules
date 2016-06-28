@@ -1,0 +1,115 @@
+{
+  "_args": [
+    [
+      {
+        "name": "pui-react-mixins",
+        "raw": "pui-react-mixins@^5.2.0",
+        "rawSpec": "^5.2.0",
+        "scope": null,
+        "spec": ">=5.2.0 <6.0.0",
+        "type": "range"
+      },
+      "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-tabs"
+    ]
+  ],
+  "_from": "pui-react-mixins@>=5.2.0 <6.0.0",
+  "_id": "pui-react-mixins@5.2.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/pui-react-mixins",
+  "_nodeVersion": "5.5.0",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-react-mixins-5.2.0.tgz_1465927841695_0.09438974456861615"
+  },
+  "_npmUser": {
+    "email": "chansen87@gmail.com",
+    "name": "charleshansen"
+  },
+  "_npmVersion": "2.15.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pui-react-mixins",
+    "raw": "pui-react-mixins@^5.2.0",
+    "rawSpec": "^5.2.0",
+    "scope": null,
+    "spec": ">=5.2.0 <6.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/pui-react-collapsible",
+    "/pui-react-tabs"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-react-mixins/-/pui-react-mixins-5.2.0.tgz",
+  "_shasum": "c97d0c4519789967e33fea1b9947c7c83977754d",
+  "_shrinkwrap": null,
+  "_spec": "pui-react-mixins@^5.2.0",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-tabs",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "fbjs": "^0.7.2",
+    "pui-react-animation": "^0.2.0",
+    "raf": "^3.1.0",
+    "react-addons-shallow-compare": ">=0.14.0"
+  },
+  "description": "Mixins for use in Pivotal UI Components",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "c97d0c4519789967e33fea1b9947c7c83977754d",
+    "tarball": "https://registry.npmjs.org/pui-react-mixins/-/pui-react-mixins-5.2.0.tgz"
+  },
+  "homepage": "http://styleguide.pivotal.io/react.html",
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "license": "MIT",
+  "main": "mixins.js",
+  "maintainers": [
+    {
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
+    },
+    {
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
+    }
+  ],
+  "name": "pui-react-mixins",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": ">=15.0.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "scripts": {},
+  "version": "5.2.0"
+}

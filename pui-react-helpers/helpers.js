@@ -35,13 +35,13 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
  * @example ```js
  * var {mergeProps} = require('pui-react-helpers');
  *
- * var Ribbon = React.createClass({
+ * class Ribbon extends React.Component {
  *   render() {
  *     var {children, ...others} = this.props;
  *     var props = mergeProps(others, {className: 'ribbon', style: {height: '50px', color: 'blue'}, id: 'default-ribbon-id'});
  *     return <div {...props}>{children}</div>;
  *   }
- * });
+ * }
  *
  * ReactDOM.render(<Ribbon className="my-ribbon" style={{height: '25px'}} id="unique-ribbon-id" />, myNode);
  * // Resultant props: {className: 'ribbon my-ribbon', style: {height: '25px', color: 'blue'}, id: 'unique-ribbon-id'}

@@ -1,11 +1,13 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _puiReactHelpers = require('pui-react-helpers');
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -13,12 +15,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
 var React = require('react');
 var types = React.PropTypes;
 var classnames = require('classnames');
 
+require('pui-css-panels');
 
 var paddingTypes = [];
 ['p', 'm'].forEach(function (type) {
@@ -29,26 +30,37 @@ var paddingTypes = [];
   });
 });
 
-var PanelTitle = React.createClass({
-  displayName: 'PanelTitle',
+var PanelTitle = function (_React$Component) {
+  _inherits(PanelTitle, _React$Component);
 
-  propTypes: {
-    className: types.string
-  },
+  function PanelTitle() {
+    _classCallCheck(this, PanelTitle);
 
-  render: function render() {
-    var _props = this.props;
-    var className = _props.className;
-
-    var other = _objectWithoutProperties(_props, ['className']);
-
-    className = classnames('panel-title-alt', className);
-    return React.createElement('div', _extends({ className: className }, other));
+    return _possibleConstructorReturn(this, Object.getPrototypeOf(PanelTitle).apply(this, arguments));
   }
-});
 
-var PanelHeader = function (_React$Component) {
-  _inherits(PanelHeader, _React$Component);
+  _createClass(PanelTitle, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props;
+      var className = _props.className;
+
+      var other = _objectWithoutProperties(_props, ['className']);
+
+      className = classnames('panel-title-alt', className);
+      return React.createElement('div', _extends({ className: className }, other));
+    }
+  }]);
+
+  return PanelTitle;
+}(React.Component);
+
+PanelTitle.propTypes = {
+  className: types.string
+};
+
+var PanelHeader = function (_React$Component2) {
+  _inherits(PanelHeader, _React$Component2);
 
   function PanelHeader() {
     _classCallCheck(this, PanelHeader);
@@ -109,8 +121,8 @@ PanelHeader.propTypes = {
   subtitle: types.node
 };
 
-var PanelFooter = function (_React$Component2) {
-  _inherits(PanelFooter, _React$Component2);
+var PanelFooter = function (_React$Component3) {
+  _inherits(PanelFooter, _React$Component3);
 
   function PanelFooter() {
     _classCallCheck(this, PanelFooter);
@@ -143,8 +155,8 @@ PanelFooter.propTypes = {
   footer: types.node
 };
 
-var Panel = function (_React$Component3) {
-  _inherits(Panel, _React$Component3);
+var Panel = function (_React$Component4) {
+  _inherits(Panel, _React$Component4);
 
   function Panel() {
     _classCallCheck(this, Panel);
@@ -216,10 +228,10 @@ var ShadowPanel = function (_Panel) {
   function ShadowPanel(props) {
     _classCallCheck(this, ShadowPanel);
 
-    var _this4 = _possibleConstructorReturn(this, Object.getPrototypeOf(ShadowPanel).call(this, props));
+    var _this5 = _possibleConstructorReturn(this, Object.getPrototypeOf(ShadowPanel).call(this, props));
 
-    _this4.kind = 'panel-shadow-' + props.shadowLevel;
-    return _this4;
+    _this5.kind = 'panel-shadow-' + props.shadowLevel;
+    return _this5;
   }
 
   return ShadowPanel;
@@ -238,7 +250,7 @@ var SimplePanel = function (_Panel2) {
   function SimplePanel() {
     var _Object$getPrototypeO;
 
-    var _temp, _this5, _ret;
+    var _temp, _this6, _ret;
 
     _classCallCheck(this, SimplePanel);
 
@@ -246,7 +258,7 @@ var SimplePanel = function (_Panel2) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this5 = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(SimplePanel)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this5), _this5.kind = 'panel-simple', _temp), _possibleConstructorReturn(_this5, _ret);
+    return _ret = (_temp = (_this6 = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(SimplePanel)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this6), _this6.kind = 'panel-simple', _temp), _possibleConstructorReturn(_this6, _ret);
   }
 
   return SimplePanel;
@@ -258,7 +270,7 @@ var BasicPanel = function (_Panel3) {
   function BasicPanel() {
     var _Object$getPrototypeO2;
 
-    var _temp2, _this6, _ret2;
+    var _temp2, _this7, _ret2;
 
     _classCallCheck(this, BasicPanel);
 
@@ -266,7 +278,7 @@ var BasicPanel = function (_Panel3) {
       args[_key2] = arguments[_key2];
     }
 
-    return _ret2 = (_temp2 = (_this6 = _possibleConstructorReturn(this, (_Object$getPrototypeO2 = Object.getPrototypeOf(BasicPanel)).call.apply(_Object$getPrototypeO2, [this].concat(args))), _this6), _this6.kind = 'panel-basic', _temp2), _possibleConstructorReturn(_this6, _ret2);
+    return _ret2 = (_temp2 = (_this7 = _possibleConstructorReturn(this, (_Object$getPrototypeO2 = Object.getPrototypeOf(BasicPanel)).call.apply(_Object$getPrototypeO2, [this].concat(args))), _this7), _this7.kind = 'panel-basic', _temp2), _possibleConstructorReturn(_this7, _ret2);
   }
 
   return BasicPanel;
@@ -278,7 +290,7 @@ var BasicPanelAlt = function (_Panel4) {
   function BasicPanelAlt() {
     var _Object$getPrototypeO3;
 
-    var _temp3, _this7, _ret3;
+    var _temp3, _this8, _ret3;
 
     _classCallCheck(this, BasicPanelAlt);
 
@@ -286,7 +298,7 @@ var BasicPanelAlt = function (_Panel4) {
       args[_key3] = arguments[_key3];
     }
 
-    return _ret3 = (_temp3 = (_this7 = _possibleConstructorReturn(this, (_Object$getPrototypeO3 = Object.getPrototypeOf(BasicPanelAlt)).call.apply(_Object$getPrototypeO3, [this].concat(args))), _this7), _this7.kind = 'panel-basic-alt', _temp3), _possibleConstructorReturn(_this7, _ret3);
+    return _ret3 = (_temp3 = (_this8 = _possibleConstructorReturn(this, (_Object$getPrototypeO3 = Object.getPrototypeOf(BasicPanelAlt)).call.apply(_Object$getPrototypeO3, [this].concat(args))), _this8), _this8.kind = 'panel-basic-alt', _temp3), _possibleConstructorReturn(_this8, _ret3);
   }
 
   return BasicPanelAlt;
@@ -298,7 +310,7 @@ var ClickablePanel = function (_Panel5) {
   function ClickablePanel() {
     var _Object$getPrototypeO4;
 
-    var _temp4, _this8, _ret4;
+    var _temp4, _this9, _ret4;
 
     _classCallCheck(this, ClickablePanel);
 
@@ -306,7 +318,7 @@ var ClickablePanel = function (_Panel5) {
       args[_key4] = arguments[_key4];
     }
 
-    return _ret4 = (_temp4 = (_this8 = _possibleConstructorReturn(this, (_Object$getPrototypeO4 = Object.getPrototypeOf(ClickablePanel)).call.apply(_Object$getPrototypeO4, [this].concat(args))), _this8), _this8.kind = 'panel-clickable', _temp4), _possibleConstructorReturn(_this8, _ret4);
+    return _ret4 = (_temp4 = (_this9 = _possibleConstructorReturn(this, (_Object$getPrototypeO4 = Object.getPrototypeOf(ClickablePanel)).call.apply(_Object$getPrototypeO4, [this].concat(args))), _this9), _this9.kind = 'panel-clickable', _temp4), _possibleConstructorReturn(_this9, _ret4);
   }
 
   return ClickablePanel;
@@ -318,7 +330,7 @@ var ClickableAltPanel = function (_Panel6) {
   function ClickableAltPanel() {
     var _Object$getPrototypeO5;
 
-    var _temp5, _this9, _ret5;
+    var _temp5, _this10, _ret5;
 
     _classCallCheck(this, ClickableAltPanel);
 
@@ -326,7 +338,7 @@ var ClickableAltPanel = function (_Panel6) {
       args[_key5] = arguments[_key5];
     }
 
-    return _ret5 = (_temp5 = (_this9 = _possibleConstructorReturn(this, (_Object$getPrototypeO5 = Object.getPrototypeOf(ClickableAltPanel)).call.apply(_Object$getPrototypeO5, [this].concat(args))), _this9), _this9.kind = 'panel-clickable-alt', _temp5), _possibleConstructorReturn(_this9, _ret5);
+    return _ret5 = (_temp5 = (_this10 = _possibleConstructorReturn(this, (_Object$getPrototypeO5 = Object.getPrototypeOf(ClickableAltPanel)).call.apply(_Object$getPrototypeO5, [this].concat(args))), _this10), _this10.kind = 'panel-clickable-alt', _temp5), _possibleConstructorReturn(_this10, _ret5);
   }
 
   return ClickableAltPanel;
@@ -338,7 +350,7 @@ var HighlightPanel = function (_Panel7) {
   function HighlightPanel() {
     var _Object$getPrototypeO6;
 
-    var _temp6, _this10, _ret6;
+    var _temp6, _this11, _ret6;
 
     _classCallCheck(this, HighlightPanel);
 
@@ -346,7 +358,7 @@ var HighlightPanel = function (_Panel7) {
       args[_key6] = arguments[_key6];
     }
 
-    return _ret6 = (_temp6 = (_this10 = _possibleConstructorReturn(this, (_Object$getPrototypeO6 = Object.getPrototypeOf(HighlightPanel)).call.apply(_Object$getPrototypeO6, [this].concat(args))), _this10), _this10.kind = 'panel-highlight', _temp6), _possibleConstructorReturn(_this10, _ret6);
+    return _ret6 = (_temp6 = (_this11 = _possibleConstructorReturn(this, (_Object$getPrototypeO6 = Object.getPrototypeOf(HighlightPanel)).call.apply(_Object$getPrototypeO6, [this].concat(args))), _this11), _this11.kind = 'panel-highlight', _temp6), _possibleConstructorReturn(_this11, _ret6);
   }
 
   return HighlightPanel;

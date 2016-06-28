@@ -21,6 +21,7 @@ var PropTypes = React.PropTypes;
 var ReactFaIcon = require('react-fa/lib/Icon');
 var objectAssign = require('object-assign');
 var classnames = require('classnames');
+require('pui-css-iconography');
 
 var Icon = function (_React$Component) {
   _inherits(Icon, _React$Component);

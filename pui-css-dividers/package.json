@@ -1,0 +1,142 @@
+{
+  "_args": [
+    [
+      {
+        "name": "pui-css-dividers",
+        "raw": "pui-css-dividers@5.2.0",
+        "rawSpec": "5.2.0",
+        "scope": null,
+        "spec": "5.2.0",
+        "type": "version"
+      },
+      "/tmp/build/88bfaeb5/gpcc/frontend"
+    ]
+  ],
+  "_from": "pui-css-dividers@5.2.0",
+  "_id": "pui-css-dividers@5.2.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/pui-css-dividers",
+  "_nodeVersion": "5.5.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-css-dividers-5.2.0.tgz_1465927678380_0.48953421460464597"
+  },
+  "_npmUser": {
+    "email": "chansen87@gmail.com",
+    "name": "charleshansen"
+  },
+  "_npmVersion": "2.15.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pui-css-dividers",
+    "raw": "pui-css-dividers@5.2.0",
+    "rawSpec": "5.2.0",
+    "scope": null,
+    "spec": "5.2.0",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.2.0.tgz",
+  "_shasum": "2c4bac564e16c9096577ed93e60150fd2a2657ea",
+  "_shrinkwrap": null,
+  "_spec": "pui-css-dividers@5.2.0",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "dependencies": {},
+  "description": "dividers css component for Pivotal UI based on Bootstrap",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "2c4bac564e16c9096577ed93e60150fd2a2657ea",
+    "tarball": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.2.0.tgz"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
+    },
+    {
+      "email": "cthompson@pivotal.io",
+      "name": "cthompson"
+    },
+    {
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
+    },
+    {
+      "email": "issaq_al-ahmed@outlook.com",
+      "name": "ial-ahmed"
+    },
+    {
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
+    },
+    {
+      "email": "mroyal@pivotal.io",
+      "name": "mattroyal"
+    },
+    {
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
+    },
+    {
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
+    },
+    {
+      "email": "nicole@stubbornella.org",
+      "name": "stubbornella"
+    },
+    {
+      "email": "vinsonchuong@gmail.com",
+      "name": "vinsonchuong"
+    }
+  ],
+  "name": "pui-css-dividers",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "scripts": {},
+  "style": "dividers.css",
+  "version": "5.2.0"
+}

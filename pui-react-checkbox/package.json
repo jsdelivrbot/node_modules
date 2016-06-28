@@ -1,78 +1,116 @@
 {
-  "name": "pui-react-checkbox",
-  "version": "4.0.9",
-  "description": "A React Checkbox component",
-  "main": "checkbox.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  "_args": [
+    [
+      {
+        "name": "pui-react-checkbox",
+        "raw": "pui-react-checkbox@5.2.0",
+        "rawSpec": "5.2.0",
+        "scope": null,
+        "spec": "5.2.0",
+        "type": "version"
+      },
+      "/tmp/build/88bfaeb5/gpcc/frontend"
+    ]
+  ],
+  "_from": "pui-react-checkbox@5.2.0",
+  "_id": "pui-react-checkbox@5.2.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/pui-react-checkbox",
+  "_nodeVersion": "5.5.0",
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-react-checkbox-5.2.0.tgz_1465927778304_0.5091209746897221"
   },
+  "_npmUser": {
+    "email": "chansen87@gmail.com",
+    "name": "charleshansen"
+  },
+  "_npmVersion": "2.15.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pui-react-checkbox",
+    "raw": "pui-react-checkbox@5.2.0",
+    "rawSpec": "5.2.0",
+    "scope": null,
+    "spec": "5.2.0",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-5.2.0.tgz",
+  "_shasum": "4101744aacdfbe46da6faea661a25857f94d7b45",
+  "_shrinkwrap": null,
+  "_spec": "pui-react-checkbox@5.2.0",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "classnames": "^2.2.0",
+    "pui-css-forms": "^5.2.0"
+  },
+  "description": "A React Checkbox component",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "4101744aacdfbe46da6faea661a25857f94d7b45",
+    "tarball": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-5.2.0.tgz"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
     "bootstrap",
     "react",
     "pivotal ui",
     "pivotal ui modularized"
   ],
-  "author": {
-    "name": "Pivotal Software, Inc"
-  },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
-  },
-  "homepage": "http://styleguide.pivotal.io/",
-  "peerDependencies": {
-    "react": "^0.14.0"
-  },
-  "dependencies": {
-    "babel-runtime": "^6.1.18",
-    "classnames": "^2.2.0",
-    "pui-css-forms": "^4.0.9"
-  },
-  "_id": "pui-react-checkbox@4.0.9",
-  "scripts": {},
-  "_shasum": "94d1ec001f0c928e5b4f718d101a1888b7a634cd",
-  "_from": "pui-react-checkbox@4.0.9",
-  "_resolved": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-4.0.9.tgz",
-  "_npmVersion": "2.15.2",
-  "_nodeVersion": "5.5.0",
-  "_npmUser": {
-    "name": "charleshansen",
-    "email": "chansen87@gmail.com"
-  },
-  "dist": {
-    "shasum": "94d1ec001f0c928e5b4f718d101a1888b7a634cd",
-    "tarball": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-4.0.9.tgz"
-  },
+  "main": "checkbox.js",
   "maintainers": [
     {
-      "name": "aberkovec",
-      "email": "aberkovec@pivotal.io"
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
     },
     {
-      "name": "atomanyih",
-      "email": "august.toman.yih@gmail.com"
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
     },
     {
-      "name": "charleshansen",
-      "email": "chansen87@gmail.com"
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
     },
     {
-      "name": "d-reinhold",
-      "email": "dom.reinhold@gmail.com"
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
     },
     {
-      "name": "esharma",
-      "email": "esharma@pivotal.io"
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
     },
     {
-      "name": "kennyw1019",
-      "email": "kennyw1019@gmail.com"
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
+    },
+    {
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
     }
   ],
-  "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-checkbox-4.0.9.tgz_1460995278963_0.18627155548892915"
+  "name": "pui-react-checkbox",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": ">=15.0.0"
   },
-  "directories": {}
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "scripts": {},
+  "version": "5.2.0"
 }
