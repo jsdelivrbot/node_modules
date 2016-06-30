@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-tooltips",
-        "raw": "pui-css-tooltips@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-css-tooltips@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-css-tooltips@5.2.0",
-  "_id": "pui-css-tooltips@5.2.0",
+  "_from": "pui-css-tooltips@5.2.1",
+  "_id": "pui-css-tooltips@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-tooltips",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-tooltips-5.2.0.tgz_1465927748400_0.10002352250739932"
+    "tmp": "tmp/pui-css-tooltips-5.2.1.tgz_1467214771530_0.9593708305619657"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-tooltips",
-    "raw": "pui-css-tooltips@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-css-tooltips@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-5.2.0.tgz",
-  "_shasum": "8a06f221482b67ac294157949326339b49b57011",
+  "_resolved": "https://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-5.2.1.tgz",
+  "_shasum": "ed3fd3d12b86ef785dbc0f84ba43f3e17b7e2aa5",
   "_shrinkwrap": null,
-  "_spec": "pui-css-tooltips@5.2.0",
+  "_spec": "pui-css-tooltips@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -55,8 +55,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "8a06f221482b67ac294157949326339b49b57011",
-    "tarball": "https://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-5.2.0.tgz"
+    "shasum": "ed3fd3d12b86ef785dbc0f84ba43f3e17b7e2aa5",
+    "tarball": "https://registry.npmjs.org/pui-css-tooltips/-/pui-css-tooltips-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -138,5 +138,5 @@
   },
   "scripts": {},
   "style": "tooltips.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

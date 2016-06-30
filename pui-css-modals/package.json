@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-modals",
-        "raw": "pui-css-modals@^5.2.0",
-        "rawSpec": "^5.2.0",
+        "raw": "pui-css-modals@^5.2.1",
+        "rawSpec": "^5.2.1",
         "scope": null,
-        "spec": ">=5.2.0 <6.0.0",
+        "spec": ">=5.2.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-modals"
     ]
   ],
-  "_from": "pui-css-modals@>=5.2.0 <6.0.0",
-  "_id": "pui-css-modals@5.2.0",
+  "_from": "pui-css-modals@>=5.2.1 <6.0.0",
+  "_id": "pui-css-modals@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-modals",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-modals-5.2.0.tgz_1465927723635_0.5733144043479115"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-css-modals-5.2.1.tgz_1467214745330_0.17479164991527796"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-modals",
-    "raw": "pui-css-modals@^5.2.0",
-    "rawSpec": "^5.2.0",
+    "raw": "pui-css-modals@^5.2.1",
+    "rawSpec": "^5.2.1",
     "scope": null,
-    "spec": ">=5.2.0 <6.0.0",
+    "spec": ">=5.2.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-react-modals"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.2.0.tgz",
-  "_shasum": "768f5dcfba9c9fa44ae0a107ae6cd95e71d2225c",
+  "_resolved": "https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.2.1.tgz",
+  "_shasum": "e48bc048c4eec63220b1c0c8445c6fba3b70939a",
   "_shrinkwrap": null,
-  "_spec": "pui-css-modals@^5.2.0",
+  "_spec": "pui-css-modals@^5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-modals",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.2.0"
+    "pui-css-bootstrap": "^5.2.1"
   },
   "description": "modals css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "768f5dcfba9c9fa44ae0a107ae6cd95e71d2225c",
-    "tarball": "https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.2.0.tgz"
+    "shasum": "e48bc048c4eec63220b1c0c8445c6fba3b70939a",
+    "tarball": "https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -140,5 +140,5 @@
   },
   "scripts": {},
   "style": "modals.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

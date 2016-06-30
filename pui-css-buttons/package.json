@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-buttons",
-        "raw": "pui-css-buttons@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-css-buttons@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-css-buttons@5.2.0",
-  "_id": "pui-css-buttons@5.2.0",
+  "_from": "pui-css-buttons@5.2.1",
+  "_id": "pui-css-buttons@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-buttons",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-buttons-5.2.0.tgz_1465927660075_0.5275152395479381"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-css-buttons-5.2.1.tgz_1467214710115_0.30022256285883486"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,10 +30,10 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-buttons",
-    "raw": "pui-css-buttons@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-css-buttons@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
@@ -42,10 +42,10 @@
     "/pui-css-dropdowns",
     "/pui-react-buttons"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-buttons/-/pui-css-buttons-5.2.0.tgz",
-  "_shasum": "4c4e31e814a544921de291628ffde857997588e9",
+  "_resolved": "https://registry.npmjs.org/pui-css-buttons/-/pui-css-buttons-5.2.1.tgz",
+  "_shasum": "8a1f93461646fbc7893459498cbcd1da09e0818a",
   "_shrinkwrap": null,
-  "_spec": "pui-css-buttons@5.2.0",
+  "_spec": "pui-css-buttons@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -54,15 +54,15 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.2.0",
-    "pui-css-typography": "^5.2.0"
+    "pui-css-bootstrap": "^5.2.1",
+    "pui-css-typography": "^5.2.1"
   },
   "description": "buttons css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "4c4e31e814a544921de291628ffde857997588e9",
-    "tarball": "https://registry.npmjs.org/pui-css-buttons/-/pui-css-buttons-5.2.0.tgz"
+    "shasum": "8a1f93461646fbc7893459498cbcd1da09e0818a",
+    "tarball": "https://registry.npmjs.org/pui-css-buttons/-/pui-css-buttons-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -144,5 +144,5 @@
   },
   "scripts": {},
   "style": "buttons.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

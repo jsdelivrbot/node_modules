@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-images",
-        "raw": "pui-css-images@^5.2.0",
-        "rawSpec": "^5.2.0",
+        "raw": "pui-css-images@^5.2.1",
+        "rawSpec": "^5.2.1",
         "scope": null,
-        "spec": ">=5.2.0 <6.0.0",
+        "spec": ">=5.2.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-images"
     ]
   ],
-  "_from": "pui-css-images@>=5.2.0 <6.0.0",
-  "_id": "pui-css-images@5.2.0",
+  "_from": "pui-css-images@>=5.2.1 <6.0.0",
+  "_id": "pui-css-images@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-images",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-images-5.2.0.tgz_1465927698281_0.8797790806274861"
+    "tmp": "tmp/pui-css-images-5.2.1.tgz_1467214734458_0.5457170084118843"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-images",
-    "raw": "pui-css-images@^5.2.0",
-    "rawSpec": "^5.2.0",
+    "raw": "pui-css-images@^5.2.1",
+    "rawSpec": "^5.2.1",
     "scope": null,
-    "spec": ">=5.2.0 <6.0.0",
+    "spec": ">=5.2.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-react-images"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-images/-/pui-css-images-5.2.0.tgz",
-  "_shasum": "cabd7ae7490acf68c0dc2f807b75d865bbfad013",
+  "_resolved": "https://registry.npmjs.org/pui-css-images/-/pui-css-images-5.2.1.tgz",
+  "_shasum": "a4c7022f399b2391759273fcbd7ae0bffea3b2e7",
   "_shrinkwrap": null,
-  "_spec": "pui-css-images@^5.2.0",
+  "_spec": "pui-css-images@^5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-images",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.2.0"
+    "pui-css-bootstrap": "^5.2.1"
   },
   "description": "images css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "cabd7ae7490acf68c0dc2f807b75d865bbfad013",
-    "tarball": "https://registry.npmjs.org/pui-css-images/-/pui-css-images-5.2.0.tgz"
+    "shasum": "a4c7022f399b2391759273fcbd7ae0bffea3b2e7",
+    "tarball": "https://registry.npmjs.org/pui-css-images/-/pui-css-images-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -140,5 +140,5 @@
   },
   "scripts": {},
   "style": "images.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-tabs",
-        "raw": "pui-css-tabs@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-css-tabs@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-css-tabs@5.2.0",
-  "_id": "pui-css-tabs@5.2.0",
+  "_from": "pui-css-tabs@5.2.1",
+  "_id": "pui-css-tabs@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-tabs",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-tabs-5.2.0.tgz_1465927741072_0.5403573201037943"
+    "tmp": "tmp/pui-css-tabs-5.2.1.tgz_1467214766021_0.8089829094242305"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,20 +30,20 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-tabs",
-    "raw": "pui-css-tabs@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-css-tabs@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
     "/",
     "/pui-react-tabs"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.2.0.tgz",
-  "_shasum": "c40ec823f586f860bb2e8d47783b2c82cec8bdfb",
+  "_resolved": "https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.2.1.tgz",
+  "_shasum": "f1f3597452370b66ff7b2dd8561a396bb7e999b4",
   "_shrinkwrap": null,
-  "_spec": "pui-css-tabs@5.2.0",
+  "_spec": "pui-css-tabs@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,14 +52,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.2.0"
+    "pui-css-bootstrap": "^5.2.1"
   },
   "description": "tabs css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "c40ec823f586f860bb2e8d47783b2c82cec8bdfb",
-    "tarball": "https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.2.0.tgz"
+    "shasum": "f1f3597452370b66ff7b2dd8561a396bb7e999b4",
+    "tarball": "https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -141,5 +141,5 @@
   },
   "scripts": {},
   "style": "tabs.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-buttons",
-        "raw": "pui-react-buttons@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-react-buttons@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-buttons@5.2.0",
-  "_id": "pui-react-buttons@5.2.0",
+  "_from": "pui-react-buttons@5.2.1",
+  "_id": "pui-react-buttons@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-buttons",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-buttons-5.2.0.tgz_1465927777199_0.24605454714037478"
+    "tmp": "tmp/pui-react-buttons-5.2.1.tgz_1467214789170_0.8601759625598788"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-buttons",
-    "raw": "pui-react-buttons@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-react-buttons@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-buttons/-/pui-react-buttons-5.2.0.tgz",
-  "_shasum": "e1c56968b4d086610260fc9311a7edcee9d6afbb",
+  "_resolved": "https://registry.npmjs.org/pui-react-buttons/-/pui-react-buttons-5.2.1.tgz",
+  "_shasum": "5e1387b6694b169fdca8cae392cd247704a2f2db",
   "_shrinkwrap": null,
-  "_spec": "pui-react-buttons@5.2.0",
+  "_spec": "pui-react-buttons@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,15 +52,15 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-buttons": "^5.2.0",
-    "pui-react-helpers": "^5.2.0"
+    "pui-css-buttons": "^5.2.1",
+    "pui-react-helpers": "^5.2.1"
   },
   "description": "A collection of React components providing styled buttons and links",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "e1c56968b4d086610260fc9311a7edcee9d6afbb",
-    "tarball": "https://registry.npmjs.org/pui-react-buttons/-/pui-react-buttons-5.2.0.tgz"
+    "shasum": "5e1387b6694b169fdca8cae392cd247704a2f2db",
+    "tarball": "https://registry.npmjs.org/pui-react-buttons/-/pui-react-buttons-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -144,5 +144,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

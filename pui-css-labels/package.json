@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-labels",
-        "raw": "pui-css-labels@^5.2.0",
-        "rawSpec": "^5.2.0",
+        "raw": "pui-css-labels@^5.2.1",
+        "rawSpec": "^5.2.1",
         "scope": null,
-        "spec": ">=5.2.0 <6.0.0",
+        "spec": ">=5.2.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-labels"
     ]
   ],
-  "_from": "pui-css-labels@>=5.2.0 <6.0.0",
-  "_id": "pui-css-labels@5.2.0",
+  "_from": "pui-css-labels@>=5.2.1 <6.0.0",
+  "_id": "pui-css-labels@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-labels",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-labels-5.2.0.tgz_1465927703466_0.8771625047083944"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-css-labels-5.2.1.tgz_1467214738499_0.04188022459857166"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-labels",
-    "raw": "pui-css-labels@^5.2.0",
-    "rawSpec": "^5.2.0",
+    "raw": "pui-css-labels@^5.2.1",
+    "rawSpec": "^5.2.1",
     "scope": null,
-    "spec": ">=5.2.0 <6.0.0",
+    "spec": ">=5.2.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-react-labels"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-labels/-/pui-css-labels-5.2.0.tgz",
-  "_shasum": "57c79ba95306b3a4a5568dcd7ad77603c1b723d2",
+  "_resolved": "https://registry.npmjs.org/pui-css-labels/-/pui-css-labels-5.2.1.tgz",
+  "_shasum": "7438e451c0dc734e737197386ef6176de26136ba",
   "_shrinkwrap": null,
-  "_spec": "pui-css-labels@^5.2.0",
+  "_spec": "pui-css-labels@^5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-labels",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.2.0"
+    "pui-css-bootstrap": "^5.2.1"
   },
   "description": "labels css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "57c79ba95306b3a4a5568dcd7ad77603c1b723d2",
-    "tarball": "https://registry.npmjs.org/pui-css-labels/-/pui-css-labels-5.2.0.tgz"
+    "shasum": "7438e451c0dc734e737197386ef6176de26136ba",
+    "tarball": "https://registry.npmjs.org/pui-css-labels/-/pui-css-labels-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -140,5 +140,5 @@
   },
   "scripts": {},
   "style": "labels.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

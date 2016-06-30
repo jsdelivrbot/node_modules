@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-iconography",
-        "raw": "pui-css-iconography@^5.2.0",
-        "rawSpec": "^5.2.0",
+        "raw": "pui-css-iconography@^5.2.1",
+        "rawSpec": "^5.2.1",
         "scope": null,
-        "spec": ">=5.2.0 <6.0.0",
+        "spec": ">=5.2.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-alerts"
     ]
   ],
-  "_from": "pui-css-iconography@>=5.2.0 <6.0.0",
-  "_id": "pui-css-iconography@5.2.0",
+  "_from": "pui-css-iconography@>=5.2.1 <6.0.0",
+  "_id": "pui-css-iconography@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-iconography",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-iconography-5.2.0.tgz_1465927696371_0.6207090767566115"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-css-iconography-5.2.1.tgz_1467214730611_0.3885302080307156"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,10 +30,10 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-iconography",
-    "raw": "pui-css-iconography@^5.2.0",
-    "rawSpec": "^5.2.0",
+    "raw": "pui-css-iconography@^5.2.1",
+    "rawSpec": "^5.2.1",
     "scope": null,
-    "spec": ">=5.2.0 <6.0.0",
+    "spec": ">=5.2.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
@@ -41,10 +41,10 @@
     "/pui-react-alerts",
     "/pui-react-iconography"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.2.0.tgz",
-  "_shasum": "5f02e2ee9dfd764ccdb7b7030c8b5acae01a2828",
+  "_resolved": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.2.1.tgz",
+  "_shasum": "895767d7e1d6c5649787fe712bed49f4f3b5840c",
   "_shrinkwrap": null,
-  "_spec": "pui-css-iconography@^5.2.0",
+  "_spec": "pui-css-iconography@^5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-alerts",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -59,8 +59,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "5f02e2ee9dfd764ccdb7b7030c8b5acae01a2828",
-    "tarball": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.2.0.tgz"
+    "shasum": "895767d7e1d6c5649787fe712bed49f4f3b5840c",
+    "tarball": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -142,5 +142,5 @@
   },
   "scripts": {},
   "style": "iconography.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

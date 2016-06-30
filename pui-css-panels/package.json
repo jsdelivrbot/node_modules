@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-panels",
-        "raw": "pui-css-panels@^5.2.0",
-        "rawSpec": "^5.2.0",
+        "raw": "pui-css-panels@^5.2.1",
+        "rawSpec": "^5.2.1",
         "scope": null,
-        "spec": ">=5.2.0 <6.0.0",
+        "spec": ">=5.2.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-panels"
     ]
   ],
-  "_from": "pui-css-panels@>=5.2.0 <6.0.0",
-  "_id": "pui-css-panels@5.2.0",
+  "_from": "pui-css-panels@>=5.2.1 <6.0.0",
+  "_id": "pui-css-panels@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-panels",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-panels-5.2.0.tgz_1465927726010_0.12836345401592553"
+    "tmp": "tmp/pui-css-panels-5.2.1.tgz_1467214750223_0.17617290210910141"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-panels",
-    "raw": "pui-css-panels@^5.2.0",
-    "rawSpec": "^5.2.0",
+    "raw": "pui-css-panels@^5.2.1",
+    "rawSpec": "^5.2.1",
     "scope": null,
-    "spec": ">=5.2.0 <6.0.0",
+    "spec": ">=5.2.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-react-panels"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-panels/-/pui-css-panels-5.2.0.tgz",
-  "_shasum": "17b4e2ae1b88d7eb98fc0666d0464617bb41be4f",
+  "_resolved": "https://registry.npmjs.org/pui-css-panels/-/pui-css-panels-5.2.1.tgz",
+  "_shasum": "e3b4bffbd2d3347f3f81aeefae018658bf4f2eb3",
   "_shrinkwrap": null,
-  "_spec": "pui-css-panels@^5.2.0",
+  "_spec": "pui-css-panels@^5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-panels",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.2.0"
+    "pui-css-bootstrap": "^5.2.1"
   },
   "description": "panels css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "17b4e2ae1b88d7eb98fc0666d0464617bb41be4f",
-    "tarball": "https://registry.npmjs.org/pui-css-panels/-/pui-css-panels-5.2.0.tgz"
+    "shasum": "e3b4bffbd2d3347f3f81aeefae018658bf4f2eb3",
+    "tarball": "https://registry.npmjs.org/pui-css-panels/-/pui-css-panels-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -140,5 +140,5 @@
   },
   "scripts": {},
   "style": "panels.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

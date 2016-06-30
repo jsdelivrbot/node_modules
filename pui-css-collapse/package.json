@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-collapse",
-        "raw": "pui-css-collapse@^5.2.0",
-        "rawSpec": "^5.2.0",
+        "raw": "pui-css-collapse@^5.2.1",
+        "rawSpec": "^5.2.1",
         "scope": null,
-        "spec": ">=5.2.0 <6.0.0",
+        "spec": ">=5.2.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-collapsible"
     ]
   ],
-  "_from": "pui-css-collapse@>=5.2.0 <6.0.0",
-  "_id": "pui-css-collapse@5.2.0",
+  "_from": "pui-css-collapse@>=5.2.1 <6.0.0",
+  "_id": "pui-css-collapse@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-collapse",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-collapse-5.2.0.tgz_1465927666395_0.26314644259400666"
+    "tmp": "tmp/pui-css-collapse-5.2.1.tgz_1467214711871_0.1360451434738934"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-collapse",
-    "raw": "pui-css-collapse@^5.2.0",
-    "rawSpec": "^5.2.0",
+    "raw": "pui-css-collapse@^5.2.1",
+    "rawSpec": "^5.2.1",
     "scope": null,
-    "spec": ">=5.2.0 <6.0.0",
+    "spec": ">=5.2.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-react-collapsible"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.2.0.tgz",
-  "_shasum": "b5faf399a6b105306544fdef056156fe4bdf8def",
+  "_resolved": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.2.1.tgz",
+  "_shasum": "b4fd632d30f14c3964493f34734d1418c374ffb2",
   "_shrinkwrap": null,
-  "_spec": "pui-css-collapse@^5.2.0",
+  "_spec": "pui-css-collapse@^5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-collapsible",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.2.0"
+    "pui-css-bootstrap": "^5.2.1"
   },
   "description": "collapse css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "b5faf399a6b105306544fdef056156fe4bdf8def",
-    "tarball": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.2.0.tgz"
+    "shasum": "b4fd632d30f14c3964493f34734d1418c374ffb2",
+    "tarball": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -140,5 +140,5 @@
   },
   "scripts": {},
   "style": "collapse.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

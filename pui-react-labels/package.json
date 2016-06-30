@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-labels",
-        "raw": "pui-react-labels@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-react-labels@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-labels@5.2.0",
-  "_id": "pui-react-labels@5.2.0",
+  "_from": "pui-react-labels@5.2.1",
+  "_id": "pui-react-labels@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-labels",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-labels-5.2.0.tgz_1465927825939_0.9471303783357143"
+    "tmp": "tmp/pui-react-labels-5.2.1.tgz_1467214879925_0.9112021790351719"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-labels",
-    "raw": "pui-react-labels@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-react-labels@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-5.2.0.tgz",
-  "_shasum": "0cb61b3926cd984542176a7601cd798774429894",
+  "_resolved": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-5.2.1.tgz",
+  "_shasum": "8e100888bb1b2d1ca577fb26f6280a800e02f8ad",
   "_shrinkwrap": null,
-  "_spec": "pui-react-labels@5.2.0",
+  "_spec": "pui-react-labels@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,15 +52,15 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-labels": "^5.2.0",
-    "pui-react-helpers": "^5.2.0"
+    "pui-css-labels": "^5.2.1",
+    "pui-react-helpers": "^5.2.1"
   },
   "description": "A React component for showing a colored pill of text",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "0cb61b3926cd984542176a7601cd798774429894",
-    "tarball": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-5.2.0.tgz"
+    "shasum": "8e100888bb1b2d1ca577fb26f6280a800e02f8ad",
+    "tarball": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -140,5 +140,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

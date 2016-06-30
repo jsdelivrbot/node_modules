@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-helpers",
-        "raw": "pui-react-helpers@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-react-helpers@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-helpers@5.2.0",
-  "_id": "pui-react-helpers@5.2.0",
+  "_from": "pui-react-helpers@5.2.1",
+  "_id": "pui-react-helpers@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-helpers",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-helpers-5.2.0.tgz_1465927816066_0.1388869930524379"
+    "tmp": "tmp/pui-react-helpers-5.2.1.tgz_1467214819240_0.7828332933131605"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,10 +30,10 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-helpers",
-    "raw": "pui-react-helpers@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-react-helpers@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
@@ -47,10 +47,10 @@
     "/pui-react-modals",
     "/pui-react-panels"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-helpers/-/pui-react-helpers-5.2.0.tgz",
-  "_shasum": "c1c31c3b72116a9cdbd6f066c40342977c7eb4eb",
+  "_resolved": "https://registry.npmjs.org/pui-react-helpers/-/pui-react-helpers-5.2.1.tgz",
+  "_shasum": "3dcce585493f3092d2cfc6b7dedf3a1296fd0dae",
   "_shrinkwrap": null,
-  "_spec": "pui-react-helpers@5.2.0",
+  "_spec": "pui-react-helpers@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -66,8 +66,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "c1c31c3b72116a9cdbd6f066c40342977c7eb4eb",
-    "tarball": "https://registry.npmjs.org/pui-react-helpers/-/pui-react-helpers-5.2.0.tgz"
+    "shasum": "3dcce585493f3092d2cfc6b7dedf3a1296fd0dae",
+    "tarball": "https://registry.npmjs.org/pui-react-helpers/-/pui-react-helpers-5.2.1.tgz"
   },
   "homepage": "https://github.com/pivotal-cf/pivotal-ui",
   "keywords": [
@@ -143,5 +143,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-images",
-        "raw": "pui-react-images@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-react-images@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-images@5.2.0",
-  "_id": "pui-react-images@5.2.0",
+  "_from": "pui-react-images@5.2.1",
+  "_id": "pui-react-images@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-images",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-images-5.2.0.tgz_1465927823810_0.9111651552375406"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-react-images-5.2.1.tgz_1467214823004_0.38877376122400165"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-images",
-    "raw": "pui-react-images@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-react-images@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-images/-/pui-react-images-5.2.0.tgz",
-  "_shasum": "9afd64a200305d3aca8e0350ab2750d96dea093c",
+  "_resolved": "https://registry.npmjs.org/pui-react-images/-/pui-react-images-5.2.1.tgz",
+  "_shasum": "00f26995593ad7c364fa16cddbeca27a8393ef12",
   "_shrinkwrap": null,
-  "_spec": "pui-react-images@5.2.0",
+  "_spec": "pui-react-images@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,15 +52,15 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-images": "^5.2.0",
-    "pui-react-helpers": "^5.2.0"
+    "pui-css-images": "^5.2.1",
+    "pui-react-helpers": "^5.2.1"
   },
   "description": "A React component for rendering responsive and linked images",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "9afd64a200305d3aca8e0350ab2750d96dea093c",
-    "tarball": "https://registry.npmjs.org/pui-react-images/-/pui-react-images-5.2.0.tgz"
+    "shasum": "00f26995593ad7c364fa16cddbeca27a8393ef12",
+    "tarball": "https://registry.npmjs.org/pui-react-images/-/pui-react-images-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -136,5 +136,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

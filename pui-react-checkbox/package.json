@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-checkbox",
-        "raw": "pui-react-checkbox@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-react-checkbox@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-checkbox@5.2.0",
-  "_id": "pui-react-checkbox@5.2.0",
+  "_from": "pui-react-checkbox@5.2.1",
+  "_id": "pui-react-checkbox@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-checkbox",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-checkbox-5.2.0.tgz_1465927778304_0.5091209746897221"
+    "tmp": "tmp/pui-react-checkbox-5.2.1.tgz_1467214790966_0.9269646052271128"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-checkbox",
-    "raw": "pui-react-checkbox@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-react-checkbox@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-5.2.0.tgz",
-  "_shasum": "4101744aacdfbe46da6faea661a25857f94d7b45",
+  "_resolved": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-5.2.1.tgz",
+  "_shasum": "a909755ebd81d4e4edea3f08fc3cb4b5004372b3",
   "_shrinkwrap": null,
-  "_spec": "pui-react-checkbox@5.2.0",
+  "_spec": "pui-react-checkbox@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -53,14 +53,14 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
-    "pui-css-forms": "^5.2.0"
+    "pui-css-forms": "^5.2.1"
   },
   "description": "A React Checkbox component",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "4101744aacdfbe46da6faea661a25857f94d7b45",
-    "tarball": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-5.2.0.tgz"
+    "shasum": "a909755ebd81d4e4edea3f08fc3cb4b5004372b3",
+    "tarball": "https://registry.npmjs.org/pui-react-checkbox/-/pui-react-checkbox-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -112,5 +112,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

@@ -36,13 +36,15 @@ var SmallTab = function (_React$Component) {
     key: 'render',
     value: function render() {
       var _props = this.props;
+      var animation = _props.animation;
       var children = _props.children;
       var expanded = _props.expanded;
       var header = _props.header;
       var onClick = _props.onClick;
       var paneId = _props.paneId;
 
-
+      var delay = void 0;
+      if (!animation) delay = 0;
       return _react2.default.createElement(
         'div',
         null,
@@ -62,7 +64,7 @@ var SmallTab = function (_React$Component) {
         ),
         _react2.default.createElement(
           _puiReactCollapsible.Collapsible,
-          { expanded: expanded, role: 'tabpanel' },
+          { expanded: expanded, delay: delay, role: 'tabpanel' },
           children
         )
       );
@@ -73,6 +75,7 @@ var SmallTab = function (_React$Component) {
 }(_react2.default.Component);
 
 SmallTab.propTypes = {
+  animation: types.bool,
   expanded: types.bool,
   header: types.node,
   onClick: types.func,
@@ -94,6 +97,7 @@ var SmallTabs = function (_React$Component2) {
       var _props2 = this.props;
       var actions = _props2.actions;
       var activeKey = _props2.activeKey;
+      var animation = _props2.animation;
       var children = _props2.children;
       var className = _props2.className;
       var id = _props2.id;
@@ -112,6 +116,7 @@ var SmallTabs = function (_React$Component2) {
 
         var paneId = id + '-pane-' + key;
         var myProps = {
+          animation: animation,
           expanded: eventKey === activeKey,
           header: title,
           key: key,
@@ -148,6 +153,7 @@ var SmallTabs = function (_React$Component2) {
 SmallTabs.propTypes = {
   actions: types.node,
   activeKey: types.number,
+  animation: types.bool,
   id: types.string,
   handleClick: types.func,
   onSelect: types.func,

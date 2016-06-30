@@ -124,6 +124,7 @@ var Tabs = function (_mixin$with) {
 
       var _props = this.props;
       var actions = _props.actions;
+      var animation = _props.animation;
       var children = _props.children;
       var className = _props.className;
       var _props$id = _props.id;
@@ -135,11 +136,11 @@ var Tabs = function (_mixin$with) {
       var tabType = _props.tabType;
       var tabWidth = _props.tabWidth;
 
-      var props = _objectWithoutProperties(_props, ['actions', 'children', 'className', 'id', 'largeScreenClassName', 'onSelect', 'paneWidth', 'position', 'tabType', 'tabWidth']);
+      var props = _objectWithoutProperties(_props, ['actions', 'animation', 'children', 'className', 'id', 'largeScreenClassName', 'onSelect', 'paneWidth', 'position', 'tabType', 'tabWidth']);
 
       var largeScreenClasses = (0, _classnames4.default)(['tab-' + tabType, largeScreenClassName, className]);
 
-      var transitionProgress = this.animate('transitionProgress', 1, Tabs.ANIMATION_TIME);
+      var transitionProgress = this.animate('transitionProgress', 1, animation ? Tabs.ANIMATION_TIME : 0);
 
       var childArray = _react2.default.Children.toArray(children);
 
@@ -151,7 +152,10 @@ var Tabs = function (_mixin$with) {
       }
 
       var listChildren = childArray.map(function (child, key) {
-        var eventKey = child.props.eventKey;
+        var _child$props = child.props;
+        var eventKey = _child$props.eventKey;
+        var tabClassName = _child$props.tabClassName;
+        var title = _child$props.title;
 
         var paneId = id + '-pane-' + key;
         var tabId = id + '-tab-' + key;
@@ -162,11 +166,11 @@ var Tabs = function (_mixin$with) {
           { key: key, role: 'presentation', className: (0, _classnames4.default)({ active: isActive }) },
           _react2.default.createElement(
             'a',
-            { id: tabId, 'aria-controls': paneId, 'aria-selected': isActive, role: 'tab',
+            { id: tabId, 'aria-controls': paneId, 'aria-selected': isActive, role: 'tab', className: tabClassName,
               onClick: function onClick(e) {
                 return _this2.handleClick(e, eventKey, onSelect);
               } },
-            child.props.title
+            title
           )
         );
       });
@@ -178,9 +182,12 @@ var Tabs = function (_mixin$with) {
       var tabContent = null;
       var activeKey = transitionProgress >= 0.5 ? this.state.activeKey : this.state.previousActiveKey;
       childArray.forEach(function (child, key) {
-        var _child$props = child.props;
-        var eventKey = _child$props.eventKey;
-        var children = _child$props.children;
+        var _child$props2 = child.props;
+        var eventKey = _child$props2.eventKey;
+        var children = _child$props2.children;
+        var className = _child$props2.className;
+
+        var props = _objectWithoutProperties(_child$props2, ['eventKey', 'children', 'className']);
 
         var paneId = id + '-pane-' + key;
         var tabId = id + '-tab-' + key;
@@ -190,7 +197,7 @@ var Tabs = function (_mixin$with) {
         if (!isActive) return false;
         tabContent = _react2.default.createElement(
           'div',
-          { className: (0, _classnames4.default)('tab-content', _defineProperty({}, leftPaneClasses, isLeft)) },
+          _extends({ className: (0, _classnames4.default)('tab-content', _defineProperty({}, leftPaneClasses, isLeft), className) }, props),
           _react2.default.createElement(
             'div',
             { className: 'tab-pane fade active in', id: paneId, role: 'tabpanel', 'aria-labelledby': tabId,
@@ -239,6 +246,7 @@ Tabs.propTypes = {
   tabWidth: types.number
 };
 Tabs.defaultProps = {
+  animation: true,
   responsiveBreakpoint: 'xs',
   tabType: 'simple'
 };

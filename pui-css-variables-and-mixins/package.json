@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-variables-and-mixins",
-        "raw": "pui-css-variables-and-mixins@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-css-variables-and-mixins@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-css-variables-and-mixins@5.2.0",
-  "_id": "pui-css-variables-and-mixins@5.2.0",
+  "_from": "pui-css-variables-and-mixins@5.2.1",
+  "_id": "pui-css-variables-and-mixins@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-variables-and-mixins",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-variables-and-mixins-5.2.0.tgz_1465927760865_0.4028807389549911"
+    "tmp": "tmp/pui-css-variables-and-mixins-5.2.1.tgz_1467214778440_0.1904172010254115"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-variables-and-mixins",
-    "raw": "pui-css-variables-and-mixins@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-css-variables-and-mixins@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.2.0.tgz",
-  "_shasum": "74fa2b62eaf92811f485a9163a1c46a2399fe9e0",
+  "_resolved": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.2.1.tgz",
+  "_shasum": "a5a7524390b6bafa4054904af5eac45617c5a348",
   "_shrinkwrap": null,
-  "_spec": "pui-css-variables-and-mixins@5.2.0",
+  "_spec": "pui-css-variables-and-mixins@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -54,8 +54,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "74fa2b62eaf92811f485a9163a1c46a2399fe9e0",
-    "tarball": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.2.0.tgz"
+    "shasum": "a5a7524390b6bafa4054904af5eac45617c5a348",
+    "tarball": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.2.1.tgz"
   },
   "homepage": "https://github.com/pivotal-cf/pivotal-ui#readme",
   "keywords": [
@@ -125,5 +125,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

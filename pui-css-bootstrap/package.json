@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-bootstrap",
-        "raw": "pui-css-bootstrap@^5.2.0",
-        "rawSpec": "^5.2.0",
+        "raw": "pui-css-bootstrap@^5.2.1",
+        "rawSpec": "^5.2.1",
         "scope": null,
-        "spec": ">=5.2.0 <6.0.0",
+        "spec": ">=5.2.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-buttons"
     ]
   ],
-  "_from": "pui-css-bootstrap@>=5.2.0 <6.0.0",
-  "_id": "pui-css-bootstrap@5.2.0",
+  "_from": "pui-css-bootstrap@>=5.2.1 <6.0.0",
+  "_id": "pui-css-bootstrap@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-bootstrap",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-bootstrap-5.2.0.tgz_1465927640656_0.3848324762657285"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-css-bootstrap-5.2.1.tgz_1467214706267_0.6237432858906686"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,10 +30,10 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-bootstrap",
-    "raw": "pui-css-bootstrap@^5.2.0",
-    "rawSpec": "^5.2.0",
+    "raw": "pui-css-bootstrap@^5.2.1",
+    "rawSpec": "^5.2.1",
     "scope": null,
-    "spec": ">=5.2.0 <6.0.0",
+    "spec": ">=5.2.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
@@ -53,10 +53,10 @@
     "/pui-css-tabs",
     "/pui-css-typography"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-bootstrap/-/pui-css-bootstrap-5.2.0.tgz",
-  "_shasum": "97bb99a5076073e18befb2e3376ecea86f0a1858",
+  "_resolved": "https://registry.npmjs.org/pui-css-bootstrap/-/pui-css-bootstrap-5.2.1.tgz",
+  "_shasum": "0debb0a8e60b5fcef12155da5001d3a3d46f4611",
   "_shrinkwrap": null,
-  "_spec": "pui-css-bootstrap@^5.2.0",
+  "_spec": "pui-css-bootstrap@^5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-buttons",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -69,8 +69,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "97bb99a5076073e18befb2e3376ecea86f0a1858",
-    "tarball": "https://registry.npmjs.org/pui-css-bootstrap/-/pui-css-bootstrap-5.2.0.tgz"
+    "shasum": "0debb0a8e60b5fcef12155da5001d3a3d46f4611",
+    "tarball": "https://registry.npmjs.org/pui-css-bootstrap/-/pui-css-bootstrap-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -152,5 +152,5 @@
   },
   "scripts": {},
   "style": "bootstrap.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

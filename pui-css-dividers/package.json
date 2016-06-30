@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-dividers",
-        "raw": "pui-css-dividers@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-css-dividers@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-css-dividers@5.2.0",
-  "_id": "pui-css-dividers@5.2.0",
+  "_from": "pui-css-dividers@5.2.1",
+  "_id": "pui-css-dividers@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-dividers",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-dividers-5.2.0.tgz_1465927678380_0.48953421460464597"
+    "tmp": "tmp/pui-css-dividers-5.2.1.tgz_1467214718010_0.38464811141602695"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-dividers",
-    "raw": "pui-css-dividers@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-css-dividers@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.2.0.tgz",
-  "_shasum": "2c4bac564e16c9096577ed93e60150fd2a2657ea",
+  "_resolved": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.2.1.tgz",
+  "_shasum": "264d4b2210a367ed62a34b51314b7a6b60494ad7",
   "_shrinkwrap": null,
-  "_spec": "pui-css-dividers@5.2.0",
+  "_spec": "pui-css-dividers@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -55,8 +55,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "2c4bac564e16c9096577ed93e60150fd2a2657ea",
-    "tarball": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.2.0.tgz"
+    "shasum": "264d4b2210a367ed62a34b51314b7a6b60494ad7",
+    "tarball": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -138,5 +138,5 @@
   },
   "scripts": {},
   "style": "dividers.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

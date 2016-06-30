@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-dropdowns",
-        "raw": "pui-css-dropdowns@^5.2.0",
-        "rawSpec": "^5.2.0",
+        "raw": "pui-css-dropdowns@^5.2.1",
+        "rawSpec": "^5.2.1",
         "scope": null,
-        "spec": ">=5.2.0 <6.0.0",
+        "spec": ">=5.2.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-dropdowns"
     ]
   ],
-  "_from": "pui-css-dropdowns@>=5.2.0 <6.0.0",
-  "_id": "pui-css-dropdowns@5.2.0",
+  "_from": "pui-css-dropdowns@>=5.2.1 <6.0.0",
+  "_id": "pui-css-dropdowns@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-dropdowns",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-dropdowns-5.2.0.tgz_1465927679569_0.5166394207626581"
+    "tmp": "tmp/pui-css-dropdowns-5.2.1.tgz_1467214718944_0.7383367775473744"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-dropdowns",
-    "raw": "pui-css-dropdowns@^5.2.0",
-    "rawSpec": "^5.2.0",
+    "raw": "pui-css-dropdowns@^5.2.1",
+    "rawSpec": "^5.2.1",
     "scope": null,
-    "spec": ">=5.2.0 <6.0.0",
+    "spec": ">=5.2.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-react-dropdowns"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.2.0.tgz",
-  "_shasum": "a7371894053969c3d5225b1d3db4ba2a921a36ae",
+  "_resolved": "https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.2.1.tgz",
+  "_shasum": "cf63b7c880a09fd6eb9a4b2625b9e6439382e212",
   "_shrinkwrap": null,
-  "_spec": "pui-css-dropdowns@^5.2.0",
+  "_spec": "pui-css-dropdowns@^5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-dropdowns",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,17 +51,17 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.2.0",
-    "pui-css-button-group": "^5.2.0",
-    "pui-css-buttons": "^5.2.0",
-    "pui-css-links": "^5.2.0"
+    "pui-css-bootstrap": "^5.2.1",
+    "pui-css-button-group": "^5.2.1",
+    "pui-css-buttons": "^5.2.1",
+    "pui-css-links": "^5.2.1"
   },
   "description": "dropdowns css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "a7371894053969c3d5225b1d3db4ba2a921a36ae",
-    "tarball": "https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.2.0.tgz"
+    "shasum": "cf63b7c880a09fd6eb9a4b2625b9e6439382e212",
+    "tarball": "https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -143,5 +143,5 @@
   },
   "scripts": {},
   "style": "dropdowns.css",
-  "version": "5.2.0"
+  "version": "5.2.1"
 }

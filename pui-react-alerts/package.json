@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-alerts",
-        "raw": "pui-react-alerts@5.2.0",
-        "rawSpec": "5.2.0",
+        "raw": "pui-react-alerts@5.2.1",
+        "rawSpec": "5.2.1",
         "scope": null,
-        "spec": "5.2.0",
+        "spec": "5.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-alerts@5.2.0",
-  "_id": "pui-react-alerts@5.2.0",
+  "_from": "pui-react-alerts@5.2.1",
+  "_id": "pui-react-alerts@5.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-alerts",
   "_nodeVersion": "5.5.0",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-alerts-5.2.0.tgz_1465927768388_0.01214260421693325"
+    "tmp": "tmp/pui-react-alerts-5.2.1.tgz_1467214784329_0.9099531273823231"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-alerts",
-    "raw": "pui-react-alerts@5.2.0",
-    "rawSpec": "5.2.0",
+    "raw": "pui-react-alerts@5.2.1",
+    "rawSpec": "5.2.1",
     "scope": null,
-    "spec": "5.2.0",
+    "spec": "5.2.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.2.0.tgz",
-  "_shasum": "7597560b95090d9f578e3fa93a229cd86f4e74bc",
+  "_resolved": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.2.1.tgz",
+  "_shasum": "a0f03e2d6bd05fd83dabd1f19c9c51790a269ab7",
   "_shrinkwrap": null,
-  "_spec": "pui-react-alerts@5.2.0",
+  "_spec": "pui-react-alerts@5.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,17 +52,17 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-alerts": "^5.2.0",
-    "pui-css-iconography": "^5.2.0",
-    "pui-react-media": "^5.2.0",
+    "pui-css-alerts": "^5.2.1",
+    "pui-css-iconography": "^5.2.1",
+    "pui-react-media": "^5.2.1",
     "react-bootstrap": "0.29.0"
   },
   "description": "React components to display flash messages to the user",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "7597560b95090d9f578e3fa93a229cd86f4e74bc",
-    "tarball": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.2.0.tgz"
+    "shasum": "a0f03e2d6bd05fd83dabd1f19c9c51790a269ab7",
+    "tarball": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.2.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -142,5 +142,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.0"
+  "version": "5.2.1"
 }
