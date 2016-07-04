@@ -3,46 +3,46 @@
     [
       {
         "name": "react-addons-test-utils",
-        "raw": "react-addons-test-utils@15.1.0",
-        "rawSpec": "15.1.0",
+        "raw": "react-addons-test-utils@15.2.0",
+        "rawSpec": "15.2.0",
         "scope": null,
-        "spec": "15.1.0",
+        "spec": "15.2.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "react-addons-test-utils@15.1.0",
-  "_id": "react-addons-test-utils@15.1.0",
+  "_from": "react-addons-test-utils@15.2.0",
+  "_id": "react-addons-test-utils@15.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-addons-test-utils",
-  "_nodeVersion": "4.4.3",
+  "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/react-addons-test-utils-15.1.0.tgz_1463785570643_0.6207427489571273"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/react-addons-test-utils-15.2.0.tgz_1467399122133_0.14213900174945593"
   },
   "_npmUser": {
     "email": "paul@oshannessy.com",
     "name": "zpao"
   },
-  "_npmVersion": "2.15.1",
+  "_npmVersion": "2.15.5",
   "_phantomChildren": {},
   "_requested": {
     "name": "react-addons-test-utils",
-    "raw": "react-addons-test-utils@15.1.0",
-    "rawSpec": "15.1.0",
+    "raw": "react-addons-test-utils@15.2.0",
+    "rawSpec": "15.2.0",
     "scope": null,
-    "spec": "15.1.0",
+    "spec": "15.2.0",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/react-addons-test-utils/-/react-addons-test-utils-15.1.0.tgz",
-  "_shasum": "ed9ab2a99ecf04acc99eeea10b308105eb3b183c",
+  "_resolved": "https://registry.npmjs.org/react-addons-test-utils/-/react-addons-test-utils-15.2.0.tgz",
+  "_shasum": "b9df59ed19eca3e59dc98c77498677b4a6e9e55e",
   "_shrinkwrap": null,
-  "_spec": "react-addons-test-utils@15.1.0",
+  "_spec": "react-addons-test-utils@15.2.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "bugs": {
     "url": "https://github.com/facebook/react/issues"
@@ -52,8 +52,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "ed9ab2a99ecf04acc99eeea10b308105eb3b183c",
-    "tarball": "https://registry.npmjs.org/react-addons-test-utils/-/react-addons-test-utils-15.1.0.tgz"
+    "shasum": "b9df59ed19eca3e59dc98c77498677b4a6e9e55e",
+    "tarball": "https://registry.npmjs.org/react-addons-test-utils/-/react-addons-test-utils-15.2.0.tgz"
   },
   "homepage": "https://github.com/facebook/react#readme",
   "keywords": [
@@ -87,7 +87,7 @@
   "name": "react-addons-test-utils",
   "optionalDependencies": {},
   "peerDependencies": {
-    "react": "^15.1.0"
+    "react": "^15.2.0"
   },
   "readme": "ERROR: No README data found!",
   "repository": {
@@ -95,5 +95,5 @@
     "url": "git+https://github.com/facebook/react.git"
   },
   "scripts": {},
-  "version": "15.1.0"
+  "version": "15.2.0"
 }
