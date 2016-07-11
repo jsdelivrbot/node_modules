@@ -1,0 +1,148 @@
+{
+  "_args": [
+    [
+      {
+        "name": "pui-react-tooltip",
+        "raw": "pui-react-tooltip@5.2.1",
+        "rawSpec": "5.2.1",
+        "scope": null,
+        "spec": "5.2.1",
+        "type": "version"
+      },
+      "/tmp/build/88bfaeb5/gpcc/frontend"
+    ]
+  ],
+  "_from": "pui-react-tooltip@5.2.1",
+  "_id": "pui-react-tooltip@5.2.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/pui-react-tooltip",
+  "_nodeVersion": "5.5.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-tooltip-5.2.1.tgz_1467214920857_0.35870421840809286"
+  },
+  "_npmUser": {
+    "email": "chansen87@gmail.com",
+    "name": "charleshansen"
+  },
+  "_npmVersion": "2.15.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pui-react-tooltip",
+    "raw": "pui-react-tooltip@5.2.1",
+    "rawSpec": "5.2.1",
+    "scope": null,
+    "spec": "5.2.1",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-react-tooltip/-/pui-react-tooltip-5.2.1.tgz",
+  "_shasum": "810ca90e185e0c2d1ca548b1f4f3edf6a1ebfab8",
+  "_shrinkwrap": null,
+  "_spec": "pui-react-tooltip@5.2.1",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "classnames": "^2.2.0",
+    "pui-css-tooltips": "^5.2.1"
+  },
+  "description": "A React component that provides styled tooltips",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "810ca90e185e0c2d1ca548b1f4f3edf6a1ebfab8",
+    "tarball": "https://registry.npmjs.org/pui-react-tooltip/-/pui-react-tooltip-5.2.1.tgz"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "license": "MIT",
+  "main": "tooltip.js",
+  "maintainers": [
+    {
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
+    },
+    {
+      "email": "cthompson@pivotal.io",
+      "name": "cthompson"
+    },
+    {
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
+    },
+    {
+      "email": "issaq_al-ahmed@outlook.com",
+      "name": "ial-ahmed"
+    },
+    {
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
+    },
+    {
+      "email": "mroyal@pivotal.io",
+      "name": "mattroyal"
+    },
+    {
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
+    },
+    {
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
+    },
+    {
+      "email": "nicole@stubbornella.org",
+      "name": "stubbornella"
+    },
+    {
+      "email": "vinsonchuong@gmail.com",
+      "name": "vinsonchuong"
+    }
+  ],
+  "name": "pui-react-tooltip",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": ">=15.0.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "scripts": {},
+  "version": "5.2.1"
+}
