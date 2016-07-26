@@ -3,24 +3,24 @@
     [
       {
         "name": "ag-grid",
-        "raw": "ag-grid@5.0.3",
-        "rawSpec": "5.0.3",
+        "raw": "ag-grid@5.0.4",
+        "rawSpec": "5.0.4",
         "scope": null,
-        "spec": "5.0.3",
+        "spec": "5.0.4",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "ag-grid@5.0.3",
-  "_id": "ag-grid@5.0.3",
+  "_from": "ag-grid@5.0.4",
+  "_id": "ag-grid@5.0.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/ag-grid",
   "_nodeVersion": "6.0.0",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/ag-grid-5.0.3.tgz_1468440503036_0.46886331774294376"
+    "tmp": "tmp/ag-grid-5.0.4.tgz_1469520322556_0.9455247416626662"
   },
   "_npmUser": {
     "email": "niall.crosby@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "ag-grid",
-    "raw": "ag-grid@5.0.3",
-    "rawSpec": "5.0.3",
+    "raw": "ag-grid@5.0.4",
+    "rawSpec": "5.0.4",
     "scope": null,
-    "spec": "5.0.3",
+    "spec": "5.0.4",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/ag-grid/-/ag-grid-5.0.3.tgz",
-  "_shasum": "9d7b08bded1f75b16e436fe095e2f77a6a475810",
+  "_resolved": "https://registry.npmjs.org/ag-grid/-/ag-grid-5.0.4.tgz",
+  "_shasum": "ce5e3eb8381a494d99aa34cc78bdf1fe93d60eda",
   "_shrinkwrap": null,
-  "_spec": "ag-grid@5.0.3",
+  "_spec": "ag-grid@5.0.4",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "niall.crosby@ag-grid.com",
@@ -81,10 +81,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "9d7b08bded1f75b16e436fe095e2f77a6a475810",
-    "tarball": "https://registry.npmjs.org/ag-grid/-/ag-grid-5.0.3.tgz"
+    "shasum": "ce5e3eb8381a494d99aa34cc78bdf1fe93d60eda",
+    "tarball": "https://registry.npmjs.org/ag-grid/-/ag-grid-5.0.4.tgz"
   },
-  "gitHead": "15b80dec8b20c9c0a57832cb50f9c49f912a99ce",
+  "gitHead": "fe0532c86ee5a1aef298dc99ae26e6242a55ee07",
   "homepage": "http://www.ag-grid.com/",
   "keywords": [
     "web-components",
@@ -121,5 +121,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "typings": "./main.d.ts",
-  "version": "5.0.3"
+  "version": "5.0.4"
 }
