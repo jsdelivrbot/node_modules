@@ -263,7 +263,8 @@ export class GridPanel {
         this.eventService.addEventListener(Events.EVENT_COLUMN_RESIZED, this.onColumnResized.bind(this));
 
         this.eventService.addEventListener(Events.EVENT_FLOATING_ROW_DATA_CHANGED, this.sizeHeaderAndBody.bind(this));
-        this.eventService.addEventListener(Events.EVENT_HEADER_HEIGHT_CHANGED, this.sizeHeaderAndBody.bind(this));
+
+        this.gridOptionsWrapper.addEventListener(GridOptionsWrapper.PROP_HEADER_HEIGHT, this.sizeHeaderAndBody.bind(this));
 
         this.eventService.addEventListener(Events.EVENT_ROW_DATA_CHANGED, this.onRowDataChanged.bind(this));
     }
@@ -574,8 +575,15 @@ export class GridPanel {
             // if viewport's right side is before col's right side, scroll left to pull col into viewport at right
             var newScrollPosition = colRightPixel - viewportWidth;
             this.eBodyViewport.scrollLeft = newScrollPosition;
+        } else {
+            // otherwise, col is already in view, so do nothing
         }
-        // otherwise, col is already in view, so do nothing
+
+        // this will happen anyway, as the move will cause a 'scroll' event on the body, however
+        // it is possible that the ensureColumnVisible method is called from within ag-Grid and
+        // the caller will need to have the columns rendered to continue, which will be before
+        // the event has been worked on (which is the case for cell navigation).
+        this.setLeftAndRightBounds();
     }
 
     public showLoadingOverlay(): void {
