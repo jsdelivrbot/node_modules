@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-react-panels",
-        "raw": "pui-react-panels@5.2.1",
-        "rawSpec": "5.2.1",
+        "raw": "pui-react-panels@5.3.0",
+        "rawSpec": "5.3.0",
         "scope": null,
-        "spec": "5.2.1",
+        "spec": "5.3.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-panels@5.2.1",
-  "_id": "pui-react-panels@5.2.1",
+  "_from": "pui-react-panels@5.3.0",
+  "_id": "pui-react-panels@5.3.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-panels",
-  "_nodeVersion": "5.5.0",
+  "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-panels-5.2.1.tgz_1467214895771_0.037904201773926616"
+    "tmp": "tmp/pui-react-panels-5.3.0.tgz_1470422211862_0.8729570915456861"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.6",
+  "_npmVersion": "2.15.9",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-panels",
-    "raw": "pui-react-panels@5.2.1",
-    "rawSpec": "5.2.1",
+    "raw": "pui-react-panels@5.3.0",
+    "rawSpec": "5.3.0",
     "scope": null,
-    "spec": "5.2.1",
+    "spec": "5.3.0",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-panels/-/pui-react-panels-5.2.1.tgz",
-  "_shasum": "af2d450eb3df5e0ea590607dcc567206776271ae",
+  "_resolved": "https://registry.npmjs.org/pui-react-panels/-/pui-react-panels-5.3.0.tgz",
+  "_shasum": "110b6cf8c3ed1f5c262e2f1fab9e6a013b594686",
   "_shrinkwrap": null,
-  "_spec": "pui-react-panels@5.2.1",
+  "_spec": "pui-react-panels@5.3.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -53,15 +53,15 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
-    "pui-css-panels": "^5.2.1",
-    "pui-react-helpers": "^5.2.1"
+    "pui-css-panels": "^5.3.0",
+    "pui-react-helpers": "^5.3.0"
   },
   "description": "React components that provide containers for related content",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "af2d450eb3df5e0ea590607dcc567206776271ae",
-    "tarball": "https://registry.npmjs.org/pui-react-panels/-/pui-react-panels-5.2.1.tgz"
+    "shasum": "110b6cf8c3ed1f5c262e2f1fab9e6a013b594686",
+    "tarball": "https://registry.npmjs.org/pui-react-panels/-/pui-react-panels-5.3.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -141,5 +141,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.1"
+  "version": "5.3.0"
 }

@@ -127,16 +127,19 @@ var Tabs = function (_mixin$with) {
       var animation = _props.animation;
       var children = _props.children;
       var className = _props.className;
+      var defaultActiveKey = _props.defaultActiveKey;
       var _props$id = _props.id;
       var id = _props$id === undefined ? this.state.id : _props$id;
       var largeScreenClassName = _props.largeScreenClassName;
       var onSelect = _props.onSelect;
       var paneWidth = _props.paneWidth;
       var position = _props.position;
+      var responsiveBreakpoint = _props.responsiveBreakpoint;
+      var smallScreenClassName = _props.smallScreenClassName;
       var tabType = _props.tabType;
       var tabWidth = _props.tabWidth;
 
-      var props = _objectWithoutProperties(_props, ['actions', 'animation', 'children', 'className', 'id', 'largeScreenClassName', 'onSelect', 'paneWidth', 'position', 'tabType', 'tabWidth']);
+      var props = _objectWithoutProperties(_props, ['actions', 'animation', 'children', 'className', 'defaultActiveKey', 'id', 'largeScreenClassName', 'onSelect', 'paneWidth', 'position', 'responsiveBreakpoint', 'smallScreenClassName', 'tabType', 'tabWidth']);
 
       var largeScreenClasses = (0, _classnames4.default)(['tab-' + tabType, largeScreenClassName, className]);
 
@@ -186,8 +189,9 @@ var Tabs = function (_mixin$with) {
         var eventKey = _child$props2.eventKey;
         var children = _child$props2.children;
         var className = _child$props2.className;
+        var tabClassName = _child$props2.tabClassName;
 
-        var props = _objectWithoutProperties(_child$props2, ['eventKey', 'children', 'className']);
+        var props = _objectWithoutProperties(_child$props2, ['eventKey', 'children', 'className', 'tabClassName']);
 
         var paneId = id + '-pane-' + key;
         var tabId = id + '-tab-' + key;

@@ -69,10 +69,14 @@ var Collapsible = function (_mixin$with) {
       var _props2$boundingClien = _props2.boundingClientRect.height;
       var height = _props2$boundingClien === undefined ? 0 : _props2$boundingClien;
       var children = _props2.children;
+      var container = _props2.container;
+      var containerReady = _props2.containerReady;
       var delay = _props2.delay;
       var expanded = _props2.expanded;
+      var onEntered = _props2.onEntered;
+      var onExited = _props2.onExited;
 
-      var others = _objectWithoutProperties(_props2, ['boundingClientRect', 'children', 'delay', 'expanded']);
+      var others = _objectWithoutProperties(_props2, ['boundingClientRect', 'children', 'container', 'containerReady', 'delay', 'expanded', 'onEntered', 'onExited']);
 
       var fractionOpen = this.animate('fractionOpen', expanded ? 1 : 0, delay);
 
@@ -106,10 +110,13 @@ var Collapsible = function (_mixin$with) {
 
 Collapsible.propTypes = {
   boundingClientRect: types.object,
+  container: types.object,
+  containerReady: types.object,
   delay: types.number,
   disableAnimation: types.bool,
   expanded: types.bool,
   onEntered: types.func,
+  onExited: types.func,
   transitionProgress: types.number
 };
 Collapsible.defaultProps = {

@@ -175,9 +175,10 @@ var Panel = function (_React$Component4) {
       var innerClassName = _props3.innerClassName;
       var padding = _props3.padding;
       var scrollable = _props3.scrollable;
+      var shadowLevel = _props3.shadowLevel;
       var subtitle = _props3.subtitle;
 
-      var other = _objectWithoutProperties(_props3, ['actions', 'children', 'footer', 'header', 'innerClassName', 'padding', 'scrollable', 'subtitle']);
+      var other = _objectWithoutProperties(_props3, ['actions', 'children', 'footer', 'header', 'innerClassName', 'padding', 'scrollable', 'shadowLevel', 'subtitle']);
 
       var scrollableStyle = typeof scrollable === 'number' ? { maxHeight: scrollable + 'px' } : null;
       var props = (0, _puiReactHelpers.mergeProps)(other, {

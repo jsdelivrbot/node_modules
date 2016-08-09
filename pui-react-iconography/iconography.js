@@ -15,13 +15,12 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = require('react');
-var PropTypes = React.PropTypes;
-
-var ReactFaIcon = require('react-fa/lib/Icon');
-var objectAssign = require('object-assign');
 var classnames = require('classnames');
+var React = require('react');
+var ReactFaIcon = require('react-fa/lib/Icon');
 require('pui-css-iconography');
+
+var types = React.PropTypes;
 
 var Icon = function (_React$Component) {
   _inherits(Icon, _React$Component);
@@ -50,52 +49,10 @@ var Icon = function (_React$Component) {
   return Icon;
 }(React.Component);
 
-function satisfiesOneOf() {
-  for (var _len = arguments.length, propTypes = Array(_len), _key = 0; _key < _len; _key++) {
-    propTypes[_key] = arguments[_key];
-  }
-
-  return function (props, propName, componentName) {
-    var error;
-    var errorMessages = [];
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-      for (var _iterator = propTypes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var propType = _step.value;
-
-        error = propType(props, propName, componentName);
-        if (!error) {
-          return null;
-        } else {
-          errorMessages.push(error.message);
-        }
-      }
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator.return) {
-          _iterator.return();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
-      }
-    }
-
-    return new Error('Failed to satisfy any of the possible requirements:\n  ' + errorMessages.join('\n  '));
-  };
-}
-
-Icon.propTypes = objectAssign({}, ReactFaIcon.propTypes, {
-  size: satisfiesOneOf(ReactFaIcon.propTypes.size, PropTypes.oneOf(['title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'sm', 'xs']))
-});
-
-module.exports = {
-  Icon: Icon
+Icon.propTypes = {
+  className: types.string,
+  size: types.string
 };
+
+
+module.exports = { Icon: Icon };

@@ -3,37 +3,37 @@
     [
       {
         "name": "pui-css-iconography",
-        "raw": "pui-css-iconography@^5.2.1",
-        "rawSpec": "^5.2.1",
+        "raw": "pui-css-iconography@^5.3.0",
+        "rawSpec": "^5.3.0",
         "scope": null,
-        "spec": ">=5.2.1 <6.0.0",
+        "spec": ">=5.3.0 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-alerts"
     ]
   ],
-  "_from": "pui-css-iconography@>=5.2.1 <6.0.0",
-  "_id": "pui-css-iconography@5.2.1",
+  "_from": "pui-css-iconography@>=5.3.0 <6.0.0",
+  "_id": "pui-css-iconography@5.3.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-iconography",
-  "_nodeVersion": "5.5.0",
+  "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-iconography-5.2.1.tgz_1467214730611_0.3885302080307156"
+    "tmp": "tmp/pui-css-iconography-5.3.0.tgz_1470422097731_0.9332310289610177"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.6",
+  "_npmVersion": "2.15.9",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-iconography",
-    "raw": "pui-css-iconography@^5.2.1",
-    "rawSpec": "^5.2.1",
+    "raw": "pui-css-iconography@^5.3.0",
+    "rawSpec": "^5.3.0",
     "scope": null,
-    "spec": ">=5.2.1 <6.0.0",
+    "spec": ">=5.3.0 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
@@ -41,10 +41,10 @@
     "/pui-react-alerts",
     "/pui-react-iconography"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.2.1.tgz",
-  "_shasum": "895767d7e1d6c5649787fe712bed49f4f3b5840c",
+  "_resolved": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.3.0.tgz",
+  "_shasum": "e28af0dccfc7672e88f8f63b983b295acadeda19",
   "_shrinkwrap": null,
-  "_spec": "pui-css-iconography@^5.2.1",
+  "_spec": "pui-css-iconography@^5.3.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-alerts",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -59,8 +59,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "895767d7e1d6c5649787fe712bed49f4f3b5840c",
-    "tarball": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.2.1.tgz"
+    "shasum": "e28af0dccfc7672e88f8f63b983b295acadeda19",
+    "tarball": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.3.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -142,5 +142,5 @@
   },
   "scripts": {},
   "style": "iconography.css",
-  "version": "5.2.1"
+  "version": "5.3.0"
 }

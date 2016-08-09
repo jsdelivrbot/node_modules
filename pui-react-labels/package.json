@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-react-labels",
-        "raw": "pui-react-labels@5.2.1",
-        "rawSpec": "5.2.1",
+        "raw": "pui-react-labels@5.3.0",
+        "rawSpec": "5.3.0",
         "scope": null,
-        "spec": "5.2.1",
+        "spec": "5.3.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-labels@5.2.1",
-  "_id": "pui-react-labels@5.2.1",
+  "_from": "pui-react-labels@5.3.0",
+  "_id": "pui-react-labels@5.3.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-labels",
-  "_nodeVersion": "5.5.0",
+  "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-labels-5.2.1.tgz_1467214879925_0.9112021790351719"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-labels-5.3.0.tgz_1470422192872_0.5589448201935738"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.6",
+  "_npmVersion": "2.15.9",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-labels",
-    "raw": "pui-react-labels@5.2.1",
-    "rawSpec": "5.2.1",
+    "raw": "pui-react-labels@5.3.0",
+    "rawSpec": "5.3.0",
     "scope": null,
-    "spec": "5.2.1",
+    "spec": "5.3.0",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-5.2.1.tgz",
-  "_shasum": "8e100888bb1b2d1ca577fb26f6280a800e02f8ad",
+  "_resolved": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-5.3.0.tgz",
+  "_shasum": "cdb76b371c26f0265611d18999e8a5786ca5b63c",
   "_shrinkwrap": null,
-  "_spec": "pui-react-labels@5.2.1",
+  "_spec": "pui-react-labels@5.3.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,15 +52,15 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-labels": "^5.2.1",
-    "pui-react-helpers": "^5.2.1"
+    "pui-css-labels": "^5.3.0",
+    "pui-react-helpers": "^5.3.0"
   },
   "description": "A React component for showing a colored pill of text",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "8e100888bb1b2d1ca577fb26f6280a800e02f8ad",
-    "tarball": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-5.2.1.tgz"
+    "shasum": "cdb76b371c26f0265611d18999e8a5786ca5b63c",
+    "tarball": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-5.3.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -140,5 +140,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.1"
+  "version": "5.3.0"
 }

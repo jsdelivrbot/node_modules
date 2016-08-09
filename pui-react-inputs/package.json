@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-react-inputs",
-        "raw": "pui-react-inputs@5.2.1",
-        "rawSpec": "5.2.1",
+        "raw": "pui-react-inputs@5.3.0",
+        "rawSpec": "5.3.0",
         "scope": null,
-        "spec": "5.2.1",
+        "spec": "5.3.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-inputs@5.2.1",
-  "_id": "pui-react-inputs@5.2.1",
+  "_from": "pui-react-inputs@5.3.0",
+  "_id": "pui-react-inputs@5.3.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-inputs",
-  "_nodeVersion": "5.5.0",
+  "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-inputs-5.2.1.tgz_1467214878238_0.3445129878818989"
+    "tmp": "tmp/pui-react-inputs-5.3.0.tgz_1470422192306_0.8561577028594911"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.6",
+  "_npmVersion": "2.15.9",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-inputs",
-    "raw": "pui-react-inputs@5.2.1",
-    "rawSpec": "5.2.1",
+    "raw": "pui-react-inputs@5.3.0",
+    "rawSpec": "5.3.0",
     "scope": null,
-    "spec": "5.2.1",
+    "spec": "5.3.0",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.2.1.tgz",
-  "_shasum": "b62d85d8b86c1676a8fcdf0fb9b5cd30784de859",
+  "_resolved": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.3.0.tgz",
+  "_shasum": "8c68c35108f8ab560cd1cda13148eab00e42396e",
   "_shrinkwrap": null,
-  "_spec": "pui-react-inputs@5.2.1",
+  "_spec": "pui-react-inputs@5.3.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -53,15 +53,15 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
-    "pui-css-forms": "^5.2.1",
-    "pui-react-helpers": "^5.2.1"
+    "pui-css-forms": "^5.3.0",
+    "pui-react-helpers": "^5.3.0"
   },
   "description": "A collection of React components providing styled inputs",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "b62d85d8b86c1676a8fcdf0fb9b5cd30784de859",
-    "tarball": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.2.1.tgz"
+    "shasum": "8c68c35108f8ab560cd1cda13148eab00e42396e",
+    "tarball": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.3.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -113,5 +113,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.1"
+  "version": "5.3.0"
 }

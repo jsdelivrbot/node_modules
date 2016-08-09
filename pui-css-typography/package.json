@@ -3,48 +3,49 @@
     [
       {
         "name": "pui-css-typography",
-        "raw": "pui-css-typography@^5.2.1",
-        "rawSpec": "^5.2.1",
+        "raw": "pui-css-typography@^5.3.0",
+        "rawSpec": "^5.3.0",
         "scope": null,
-        "spec": ">=5.2.1 <6.0.0",
+        "spec": ">=5.3.0 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-buttons"
     ]
   ],
-  "_from": "pui-css-typography@>=5.2.1 <6.0.0",
-  "_id": "pui-css-typography@5.2.1",
+  "_from": "pui-css-typography@>=5.3.0 <6.0.0",
+  "_id": "pui-css-typography@5.3.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-typography",
-  "_nodeVersion": "5.5.0",
+  "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-typography-5.2.1.tgz_1467214774799_0.02685190341435373"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-css-typography-5.3.0.tgz_1470422140279_0.9123224085196853"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.6",
+  "_npmVersion": "2.15.9",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-typography",
-    "raw": "pui-css-typography@^5.2.1",
-    "rawSpec": "^5.2.1",
+    "raw": "pui-css-typography@^5.3.0",
+    "rawSpec": "^5.3.0",
     "scope": null,
-    "spec": ">=5.2.1 <6.0.0",
+    "spec": ">=5.3.0 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-css-alerts",
     "/pui-css-buttons",
+    "/pui-css-modals",
     "/pui-react-modals"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-typography/-/pui-css-typography-5.2.1.tgz",
-  "_shasum": "e6ca3b3636646886701a2896cb26d5da8d853090",
+  "_resolved": "https://registry.npmjs.org/pui-css-typography/-/pui-css-typography-5.3.0.tgz",
+  "_shasum": "3246fd480c87959732bfd00768cf8a0f3605b608",
   "_shrinkwrap": null,
-  "_spec": "pui-css-typography@^5.2.1",
+  "_spec": "pui-css-typography@^5.3.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-buttons",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -53,14 +54,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.2.1"
+    "pui-css-bootstrap": "^5.3.0"
   },
   "description": "typography css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "e6ca3b3636646886701a2896cb26d5da8d853090",
-    "tarball": "https://registry.npmjs.org/pui-css-typography/-/pui-css-typography-5.2.1.tgz"
+    "shasum": "3246fd480c87959732bfd00768cf8a0f3605b608",
+    "tarball": "https://registry.npmjs.org/pui-css-typography/-/pui-css-typography-5.3.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -142,5 +143,5 @@
   },
   "scripts": {},
   "style": "typography.css",
-  "version": "5.2.1"
+  "version": "5.3.0"
 }

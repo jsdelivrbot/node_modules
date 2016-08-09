@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-css-variables-and-mixins",
-        "raw": "pui-css-variables-and-mixins@5.2.1",
-        "rawSpec": "5.2.1",
+        "raw": "pui-css-variables-and-mixins@5.3.0",
+        "rawSpec": "5.3.0",
         "scope": null,
-        "spec": "5.2.1",
+        "spec": "5.3.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-css-variables-and-mixins@5.2.1",
-  "_id": "pui-css-variables-and-mixins@5.2.1",
+  "_from": "pui-css-variables-and-mixins@5.3.0",
+  "_id": "pui-css-variables-and-mixins@5.3.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-variables-and-mixins",
-  "_nodeVersion": "5.5.0",
+  "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-variables-and-mixins-5.2.1.tgz_1467214778440_0.1904172010254115"
+    "tmp": "tmp/pui-css-variables-and-mixins-5.3.0.tgz_1470422140931_0.5038978338707238"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.6",
+  "_npmVersion": "2.15.9",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-variables-and-mixins",
-    "raw": "pui-css-variables-and-mixins@5.2.1",
-    "rawSpec": "5.2.1",
+    "raw": "pui-css-variables-and-mixins@5.3.0",
+    "rawSpec": "5.3.0",
     "scope": null,
-    "spec": "5.2.1",
+    "spec": "5.3.0",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.2.1.tgz",
-  "_shasum": "a5a7524390b6bafa4054904af5eac45617c5a348",
+  "_resolved": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.3.0.tgz",
+  "_shasum": "36c213757414ff0e91b96c50f320fb6484ce02ff",
   "_shrinkwrap": null,
-  "_spec": "pui-css-variables-and-mixins@5.2.1",
+  "_spec": "pui-css-variables-and-mixins@5.3.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -54,8 +54,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "a5a7524390b6bafa4054904af5eac45617c5a348",
-    "tarball": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.2.1.tgz"
+    "shasum": "36c213757414ff0e91b96c50f320fb6484ce02ff",
+    "tarball": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.3.0.tgz"
   },
   "homepage": "https://github.com/pivotal-cf/pivotal-ui#readme",
   "keywords": [
@@ -125,5 +125,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.2.1"
+  "version": "5.3.0"
 }

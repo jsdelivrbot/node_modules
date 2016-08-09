@@ -74,13 +74,16 @@ var Dropdown = function (_mixin$with) {
       var buttonClassName = _props.buttonClassName;
       var children = _props.children;
       var className = _props.className;
+      var closeOnMenuClick = _props.closeOnMenuClick;
+      var disableScrim = _props.disableScrim;
       var kind = _props.kind;
       var pullRight = _props.pullRight;
+      var onClick = _props.onClick;
       var split = _props.split;
       var title = _props.title;
       var toggle = _props.toggle;
 
-      var props = _objectWithoutProperties(_props, ['border', 'buttonClassName', 'children', 'className', 'kind', 'pullRight', 'split', 'title', 'toggle']);
+      var props = _objectWithoutProperties(_props, ['border', 'buttonClassName', 'children', 'className', 'closeOnMenuClick', 'disableScrim', 'kind', 'pullRight', 'onClick', 'split', 'title', 'toggle']);
 
       var isOpen = this.state.isOpen;
 
@@ -277,13 +280,14 @@ var DropdownItem = function (_React$Component) {
       var _props2 = this.props;
       var children = _props2.children;
       var className = _props2.className;
+      var eventKey = _props2.eventKey;
       var style = _props2.style;
       var href = _props2.href;
       var header = _props2.header;
       var divider = _props2.divider;
       var disabled = _props2.disabled;
 
-      var anchorProps = _objectWithoutProperties(_props2, ['children', 'className', 'style', 'href', 'header', 'divider', 'disabled']);
+      var anchorProps = _objectWithoutProperties(_props2, ['children', 'className', 'eventKey', 'style', 'href', 'header', 'divider', 'disabled']);
 
       if (header) return _react2.default.createElement(
         'li',

@@ -13,14 +13,14 @@
     ]
   ],
   "_from": "tether@>=1.1.1 <2.0.0",
-  "_id": "tether@1.3.2",
+  "_id": "tether@1.3.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/tether",
   "_nodeVersion": "4.2.4",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/tether-1.3.2.tgz_1461866039580_0.9770346274599433"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/tether-1.3.4.tgz_1470239960913_0.8603798882104456"
   },
   "_npmUser": {
     "email": "devteam@hubspot.com",
@@ -39,8 +39,8 @@
   "_requiredBy": [
     "/react-tether"
   ],
-  "_resolved": "https://registry.npmjs.org/tether/-/tether-1.3.2.tgz",
-  "_shasum": "99882bff445d4579877e1e358d65ce96431e08d0",
+  "_resolved": "https://registry.npmjs.org/tether/-/tether-1.3.4.tgz",
+  "_shasum": "b3a6a6e09eabdb46ca81107ef08d21016fba0425",
   "_shrinkwrap": null,
   "_spec": "tether@^1.1.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/react-tether",
@@ -71,10 +71,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "99882bff445d4579877e1e358d65ce96431e08d0",
-    "tarball": "https://registry.npmjs.org/tether/-/tether-1.3.2.tgz"
+    "shasum": "b3a6a6e09eabdb46ca81107ef08d21016fba0425",
+    "tarball": "https://registry.npmjs.org/tether/-/tether-1.3.4.tgz"
   },
-  "gitHead": "48ad90f391c432847757d6b5fb142f6bee93d303",
+  "gitHead": "4259a993f9f585666c042939636945c46e0cebd4",
   "homepage": "https://github.com/HubSpot/tether#readme",
   "license": "MIT",
   "main": "dist/js/tether.js",
@@ -104,5 +104,5 @@
     "reinstall": "del node_modules && npm install",
     "watch": "gulp watch"
   },
-  "version": "1.3.2"
+  "version": "1.3.4"
 }
