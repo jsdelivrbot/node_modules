@@ -81,6 +81,11 @@ export interface GridOptions {
     layoutInterval?: number;
     functionsReadOnly?: boolean;
     functionsPassive?: boolean;
+    maxConcurrentDatasourceRequests?: number;
+    maxPagesInCache?: number;
+    paginationOverflowSize?: number;
+    paginationInitialRowCount?: number;
+    paginationPageSize?: number;
 
     /****************************************************************
      * Don't forget to update ComponentUtil if changing this class. *
@@ -159,9 +164,10 @@ export interface GridOptions {
     groupRowAggNodes?(nodes: RowNode[]): any;
     getBusinessKeyForNode?(node: RowNode): string;
     getHeaderCellTemplate?: (params: any) => string | HTMLElement;
-    getNodeChildDetails?(dataItem: any): NodeChildDetails;
+    getNodeChildDetails?: GetNodeChildDetails;
     getContextMenuItems?: GetContextMenuItems;
     getMainMenuItems?: GetMainMenuItems;
+    getRowNodeId?: GetRowNodeIdFunc;
     processRowPostCreate?(params: ProcessRowParams): void;
     processCellForClipboard?(params: ProcessCellForExportParams): any;
 
@@ -220,6 +226,8 @@ export interface GridOptions {
     onViewportChanged?(event?: any): void;
     onDragStarted?(event?: any): void;
     onDragStopped?(event?: any): void;
+    onItemsAdded?(event?: any): void;
+    onItemsRemove?(event?: any): void;
 
     /****************************************************************
      * Don't forget to update ComponentUtil if changing this class. *
@@ -228,6 +236,10 @@ export interface GridOptions {
     // apis, set by the grid on init
     api?: GridApi; // change to typed
     columnApi?: ColumnApi; // change to typed
+}
+
+export interface GetNodeChildDetails {
+    (dataItem: any): NodeChildDetails;
 }
 
 export interface NodeChildDetails {
@@ -262,6 +274,10 @@ export interface GetMainMenuItemsParams {
 
 export interface GetMainMenuItems {
     (params: GetMainMenuItemsParams): (string|MenuItem)[]
+}
+
+export interface GetRowNodeIdFunc {
+    (data: any): string
 }
 
 export interface ProcessRowParams {

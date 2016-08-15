@@ -5,7 +5,7 @@ import {
     GetContextMenuItems,
     GetMainMenuItems,
     ProcessRowParams,
-    ProcessCellForExportParams
+    ProcessCellForExportParams, GetRowNodeIdFunc
 } from "./entities/gridOptions";
 import {EventService} from "./eventService";
 import {Constants} from "./constants";
@@ -131,6 +131,12 @@ export class GridOptionsWrapper {
     public getGroupDefaultExpanded(): number { return this.gridOptions.groupDefaultExpanded; }
     public getAutoSizePadding(): number { return this.gridOptions.autoSizePadding; }
 
+    public getMaxConcurrentDatasourceRequests(): number { return this.gridOptions.maxConcurrentDatasourceRequests; }
+    public getMaxPagesInCache(): number { return this.gridOptions.maxPagesInCache; }
+    public getPaginationOverflowSize(): number { return this.gridOptions.paginationOverflowSize; }
+    public getPaginationPageSize(): number { return this.gridOptions.paginationPageSize; }
+    public getPaginationInitialRowCount(): number { return this.gridOptions.paginationInitialRowCount; }
+
     public getRowData(): any[] { return this.gridOptions.rowData; }
     public isGroupUseEntireRow() { return isTrue(this.gridOptions.groupUseEntireRow); }
     public getGroupColumnDef(): ColDef { return this.gridOptions.groupColumnDef; }
@@ -186,6 +192,8 @@ export class GridOptionsWrapper {
     public getGroupRowAggNodesFunc() { return this.gridOptions.groupRowAggNodes; }
     public getContextMenuItemsFunc(): GetContextMenuItems { return this.gridOptions.getContextMenuItems; }
     public getMainMenuItemsFunc(): GetMainMenuItems { return this.gridOptions.getMainMenuItems; }
+    public getRowNodeIdFunc(): GetRowNodeIdFunc { return this.gridOptions.getRowNodeId; }
+
     public getProcessCellForClipboardFunc(): (params: ProcessCellForExportParams)=>any { return this.gridOptions.processCellForClipboard; }
     public getViewportRowModelPageSize(): number { return positiveNumberOrZero(this.gridOptions.viewportRowModelPageSize, DEFAULT_VIEWPORT_ROW_MODEL_PAGE_SIZE); }
     public getViewportRowModelBufferSize(): number { return positiveNumberOrZero(this.gridOptions.viewportRowModelBufferSize, DEFAULT_VIEWPORT_ROW_MODEL_BUFFER_SIZE); }

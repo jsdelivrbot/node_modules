@@ -3,24 +3,24 @@
     [
       {
         "name": "ag-grid-react",
-        "raw": "ag-grid-react@5.0.0",
-        "rawSpec": "5.0.0",
+        "raw": "ag-grid-react@5.1.0",
+        "rawSpec": "5.1.0",
         "scope": null,
-        "spec": "5.0.0",
+        "spec": "5.1.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "ag-grid-react@5.0.0",
-  "_id": "ag-grid-react@5.0.0",
+  "_from": "ag-grid-react@5.1.0",
+  "_id": "ag-grid-react@5.1.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/ag-grid-react",
   "_nodeVersion": "6.0.0",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/ag-grid-react-5.0.0.tgz_1468145814405_0.8997097443789244"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/ag-grid-react-5.1.0.tgz_1471018068297_0.8461642735637724"
   },
   "_npmUser": {
     "email": "niall.crosby@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "ag-grid-react",
-    "raw": "ag-grid-react@5.0.0",
-    "rawSpec": "5.0.0",
+    "raw": "ag-grid-react@5.1.0",
+    "rawSpec": "5.1.0",
     "scope": null,
-    "spec": "5.0.0",
+    "spec": "5.1.0",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/ag-grid-react/-/ag-grid-react-5.0.0.tgz",
-  "_shasum": "36dd88b1a9f1aea431fe45fa5c4bcbc79dd1a10d",
+  "_resolved": "https://registry.npmjs.org/ag-grid-react/-/ag-grid-react-5.1.0.tgz",
+  "_shasum": "584ce063d48f6ac676e7653b65b308f65d2afa21",
   "_shrinkwrap": null,
-  "_spec": "ag-grid-react@5.0.0",
+  "_spec": "ag-grid-react@5.1.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "niall.crosby@ag-grid.com",
@@ -68,10 +68,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "36dd88b1a9f1aea431fe45fa5c4bcbc79dd1a10d",
-    "tarball": "https://registry.npmjs.org/ag-grid-react/-/ag-grid-react-5.0.0.tgz"
+    "shasum": "584ce063d48f6ac676e7653b65b308f65d2afa21",
+    "tarball": "https://registry.npmjs.org/ag-grid-react/-/ag-grid-react-5.1.0.tgz"
   },
-  "gitHead": "b8a6a57381b6a289c6a5e5554ea04340d9975935",
+  "gitHead": "6187f9d87e13733f009dad7e92f88308f9e32075",
   "homepage": "http://www.ag-grid.com/",
   "keywords": [
     "react-component",
@@ -95,7 +95,7 @@
   "name": "ag-grid-react",
   "optionalDependencies": {},
   "peerDependencies": {
-    "ag-grid": "~5.0.0"
+    "ag-grid": "~5.1.0"
   },
   "readme": "ERROR: No README data found!",
   "repository": {
@@ -106,5 +106,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "typings": "./main.d.ts",
-  "version": "5.0.0"
+  "version": "5.1.0"
 }

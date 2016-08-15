@@ -96,11 +96,16 @@ export * from './dist/lib/rendering/valueFormatterService';
 export * from './dist/lib/rowControllers/inMemory/filterStage';
 export * from './dist/lib/rowControllers/inMemory/flattenStage';
 export * from './dist/lib/rowControllers/inMemory/inMemoryRowModel';
+export * from './dist/lib/rowControllers/inMemory/inMemoryNodeManager';
 export * from './dist/lib/rowControllers/inMemory/sortStage';
+
+export * from './dist/lib/rowControllers/virtualPagination/virtualPageRowModel';
+export * from './dist/lib/rowControllers/virtualPagination/virtualPageCache';
+export * from './dist/lib/rowControllers/virtualPagination/virtualPage';
 
 export * from './dist/lib/rowControllers/floatingRowModel';
 export * from './dist/lib/rowControllers/paginationController';
-export * from './dist/lib/rowControllers/virtualPageRowModel';
+export * from './dist/lib/rowControllers/iDataSource';
 
 export * from './dist/lib/widgets/agCheckbox';
 export * from './dist/lib/widgets/component';
