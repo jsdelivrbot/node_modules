@@ -113,6 +113,11 @@ export class RowNode {
             // this is important for virtual pagination and viewport, where empty rows exist.
             if (this.data) {
                 this.id = getRowNodeId(this.data);
+            } else {
+                // this can happen if user has set blank into the rowNode after the row previously
+                // having data. this happens in virtual page row model, when data is delete and
+                // the page is refreshed.
+                this.id = undefined;
             }
         } else {
             this.id = id;
@@ -195,7 +200,7 @@ export class RowNode {
     private calculateSelectedFromChildrenBubbleUp(): void {
         this.calculateSelectedFromChildren();
         if (this.parent) {
-            this.parent.calculateSelectedFromChildren();
+            this.parent.calculateSelectedFromChildrenBubbleUp();
         }
     }
 

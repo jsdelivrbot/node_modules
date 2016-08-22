@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-collapsible",
-        "raw": "pui-react-collapsible@^5.3.0",
-        "rawSpec": "^5.3.0",
+        "raw": "pui-react-collapsible@^5.3.1",
+        "rawSpec": "^5.3.1",
         "scope": null,
-        "spec": ">=5.3.0 <6.0.0",
+        "spec": ">=5.3.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-tabs"
     ]
   ],
-  "_from": "pui-react-collapsible@>=5.3.0 <6.0.0",
-  "_id": "pui-react-collapsible@5.3.0",
+  "_from": "pui-react-collapsible@>=5.3.1 <6.0.0",
+  "_id": "pui-react-collapsible@5.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-collapsible",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-collapsible-5.3.0.tgz_1470422163139_0.42207146366126835"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-collapsible-5.3.1.tgz_1471623042098_0.6877399429213256"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-collapsible",
-    "raw": "pui-react-collapsible@^5.3.0",
-    "rawSpec": "^5.3.0",
+    "raw": "pui-react-collapsible@^5.3.1",
+    "rawSpec": "^5.3.1",
     "scope": null,
-    "spec": ">=5.3.0 <6.0.0",
+    "spec": ">=5.3.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-react-tabs"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-collapsible/-/pui-react-collapsible-5.3.0.tgz",
-  "_shasum": "a75991bf20f6e03c6c0f26f22c62e9c1f9c62d8f",
+  "_resolved": "https://registry.npmjs.org/pui-react-collapsible/-/pui-react-collapsible-5.3.1.tgz",
+  "_shasum": "70b7be72b544e1b135ee38c81f4205dba6122af3",
   "_shrinkwrap": null,
-  "_spec": "pui-react-collapsible@^5.3.0",
+  "_spec": "pui-react-collapsible@^5.3.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-tabs",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,16 +52,16 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-collapse": "^5.3.0",
-    "pui-react-helpers": "^5.3.0",
-    "pui-react-mixins": "^5.3.0"
+    "pui-css-collapse": "^5.3.1",
+    "pui-react-helpers": "^5.3.1",
+    "pui-react-mixins": "^5.3.1"
   },
   "description": "React component showing and hiding content",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "a75991bf20f6e03c6c0f26f22c62e9c1f9c62d8f",
-    "tarball": "https://registry.npmjs.org/pui-react-collapsible/-/pui-react-collapsible-5.3.0.tgz"
+    "shasum": "70b7be72b544e1b135ee38c81f4205dba6122af3",
+    "tarball": "https://registry.npmjs.org/pui-react-collapsible/-/pui-react-collapsible-5.3.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -113,5 +113,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.3.0"
+  "version": "5.3.1"
 }

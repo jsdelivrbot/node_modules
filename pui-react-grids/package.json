@@ -3,46 +3,56 @@
     [
       {
         "name": "pui-react-grids",
-        "raw": "pui-react-grids@5.3.0",
-        "rawSpec": "5.3.0",
+        "raw": "pui-react-grids@5.3.1",
+        "rawSpec": "5.3.1",
         "scope": null,
-        "spec": "5.3.0",
+        "spec": "5.3.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-grids@5.3.0",
-  "_id": "pui-react-grids@5.3.0",
+  "_from": "pui-react-grids@5.3.1",
+  "_id": "pui-react-grids@5.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-grids",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-grids-5.3.0.tgz_1470422177020_0.08405742608010769"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-grids-5.3.1.tgz_1471623047377_0.43885003961622715"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
   "_npmVersion": "2.15.9",
-  "_phantomChildren": {},
+  "_phantomChildren": {
+    "babel-runtime": "6.11.6",
+    "classnames": "2.2.5",
+    "dom-helpers": "2.4.0",
+    "invariant": "2.2.1",
+    "keycode": "2.1.4",
+    "react-overlays": "0.6.6",
+    "react-prop-types": "0.4.0",
+    "uncontrollable": "4.0.1",
+    "warning": "3.0.0"
+  },
   "_requested": {
     "name": "pui-react-grids",
-    "raw": "pui-react-grids@5.3.0",
-    "rawSpec": "5.3.0",
+    "raw": "pui-react-grids@5.3.1",
+    "rawSpec": "5.3.1",
     "scope": null,
-    "spec": "5.3.0",
+    "spec": "5.3.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-grids/-/pui-react-grids-5.3.0.tgz",
-  "_shasum": "c0f177c5c422dbf57eefdcc8fa7c097efec3b3dc",
+  "_resolved": "https://registry.npmjs.org/pui-react-grids/-/pui-react-grids-5.3.1.tgz",
+  "_shasum": "769ef2a0ea76efe7ec98ef014f073d4a4b078a8a",
   "_shrinkwrap": null,
-  "_spec": "pui-react-grids@5.3.0",
+  "_spec": "pui-react-grids@5.3.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,16 +62,16 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-grids": "^5.3.0",
-    "pui-react-helpers": "^5.3.0",
+    "pui-css-grids": "^5.3.1",
+    "pui-react-helpers": "^5.3.1",
     "react-bootstrap": "0.30.2"
   },
   "description": "React components for laying-out content in a grid",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "c0f177c5c422dbf57eefdcc8fa7c097efec3b3dc",
-    "tarball": "https://registry.npmjs.org/pui-react-grids/-/pui-react-grids-5.3.0.tgz"
+    "shasum": "769ef2a0ea76efe7ec98ef014f073d4a4b078a8a",
+    "tarball": "https://registry.npmjs.org/pui-react-grids/-/pui-react-grids-5.3.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -145,5 +155,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.3.0"
+  "version": "5.3.1"
 }

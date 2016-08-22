@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-media",
-        "raw": "pui-css-media@^5.3.0",
-        "rawSpec": "^5.3.0",
+        "raw": "pui-css-media@^5.3.1",
+        "rawSpec": "^5.3.1",
         "scope": null,
-        "spec": ">=5.3.0 <6.0.0",
+        "spec": ">=5.3.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-media"
     ]
   ],
-  "_from": "pui-css-media@>=5.3.0 <6.0.0",
-  "_id": "pui-css-media@5.3.0",
+  "_from": "pui-css-media@>=5.3.1 <6.0.0",
+  "_id": "pui-css-media@5.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-media",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-media-5.3.0.tgz_1470422116185_0.7671072338707745"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-css-media-5.3.1.tgz_1471622999613_0.9460895697120577"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-media",
-    "raw": "pui-css-media@^5.3.0",
-    "rawSpec": "^5.3.0",
+    "raw": "pui-css-media@^5.3.1",
+    "rawSpec": "^5.3.1",
     "scope": null,
-    "spec": ">=5.3.0 <6.0.0",
+    "spec": ">=5.3.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-react-media"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-media/-/pui-css-media-5.3.0.tgz",
-  "_shasum": "92eff972db7e6a03ebe1b1eb1412f1ca05c3176f",
+  "_resolved": "https://registry.npmjs.org/pui-css-media/-/pui-css-media-5.3.1.tgz",
+  "_shasum": "91c56c961ae916c3955a837e3d4c0af02112840c",
   "_shrinkwrap": null,
-  "_spec": "pui-css-media@^5.3.0",
+  "_spec": "pui-css-media@^5.3.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-media",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.3.0"
+    "pui-css-bootstrap": "^5.3.1"
   },
   "description": "media css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "92eff972db7e6a03ebe1b1eb1412f1ca05c3176f",
-    "tarball": "https://registry.npmjs.org/pui-css-media/-/pui-css-media-5.3.0.tgz"
+    "shasum": "91c56c961ae916c3955a837e3d4c0af02112840c",
+    "tarball": "https://registry.npmjs.org/pui-css-media/-/pui-css-media-5.3.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -140,5 +140,5 @@
   },
   "scripts": {},
   "style": "media.css",
-  "version": "5.3.0"
+  "version": "5.3.1"
 }

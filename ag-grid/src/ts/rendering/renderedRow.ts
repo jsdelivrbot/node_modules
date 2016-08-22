@@ -14,6 +14,7 @@ import {Constants} from "../constants";
 import {GridCell} from "../entities/gridCell";
 import {CellRendererService} from "./cellRendererService";
 import {CellRendererFactory} from "./cellRendererFactory";
+import {ICellRenderer, ICellRendererFunc} from "./cellRenderers/iCellRenderer";
 
 export class RenderedRow {
 
@@ -37,7 +38,9 @@ export class RenderedRow {
     private rowNode: RowNode;
     private rowIndex: number;
 
-    private rowIsHeaderThatSpans: boolean;
+    private fullWidthRow: boolean;
+    private fullWidthRowRenderer: {new(): ICellRenderer} | ICellRendererFunc | string;
+    private fullWidthRowRendererParams: any;
 
     private parentScope: any;
     private rowRenderer: RowRenderer;
@@ -73,24 +76,53 @@ export class RenderedRow {
         this.rowNode = node;
     }
 
+    private checkForFullWidthRow(): void {
+
+        let isFullWidthRowFunc = this.gridOptionsWrapper.getIsFullWidthRowFunc();
+        let rowIsComponentRow = isFullWidthRowFunc ? isFullWidthRowFunc(this.rowNode) : false;
+        let rowIsGroupSpanningRow = this.rowNode.group && this.gridOptionsWrapper.isGroupUseEntireRow();
+
+        if (rowIsComponentRow) {
+            this.fullWidthRow = true;
+            this.fullWidthRowRenderer = this.gridOptionsWrapper.getFullWidthRowRenderer();
+            this.fullWidthRowRendererParams = this.gridOptionsWrapper.getFullWidthRowRendererParams();
+        } else if (rowIsGroupSpanningRow) {
+            this.fullWidthRow = true;
+            this.fullWidthRowRenderer = this.gridOptionsWrapper.getGroupRowRenderer();
+            this.fullWidthRowRendererParams = this.gridOptionsWrapper.getGroupRowRendererParams();
+
+            if (!this.fullWidthRowRenderer) {
+                this.fullWidthRowRenderer = CellRendererFactory.GROUP;
+                this.fullWidthRowRendererParams = {
+                    innerRenderer: this.gridOptionsWrapper.getGroupRowInnerRenderer(),
+                }
+            }
+        } else {
+            this.fullWidthRow = false;
+        }
+    }
+
     @PostConstruct
     public init(): void {
 
         this.createContainers();
-
-        var groupHeaderTakesEntireRow = this.gridOptionsWrapper.isGroupUseEntireRow();
-        this.rowIsHeaderThatSpans = this.rowNode.group && groupHeaderTakesEntireRow;
+        this.checkForFullWidthRow();
 
         this.scope = this.createChildScopeOrNull(this.rowNode.data);
 
-        if (this.rowIsHeaderThatSpans) {
-            this.refreshGroupRow();
+        if (this.fullWidthRow) {
+            this.refreshSingleComponent();
         } else {
             this.refreshCellsIntoRow();
         }
 
-        this.addDynamicStyles();
-        this.addDynamicClasses();
+        this.addGridClasses();
+
+        this.addStyleFromRowStyle();
+        this.addStyleFromRowStyleFunc();
+
+        this.addClassesFromRowClass();
+        this.addClassesFromRowClassFunc();
 
         this.addRowIds();
         this.setTopAndHeightCss();
@@ -115,7 +147,21 @@ export class RenderedRow {
             context: this.gridOptionsWrapper.getContext()
         });
 
+        this.addDataChangedListener();
+
         this.initialised = true;
+    }
+
+    // because data can change, especially in virtual pagination and viewport row models, need to allow setting
+    // styles and classes after the data has changed
+    private addDataChangedListener(): void {
+        var dataChangedListener = ()=> {
+            this.addStyleFromRowStyleFunc();
+            this.addClassesFromRowClass();
+        };
+
+        this.rowNode.addEventListener(RowNode.EVENT_DATA_CHANGED, dataChangedListener);
+        this.destroyFunctions.push( ()=> this.rowNode.removeEventListener(RowNode.EVENT_DATA_CHANGED, dataChangedListener) );
     }
 
     private angular1Compile(element: Element): void {
@@ -144,10 +190,10 @@ export class RenderedRow {
 
     private onDisplayedColumnsChanged(event: ColumnChangeEvent): void {
         // if row is a group row that spans, then it's not impacted by column changes, with exception of pinning
-        if (this.rowIsHeaderThatSpans) {
+        if (this.fullWidthRow) {
             var columnPinned = event.getType() === Events.EVENT_COLUMN_PINNED;
             if (columnPinned) {
-                this.refreshGroupRow();
+                this.refreshSingleComponent();
             }
         } else {
             this.refreshCellsIntoRow();
@@ -156,7 +202,7 @@ export class RenderedRow {
 
     private onVirtualColumnsChanged(event: ColumnChangeEvent): void {
         // if row is a group row that spans, then it's not impacted by column changes, with exception of pinning
-        if (!this.rowIsHeaderThatSpans) {
+        if (!this.fullWidthRow) {
             this.refreshCellsIntoRow();
         }
     }
@@ -350,10 +396,10 @@ export class RenderedRow {
         }
     }
 
-    public onMouseEvent(eventName: string, mouseEvent: MouseEvent, eventSource: HTMLElement, cell: GridCell): void {
+    public onMouseEvent(eventName: string, mouseEvent: MouseEvent, cell: GridCell): void {
         var renderedCell = this.renderedCells[cell.column.getId()];
         if (renderedCell) {
-            renderedCell.onMouseEvent(eventName, mouseEvent, eventSource);
+            renderedCell.onMouseEvent(eventName, mouseEvent);
         }
     }
 
@@ -441,7 +487,7 @@ export class RenderedRow {
         return this.rowNode.group === true;
     }
 
-    private refreshGroupRow(): void {
+    private refreshSingleComponent(): void {
 
         // where the components go changes with pinning, it's easiest ot just remove from all containers
         // and start again if the pinning changes
@@ -480,20 +526,16 @@ export class RenderedRow {
         }
     }
 
+    private createSingleComponentParams(): any {
+
+    }
+
     private createGroupSpanningEntireRowCell(padding: boolean): HTMLElement {
         var eRow: HTMLElement = document.createElement('span');
         // padding means we are on the right hand side of a pinned table, ie
         // in the main body.
         if (!padding) {
-            var cellRenderer = this.gridOptionsWrapper.getGroupRowRenderer();
-            var cellRendererParams = this.gridOptionsWrapper.getGroupRowRendererParams();
 
-            if (!cellRenderer) {
-                cellRenderer = CellRendererFactory.GROUP;
-                cellRendererParams = {
-                    innerRenderer: this.gridOptionsWrapper.getGroupRowInnerRenderer(),
-                }
-            }
             var params = {
                 data: this.rowNode.data,
                 node: this.rowNode,
@@ -506,16 +548,16 @@ export class RenderedRow {
                 eParentOfValue: eRow,
                 addRenderedRowListener: this.addEventListener.bind(this),
                 colDef: {
-                    cellRenderer: cellRenderer,
-                    cellRendererParams: cellRendererParams
+                    cellRenderer: this.fullWidthRowRenderer,
+                    cellRendererParams: this.fullWidthRowRendererParams
                 }
             };
 
-            if (cellRendererParams) {
-                _.assign(params, cellRendererParams);
+            if (this.fullWidthRowRendererParams) {
+                _.assign(params, this.fullWidthRowRendererParams);
             }
 
-            var cellComponent = this.cellRendererService.useCellRenderer(cellRenderer, eRow, params);
+            var cellComponent = this.cellRendererService.useCellRenderer(this.fullWidthRowRenderer, eRow, params);
 
             if (cellComponent && cellComponent.destroy) {
                 this.destroyFunctions.push( () => cellComponent.destroy() );
@@ -543,7 +585,7 @@ export class RenderedRow {
         }
     }
 
-    private addDynamicStyles() {
+    private addStyleFromRowStyle(): void {
         var rowStyle = this.gridOptionsWrapper.getRowStyle();
         if (rowStyle) {
             if (typeof rowStyle === 'function') {
@@ -552,6 +594,9 @@ export class RenderedRow {
                 this.eLeftCenterAndRightRows.forEach( row => _.addStylesToElement(row, rowStyle));
             }
         }
+    }
+
+    private addStyleFromRowStyleFunc(): void {
         var rowStyleFunc = this.gridOptionsWrapper.getRowStyleFunc();
         if (rowStyleFunc) {
             var params = {
@@ -648,10 +693,6 @@ export class RenderedRow {
         return this.rowNode;
     }
 
-    public getRowIndex(): any {
-        return this.rowIndex;
-    }
-
     public refreshCells(colIds: string[], animate: boolean): void {
         if (!colIds) {
             return;
@@ -666,7 +707,37 @@ export class RenderedRow {
         });
     }
 
-    private addDynamicClasses() {
+    private addClassesFromRowClassFunc(): void {
+
+        var classes: string[] = [];
+
+        var gridOptionsRowClassFunc = this.gridOptionsWrapper.getRowClassFunc();
+        if (gridOptionsRowClassFunc) {
+            var params = {
+                node: this.rowNode,
+                data: this.rowNode.data,
+                rowIndex: this.rowIndex,
+                context: this.gridOptionsWrapper.getContext(),
+                api: this.gridOptionsWrapper.getApi()
+            };
+            var classToUseFromFunc = gridOptionsRowClassFunc(params);
+            if (classToUseFromFunc) {
+                if (typeof classToUseFromFunc === 'string') {
+                    classes.push(classToUseFromFunc);
+                } else if (Array.isArray(classToUseFromFunc)) {
+                    classToUseFromFunc.forEach(function (classItem: any) {
+                        classes.push(classItem);
+                    });
+                }
+            }
+        }
+
+        classes.forEach( (classStr: string) => {
+            this.eLeftCenterAndRightRows.forEach( row => _.addCssClass(row, classStr));
+        });
+    }
+
+    private addGridClasses() {
         var classes: string[] = [];
 
         classes.push('ag-row');
@@ -702,6 +773,14 @@ export class RenderedRow {
             }
         }
 
+        classes.forEach( (classStr: string) => {
+            this.eLeftCenterAndRightRows.forEach( row => _.addCssClass(row, classStr));
+        });
+    }
+
+    private addClassesFromRowClass() {
+        var classes: string[] = [];
+
         // add in extra classes provided by the config
         var gridOptionsRowClass = this.gridOptionsWrapper.getRowClass();
         if (gridOptionsRowClass) {
@@ -712,27 +791,6 @@ export class RenderedRow {
                     classes.push(gridOptionsRowClass);
                 } else if (Array.isArray(gridOptionsRowClass)) {
                     gridOptionsRowClass.forEach(function (classItem: any) {
-                        classes.push(classItem);
-                    });
-                }
-            }
-        }
-
-        var gridOptionsRowClassFunc = this.gridOptionsWrapper.getRowClassFunc();
-        if (gridOptionsRowClassFunc) {
-            var params = {
-                node: this.rowNode,
-                data: this.rowNode.data,
-                rowIndex: this.rowIndex,
-                context: this.gridOptionsWrapper.getContext(),
-                api: this.gridOptionsWrapper.getApi()
-            };
-            var classToUseFromFunc = gridOptionsRowClassFunc(params);
-            if (classToUseFromFunc) {
-                if (typeof classToUseFromFunc === 'string') {
-                    classes.push(classToUseFromFunc);
-                } else if (Array.isArray(classToUseFromFunc)) {
-                    classToUseFromFunc.forEach(function (classItem: any) {
                         classes.push(classItem);
                     });
                 }

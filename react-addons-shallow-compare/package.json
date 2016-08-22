@@ -3,47 +3,47 @@
     [
       {
         "name": "react-addons-shallow-compare",
-        "raw": "react-addons-shallow-compare@15.3.0",
-        "rawSpec": "15.3.0",
+        "raw": "react-addons-shallow-compare@15.3.1",
+        "rawSpec": "15.3.1",
         "scope": null,
-        "spec": "15.3.0",
+        "spec": "15.3.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "react-addons-shallow-compare@15.3.0",
-  "_id": "react-addons-shallow-compare@15.3.0",
+  "_from": "react-addons-shallow-compare@15.3.1",
+  "_id": "react-addons-shallow-compare@15.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-addons-shallow-compare",
-  "_nodeVersion": "6.2.0",
+  "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/react-addons-shallow-compare-15.3.0.tgz_1469817485693_0.47065708693116903"
+    "tmp": "tmp/react-addons-shallow-compare-15.3.1.tgz_1471632602891_0.7521286676637828"
   },
   "_npmUser": {
     "email": "paul@oshannessy.com",
     "name": "zpao"
   },
-  "_npmVersion": "3.9.6",
+  "_npmVersion": "2.15.5",
   "_phantomChildren": {},
   "_requested": {
     "name": "react-addons-shallow-compare",
-    "raw": "react-addons-shallow-compare@15.3.0",
-    "rawSpec": "15.3.0",
+    "raw": "react-addons-shallow-compare@15.3.1",
+    "rawSpec": "15.3.1",
     "scope": null,
-    "spec": "15.3.0",
+    "spec": "15.3.1",
     "type": "version"
   },
   "_requiredBy": [
     "/",
     "/pui-react-mixins"
   ],
-  "_resolved": "https://registry.npmjs.org/react-addons-shallow-compare/-/react-addons-shallow-compare-15.3.0.tgz",
-  "_shasum": "4a411935a1cf07cea98e0e1cb22732293febfa34",
+  "_resolved": "https://registry.npmjs.org/react-addons-shallow-compare/-/react-addons-shallow-compare-15.3.1.tgz",
+  "_shasum": "06697c97b44b27e28bcc9205e555ff55200b7092",
   "_shrinkwrap": null,
-  "_spec": "react-addons-shallow-compare@15.3.0",
+  "_spec": "react-addons-shallow-compare@15.3.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "bugs": {
     "url": "https://github.com/facebook/react/issues"
@@ -53,9 +53,15 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "4a411935a1cf07cea98e0e1cb22732293febfa34",
-    "tarball": "https://registry.npmjs.org/react-addons-shallow-compare/-/react-addons-shallow-compare-15.3.0.tgz"
+    "shasum": "06697c97b44b27e28bcc9205e555ff55200b7092",
+    "tarball": "https://registry.npmjs.org/react-addons-shallow-compare/-/react-addons-shallow-compare-15.3.1.tgz"
   },
+  "files": [
+    "LICENSE",
+    "PATENTS",
+    "README.md",
+    "index.js"
+  ],
   "homepage": "https://github.com/facebook/react#readme",
   "keywords": [
     "react",
@@ -92,7 +98,7 @@
   "name": "react-addons-shallow-compare",
   "optionalDependencies": {},
   "peerDependencies": {
-    "react": "^15.3.0"
+    "react": "^15.3.1"
   },
   "readme": "ERROR: No README data found!",
   "repository": {
@@ -100,5 +106,5 @@
     "url": "git+https://github.com/facebook/react.git"
   },
   "scripts": {},
-  "version": "15.3.0"
+  "version": "15.3.1"
 }

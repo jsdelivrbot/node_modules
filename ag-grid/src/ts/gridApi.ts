@@ -65,11 +65,14 @@ export class GridApi {
 
     @PostConstruct
     private init(): void {
-        if (this.rowModel.getType()===Constants.ROW_MODEL_TYPE_NORMAL) {
-            this.inMemoryRowModel = <IInMemoryRowModel> this.rowModel;
-        }
-        if (this.rowModel.getType()===Constants.ROW_MODEL_TYPE_VIRTUAL) {
-            this.virtualPageRowModel = <VirtualPageRowModel> this.rowModel;
+        switch (this.rowModel.getType()) {
+            case Constants.ROW_MODEL_TYPE_NORMAL:
+            case Constants.ROW_MODEL_TYPE_PAGINATION:
+                this.inMemoryRowModel = <IInMemoryRowModel> this.rowModel;
+                break;
+            case Constants.ROW_MODEL_TYPE_VIRTUAL:
+                this.virtualPageRowModel = <VirtualPageRowModel> this.rowModel;
+                break;
         }
     }
 
@@ -117,6 +120,7 @@ export class GridApi {
     
     public setRowData(rowData: any[]) {
         if (this.gridOptionsWrapper.isRowModelDefault()) {
+            this.selectionController.reset();
             this.inMemoryRowModel.setRowData(rowData, true);
         } else {
             console.log('cannot call setRowData unless using normal row model');

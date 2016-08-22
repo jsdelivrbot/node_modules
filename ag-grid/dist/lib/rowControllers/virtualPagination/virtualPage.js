@@ -1,6 +1,6 @@
 /**
  * ag-grid - Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components
- * @version v5.1.2
+ * @version v5.2.0
  * @link http://www.ag-grid.com/
  * @license MIT
  */
@@ -18,7 +18,6 @@ var gridOptionsWrapper_1 = require("../../gridOptionsWrapper");
 var rowNode_1 = require("../../entities/rowNode");
 var context_1 = require("../../context/context");
 var eventService_1 = require("../../eventService");
-var selectionController_1 = require("../../selectionController");
 var VirtualPage = (function () {
     function VirtualPage(pageNumber, cacheSettings) {
         this.state = VirtualPage.STATE_DIRTY;
@@ -150,6 +149,9 @@ var VirtualPage = (function () {
                 var indexOfRow = _this.startRow + index;
                 rowNode.setDataAndId(data, indexOfRow.toString());
             }
+            else {
+                rowNode.setDataAndId(undefined, undefined);
+            }
         });
     };
     VirtualPage.prototype.pageLoaded = function (version, rows, lastRow) {
@@ -177,10 +179,6 @@ var VirtualPage = (function () {
         context_1.Autowired('context'), 
         __metadata('design:type', context_1.Context)
     ], VirtualPage.prototype, "context", void 0);
-    __decorate([
-        context_1.Autowired('selectionController'), 
-        __metadata('design:type', selectionController_1.SelectionController)
-    ], VirtualPage.prototype, "selectionController", void 0);
     __decorate([
         context_1.PostConstruct, 
         __metadata('design:type', Function), 

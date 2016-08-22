@@ -1,6 +1,6 @@
 /**
  * ag-grid - Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components
- * @version v5.1.2
+ * @version v5.2.0
  * @link http://www.ag-grid.com/
  * @license MIT
  */
@@ -127,32 +127,6 @@ var VirtualPageCache = (function () {
         this.dispatchModelUpdated();
         this.eventService.dispatchEvent(events_1.Events.EVENT_ITEMS_ADDED, newNodes);
     };
-    /*
-     public removeItems(rowNodes: RowNode[]): void {
-
-     // get all page id's as NUMBERS (not strings, as we need to sort as numbers) and in ascending order
-     let pageIds = Object.keys(this.pages).map( str => parseInt(str) ).sort().reverse();
-
-     // put rowNodes into a map of ids for lookup
-     let rowNodesById: {(id:string):RowNode} = {};
-     rowNodes.forEach( (rowNode)=> rowNodesById[rowNode.id] = rowNode);
-
-     // this is the index to move rows down
-     let rowsDeletedSoFar = 0;
-
-     let newNodes: RowNode[] = [];
-     pageIds.forEach( pageId => {
-     let page = this.pages[pageId];
-     let pageEndRow = page.getEndRow();
-
-     // if the insertion is after this page, then this page is not impacted
-     if (pageEndRow <= indexToInsert) { return; }
-
-     this.moveItemsDown(page, indexToInsert, items.length);
-     let newNodesThisPage = this.insertItems(page, indexToInsert, items);
-     newNodesThisPage.forEach( rowNode => newNodes.push(rowNode) );
-     });
-     }*/
     VirtualPageCache.prototype.getRowCount = function () {
         return this.virtualRowCount;
     };
@@ -255,16 +229,14 @@ var VirtualPageCache = (function () {
         return lruPage;
     };
     VirtualPageCache.prototype.checkVirtualRowCount = function (page, lastRow) {
-        // if we know the last row, use if
-        if (this.maxRowFound) {
-            return;
-        }
+        // if client provided a last row, we always use it, as it could change between server calls
+        // if user deleted data and then called refresh on the grid.
         if (typeof lastRow === 'number' && lastRow >= 0) {
             this.virtualRowCount = lastRow;
             this.maxRowFound = true;
             this.dispatchModelUpdated();
         }
-        else {
+        else if (!this.maxRowFound) {
             // otherwise, see if we need to add some virtual rows
             var lastRowIndex = (page.getPageNumber() + 1) * this.cacheParams.pageSize;
             var lastRowIndexPlusOverflow = lastRowIndex + this.cacheParams.paginationOverflowSize;

@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-overlay-trigger",
-        "raw": "pui-react-overlay-trigger@5.3.0",
-        "rawSpec": "5.3.0",
+        "raw": "pui-react-overlay-trigger@5.3.1",
+        "rawSpec": "5.3.1",
         "scope": null,
-        "spec": "5.3.0",
+        "spec": "5.3.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-overlay-trigger@5.3.0",
-  "_id": "pui-react-overlay-trigger@5.3.0",
+  "_from": "pui-react-overlay-trigger@5.3.1",
+  "_id": "pui-react-overlay-trigger@5.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-overlay-trigger",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-overlay-trigger-5.3.0.tgz_1470422206865_0.19312382536008954"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-overlay-trigger-5.3.1.tgz_1471623065313_0.8736278689466417"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-overlay-trigger",
-    "raw": "pui-react-overlay-trigger@5.3.0",
-    "rawSpec": "5.3.0",
+    "raw": "pui-react-overlay-trigger@5.3.1",
+    "rawSpec": "5.3.1",
     "scope": null,
-    "spec": "5.3.0",
+    "spec": "5.3.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.3.0.tgz",
-  "_shasum": "6909ec5d650bc26302e5eb9947f5220a3c44f247",
+  "_resolved": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.3.1.tgz",
+  "_shasum": "f357a341fa6f33e65238327ee6ce479e8864a93a",
   "_shrinkwrap": null,
-  "_spec": "pui-react-overlay-trigger@5.3.0",
+  "_spec": "pui-react-overlay-trigger@5.3.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -53,15 +53,15 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "lodash.uniqueid": "^3.0.0",
-    "pui-react-mixins": "^5.3.0",
+    "pui-react-mixins": "^5.3.1",
     "react-tether": "^0.5.2"
   },
   "description": "A React component for displaying a tooltip or popover on user action",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "6909ec5d650bc26302e5eb9947f5220a3c44f247",
-    "tarball": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.3.0.tgz"
+    "shasum": "f357a341fa6f33e65238327ee6ce479e8864a93a",
+    "tarball": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.3.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/react.html#tooltips_react",
   "keywords": [
@@ -145,5 +145,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.3.0"
+  "version": "5.3.1"
 }

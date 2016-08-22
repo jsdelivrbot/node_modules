@@ -9,24 +9,24 @@
         "spec": ">=3.1.0 <4.0.0",
         "type": "range"
       },
-      "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-tabs"
+      "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-mixins"
     ]
   ],
   "_from": "raf@>=3.1.0 <4.0.0",
-  "_id": "raf@3.2.0",
+  "_id": "raf@3.3.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/raf",
-  "_nodeVersion": "4.1.1",
+  "_nodeVersion": "6.0.0",
   "_npmOperationalInternal": {
-    "host": "packages-5-east.internal.npmjs.com",
-    "tmp": "tmp/raf-3.2.0.tgz_1455705777394_0.3654659006278962"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/raf-3.3.0.tgz_1471367403973_0.4697482050396502"
   },
   "_npmUser": {
     "email": "christian.tegner@gmail.com",
     "name": "cmtegner"
   },
-  "_npmVersion": "3.3.4",
+  "_npmVersion": "3.8.6",
   "_phantomChildren": {},
   "_requested": {
     "name": "raf",
@@ -41,11 +41,11 @@
     "/pui-react-mixins",
     "/pui-react-tabs"
   ],
-  "_resolved": "https://registry.npmjs.org/raf/-/raf-3.2.0.tgz",
-  "_shasum": "2aba9a09bb70f8c2e9094dc60ace7c374fadec7e",
+  "_resolved": "https://registry.npmjs.org/raf/-/raf-3.3.0.tgz",
+  "_shasum": "93845eeffc773f8129039f677f80a36044eee2c3",
   "_shrinkwrap": null,
   "_spec": "raf@^3.1.0",
-  "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-tabs",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-mixins",
   "author": {
     "email": "chris@neversaw.us",
     "name": "Chris Dickinson"
@@ -70,10 +70,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "2aba9a09bb70f8c2e9094dc60ace7c374fadec7e",
-    "tarball": "https://registry.npmjs.org/raf/-/raf-3.2.0.tgz"
+    "shasum": "93845eeffc773f8129039f677f80a36044eee2c3",
+    "tarball": "https://registry.npmjs.org/raf/-/raf-3.3.0.tgz"
   },
-  "gitHead": "36f73baee1b9bede56e5b21c422091fb4186858a",
+  "gitHead": "77781df73108fe4e28599ec72f4975820ed2ecaa",
   "homepage": "https://github.com/chrisdickinson/raf#readme",
   "keywords": [
     "requestAnimationFrame",
@@ -119,5 +119,5 @@
     ],
     "files": "test.js"
   },
-  "version": "3.2.0"
+  "version": "3.3.0"
 }

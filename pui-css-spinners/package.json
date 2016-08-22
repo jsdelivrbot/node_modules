@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-spinners",
-        "raw": "pui-css-spinners@5.3.0",
-        "rawSpec": "5.3.0",
+        "raw": "pui-css-spinners@5.3.1",
+        "rawSpec": "5.3.1",
         "scope": null,
-        "spec": "5.3.0",
+        "spec": "5.3.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-css-spinners@5.3.0",
-  "_id": "pui-css-spinners@5.3.0",
+  "_from": "pui-css-spinners@5.3.1",
+  "_id": "pui-css-spinners@5.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-spinners",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-spinners-5.3.0.tgz_1470422129888_0.7734451885335147"
+    "tmp": "tmp/pui-css-spinners-5.3.1.tgz_1471623013385_0.7355899943504483"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-spinners",
-    "raw": "pui-css-spinners@5.3.0",
-    "rawSpec": "5.3.0",
+    "raw": "pui-css-spinners@5.3.1",
+    "rawSpec": "5.3.1",
     "scope": null,
-    "spec": "5.3.0",
+    "spec": "5.3.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.3.0.tgz",
-  "_shasum": "9912a002053f0bc88c6727c5d3e8b850320d281f",
+  "_resolved": "https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.3.1.tgz",
+  "_shasum": "6d81d5dfb128a344ba78c3dc92130819b846f112",
   "_shrinkwrap": null,
-  "_spec": "pui-css-spinners@5.3.0",
+  "_spec": "pui-css-spinners@5.3.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-iconography": "^5.3.0"
+    "pui-css-iconography": "^5.3.1"
   },
   "description": "spinners css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "9912a002053f0bc88c6727c5d3e8b850320d281f",
-    "tarball": "https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.3.0.tgz"
+    "shasum": "6d81d5dfb128a344ba78c3dc92130819b846f112",
+    "tarball": "https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.3.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -140,5 +140,5 @@
   },
   "scripts": {},
   "style": "spinners.css",
-  "version": "5.3.0"
+  "version": "5.3.1"
 }

@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-links",
-        "raw": "pui-css-links@^5.3.0",
-        "rawSpec": "^5.3.0",
+        "raw": "pui-css-links@^5.3.1",
+        "rawSpec": "^5.3.1",
         "scope": null,
-        "spec": ">=5.3.0 <6.0.0",
+        "spec": ">=5.3.1 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-dropdowns"
     ]
   ],
-  "_from": "pui-css-links@>=5.3.0 <6.0.0",
-  "_id": "pui-css-links@5.3.0",
+  "_from": "pui-css-links@>=5.3.1 <6.0.0",
+  "_id": "pui-css-links@5.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-links",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-links-5.3.0.tgz_1470422110659_0.9170932751148939"
+    "tmp": "tmp/pui-css-links-5.3.1.tgz_1471622998035_0.17290829541161656"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-links",
-    "raw": "pui-css-links@^5.3.0",
-    "rawSpec": "^5.3.0",
+    "raw": "pui-css-links@^5.3.1",
+    "rawSpec": "^5.3.1",
     "scope": null,
-    "spec": ">=5.3.0 <6.0.0",
+    "spec": ">=5.3.1 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-css-dropdowns"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-links/-/pui-css-links-5.3.0.tgz",
-  "_shasum": "9e63ec877f6f541d6db1dfd0ae43898a03c369af",
+  "_resolved": "https://registry.npmjs.org/pui-css-links/-/pui-css-links-5.3.1.tgz",
+  "_shasum": "629f482bc90522e5512ff5ed943497c2fcf2256b",
   "_shrinkwrap": null,
-  "_spec": "pui-css-links@^5.3.0",
+  "_spec": "pui-css-links@^5.3.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-dropdowns",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.3.0"
+    "pui-css-bootstrap": "^5.3.1"
   },
   "description": "links css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "9e63ec877f6f541d6db1dfd0ae43898a03c369af",
-    "tarball": "https://registry.npmjs.org/pui-css-links/-/pui-css-links-5.3.0.tgz"
+    "shasum": "629f482bc90522e5512ff5ed943497c2fcf2256b",
+    "tarball": "https://registry.npmjs.org/pui-css-links/-/pui-css-links-5.3.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -140,5 +140,5 @@
   },
   "scripts": {},
   "style": "links.css",
-  "version": "5.3.0"
+  "version": "5.3.1"
 }

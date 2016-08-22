@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-media",
-        "raw": "pui-react-media@5.3.0",
-        "rawSpec": "5.3.0",
+        "raw": "pui-react-media@5.3.1",
+        "rawSpec": "5.3.1",
         "scope": null,
-        "spec": "5.3.0",
+        "spec": "5.3.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-media@5.3.0",
-  "_id": "pui-react-media@5.3.0",
+  "_from": "pui-react-media@5.3.1",
+  "_id": "pui-react-media@5.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-media",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
     "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-media-5.3.0.tgz_1470422198224_0.9746374390088022"
+    "tmp": "tmp/pui-react-media-5.3.1.tgz_1471623059370_0.21885995008051395"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
@@ -30,20 +30,20 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-media",
-    "raw": "pui-react-media@5.3.0",
-    "rawSpec": "5.3.0",
+    "raw": "pui-react-media@5.3.1",
+    "rawSpec": "5.3.1",
     "scope": null,
-    "spec": "5.3.0",
+    "spec": "5.3.1",
     "type": "version"
   },
   "_requiredBy": [
     "/",
     "/pui-react-alerts"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-media/-/pui-react-media-5.3.0.tgz",
-  "_shasum": "35e3faf06e254591e29471daec3a2858617f85cd",
+  "_resolved": "https://registry.npmjs.org/pui-react-media/-/pui-react-media-5.3.1.tgz",
+  "_shasum": "77723532b5ec5abc86aa6b4008c2f11c9dcc9d9a",
   "_shrinkwrap": null,
-  "_spec": "pui-react-media@5.3.0",
+  "_spec": "pui-react-media@5.3.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -54,14 +54,14 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
-    "pui-css-media": "^5.3.0"
+    "pui-css-media": "^5.3.1"
   },
   "description": "React components for laying out images/audio/video next to text content",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "35e3faf06e254591e29471daec3a2858617f85cd",
-    "tarball": "https://registry.npmjs.org/pui-react-media/-/pui-react-media-5.3.0.tgz"
+    "shasum": "77723532b5ec5abc86aa6b4008c2f11c9dcc9d9a",
+    "tarball": "https://registry.npmjs.org/pui-react-media/-/pui-react-media-5.3.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -145,5 +145,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.3.0"
+  "version": "5.3.1"
 }
