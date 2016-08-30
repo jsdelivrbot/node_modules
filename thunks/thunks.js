@@ -1,8 +1,8 @@
 // **Github:** https://github.com/thunks/thunks
 //
 // **License:** MIT
-
 /* global module, define, setImmediate */
+
 ;(function (root, factory) {
   'use strict'
   /* istanbul ignore next */
@@ -12,38 +12,23 @@
 }(typeof window === 'object' ? window : this, function () {
   'use strict'
 
-  var undef = void 0
   var maxTickDepth = 100
-  var toString = Object.prototype.toString
-  var hasOwnProperty = Object.prototype.hasOwnProperty
   /* istanbul ignore next */
-  var objectKeys = Object.keys || function (obj) {
-    var keys = []
-    for (var key in obj) {
-      if (hasOwnProperty.call(obj, key)) keys.push(key)
-    }
-    return keys
-  }
-  /* istanbul ignore next */
-  var isArray = Array.isArray || function (obj) {
-    return toString.call(obj) === '[object Array]'
-  }
-  /* istanbul ignore next */
-  var nextTick = (typeof process === 'object' && process.nextTick)
-    ? process.nextTick : typeof setImmediate === 'function'
-    ? setImmediate : function (fn) {
-      setTimeout(fn, 0)
-    }
+  var nextTick = typeof setImmediate === 'function'
+    ? setImmediate : typeof Promise === 'function'
+    ? function (fn) { Promise.resolve().then(fn) } : function (fn) { setTimeout(fn, 0) }
 
   function thunks (options) {
-    var scope = Domain.prototype.scope = new Scope(options)
+    var scope = options instanceof Scope ? options : new Scope(options)
+    Domain.prototype.scope = scope
 
     function Domain (ctx) {
       this.ctx = ctx
     }
 
     function thunk (thunkable) {
-      return childThunk(new Link([null, thunkable], null), new Domain(this === thunk ? null : this))
+      return childThunk(new Link([null, thunkable], null),
+                        new Domain(this === thunk ? null : this))
     }
 
     thunk.all = function (obj) {
@@ -52,21 +37,24 @@
     }
 
     thunk.seq = function (array) {
-      if (arguments.length !== 1 || !isArray(array)) array = slice(arguments)
+      if (arguments.length > 1) array = slice(arguments)
       return thunk.call(this, sequenceToThunk(array))
     }
 
     thunk.race = function (array) {
       if (arguments.length > 1) array = slice(arguments)
       return thunk.call(this, function (done) {
+        if (!Array.isArray(array)) throw new TypeError(String(array) + ' is not array')
         for (var i = 0, l = array.length; i < l; i++) thunk.call(this, array[i])(done)
+        if (!array.length) thunk.call(this)(done)
       })
     }
 
     thunk.digest = function () {
       var args = slice(arguments)
       return thunk.call(this, function (callback) {
-        return apply(null, callback, args)
+        console.warn('thunk.digest is deprecated.')
+        apply(null, callback, args)
       })
     }
 
@@ -76,7 +64,7 @@
         var args = slice(arguments)
         return thunk.call(ctx || this, function (callback) {
           args.push(callback)
-          return apply(this, fn, args)
+          apply(this, fn, args)
         })
       }
     }
@@ -84,7 +72,8 @@
     thunk.lift = function (fn) {
       var ctx = this === thunk ? null : this
       return function () {
-        return thunk.call(ctx || this, objectToThunk(slice(arguments), false))(function (err, res) {
+        var thunkable = objectToThunk(slice(arguments), false)
+        return thunk.call(ctx || this, thunkable)(function (err, res) {
           if (err != null) throw err
           return apply(this, fn, res)
         })
@@ -93,16 +82,17 @@
 
     thunk.delay = function (delay) {
       return thunk.call(this, function (callback) {
-        return delay > 0 ? setTimeout(callback, delay) : nextTick(callback)
+        if (delay > 0) setTimeout(callback, delay)
+        else nextTick(callback)
       })
     }
 
     thunk.stop = function (message) {
-      var sig = new SigStop(message)
+      var signal = new SigStop(message)
       nextTick(function () {
-        return scope.onstop && scope.onstop.call(null, sig)
+        if (scope.onstop) scope.onstop(signal)
       })
-      throw sig
+      throw signal
     }
 
     thunk.persist = function (thunkable) {
@@ -117,7 +107,7 @@
 
       return function (callback) {
         return thunk.call(ctx || this, function (done) {
-          if (result) return apply(null, done, result)
+          if (result) apply(null, done, result)
           else queue.push(done)
         })(callback)
       }
@@ -127,7 +117,6 @@
   }
 
   function Scope (options) {
-    this.onerror = this.onstop = this.debug = null
     if (isFunction(options)) this.onerror = options
     else if (options) {
       if (isFunction(options.onerror)) this.onerror = options.onerror
@@ -135,6 +124,9 @@
       if (isFunction(options.debug)) this.debug = options.debug
     }
   }
+  Scope.prototype.onerror = null
+  Scope.prototype.onstop = null
+  Scope.prototype.debug = null
 
   function Link (result, callback) {
     this.next = null
@@ -150,14 +142,16 @@
 
   function childThunk (parent, domain) {
     parent.next = new Link(null, null)
-    return function (callback) {
+    return function thunkFunction (callback) {
       return child(parent, domain, callback)
     }
   }
 
   function child (parent, domain, callback) {
-    if (parent.callback) throw new Error('The thunk already filled')
-    if (callback && !isFunction(callback)) throw new TypeError(String(callback) + ' is not a function')
+    if (parent.callback) throw new Error('The thunkFunction already filled')
+    if (callback && !isFunction(callback)) {
+      throw new TypeError(String(callback) + ' is not a function')
+    }
     parent.callback = callback || noOp
     if (parent.result) continuation(parent, domain)
     return childThunk(parent.next, domain)
@@ -167,19 +161,20 @@
     var scope = domain.scope
     var current = parent.next
     var result = parent.result
-    return result[0] != null ? callback(result[0]) : runThunk(domain.ctx, result[1], callback)
+    if (result[0] != null) callback(result[0])
+    else runThunk(domain.ctx, result[1], callback)
 
     function callback (err) {
       if (parent.result === null) return
       parent.result = null
-      if (scope.debug) apply(null, scope.debug, arguments)
+      if (scope.debug) apply(scope, scope.debug, arguments)
 
       var args = [err]
       if (err != null) {
         pruneErrorStack(err)
         if (err instanceof SigStop) return
         if (scope.onerror) {
-          if (scope.onerror.call(null, err) !== true) return
+          if (scope.onerror(err) !== true) return
           // if onerror return true then continue
           args[0] = null
         }
@@ -194,14 +189,12 @@
       if (current.callback) {
         tickDepth = tickDepth || maxTickDepth
         if (--tickDepth) return continuation(current, domain, tickDepth)
-        return nextTick(function () {
-          continuation(current, domain, 0)
-        })
+        return nextTick(function () { continuation(current, domain, 0) })
       }
       if (current.result[0] != null) {
         nextTick(function () {
           if (!current.result) return
-          if (scope.onerror) return scope.onerror.call(null, current.result[0])
+          if (scope.onerror) return scope.onerror(current.result[0])
           /* istanbul ignore next */
           noOp(current.result[0])
         })
@@ -210,11 +203,22 @@
   }
 
   function runThunk (ctx, value, callback, thunkObj, noTryRun) {
+    var err
     var thunk = toThunk(value, thunkObj)
-    if (!isFunction(thunk)) return thunk === undef ? callback(null) : callback(null, thunk)
-    if (isGeneratorFunction(thunk)) thunk = generatorToThunk(thunk.call(ctx))
+    if (!isFunction(thunk)) {
+      return thunk === undefined ? callback(null) : callback(null, thunk)
+    }
+    if (isGeneratorFn(thunk)) thunk = generatorToThunk(thunk.call(ctx))
+    else if (isAsyncFn(thunk)) thunk = promiseToThunk(thunk.call(ctx))
+    else if (thunk.length !== 1) {
+      /* istanbul ignore next */
+      if (!thunks.strictMode) return callback(null, thunk)
+      err = new Error('Not thunkable function: ' + thunk)
+      err.fn = thunk
+      return callback(err)
+    }
     if (noTryRun) return thunk.call(ctx, callback)
-    var err = tryRun(ctx, thunk, [callback])[0]
+    err = tryRun(ctx, thunk, [callback])[0]
     return err && callback(err)
   }
 
@@ -233,7 +237,8 @@
     if (isGenerator(obj)) return generatorToThunk(obj)
     if (isFunction(obj.toThunk)) return obj.toThunk()
     if (isFunction(obj.then)) return promiseToThunk(obj)
-    if (thunkObj && (isArray(obj) || isObject(obj))) return objectToThunk(obj, thunkObj)
+    if (isFunction(obj.toPromise)) return promiseToThunk(obj.toPromise())
+    if (thunkObj && (Array.isArray(obj) || isObject(obj))) return objectToThunk(obj, thunkObj)
     return obj
   }
 
@@ -241,24 +246,24 @@
     return function (callback) {
       var ctx = this
       var tickDepth = maxTickDepth
-      return run()
+      run()
 
       function run (err, res) {
         if (err instanceof SigStop) return callback(err)
         var ret = err == null ? gen.next(res) : gen.throw(err)
         if (ret.done) return runThunk(ctx, ret.value, callback)
         if (--tickDepth) return runThunk(ctx, ret.value, next, true)
-        return nextTick(function () {
+        nextTick(function () {
           tickDepth = maxTickDepth
-          return runThunk(ctx, ret.value, next, true)
+          runThunk(ctx, ret.value, next, true)
         })
       }
 
       function next (err, res) {
         try {
-          return run(err, arguments.length > 2 ? slice(arguments, 1) : res)
+          run(err, arguments.length > 2 ? slice(arguments, 1) : res)
         } catch (error) {
-          return callback(error)
+          callback(error)
         }
       }
     }
@@ -273,12 +278,12 @@
       var ctx = this
       var finished = false
 
-      if (isArray(obj)) {
+      if (Array.isArray(obj)) {
         result = Array(obj.length)
         for (len = obj.length; i < len; i++) next(obj[i], i)
       } else if (isObject(obj)) {
         result = {}
-        var keys = objectKeys(obj)
+        var keys = Object.keys(obj)
         for (len = keys.length; i < len; i++) next(obj[keys[i]], keys[i])
       } else throw new Error('Not array or object')
       return --pending || callback(null, result)
@@ -301,6 +306,7 @@
 
   function sequenceToThunk (array) {
     return function (callback) {
+      if (!Array.isArray(array)) throw new TypeError(String(array) + ' is not array')
       var i = 0
       var ctx = this
       var end = array.length - 1
@@ -325,7 +331,10 @@
     return function (callback) {
       return promise.then(function (res) {
         callback(null, res)
-      }, callback)
+      }, function (err) {
+        if (err == null) err = new Error('unknown error: ' + err)
+        callback(err)
+      })
     }
   }
 
@@ -355,16 +364,21 @@
   }
 
   function isGenerator (obj) {
-    return isFunction(obj.next) && isFunction(obj.throw)
+    return obj.constructor && isGeneratorFn(obj.constructor)
   }
 
-  function isGeneratorFunction (fn) {
-    return fn.constructor.name === 'GeneratorFunction'
+  function isGeneratorFn (fn) {
+    return fn.constructor && fn.constructor.name === 'GeneratorFunction'
   }
 
+  function isAsyncFn (fn) {
+    return fn.constructor && fn.constructor.name === 'AsyncFunction'
+  }
+
+  /* istanbul ignore next */
   function noOp (error) {
     if (error == null) return
-    /* istanbul ignore next */
+    error = pruneErrorStack(error)
     nextTick(function () {
       if (isFunction(thunks.onerror)) thunks.onerror(error)
       else throw error
@@ -373,16 +387,25 @@
 
   function pruneErrorStack (error) {
     if (thunks.pruneErrorStack && error.stack) {
-      error.stack = error.stack
-        .replace(/^\s*at.*thunks\.js.*$/gm, '')
-        .replace(/\n+/g, '\n')
+      error.stack = error.stack.replace(/^\s*at.*thunks\.js.*$/gm, '').replace(/\n+/g, '\n')
     }
     return error
   }
 
   thunks.NAME = 'thunks'
-  thunks.VERSION = '4.1.2'
+  thunks.VERSION = '4.5.1'
+  thunks.strictMode = true
   thunks['default'] = thunks
   thunks.pruneErrorStack = true
+  thunks.Scope = Scope
+  thunks.isGeneratorFn = function (fn) {
+    return isFunction(fn) && isGeneratorFn(fn)
+  }
+  thunks.isAsyncFn = function (fn) {
+    return isFunction(fn) && isAsyncFn(fn)
+  }
+  thunks.isThunkableFn = function (fn) {
+    return isFunction(fn) && (fn.length === 1 || isAsyncFn(fn) || isGeneratorFn(fn))
+  }
   return thunks
 }))

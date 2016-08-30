@@ -24,7 +24,6 @@ interface Ithunk extends IThunk {
   seq(ThunkSequence: Array<Ithunk | any>): Ithunk,
   race(ThunkSequence: Array<Ithunk>): Ithunk,
   race(...args: Array<Ithunk | any>): Ithunk,
-  digest(error: Error, ...args: any[]): Ithunk,
   thunkify(FunctionWithCallback: IFunctionWithCallback): Ithunk,
   lift(thunkable: Ithunk): Ithunk,
   persist(thunkable: Ithunk): Ithunk,
@@ -49,6 +48,10 @@ interface IThunk {
 }
 
 interface IThunk {
+  (thunkable: IToPromiseFn): Ithunk
+}
+
+interface IThunk {
   (thunkable: IIterator<any>): Ithunk
 }
 
@@ -61,8 +64,11 @@ interface IThunkFn {
 }
 
 interface IToThunkFn {
-  (...params: any[]): any
   toThunk:() => Ithunk
+}
+
+interface IToPromiseFn {
+  toPromise:() => IPromise<any>
 }
 
 interface IThunksOptions {
