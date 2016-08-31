@@ -123,9 +123,9 @@ export class GridOptionsWrapper {
     public getRowStyleFunc() { return this.gridOptions.getRowStyle; }
     public getRowClassFunc() { return this.gridOptions.getRowClass; }
 
-    public getIsFullWidthRowFunc(): (rowNode: RowNode)=> boolean { return this.gridOptions.isFullWidthRow; }
-    public getFullWidthRowRenderer(): {new(): ICellRenderer} | ICellRendererFunc | string { return this.gridOptions.fullWidthRowRenderer; }
-    public getFullWidthRowRendererParams() { return this.gridOptions.fullWidthRowRendererParams; }
+    public getIsFullWidthCellFunc(): (rowNode: RowNode)=> boolean { return this.gridOptions.isFullWidthCell; }
+    public getFullWidthCellRenderer(): {new(): ICellRenderer} | ICellRendererFunc | string { return this.gridOptions.fullWidthCellRenderer; }
+    public getFullWidthCellRendererParams() { return this.gridOptions.fullWidthCellRendererParams; }
 
     public getBusinessKeyForNodeFunc() { return this.gridOptions.getBusinessKeyForNode; }
     public getHeaderCellRenderer() { return this.gridOptions.headerCellRenderer; }

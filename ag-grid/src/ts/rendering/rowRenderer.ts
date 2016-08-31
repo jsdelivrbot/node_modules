@@ -57,6 +57,7 @@ export class RowRenderer {
     private eAllPinnedLeftContainers: HTMLElement[];
     private eAllPinnedRightContainers: HTMLElement[];
 
+    private eFullWidthContainer: HTMLElement;
     private eBodyContainer: HTMLElement;
     private eBodyViewport: HTMLElement;
     private ePinnedLeftColsContainer: HTMLElement;
@@ -64,9 +65,11 @@ export class RowRenderer {
     private eFloatingTopContainer: HTMLElement;
     private eFloatingTopPinnedLeftContainer: HTMLElement;
     private eFloatingTopPinnedRightContainer: HTMLElement;
+    private eFloatingTopFullWidthContainer: HTMLElement;
     private eFloatingBottomContainer: HTMLElement;
     private eFloatingBottomPinnedLeftContainer: HTMLElement;
     private eFloatingBottomPinnedRightContainer: HTMLElement;
+    private eFloatingBottomFullWithContainer: HTMLElement;
 
     private logger: Logger;
 
@@ -106,6 +109,7 @@ export class RowRenderer {
     }
 
     public getContainersFromGridPanel(): void {
+        this.eFullWidthContainer = this.gridPanel.getFullWidthCellContainer();
         this.eBodyContainer = this.gridPanel.getBodyContainer();
         this.ePinnedLeftColsContainer = this.gridPanel.getPinnedLeftColsContainer();
         this.ePinnedRightColsContainer = this.gridPanel.getPinnedRightColsContainer();
@@ -113,10 +117,12 @@ export class RowRenderer {
         this.eFloatingTopContainer = this.gridPanel.getFloatingTopContainer();
         this.eFloatingTopPinnedLeftContainer = this.gridPanel.getPinnedLeftFloatingTop();
         this.eFloatingTopPinnedRightContainer = this.gridPanel.getPinnedRightFloatingTop();
+        this.eFloatingTopFullWidthContainer = this.gridPanel.getFloatingTopFullWidthCellContainer();
 
         this.eFloatingBottomContainer = this.gridPanel.getFloatingBottomContainer();
         this.eFloatingBottomPinnedLeftContainer = this.gridPanel.getPinnedLeftFloatingBottom();
         this.eFloatingBottomPinnedRightContainer = this.gridPanel.getPinnedRightFloatingBottom();
+        this.eFloatingBottomFullWithContainer = this.gridPanel.getFloatingBottomFullWidthCellContainer();
 
         this.eBodyViewport = this.gridPanel.getBodyViewport();
 
@@ -170,18 +176,20 @@ export class RowRenderer {
             this.floatingRowModel.getFloatingTopRowData(),
             this.eFloatingTopPinnedLeftContainer,
             this.eFloatingTopPinnedRightContainer,
-            this.eFloatingTopContainer);
+            this.eFloatingTopContainer,
+            this.eFloatingTopFullWidthContainer);
         this.refreshFloatingRows(
             this.renderedBottomFloatingRows,
             this.floatingRowModel.getFloatingBottomRowData(),
             this.eFloatingBottomPinnedLeftContainer,
             this.eFloatingBottomPinnedRightContainer,
-            this.eFloatingBottomContainer);
+            this.eFloatingBottomContainer,
+            this.eFloatingBottomFullWithContainer);
     }
 
     private refreshFloatingRows(renderedRows: RenderedRow[], rowNodes: RowNode[],
-                                pinnedLeftContainer: HTMLElement, pinnedRightContainer: HTMLElement,
-                                bodyContainer: HTMLElement): void {
+                                ePinnedLeftContainer: HTMLElement, ePinnedRightContainer: HTMLElement,
+                                eBodyContainer: HTMLElement, eFullWidthContainer: HTMLElement): void {
         renderedRows.forEach( (row: RenderedRow) => {
             row.destroy();
         });
@@ -196,9 +204,10 @@ export class RowRenderer {
             rowNodes.forEach( (node: RowNode, rowIndex: number) => {
                 var renderedRow = new RenderedRow(this.$scope,
                     this,
-                    bodyContainer,
-                    pinnedLeftContainer,
-                    pinnedRightContainer,
+                    eBodyContainer,
+                    eFullWidthContainer,
+                    ePinnedLeftContainer,
+                    ePinnedRightContainer,
                     node, rowIndex);
                 this.context.wireBean(renderedRow);
                 renderedRows.push(renderedRow);
@@ -216,6 +225,7 @@ export class RowRenderer {
         if (!this.gridOptionsWrapper.isForPrint()) {
             var containerHeight = this.rowModel.getRowCombinedHeight();
             this.eBodyContainer.style.height = containerHeight + "px";
+            this.eFullWidthContainer.style.height = containerHeight + "px";
             this.ePinnedLeftColsContainer.style.height = containerHeight + "px";
             this.ePinnedRightColsContainer.style.height = containerHeight + "px";
         }
@@ -505,7 +515,7 @@ export class RowRenderer {
         if (_.missingOrEmpty(columns)) { return; }
 
         var renderedRow = new RenderedRow(this.$scope,
-            this, this.eBodyContainer, this.ePinnedLeftColsContainer, this.ePinnedRightColsContainer,
+            this, this.eBodyContainer, this.eFullWidthContainer, this.ePinnedLeftColsContainer, this.ePinnedRightColsContainer,
             node, rowIndex);
         this.context.wireBean(renderedRow);
 

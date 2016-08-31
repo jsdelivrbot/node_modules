@@ -161,9 +161,9 @@ export interface GridOptions {
     getRowClass?: Function;
     getRowHeight?: Function;
 
-    fullWidthRowRenderer?: {new(): ICellRenderer} | ICellRendererFunc | string;
-    fullWidthRowRendererParams?: any;
-    isFullWidthRow?(rowNode: RowNode): boolean;
+    fullWidthCellRenderer?: {new(): ICellRenderer} | ICellRendererFunc | string;
+    fullWidthCellRendererParams?: any;
+    isFullWidthCell?(rowNode: RowNode): boolean;
 
     headerCellRenderer?: any;
     groupRowAggNodes?(nodes: RowNode[]): any;
