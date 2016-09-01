@@ -9,6 +9,7 @@ import {Logger, LoggerFactory} from "../logger";
 import {Bean, Qualifier, Autowired, PostConstruct, Optional, PreDestroy} from "../context/context";
 import {EventService} from "../eventService";
 import {Events} from "../events";
+import {ColumnChangeEvent} from "../columnChangeEvent";
 import {IRowModel} from "../interfaces/iRowModel";
 import {DragService} from "../dragAndDrop/dragService";
 import {IRangeController} from "../interfaces/iRangeController";
@@ -18,7 +19,6 @@ import {CsvCreator} from "../csvCreator";
 import {MouseEventService} from "./mouseEventService";
 import {IClipboardService} from "../interfaces/iClipboardService";
 import {FocusedCellController} from "../focusedCellController";
-import {IContextMenuFactory} from "../interfaces/iContextMenuFactory";
 
 // in the html below, it is important that there are no white space between some of the divs, as if there is white space,
 // it won't render correctly in safari, as safari renders white space as a gap
@@ -40,7 +40,6 @@ var gridHtml =
             '<div class="ag-floating-top-viewport">' +
                 '<div class="ag-floating-top-container"></div>' +
             '</div>'+
-            '<div class="ag-floating-top-full-width-container"></div>'+
         '</div>'+
         // floating bottom
         '<div class="ag-floating-bottom">'+
@@ -49,7 +48,6 @@ var gridHtml =
             '<div class="ag-floating-bottom-viewport">' +
                 '<div class="ag-floating-bottom-container"></div>' +
             '</div>'+
-            '<div class="ag-floating-bottom-full-width-container"></div>'+
         '</div>'+
         // body
         '<div class="ag-body">'+
@@ -63,9 +61,6 @@ var gridHtml =
                 '<div class="ag-body-viewport">'+
                     '<div class="ag-body-container"></div>'+
                 '</div>'+
-            '</div>'+
-            '<div class="ag-full-width-viewport">'+
-                '<div class="ag-full-width-container"></div>'+
             '</div>'+
         '</div>'+
     '</div>';
@@ -110,7 +105,6 @@ export class GridPanel {
     @Autowired('mouseEventService') private mouseEventService: MouseEventService;
     @Autowired('focusedCellController') private focusedCellController: FocusedCellController;
     @Autowired('$scope') private $scope: any;
-    @Optional('contextMenuFactory') private contextMenuFactory: IContextMenuFactory;
 
     private layout: BorderLayout;
     private logger: Logger;
@@ -128,8 +122,6 @@ export class GridPanel {
     private eBodyContainer: HTMLElement;
     private ePinnedLeftColsContainer: HTMLElement;
     private ePinnedRightColsContainer: HTMLElement;
-    private eFullWidthCellViewport: HTMLElement;
-    private eFullWidthCellContainer: HTMLElement;
     private eHeaderContainer: HTMLElement;
     private eHeaderOverlay: HTMLElement;
     private ePinnedLeftHeader: HTMLElement;
@@ -145,14 +137,12 @@ export class GridPanel {
     private ePinnedRightFloatingTop: HTMLElement;
     private eFloatingTopContainer: HTMLElement;
     private eFloatingTopViewport: HTMLElement;
-    private eFloatingTopFullWidthCellContainer: HTMLElement;
 
     private eFloatingBottom: HTMLElement;
     private ePinnedLeftFloatingBottom: HTMLElement;
     private ePinnedRightFloatingBottom: HTMLElement;
     private eFloatingBottomContainer: HTMLElement;
     private eFloatingBottomViewport: HTMLElement;
-    private eFloatingBottomFullWidthCellContainer: HTMLElement;
 
     private eAllCellContainers: HTMLElement[];
 
@@ -226,7 +216,6 @@ export class GridPanel {
         this.disableBrowserDragging();
         this.addShortcutKeyListeners();
         this.addCellListeners();
-        this.addBodyViewportListener();
 
         if (this.$scope) {
             this.addAngularApplyCheck();
@@ -274,8 +263,7 @@ export class GridPanel {
         this.eventService.addEventListener(Events.EVENT_COLUMN_RESIZED, this.onColumnResized.bind(this));
 
         this.eventService.addEventListener(Events.EVENT_FLOATING_ROW_DATA_CHANGED, this.sizeHeaderAndBody.bind(this));
-
-        this.gridOptionsWrapper.addEventListener(GridOptionsWrapper.PROP_HEADER_HEIGHT, this.sizeHeaderAndBody.bind(this));
+        this.eventService.addEventListener(Events.EVENT_HEADER_HEIGHT_CHANGED, this.sizeHeaderAndBody.bind(this));
 
         this.eventService.addEventListener(Events.EVENT_ROW_DATA_CHANGED, this.onRowDataChanged.bind(this));
     }
@@ -303,60 +291,25 @@ export class GridPanel {
 
     private addCellListeners(): void {
         var eventNames = ['click','mousedown','dblclick','contextmenu'];
+        var that = this;
         eventNames.forEach( eventName => {
-            var listener = this.processMouseEvent.bind(this, eventName);
-            this.eAllCellContainers.forEach( container => {
-                container.addEventListener(eventName, listener);
-                this.destroyFunctions.push( ()=> container.removeEventListener(eventName, listener) );
-            });
+            this.eAllCellContainers.forEach( container =>
+                container.addEventListener(eventName, function(mouseEvent: MouseEvent) {
+                    var eventSource: HTMLElement = this;
+                    that.processMouseEvent(eventName, mouseEvent, eventSource);
+                })
+            )
         });
     }
 
-    private addBodyViewportListener(): void {
-        // we never add this when doing 'forPrint'
-        if (this.gridOptionsWrapper.isForPrint()) { return; }
-
-        // we want to listen for clicks directly on the eBodyViewport, so the user has a way of showing
-        // the context menu if no rows are displayed, or user simply clicks outside of a cell
-        var listener = (mouseEvent: MouseEvent) => {
-            var target = _.getTarget(mouseEvent);
-            if (target===this.eBodyViewport) {
-                // show it
-                this.onContextMenu(mouseEvent);
-                this.preventDefaultOnContextMenu(mouseEvent);
-            }
-        };
-
-        this.eBodyViewport.addEventListener('contextmenu', listener);
-        this.destroyFunctions.push( ()=> this.eBodyViewport.removeEventListener('contextmenu', listener) );
-    }
-
-    private processMouseEvent(eventName: string, mouseEvent: MouseEvent): void {
+    private processMouseEvent(eventName: string, mouseEvent: MouseEvent, eventSource: HTMLElement): void {
         var cell = this.mouseEventService.getCellForMouseEvent(mouseEvent);
 
         if (_.exists(cell)) {
             //console.log(`row = ${cell.rowIndex}, floating = ${floating}`);
-            this.rowRenderer.onMouseEvent(eventName, mouseEvent, cell);
+            this.rowRenderer.onMouseEvent(eventName, mouseEvent, eventSource, cell);
         }
 
-        this.preventDefaultOnContextMenu(mouseEvent);
-    }
-
-    private onContextMenu(mouseEvent: MouseEvent): void {
-
-        // to allow us to debug in chrome, we ignore the event if ctrl is pressed,
-        // thus the normal menu is displayed
-        if (mouseEvent.ctrlKey || mouseEvent.metaKey) {
-            return;
-        }
-
-        if (this.contextMenuFactory && !this.gridOptionsWrapper.isSuppressContextMenu()) {
-            this.contextMenuFactory.showMenu(null, null, null, mouseEvent);
-            mouseEvent.preventDefault();
-        }
-    }
-
-    private preventDefaultOnContextMenu(mouseEvent: MouseEvent): void {
         // if we don't do this, then middle click will never result in a 'click' event, as 'mousedown'
         // will be consumed by the browser to mean 'scroll' (as you can scroll with the middle mouse
         // button in the browser). so this property allows the user to receive middle button clicks if
@@ -364,6 +317,7 @@ export class GridPanel {
         if (this.gridOptionsWrapper.isSuppressMiddleClickScrolls() && mouseEvent.which === 2) {
             mouseEvent.preventDefault();
         }
+
     }
 
     private addShortcutKeyListeners(): void {
@@ -562,33 +516,16 @@ export class GridPanel {
 
     public isVerticalScrollShowing(): boolean {
         if (this.columnController.isPinningRight()) {
-            return _.isScrollShowing(this.ePinnedRightColsViewport);
-        } else {
-            return _.isScrollShowing(this.eBodyViewport);
-        }
-    }
-
-    private isBodyVerticalScrollShowing(): boolean {
-        if (this.columnController.isPinningRight()) {
+            // if pinning right, then the scroll bar can show, however for some reason
+            // it overlays the grid and doesn't take space.
             return false;
         } else {
-            return _.isScrollShowing(this.eBodyViewport);
+            return this.eBodyViewport.clientHeight < this.eBodyViewport.scrollHeight
         }
     }
 
     // gets called every 500 ms. we use this to set padding on right pinned column
     public periodicallyCheck(): void {
-        if (this.forPrint) { return; }
-        this.setBottomPaddingOnPinnedRight();
-        this.setMarginOnFullWidthCellContainer();
-    }
-
-    // the pinned container needs extra space at the bottom, some blank space, otherwise when
-    // vertically scrolled all the way down, the last row will be hidden behind the scrolls.
-    // this extra padding allows the last row to be lifted above the bottom scrollbar.
-    private setBottomPaddingOnPinnedRight(): void {
-        if (this.forPrint) { return; }
-
         if (this.columnController.isPinningRight()) {
             var bodyHorizontalScrollShowing = this.eBodyViewport.clientWidth < this.eBodyViewport.scrollWidth;
             if (bodyHorizontalScrollShowing) {
@@ -596,25 +533,6 @@ export class GridPanel {
             } else {
                 this.ePinnedRightColsContainer.style.marginBottom = '';
             }
-        }
-    }
-
-    private setMarginOnFullWidthCellContainer(): void {
-        if (this.forPrint) { return; }
-
-        // if either right or bottom scrollbars are showing, we need to make sure the
-        // fullWidthCell panel isn't covering the scrollbars. originally i tried to do this using
-        // margin, but the overflow was not getting clipped and going into the margin,
-        // so used border instead. dunno why it works, trial and error found the solution.
-        if (this.isVerticalScrollShowing()) {
-            this.eFullWidthCellViewport.style.borderRight = this.scrollWidth + 'px solid transparent';
-        } else {
-            this.eFullWidthCellViewport.style.borderRight = '';
-        }
-        if (this.isHorizontalScrollShowing()) {
-            this.eFullWidthCellViewport.style.borderBottom = this.scrollWidth + 'px solid transparent';
-        } else {
-            this.eFullWidthCellViewport.style.borderBottom = '';
         }
     }
 
@@ -656,15 +574,8 @@ export class GridPanel {
             // if viewport's right side is before col's right side, scroll left to pull col into viewport at right
             var newScrollPosition = colRightPixel - viewportWidth;
             this.eBodyViewport.scrollLeft = newScrollPosition;
-        } else {
-            // otherwise, col is already in view, so do nothing
         }
-
-        // this will happen anyway, as the move will cause a 'scroll' event on the body, however
-        // it is possible that the ensureColumnVisible method is called from within ag-Grid and
-        // the caller will need to have the columns rendered to continue, which will be before
-        // the event has been worked on (which is the case for cell navigation).
-        this.setLeftAndRightBounds();
+        // otherwise, col is already in view, so do nothing
     }
 
     public showLoadingOverlay(): void {
@@ -685,11 +596,8 @@ export class GridPanel {
 
     private getWidthForSizeColsToFit() {
         var availableWidth = this.eBody.clientWidth;
-        // if pinning right, then the scroll bar can show, however for some reason
-        // it overlays the grid and doesn't take space. so we are only interested
-        // in the body scroll showing.
-        var removeScrollWidth = this.isBodyVerticalScrollShowing();
-        if (removeScrollWidth) {
+        var scrollShowing = this.isVerticalScrollShowing();
+        if (scrollShowing) {
             availableWidth -= this.scrollWidth;
         }
         return availableWidth;
@@ -719,18 +627,6 @@ export class GridPanel {
 
     public getBodyContainer(): HTMLElement {
         return this.eBodyContainer;
-    }
-
-    public getFullWidthCellContainer(): HTMLElement {
-        return this.eFullWidthCellContainer;
-    }
-
-    public getFloatingTopFullWidthCellContainer(): HTMLElement {
-        return this.eFloatingTopFullWidthCellContainer;
-    }
-
-    public getFloatingBottomFullWidthCellContainer(): HTMLElement {
-        return this.eFloatingBottomFullWidthCellContainer;
     }
 
     public getDropTargetBodyContainers(): HTMLElement[] {
@@ -814,21 +710,11 @@ export class GridPanel {
             this.eFloatingBottomContainer = this.queryHtmlElement('.ag-floating-bottom-container');
 
             this.eAllCellContainers = [this.eBodyContainer, this.eFloatingTopContainer, this.eFloatingBottomContainer];
-
-            // when doing forPrint, we don't have any fullWidth containers, instead we add directly to the main
-            // containers. this works in forPrint only as there are no pinned columns (no need for fullWidth to
-            // span pinned columns) and the rows are already the full width of the grid (the reason for fullWidth)
-            this.eFullWidthCellContainer = this.eBodyContainer;
-            this.eFloatingBottomFullWidthCellContainer = this.eFloatingBottomContainer;
-            this.eFloatingTopFullWidthCellContainer = this.eFloatingTopContainer;
-
         } else {
             this.eBody = this.queryHtmlElement('.ag-body');
             this.eBodyContainer = this.queryHtmlElement('.ag-body-container');
             this.eBodyViewport = this.queryHtmlElement('.ag-body-viewport');
             this.eBodyViewportWrapper = this.queryHtmlElement('.ag-body-viewport-wrapper');
-            this.eFullWidthCellContainer = this.queryHtmlElement('.ag-full-width-container');
-            this.eFullWidthCellViewport = this.queryHtmlElement('.ag-full-width-viewport');
             this.ePinnedLeftColsContainer = this.queryHtmlElement('.ag-pinned-left-cols-container');
             this.ePinnedRightColsContainer = this.queryHtmlElement('.ag-pinned-right-cols-container');
             this.ePinnedLeftColsViewport = this.queryHtmlElement('.ag-pinned-left-cols-viewport');
@@ -845,40 +731,23 @@ export class GridPanel {
             this.ePinnedRightFloatingTop = this.queryHtmlElement('.ag-pinned-right-floating-top');
             this.eFloatingTopContainer = this.queryHtmlElement('.ag-floating-top-container');
             this.eFloatingTopViewport = this.queryHtmlElement('.ag-floating-top-viewport');
-            this.eFloatingTopFullWidthCellContainer = this.queryHtmlElement('.ag-floating-top-full-width-container');
 
             this.eFloatingBottom = this.queryHtmlElement('.ag-floating-bottom');
             this.ePinnedLeftFloatingBottom = this.queryHtmlElement('.ag-pinned-left-floating-bottom');
             this.ePinnedRightFloatingBottom = this.queryHtmlElement('.ag-pinned-right-floating-bottom');
             this.eFloatingBottomContainer = this.queryHtmlElement('.ag-floating-bottom-container');
             this.eFloatingBottomViewport = this.queryHtmlElement('.ag-floating-bottom-viewport');
-            this.eFloatingBottomFullWidthCellContainer = this.queryHtmlElement('.ag-floating-bottom-full-width-container');
 
             this.eAllCellContainers = [this.ePinnedLeftColsContainer, this.ePinnedRightColsContainer, this.eBodyContainer,
                 this.eFloatingTop, this.eFloatingBottom];
 
-            this.addMouseWheelEventListeners();
+            // IE9, Chrome, Safari, Opera
+            this.ePinnedLeftColsViewport.addEventListener('mousewheel', this.pinnedLeftMouseWheelListener.bind(this));
+            this.eBodyViewport.addEventListener('mousewheel', this.centerMouseWheelListener.bind(this));
+            // Firefox
+            this.ePinnedLeftColsViewport.addEventListener('DOMMouseScroll', this.pinnedLeftMouseWheelListener.bind(this));
+            this.eBodyViewport.addEventListener('DOMMouseScroll', this.centerMouseWheelListener.bind(this));
         }
-    }
-
-    private addMouseWheelEventListeners(): void {
-
-        var genericListener = this.genericMouseWheelListener.bind(this);
-        var centerListener = this.centerMouseWheelListener.bind(this);
-
-        // IE9, Chrome, Safari, Opera
-        this.ePinnedLeftColsViewport.addEventListener('mousewheel', genericListener);
-        this.eBodyViewport.addEventListener('mousewheel', centerListener);
-        // Firefox
-        this.ePinnedLeftColsViewport.addEventListener('DOMMouseScroll', genericListener);
-        this.eBodyViewport.addEventListener('DOMMouseScroll', centerListener);
-
-        this.destroyFunctions.push( ()=> {
-            this.ePinnedLeftColsViewport.removeEventListener('mousewheel', genericListener);
-            this.eBodyViewport.removeEventListener('mousewheel', centerListener);
-            this.ePinnedLeftColsViewport.removeEventListener('DOMMouseScroll', genericListener);
-            this.eBodyViewport.removeEventListener('DOMMouseScroll', centerListener);
-        });
     }
 
     public getHeaderViewport(): HTMLElement {
@@ -894,9 +763,7 @@ export class GridPanel {
         }
     }
 
-    // used for listening to mouse wheel events on 1) left pinned and also the 2) fullWidthCell components.
-    // the fullWidthCell listener is added in renderedRow, hence public.
-    public genericMouseWheelListener(event: any): boolean {
+    private pinnedLeftMouseWheelListener(event: any): boolean {
         var targetPanel: HTMLElement;
         if (this.columnController.isPinningRight()) {
             targetPanel = this.ePinnedRightColsViewport;
@@ -921,7 +788,7 @@ export class GridPanel {
             targetPanel.scrollTop = newTopPosition;
         }
 
-        // allow the option to pass mouse wheel events to the browser
+        // allow the option to pass mouse wheel events ot the browser
         // https://github.com/ceolter/ag-grid/issues/800
         // in the future, this should be tied in with 'forPrint' option, or have an option 'no vertical scrolls'
         if (!this.gridOptionsWrapper.isSuppressPreventDefaultOnMouseWheel()) {
@@ -1025,10 +892,8 @@ export class GridPanel {
 
         var heightOfCentreRows = heightOfContainer - totalHeaderHeight - floatingBottomHeight - floatingTopHeight;
 
-        // this.eBody.style.paddingTop = paddingTop + 'px';
-        // this.eBody.style.paddingBottom = floatingBottomHeight + 'px';
-        this.eBody.style.top = paddingTop + 'px';
-        this.eBody.style.height = heightOfCentreRows + 'px';
+        this.eBody.style.paddingTop = paddingTop + 'px';
+        this.eBody.style.paddingBottom = floatingBottomHeight + 'px';
 
         this.eFloatingTop.style.top = totalHeaderHeight + 'px';
         this.eFloatingTop.style.height = floatingTopHeight + 'px';
@@ -1097,7 +962,6 @@ export class GridPanel {
                 if (newTopPosition !== that.lastTopPosition) {
                     that.lastTopPosition = newTopPosition;
                     that.verticallyScrollLeftPinned(newTopPosition);
-                    that.verticallyScrollFullWidthCellContainer(newTopPosition);
                     that.rowRenderer.drawVirtualRows();
                 }
             }
@@ -1108,7 +972,6 @@ export class GridPanel {
             if (newTopPosition !== that.lastTopPosition) {
                 that.lastTopPosition = newTopPosition;
                 that.verticallyScrollLeftPinned(newTopPosition);
-                that.verticallyScrollFullWidthCellContainer(newTopPosition);
                 that.verticallyScrollBody(newTopPosition);
                 that.rowRenderer.drawVirtualRows();
             }
@@ -1183,10 +1046,6 @@ export class GridPanel {
 
     private verticallyScrollLeftPinned(bodyTopPosition: any): void {
         this.ePinnedLeftColsContainer.style.top = -bodyTopPosition + 'px';
-    }
-
-    private verticallyScrollFullWidthCellContainer(bodyTopPosition: any): void {
-        this.eFullWidthCellContainer.style.top = -bodyTopPosition + 'px';
     }
 
     private verticallyScrollBody(position: any): void {

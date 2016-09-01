@@ -1,6 +1,6 @@
 /**
  * ag-grid - Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components
- * @version v5.3.0
+ * @version v5.0.2
  * @link http://www.ag-grid.com/
  * @license MIT
  */
@@ -360,8 +360,7 @@ var RenderedCell = (function (_super) {
         var keyPressListener = function (event) {
             // check this, in case focus is on a (for example) a text field inside the cell,
             // in which cse we should not be listening for these key pressed
-            var eventTarget = utils_1.Utils.getTarget(event);
-            var eventOnChildComponent = eventTarget !== _this.getGui();
+            var eventOnChildComponent = event.srcElement !== _this.getGui();
             if (eventOnChildComponent) {
                 return;
             }
@@ -575,9 +574,10 @@ var RenderedCell = (function (_super) {
         };
         return params;
     };
-    RenderedCell.prototype.createEvent = function (event) {
+    RenderedCell.prototype.createEvent = function (event, eventSource) {
         var agEvent = this.createParams();
         agEvent.event = event;
+        //agEvent.eventSource = eventSource;
         return agEvent;
     };
     RenderedCell.prototype.isCellEditable = function () {
@@ -590,7 +590,7 @@ var RenderedCell = (function (_super) {
         }
         return this.column.isCellEditable(this.node);
     };
-    RenderedCell.prototype.onMouseEvent = function (eventName, mouseEvent) {
+    RenderedCell.prototype.onMouseEvent = function (eventName, mouseEvent, eventSource) {
         switch (eventName) {
             case 'click':
                 this.onCellClicked(mouseEvent);
@@ -599,7 +599,7 @@ var RenderedCell = (function (_super) {
                 this.onMouseDown();
                 break;
             case 'dblclick':
-                this.onCellDoubleClicked(mouseEvent);
+                this.onCellDoubleClicked(mouseEvent, eventSource);
                 break;
             case 'contextmenu':
                 this.onContextMenu(mouseEvent);
@@ -623,10 +623,10 @@ var RenderedCell = (function (_super) {
             mouseEvent.preventDefault();
         }
     };
-    RenderedCell.prototype.onCellDoubleClicked = function (mouseEvent) {
+    RenderedCell.prototype.onCellDoubleClicked = function (mouseEvent, eventSource) {
         var colDef = this.column.getColDef();
         // always dispatch event to eventService
-        var agEvent = this.createEvent(mouseEvent);
+        var agEvent = this.createEvent(mouseEvent, eventSource);
         this.eventService.dispatchEvent(events_1.Events.EVENT_CELL_DOUBLE_CLICKED, agEvent);
         // check if colDef also wants to handle event
         if (typeof colDef.onCellDoubleClicked === 'function') {
@@ -656,7 +656,7 @@ var RenderedCell = (function (_super) {
         }
     };
     RenderedCell.prototype.onCellClicked = function (mouseEvent) {
-        var agEvent = this.createEvent(mouseEvent);
+        var agEvent = this.createEvent(mouseEvent, this);
         this.eventService.dispatchEvent(events_1.Events.EVENT_CELL_CLICKED, agEvent);
         var colDef = this.column.getColDef();
         if (colDef.onCellClicked) {

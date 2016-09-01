@@ -33,14 +33,6 @@ export class Utils {
         return (results && results.length > 1) ? results[1] : "";
     }
 
-    static values<T>(object: {[key: string]: T}): T[] {
-        var result: T[] = [];
-        this.iterateObject(object, (key: string, value: T)=> {
-            result.push(value);
-        });
-        return result;
-    }
-
     static iterateObject(object: any, callback: (key:string, value: any) => void) {
         if (this.missing(object)) { return; }
         var keys = Object.keys(object);
@@ -425,15 +417,7 @@ export class Utils {
         }
         return true;
     }
-
-    static toStringOrNull(value: any): string {
-        if (this.exists(value) && value.toString) {
-            return value.toString();
-        } else {
-            return null;
-        }
-    }
-
+    
     static formatWidth(width: number | string) {
         if (typeof width === "number") {
             return width + "px";
@@ -505,10 +489,6 @@ export class Utils {
         });
     }
 
-    static isScrollShowing(element: HTMLElement): boolean {
-        return element.clientHeight < element.scrollHeight
-    }
-
     static getScrollbarWidth() {
         var outer = document.createElement("div");
         outer.style.visibility = "hidden";
@@ -563,13 +543,6 @@ export class Utils {
             this.isSafari = Object.prototype.toString.call((<any>window).HTMLElement).indexOf('Constructor') > 0;
         }
         return this.isSafari;
-    }
-
-    // srcElement is only available in IE. In all other browsers it is target
-    // http://stackoverflow.com/questions/5301643/how-can-i-make-event-srcelement-work-in-firefox-and-what-does-it-mean
-    static getTarget(event: Event): Element {
-        var eventNoType = <any> event;
-        return eventNoType.target || eventNoType.srcElement;
     }
 
     // taken from: http://stackoverflow.com/questions/1038727/how-to-get-browser-width-using-javascript-code

@@ -1,4 +1,4 @@
-// Type definitions for ag-grid v5.3.0
+// Type definitions for ag-grid v5.0.2
 // Project: http://www.ag-grid.com/
 // Definitions by: Niall Crosby <https://github.com/ceolter/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -32,7 +32,6 @@ export declare class ColumnApi {
     getDisplayedCenterColumns(): Column[];
     getDisplayedRightColumns(): Column[];
     getAllDisplayedColumns(): Column[];
-    getAllDisplayedVirtualColumns(): Column[];
     moveColumn(fromIndex: number, toIndex: number): void;
     moveRowGroupColumn(fromIndex: number, toIndex: number): void;
     setColumnAggFunct(column: Column, aggFunc: string): void;
@@ -40,11 +39,11 @@ export declare class ColumnApi {
     setPivotMode(pivotMode: boolean): void;
     isPivotMode(): boolean;
     getSecondaryPivotColumn(pivotKeys: string[], valueColKey: Column | ColDef | String): Column;
-    getValueColumns(): Column[];
-    removeValueColumn(colKey: (Column | ColDef | String)): void;
-    removeValueColumns(colKeys: (Column | ColDef | String)[]): void;
-    addValueColumn(colKey: (Column | ColDef | String)): void;
-    addValueColumns(colKeys: (Column | ColDef | String)[]): void;
+    getAggregationColumns(): Column[];
+    removeAggregationColumn(colKey: (Column | ColDef | String)): void;
+    removeAggregationColumns(colKeys: (Column | ColDef | String)[]): void;
+    addAggregationColumn(colKey: (Column | ColDef | String)): void;
+    addAggregationColumns(colKeys: (Column | ColDef | String)[]): void;
     setRowGroupColumns(colKeys: (Column | ColDef | String)[]): void;
     removeRowGroupColumn(colKey: Column | ColDef | String): void;
     removeRowGroupColumns(colKeys: (Column | ColDef | String)[]): void;
@@ -63,7 +62,6 @@ export declare class ColumnApi {
     getAllDisplayedColumnGroups(): ColumnGroupChild[];
     autoSizeColumn(key: Column | ColDef | String): void;
     autoSizeColumns(keys: (Column | ColDef | String)[]): void;
-    autoSizeAllColumns(): void;
     setSecondaryColumns(colDefs: (ColDef | ColGroupDef)[]): void;
     columnGroupOpened(group: ColumnGroup | string, newValue: boolean): void;
     hideColumns(colIds: any, hide: any): void;
@@ -71,11 +69,9 @@ export declare class ColumnApi {
     setState(columnState: any): boolean;
     getState(): any[];
     resetState(): void;
-    getAggregationColumns(): Column[];
-    removeAggregationColumn(colKey: (Column | ColDef | String)): void;
-    removeAggregationColumns(colKeys: (Column | ColDef | String)[]): void;
-    addAggregationColumn(colKey: (Column | ColDef | String)): void;
-    addAggregationColumns(colKeys: (Column | ColDef | String)[]): void;
+    getValueColumns(): Column[];
+    removeValueColumn(column: Column): void;
+    addValueColumn(column: Column): void;
     setColumnAggFunction(column: Column, aggFunc: string): void;
 }
 export declare class ColumnController {
@@ -171,7 +167,7 @@ export declare class ColumnController {
     moveColumn(key: string | Column | ColDef, toIndex: number): void;
     moveColumnByIndex(fromIndex: number, toIndex: number): void;
     getBodyContainerWidth(): number;
-    getValueColumns(): Column[];
+    getAggregationColumns(): Column[];
     getPivotColumns(): Column[];
     isPivotActive(): boolean;
     getRowGroupColumns(): Column[];

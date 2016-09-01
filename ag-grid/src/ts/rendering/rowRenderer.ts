@@ -57,7 +57,6 @@ export class RowRenderer {
     private eAllPinnedLeftContainers: HTMLElement[];
     private eAllPinnedRightContainers: HTMLElement[];
 
-    private eFullWidthContainer: HTMLElement;
     private eBodyContainer: HTMLElement;
     private eBodyViewport: HTMLElement;
     private ePinnedLeftColsContainer: HTMLElement;
@@ -65,11 +64,9 @@ export class RowRenderer {
     private eFloatingTopContainer: HTMLElement;
     private eFloatingTopPinnedLeftContainer: HTMLElement;
     private eFloatingTopPinnedRightContainer: HTMLElement;
-    private eFloatingTopFullWidthContainer: HTMLElement;
     private eFloatingBottomContainer: HTMLElement;
     private eFloatingBottomPinnedLeftContainer: HTMLElement;
     private eFloatingBottomPinnedRightContainer: HTMLElement;
-    private eFloatingBottomFullWithContainer: HTMLElement;
 
     private logger: Logger;
 
@@ -109,7 +106,6 @@ export class RowRenderer {
     }
 
     public getContainersFromGridPanel(): void {
-        this.eFullWidthContainer = this.gridPanel.getFullWidthCellContainer();
         this.eBodyContainer = this.gridPanel.getBodyContainer();
         this.ePinnedLeftColsContainer = this.gridPanel.getPinnedLeftColsContainer();
         this.ePinnedRightColsContainer = this.gridPanel.getPinnedRightColsContainer();
@@ -117,12 +113,10 @@ export class RowRenderer {
         this.eFloatingTopContainer = this.gridPanel.getFloatingTopContainer();
         this.eFloatingTopPinnedLeftContainer = this.gridPanel.getPinnedLeftFloatingTop();
         this.eFloatingTopPinnedRightContainer = this.gridPanel.getPinnedRightFloatingTop();
-        this.eFloatingTopFullWidthContainer = this.gridPanel.getFloatingTopFullWidthCellContainer();
 
         this.eFloatingBottomContainer = this.gridPanel.getFloatingBottomContainer();
         this.eFloatingBottomPinnedLeftContainer = this.gridPanel.getPinnedLeftFloatingBottom();
         this.eFloatingBottomPinnedRightContainer = this.gridPanel.getPinnedRightFloatingBottom();
-        this.eFloatingBottomFullWithContainer = this.gridPanel.getFloatingBottomFullWidthCellContainer();
 
         this.eBodyViewport = this.gridPanel.getBodyViewport();
 
@@ -176,20 +170,18 @@ export class RowRenderer {
             this.floatingRowModel.getFloatingTopRowData(),
             this.eFloatingTopPinnedLeftContainer,
             this.eFloatingTopPinnedRightContainer,
-            this.eFloatingTopContainer,
-            this.eFloatingTopFullWidthContainer);
+            this.eFloatingTopContainer);
         this.refreshFloatingRows(
             this.renderedBottomFloatingRows,
             this.floatingRowModel.getFloatingBottomRowData(),
             this.eFloatingBottomPinnedLeftContainer,
             this.eFloatingBottomPinnedRightContainer,
-            this.eFloatingBottomContainer,
-            this.eFloatingBottomFullWithContainer);
+            this.eFloatingBottomContainer);
     }
 
     private refreshFloatingRows(renderedRows: RenderedRow[], rowNodes: RowNode[],
-                                ePinnedLeftContainer: HTMLElement, ePinnedRightContainer: HTMLElement,
-                                eBodyContainer: HTMLElement, eFullWidthContainer: HTMLElement): void {
+                                pinnedLeftContainer: HTMLElement, pinnedRightContainer: HTMLElement,
+                                bodyContainer: HTMLElement): void {
         renderedRows.forEach( (row: RenderedRow) => {
             row.destroy();
         });
@@ -204,10 +196,9 @@ export class RowRenderer {
             rowNodes.forEach( (node: RowNode, rowIndex: number) => {
                 var renderedRow = new RenderedRow(this.$scope,
                     this,
-                    eBodyContainer,
-                    eFullWidthContainer,
-                    ePinnedLeftContainer,
-                    ePinnedRightContainer,
+                    bodyContainer,
+                    pinnedLeftContainer,
+                    pinnedRightContainer,
                     node, rowIndex);
                 this.context.wireBean(renderedRow);
                 renderedRows.push(renderedRow);
@@ -225,7 +216,6 @@ export class RowRenderer {
         if (!this.gridOptionsWrapper.isForPrint()) {
             var containerHeight = this.rowModel.getRowCombinedHeight();
             this.eBodyContainer.style.height = containerHeight + "px";
-            this.eFullWidthContainer.style.height = containerHeight + "px";
             this.ePinnedLeftColsContainer.style.height = containerHeight + "px";
             this.ePinnedRightColsContainer.style.height = containerHeight + "px";
         }
@@ -324,11 +314,11 @@ export class RowRenderer {
         // called to whats rendered. if the row isn't rendered, we don't care
         var indexesToRemove: any = [];
         var renderedRows = this.renderedRows;
-        Object.keys(renderedRows).forEach(function (index: any) {
-            var renderedRow = renderedRows[index];
+        Object.keys(renderedRows).forEach(function (key: any) {
+            var renderedRow = renderedRows[key];
             // see if the rendered row is in the list of rows we have to update
             if (renderedRow.isDataInList(rows)) {
-                indexesToRemove.push(index);
+                indexesToRemove.push(key);
             }
         });
         // remove the rows
@@ -358,10 +348,11 @@ export class RowRenderer {
     public refreshGroupRows() {
         // find all the group rows
         var rowsToRemove: any = [];
-        Object.keys(this.renderedRows).forEach( (index: any) => {
-            var renderedRow = this.renderedRows[index];
+        var that = this;
+        Object.keys(this.renderedRows).forEach(function (key: any) {
+            var renderedRow = that.renderedRows[key];
             if (renderedRow.isGroup()) {
-                rowsToRemove.push(index);
+                rowsToRemove.push(key);
             }
         });
         // remove the rows
@@ -406,7 +397,6 @@ export class RowRenderer {
             newFirst = 0;
             newLast = -1; // setting to -1 means nothing in range
         } else {
-
             var rowCount = this.rowModel.getRowCount();
 
             if (this.gridOptionsWrapper.isForPrint()) {
@@ -491,7 +481,7 @@ export class RowRenderer {
         //console.log(end-start);
     }
 
-    public onMouseEvent(eventName: string, mouseEvent: MouseEvent, cell: GridCell): void {
+    public onMouseEvent(eventName: string, mouseEvent: MouseEvent, eventSource: HTMLElement, cell: GridCell): void {
         var renderedRow: RenderedRow;
         switch (cell.floating) {
             case Constants.FLOATING_TOP:
@@ -505,7 +495,7 @@ export class RowRenderer {
                 break;
         }
         if (renderedRow) {
-            renderedRow.onMouseEvent(eventName, mouseEvent, cell);
+            renderedRow.onMouseEvent(eventName, mouseEvent, eventSource, cell);
         }
     }
 
@@ -515,7 +505,7 @@ export class RowRenderer {
         if (_.missingOrEmpty(columns)) { return; }
 
         var renderedRow = new RenderedRow(this.$scope,
-            this, this.eBodyContainer, this.eFullWidthContainer, this.ePinnedLeftColsContainer, this.ePinnedRightColsContainer,
+            this, this.eBodyContainer, this.ePinnedLeftColsContainer, this.ePinnedRightColsContainer,
             node, rowIndex);
         this.context.wireBean(renderedRow);
 
@@ -616,6 +606,13 @@ export class RowRenderer {
                 return false;
             }
 
+            var nextRenderedCell = this.getComponentForCell(nextCell);
+
+            // if editing, but cell not editable, skip cell
+            if (startEditing && !nextRenderedCell.isCellEditable()) {
+                continue;
+            }
+
             // this scrolls the row into view
             var cellIsNotFloating = _.missing(nextCell.floating);
             if (cellIsNotFloating) {
@@ -626,15 +623,6 @@ export class RowRenderer {
             // need to nudge the scrolls for the floating items. otherwise when we set focus on a non-visible
             // floating cell, the scrolls get out of sync
             this.gridPanel.horizontallyScrollHeaderCenterAndFloatingCenter();
-
-            // we have to call this after ensureColumnVisible - otherwise it could be a virtual column
-            // or row that is not currently in view, hence the renderedCell would not exist
-            var nextRenderedCell = this.getComponentForCell(nextCell);
-
-            // if editing, but cell not editable, skip cell
-            if (startEditing && !nextRenderedCell.isCellEditable()) {
-                continue;
-            }
 
             if (startEditing) {
                 nextRenderedCell.startEditingIfEnabled();

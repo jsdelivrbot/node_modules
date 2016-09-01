@@ -1,6 +1,6 @@
 /**
  * ag-grid - Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components
- * @version v5.3.0
+ * @version v5.0.2
  * @link http://www.ag-grid.com/
  * @license MIT
  */
@@ -135,9 +135,15 @@ var GridCore = (function () {
         this.eRootPanel.doLayout();
     };
     GridCore.prototype.addWindowResizeListener = function () {
-        var eventListener = this.doLayout.bind(this);
-        window.addEventListener('resize', eventListener);
-        this.destroyFunctions.push(function () { return window.removeEventListener('resize', eventListener); });
+        var that = this;
+        // putting this into a function, so when we remove the function,
+        // we are sure we are removing the exact same function (i'm not
+        // sure what 'bind' does to the function reference, if it's safe
+        // the result from 'bind').
+        this.windowResizeListener = function resizeListener() {
+            that.doLayout();
+        };
+        window.addEventListener('resize', this.windowResizeListener);
     };
     GridCore.prototype.periodicallyDoLayout = function () {
         var _this = this;
@@ -176,6 +182,10 @@ var GridCore = (function () {
         return this.toolPanelShowing;
     };
     GridCore.prototype.destroy = function () {
+        if (this.windowResizeListener) {
+            window.removeEventListener('resize', this.windowResizeListener);
+            this.logger.log('Removing windowResizeListener');
+        }
         this.finished = true;
         this.eGridDiv.removeChild(this.eRootPanel.getGui());
         this.logger.log('Grid DOM removed');

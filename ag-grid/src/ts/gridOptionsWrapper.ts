@@ -5,14 +5,14 @@ import {
     GetContextMenuItems,
     GetMainMenuItems,
     ProcessRowParams,
-    ProcessCellForExportParams, GetRowNodeIdFunc
+    ProcessCellForExportParams
 } from "./entities/gridOptions";
 import {EventService} from "./eventService";
 import {Constants} from "./constants";
 import {ComponentUtil} from "./components/componentUtil";
 import {GridApi} from "./gridApi";
 import {ColDef, IAggFunc} from "./entities/colDef";
-import {Bean, Qualifier, Autowired, PostConstruct, PreDestroy} from "./context/context";
+import {Bean, Qualifier, Autowired, PostConstruct} from "./context/context";
 import {ColumnController, ColumnApi} from "./columnController/columnController";
 import {Events} from "./events";
 import {Utils as _} from "./utils";
@@ -42,28 +42,20 @@ export class GridOptionsWrapper {
 
     private static MIN_COL_WIDTH = 10;
 
-    public static PROP_HEADER_HEIGHT = 'headerHeight';
-
     @Autowired('gridOptions') private gridOptions: GridOptions;
     @Autowired('columnController') private columnController: ColumnController;
     @Autowired('eventService') private eventService: EventService;
     @Autowired('enterprise') private enterprise: boolean;
 
+    private headerHeight: number;
+
     private propertyEventService: EventService = new EventService();
 
-    private agWire(@Qualifier('gridApi') gridApi: GridApi, @Qualifier('columnApi') columnApi: ColumnApi): void {
+    public agWire(@Qualifier('gridApi') gridApi: GridApi, @Qualifier('columnApi') columnApi: ColumnApi): void {
+        this.headerHeight = this.gridOptions.headerHeight;
         this.gridOptions.api = gridApi;
         this.gridOptions.columnApi = columnApi;
         this.checkForDeprecated();
-    }
-
-    @PreDestroy
-    private destroy(): void {
-        // need to remove these, as we don't own the lifecycle of the gridOptions, we need to
-        // remove the references in case the user keeps the grid options, we want the rest
-        // of the grid to be picked up by the garbage collector
-        this.gridOptions.api = null;
-        this.gridOptions.columnApi = null;
     }
 
     @PostConstruct
@@ -122,11 +114,6 @@ export class GridOptionsWrapper {
     public getRowClass() { return this.gridOptions.rowClass; }
     public getRowStyleFunc() { return this.gridOptions.getRowStyle; }
     public getRowClassFunc() { return this.gridOptions.getRowClass; }
-
-    public getIsFullWidthCellFunc(): (rowNode: RowNode)=> boolean { return this.gridOptions.isFullWidthCell; }
-    public getFullWidthCellRenderer(): {new(): ICellRenderer} | ICellRendererFunc | string { return this.gridOptions.fullWidthCellRenderer; }
-    public getFullWidthCellRendererParams() { return this.gridOptions.fullWidthCellRendererParams; }
-
     public getBusinessKeyForNodeFunc() { return this.gridOptions.getBusinessKeyForNode; }
     public getHeaderCellRenderer() { return this.gridOptions.headerCellRenderer; }
     public getApi(): GridApi { return this.gridOptions.api; }
@@ -134,14 +121,6 @@ export class GridOptionsWrapper {
     public isEnableColResize() { return isTrue(this.gridOptions.enableColResize); }
     public isSingleClickEdit() { return isTrue(this.gridOptions.singleClickEdit); }
     public getGroupDefaultExpanded(): number { return this.gridOptions.groupDefaultExpanded; }
-    public getAutoSizePadding(): number { return this.gridOptions.autoSizePadding; }
-
-    public getMaxConcurrentDatasourceRequests(): number { return this.gridOptions.maxConcurrentDatasourceRequests; }
-    public getMaxPagesInCache(): number { return this.gridOptions.maxPagesInCache; }
-    public getPaginationOverflowSize(): number { return this.gridOptions.paginationOverflowSize; }
-    public getPaginationPageSize(): number { return this.gridOptions.paginationPageSize; }
-    public getPaginationInitialRowCount(): number { return this.gridOptions.paginationInitialRowCount; }
-
     public getRowData(): any[] { return this.gridOptions.rowData; }
     public isGroupUseEntireRow() { return isTrue(this.gridOptions.groupUseEntireRow); }
     public getGroupColumnDef(): ColDef { return this.gridOptions.groupColumnDef; }
@@ -197,8 +176,6 @@ export class GridOptionsWrapper {
     public getGroupRowAggNodesFunc() { return this.gridOptions.groupRowAggNodes; }
     public getContextMenuItemsFunc(): GetContextMenuItems { return this.gridOptions.getContextMenuItems; }
     public getMainMenuItemsFunc(): GetMainMenuItems { return this.gridOptions.getMainMenuItems; }
-    public getRowNodeIdFunc(): GetRowNodeIdFunc { return this.gridOptions.getRowNodeId; }
-
     public getProcessCellForClipboardFunc(): (params: ProcessCellForExportParams)=>any { return this.gridOptions.processCellForClipboard; }
     public getViewportRowModelPageSize(): number { return positiveNumberOrZero(this.gridOptions.viewportRowModelPageSize, DEFAULT_VIEWPORT_ROW_MODEL_PAGE_SIZE); }
     public getViewportRowModelBufferSize(): number { return positiveNumberOrZero(this.gridOptions.viewportRowModelBufferSize, DEFAULT_VIEWPORT_ROW_MODEL_BUFFER_SIZE); }
@@ -228,11 +205,16 @@ export class GridOptionsWrapper {
 
     // properties
     public getHeaderHeight(): number {
-        if (typeof this.gridOptions.headerHeight === 'number') {
-            return this.gridOptions.headerHeight;
+        if (typeof this.headerHeight === 'number') {
+            return this.headerHeight;
         } else {
             return 25;
         }
+    }
+
+    public setHeaderHeight(headerHeight: number): void {
+        this.headerHeight = headerHeight;
+        this.eventService.dispatchEvent(Events.EVENT_HEADER_HEIGHT_CHANGED);
     }
 
     public isExternalFilterPresent() {

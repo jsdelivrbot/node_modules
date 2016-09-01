@@ -1,4 +1,4 @@
-// ag-grid-react v5.3.0
+// ag-grid-react v5.0.0
 /// <reference path="../typings/tsd"/>
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -6,20 +6,8 @@ var AgGrid = require('ag-grid');
 exports.AgGridReact = React.createClass({
     render: function () {
         return React.DOM.div({
-            style: this.createStyleForDiv()
+            style: { height: '100%' }
         });
-    },
-    createStyleForDiv: function () {
-        var style = { height: '100%' };
-        // allow user to override styles
-        var containerStyle = this.props.containerStyle;
-        if (containerStyle) {
-            Object.keys(containerStyle).forEach(function (key) {
-                var value = containerStyle[key];
-                style[key] = value;
-            });
-        }
-        return style;
     },
     componentDidMount: function () {
         var domNode = ReactDOM.findDOMNode(this);

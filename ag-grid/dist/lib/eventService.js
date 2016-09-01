@@ -1,6 +1,6 @@
 /**
  * ag-grid - Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components
- * @version v5.3.0
+ * @version v5.0.2
  * @link http://www.ag-grid.com/
  * @license MIT
  */
@@ -68,7 +68,7 @@ var EventService = (function () {
         if (!event) {
             event = {};
         }
-        // console.log(`dispatching ${eventType}: ${event}`);
+        //this.logger.log('dispatching: ' + event);
         // this allows the columnController to get events before anyone else
         var p1ListenerList = this.getListenerList(eventType + EventService.PRIORITY);
         p1ListenerList.forEach(function (listener) {

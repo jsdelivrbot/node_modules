@@ -1,6 +1,6 @@
 /**
  * ag-grid - Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components
- * @version v5.3.0
+ * @version v5.0.2
  * @link http://www.ag-grid.com/
  * @license MIT
  */
@@ -38,14 +38,8 @@ var GridApi = (function () {
     function GridApi() {
     }
     GridApi.prototype.init = function () {
-        switch (this.rowModel.getType()) {
-            case constants_1.Constants.ROW_MODEL_TYPE_NORMAL:
-            case constants_1.Constants.ROW_MODEL_TYPE_PAGINATION:
-                this.inMemoryRowModel = this.rowModel;
-                break;
-            case constants_1.Constants.ROW_MODEL_TYPE_VIRTUAL:
-                this.virtualPageRowModel = this.rowModel;
-                break;
+        if (this.rowModel.getType() === constants_1.Constants.ROW_MODEL_TYPE_NORMAL) {
+            this.inMemoryRowModel = this.rowModel;
         }
     };
     /** Used internally by grid. Not intended to be used by the client. Interface may change between releases. */
@@ -88,7 +82,6 @@ var GridApi = (function () {
     };
     GridApi.prototype.setRowData = function (rowData) {
         if (this.gridOptionsWrapper.isRowModelDefault()) {
-            this.selectionController.reset();
             this.inMemoryRowModel.setRowData(rowData, true);
         }
         else {
@@ -347,7 +340,7 @@ var GridApi = (function () {
         this.focusedCellController.setFocusedCell(rowIndex, colKey, floating, true);
     };
     GridApi.prototype.setHeaderHeight = function (headerHeight) {
-        this.gridOptionsWrapper.setProperty(gridOptionsWrapper_1.GridOptionsWrapper.PROP_HEADER_HEIGHT, headerHeight);
+        this.gridOptionsWrapper.setHeaderHeight(headerHeight);
     };
     GridApi.prototype.showToolPanel = function (show) {
         this.gridCore.showToolPanel(show);
@@ -447,63 +440,6 @@ var GridApi = (function () {
     GridApi.prototype.clearAggFuncs = function () {
         if (this.aggFuncService) {
             this.aggFuncService.clear();
-        }
-    };
-    GridApi.prototype.insertItemsAtIndex = function (index, items) {
-        this.rowModel.insertItemsAtIndex(index, items);
-    };
-    GridApi.prototype.removeItems = function (rowNodes) {
-        this.rowModel.removeItems(rowNodes);
-    };
-    GridApi.prototype.addItems = function (items) {
-        this.rowModel.addItems(items);
-    };
-    GridApi.prototype.refreshVirtualPageCache = function () {
-        if (this.virtualPageRowModel) {
-            this.virtualPageRowModel.refreshVirtualPageCache();
-        }
-        else {
-            console.warn("ag-Grid: api.refreshVirtualPageCache is only available when rowModelType='virtual'.");
-        }
-    };
-    GridApi.prototype.purgeVirtualPageCache = function () {
-        if (this.virtualPageRowModel) {
-            this.virtualPageRowModel.purgeVirtualPageCache();
-        }
-        else {
-            console.warn("ag-Grid: api.refreshVirtualPageCache is only available when rowModelType='virtual'.");
-        }
-    };
-    GridApi.prototype.getVirtualRowCount = function () {
-        if (this.virtualPageRowModel) {
-            return this.virtualPageRowModel.getVirtualRowCount();
-        }
-        else {
-            console.warn("ag-Grid: api.getVirtualRowCount is only available when rowModelType='virtual'.");
-        }
-    };
-    GridApi.prototype.isMaxRowFound = function () {
-        if (this.virtualPageRowModel) {
-            return this.virtualPageRowModel.isMaxRowFound();
-        }
-        else {
-            console.warn("ag-Grid: api.isMaxRowFound is only available when rowModelType='virtual'.");
-        }
-    };
-    GridApi.prototype.setVirtualRowCount = function (rowCount, maxRowFound) {
-        if (this.virtualPageRowModel) {
-            this.virtualPageRowModel.setVirtualRowCount(rowCount, maxRowFound);
-        }
-        else {
-            console.warn("ag-Grid: api.setVirtualRowCount is only available when rowModelType='virtual'.");
-        }
-    };
-    GridApi.prototype.getVirtualPageState = function () {
-        if (this.virtualPageRowModel) {
-            return this.virtualPageRowModel.getVirtualPageState();
-        }
-        else {
-            console.warn("ag-Grid: api.getVirtualPageState is only available when rowModelType='virtual'.");
         }
     };
     __decorate([

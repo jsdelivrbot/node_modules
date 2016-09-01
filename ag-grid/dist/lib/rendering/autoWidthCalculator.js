@@ -1,6 +1,6 @@
 /**
  * ag-grid - Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components
- * @version v5.3.0
+ * @version v5.0.2
  * @link http://www.ag-grid.com/
  * @license MIT
  */
@@ -19,7 +19,6 @@ var context_1 = require("../context/context");
 var context_2 = require("../context/context");
 var headerRenderer_1 = require("../headerRendering/headerRenderer");
 var renderedHeaderCell_1 = require("../headerRendering/renderedHeaderCell");
-var gridOptionsWrapper_1 = require("../gridOptionsWrapper");
 var AutoWidthCalculator = (function () {
     function AutoWidthCalculator() {
     }
@@ -28,11 +27,6 @@ var AutoWidthCalculator = (function () {
     // as we don't need it any more.
     // drawback: only the cells visible on the screen are considered
     AutoWidthCalculator.prototype.getPreferredWidthForColumn = function (column) {
-        var renderedHeaderCell = this.getHeaderCellForColumn(column);
-        // cell isn't visible
-        if (!renderedHeaderCell) {
-            return -1;
-        }
         var eDummyContainer = document.createElement('span');
         // position fixed, so it isn't restricted to the boundaries of the parent
         eDummyContainer.style.position = 'fixed';
@@ -44,21 +38,28 @@ var AutoWidthCalculator = (function () {
         // rendered cells, rows not rendered due to row visualisation will not be here)
         this.putRowCellsIntoDummyContainer(column, eDummyContainer);
         // also put header cell in
-        // we only consider the lowest level cell, not the group cell. in 99% of the time, this
-        // will be enough. if we consider groups, then it gets to complicated for what it's worth,
-        // as the groups can span columns and this class only considers one column at a time.
-        this.cloneItemIntoDummy(renderedHeaderCell.getGui(), eDummyContainer);
+        var headerExists = this.putHeaderCellsIntoDummyContainer(column, eDummyContainer);
+        if (!headerExists) {
+            return -1;
+        }
         // at this point, all the clones are lined up vertically with natural widths. the dummy
         // container will have a width wide enough just to fit the largest.
         var dummyContainerWidth = eDummyContainer.offsetWidth;
         // we are finished with the dummy container, so get rid of it
         eBodyContainer.removeChild(eDummyContainer);
-        // we add padding as I found without it, the gui still put '...' after some of the texts
-        var autoSizePadding = this.gridOptionsWrapper.getAutoSizePadding();
-        if (typeof autoSizePadding !== 'number' || autoSizePadding < 0) {
-            autoSizePadding = 4;
+        // we add 4 as I found without it, the gui still put '...' after some of the texts
+        return dummyContainerWidth + 4;
+    };
+    // we only consider the lowest level cell, not the group cell. in 99% of the time, this
+    // will be enough. if we consider groups, then it gets to complicated for what it's worth,
+    // as the groups can span columns and this class only considers one column at a time.
+    AutoWidthCalculator.prototype.putHeaderCellsIntoDummyContainer = function (column, eDummyContainer) {
+        var renderedHeaderCell = this.getHeaderCellForColumn(column);
+        if (!renderedHeaderCell) {
+            return false;
         }
-        return dummyContainerWidth + autoSizePadding;
+        this.cloneItemIntoDummy(renderedHeaderCell.getGui(), eDummyContainer);
+        return true;
     };
     AutoWidthCalculator.prototype.getHeaderCellForColumn = function (column) {
         var renderedHeaderCell = null;
@@ -113,10 +114,6 @@ var AutoWidthCalculator = (function () {
         context_2.Autowired('gridPanel'), 
         __metadata('design:type', gridPanel_1.GridPanel)
     ], AutoWidthCalculator.prototype, "gridPanel", void 0);
-    __decorate([
-        context_2.Autowired('gridOptionsWrapper'), 
-        __metadata('design:type', gridOptionsWrapper_1.GridOptionsWrapper)
-    ], AutoWidthCalculator.prototype, "gridOptionsWrapper", void 0);
     AutoWidthCalculator = __decorate([
         context_1.Bean('autoWidthCalculator'), 
         __metadata('design:paramtypes', [])

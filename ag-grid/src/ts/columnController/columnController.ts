@@ -50,8 +50,6 @@ export class ColumnApi {
     public getDisplayedCenterColumns(): Column[] { return this._columnController.getDisplayedCenterColumns(); }
     public getDisplayedRightColumns(): Column[] { return this._columnController.getDisplayedRightColumns(); }
     public getAllDisplayedColumns(): Column[] { return this._columnController.getAllDisplayedColumns(); }
-    public getAllDisplayedVirtualColumns(): Column[] { return this._columnController.getAllDisplayedVirtualColumns(); }
-
     public moveColumn(fromIndex: number, toIndex: number): void { this._columnController.moveColumnByIndex(fromIndex, toIndex); }
     public moveRowGroupColumn(fromIndex: number, toIndex: number): void { this._columnController.moveRowGroupColumn(fromIndex, toIndex); }
     public setColumnAggFunct(column: Column, aggFunc: string): void { this._columnController.setColumnAggFunc(column, aggFunc); }
@@ -60,11 +58,11 @@ export class ColumnApi {
     public isPivotMode(): boolean { return this._columnController.isPivotMode(); }
     public getSecondaryPivotColumn(pivotKeys: string[], valueColKey: Column|ColDef|String): Column { return this._columnController.getSecondaryPivotColumn(pivotKeys, valueColKey); }
 
-    public getValueColumns(): Column[] { return this._columnController.getValueColumns(); }
-    public removeValueColumn(colKey: (Column|ColDef|String)): void { this._columnController.removeValueColumn(colKey); }
-    public removeValueColumns(colKeys: (Column|ColDef|String)[]): void { this._columnController.removeValueColumns(colKeys); }
-    public addValueColumn(colKey: (Column|ColDef|String)): void { this._columnController.addValueColumn(colKey); }
-    public addValueColumns(colKeys: (Column|ColDef|String)[]): void { this._columnController.addValueColumns(colKeys); }
+    public getAggregationColumns(): Column[] { return this._columnController.getAggregationColumns(); }
+    public removeAggregationColumn(colKey: (Column|ColDef|String)): void { this._columnController.removeValueColumn(colKey); }
+    public removeAggregationColumns(colKeys: (Column|ColDef|String)[]): void { this._columnController.removeValueColumns(colKeys); }
+    public addAggregationColumn(colKey: (Column|ColDef|String)): void { this._columnController.addValueColumn(colKey); }
+    public addAggregationColumns(colKeys: (Column|ColDef|String)[]): void { this._columnController.addValueColumns(colKeys); }
 
     public setRowGroupColumns(colKeys: (Column|ColDef|String)[]): void { this._columnController.setRowGroupColumns(colKeys); }
     public removeRowGroupColumn(colKey: Column|ColDef|String): void { this._columnController.removeRowGroupColumn(colKey); }
@@ -86,7 +84,6 @@ export class ColumnApi {
     public getAllDisplayedColumnGroups(): ColumnGroupChild[] { return this._columnController.getAllDisplayedColumnGroups(); }
     public autoSizeColumn(key: Column|ColDef|String): void {return this._columnController.autoSizeColumn(key); }
     public autoSizeColumns(keys: (Column|ColDef|String)[]): void {return this._columnController.autoSizeColumns(keys); }
-    public autoSizeAllColumns(): void { this._columnController.autoSizeAllColumns(); }
 
     public setSecondaryColumns(colDefs: (ColDef|ColGroupDef)[]): void { this._columnController.setSecondaryColumns(colDefs); }
 
@@ -118,32 +115,18 @@ export class ColumnApi {
         this.resetColumnState();
     }
 
-
-    public getAggregationColumns(): Column[] {
-        console.error('ag-Grid: getAggregationColumns is deprecated, use getValueColumns');
-        return this._columnController.getValueColumns();
+    public getValueColumns(): Column[] {
+        console.error('ag-Grid: getValueColumns is deprecated, use getAggregationColumns');
+        return this._columnController.getAggregationColumns(); 
     }
-
-    public removeAggregationColumn(colKey: (Column|ColDef|String)): void {
-        console.error('ag-Grid: removeAggregationColumn is deprecated, use removeValueColumn');
-        this._columnController.removeValueColumn(colKey);
+    public removeValueColumn(column: Column): void {
+        console.error('ag-Grid: removeValueColumn is deprecated, use removeValueColumn');
+        this._columnController.removeValueColumn(column);
     }
-
-    public removeAggregationColumns(colKeys: (Column|ColDef|String)[]): void {
-        console.error('ag-Grid: removeAggregationColumns is deprecated, use removeValueColumns');
-        this._columnController.removeValueColumns(colKeys);
+    public addValueColumn(column: Column): void {
+        console.error('ag-Grid: addValueColumn is deprecated, use addValueColumn');
+        this._columnController.addValueColumn(column);
     }
-
-    public addAggregationColumn(colKey: (Column|ColDef|String)): void {
-        console.error('ag-Grid: addAggregationColumn is deprecated, use addValueColumn');
-        this._columnController.addValueColumn(colKey);
-    }
-
-    public addAggregationColumns(colKeys: (Column|ColDef|String)[]): void {
-        console.error('ag-Grid: addAggregationColumns is deprecated, use addValueColumns');
-        this._columnController.addValueColumns(colKeys);
-    }
-
     public setColumnAggFunction(column: Column, aggFunc: string): void {
         console.error('ag-Grid: setColumnAggFunction is deprecated, use setColumnAggFunc');
         this._columnController.setColumnAggFunc(column, aggFunc); 
@@ -425,7 +408,7 @@ export class ColumnController {
         return this.allDisplayedColumns;
     }
 
-    // + rowRenderer
+    // + csvCreator
     public getAllDisplayedVirtualColumns(): Column[] {
         return this.allDisplayedVirtualColumns;
     }
@@ -624,7 +607,7 @@ export class ColumnController {
 
     public setColumnAggFunc(column: Column, aggFunc: string): void {
         column.setAggFunc(aggFunc);
-        var event = new ColumnChangeEvent(Events.EVENT_COLUMN_VALUE_CHANGED).withColumn(column);
+        var event = new ColumnChangeEvent(Events.EVENT_COLUMN_VALUE_CHANGED);
         this.eventService.dispatchEvent(Events.EVENT_COLUMN_VALUE_CHANGED, event);
     }
 
@@ -732,7 +715,7 @@ export class ColumnController {
     }
 
     // + rowController
-    public getValueColumns(): Column[] {
+    public getAggregationColumns(): Column[] {
         return this.valueColumns ? this.valueColumns : [];
     }
 
@@ -923,7 +906,7 @@ export class ColumnController {
     }
 
     public getPrimaryAndSecondaryAndAutoColumns(): Column[] {
-        var result = this.primaryColumns ? this.primaryColumns.slice(0) : [];
+        var result = this.primaryColumns.slice(0);
         if (this.groupAutoColumnActive) {
             result.push(this.groupAutoColumn);
         }
@@ -936,11 +919,10 @@ export class ColumnController {
     private createStateItemFromColumn(column: Column): any {
         var rowGroupIndex = column.isRowGroupActive() ? this.rowGroupColumns.indexOf(column) : null;
         var pivotIndex = column.isPivotActive() ? this.pivotColumns.indexOf(column) : null;
-        var aggFunc = column.isValueActive() ? column.getAggFunc() : null;
         var resultItem = {
             colId: column.getColId(),
             hide: !column.isVisible(),
-            aggFunc: aggFunc,
+            aggFunc: column.getAggFunc() ? column.getAggFunc() : null,
             width: column.getActualWidth(),
             pivotIndex: pivotIndex,
             pinned: column.getPinned(),
@@ -1149,7 +1131,7 @@ export class ColumnController {
         function colMatches(column: Column): boolean {
             var columnMatches = column === key;
             var colDefMatches = column.getColDef() === key;
-            var idMatches = column.getColId() == key;
+            var idMatches = column.getColId() === key;
             return columnMatches || colDefMatches || idMatches;
         }
 
@@ -1468,8 +1450,7 @@ export class ColumnController {
         this.updateDisplayedColumnsFromTrees();
         this.updateVirtualSets();
         // this event is picked up by the gui, headerRenderer and rowRenderer, to recalculate what columns to display
-        var event = new ColumnChangeEvent(Events.EVENT_DISPLAYED_COLUMNS_CHANGED);
-        this.eventService.dispatchEvent(Events.EVENT_DISPLAYED_COLUMNS_CHANGED, event);
+        this.eventService.dispatchEvent(Events.EVENT_DISPLAYED_COLUMNS_CHANGED);
     }
 
     private updateDisplayedColumnsFromTrees(): void {

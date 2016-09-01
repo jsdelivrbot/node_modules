@@ -63,21 +63,25 @@ export class HeaderRowComp extends Component {
         });
     }
 
-    private onRowHeightChanged(): void {
-        var rowHeight = this.gridOptionsWrapper.getHeaderHeight();
-        this.getGui().style.top = (this.dept * rowHeight) + 'px';
-        this.getGui().style.height = rowHeight + 'px';
-    }
-
     @PostConstruct
     private init(): void {
 
-        this.onRowHeightChanged();
-        this.onVirtualColumnsChanged();
+        var rowHeight = this.gridOptionsWrapper.getHeaderHeight();
+        this.getGui().style.top = (this.dept * rowHeight) + 'px';
+        this.getGui().style.height = rowHeight + 'px';
 
-        this.addDestroyableEventListener(this.gridOptionsWrapper, GridOptionsWrapper.PROP_HEADER_HEIGHT, this.onRowHeightChanged.bind(this) );
-        this.addDestroyableEventListener(this.eventService, Events.EVENT_VIRTUAL_COLUMNS_CHANGED, this.onVirtualColumnsChanged.bind(this) );
-        this.addDestroyableEventListener(this.eventService, Events.EVENT_DISPLAYED_COLUMNS_CHANGED, this.onDisplayedColumnsChanged.bind(this) );
+        var virtualColumnsChangedListener = this.onVirtualColumnsChanged.bind(this);
+        var displayedColumnsChangedListener = this.onDisplayedColumnsChanged.bind(this);
+
+        this.eventService.addEventListener(Events.EVENT_VIRTUAL_COLUMNS_CHANGED, virtualColumnsChangedListener);
+        this.eventService.addEventListener(Events.EVENT_DISPLAYED_COLUMNS_CHANGED, displayedColumnsChangedListener);
+
+        this.addDestroyFunc( ()=> {
+            this.eventService.removeEventListener(Events.EVENT_VIRTUAL_COLUMNS_CHANGED, virtualColumnsChangedListener);
+            this.eventService.removeEventListener(Events.EVENT_DISPLAYED_COLUMNS_CHANGED, displayedColumnsChangedListener);
+        });
+
+        this.onVirtualColumnsChanged();
     }
 
     private onDisplayedColumnsChanged(): void {

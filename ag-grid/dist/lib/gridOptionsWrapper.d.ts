@@ -1,9 +1,9 @@
-// Type definitions for ag-grid v5.3.0
+// Type definitions for ag-grid v5.0.2
 // Project: http://www.ag-grid.com/
 // Definitions by: Niall Crosby <https://github.com/ceolter/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 import { RowNode } from "./entities/rowNode";
-import { GridOptions, NodeChildDetails, GetContextMenuItems, GetMainMenuItems, ProcessRowParams, ProcessCellForExportParams, GetRowNodeIdFunc } from "./entities/gridOptions";
+import { GridOptions, NodeChildDetails, GetContextMenuItems, GetMainMenuItems, ProcessRowParams, ProcessCellForExportParams } from "./entities/gridOptions";
 import { GridApi } from "./gridApi";
 import { ColDef, IAggFunc } from "./entities/colDef";
 import { ColumnApi } from "./columnController/columnController";
@@ -11,14 +11,13 @@ import { IViewportDatasource } from "./interfaces/iViewportDatasource";
 import { ICellRendererFunc, ICellRenderer } from "./rendering/cellRenderers/iCellRenderer";
 export declare class GridOptionsWrapper {
     private static MIN_COL_WIDTH;
-    static PROP_HEADER_HEIGHT: string;
     private gridOptions;
     private columnController;
     private eventService;
     private enterprise;
+    private headerHeight;
     private propertyEventService;
-    private agWire(gridApi, columnApi);
-    private destroy();
+    agWire(gridApi: GridApi, columnApi: ColumnApi): void;
     init(): void;
     isEnterprise(): boolean;
     isRowSelection(): boolean;
@@ -60,11 +59,6 @@ export declare class GridOptionsWrapper {
     getRowClass(): any;
     getRowStyleFunc(): Function;
     getRowClassFunc(): Function;
-    getIsFullWidthCellFunc(): (rowNode: RowNode) => boolean;
-    getFullWidthCellRenderer(): {
-        new (): ICellRenderer;
-    } | ICellRendererFunc | string;
-    getFullWidthCellRendererParams(): any;
     getBusinessKeyForNodeFunc(): (node: RowNode) => string;
     getHeaderCellRenderer(): any;
     getApi(): GridApi;
@@ -72,12 +66,6 @@ export declare class GridOptionsWrapper {
     isEnableColResize(): boolean;
     isSingleClickEdit(): boolean;
     getGroupDefaultExpanded(): number;
-    getAutoSizePadding(): number;
-    getMaxConcurrentDatasourceRequests(): number;
-    getMaxPagesInCache(): number;
-    getPaginationOverflowSize(): number;
-    getPaginationPageSize(): number;
-    getPaginationInitialRowCount(): number;
     getRowData(): any[];
     isGroupUseEntireRow(): boolean;
     getGroupColumnDef(): ColDef;
@@ -138,7 +126,6 @@ export declare class GridOptionsWrapper {
     getGroupRowAggNodesFunc(): (nodes: RowNode[]) => any;
     getContextMenuItemsFunc(): GetContextMenuItems;
     getMainMenuItemsFunc(): GetMainMenuItems;
-    getRowNodeIdFunc(): GetRowNodeIdFunc;
     getProcessCellForClipboardFunc(): (params: ProcessCellForExportParams) => any;
     getViewportRowModelPageSize(): number;
     getViewportRowModelBufferSize(): number;
@@ -147,6 +134,7 @@ export declare class GridOptionsWrapper {
     removeEventListener(key: string, listener: Function): void;
     executeProcessRowPostCreateFunc(params: ProcessRowParams): void;
     getHeaderHeight(): number;
+    setHeaderHeight(headerHeight: number): void;
     isExternalFilterPresent(): boolean;
     doesExternalFilterPass(node: RowNode): boolean;
     getLayoutInterval(): number;

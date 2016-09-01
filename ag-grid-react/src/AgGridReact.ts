@@ -8,21 +8,8 @@ export var AgGridReact = React.createClass({
 
     render: function() {
         return React.DOM.div({
-            style: this.createStyleForDiv()
+            style: {height: '100%'}
         });
-    },
-
-    createStyleForDiv: function() {
-        var style: any = {height: '100%'};
-        // allow user to override styles
-        var containerStyle = this.props.containerStyle;
-        if (containerStyle) {
-            Object.keys(containerStyle).forEach( key => {
-                var value = containerStyle[key];
-                style[key] = value;
-            });
-        }
-        return style;
     },
 
     componentDidMount: function() {

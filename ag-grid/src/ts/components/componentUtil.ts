@@ -18,7 +18,7 @@ export class ComponentUtil {
 
     public static OBJECT_PROPERTIES = [
         'rowStyle','context','groupColumnDef','localeText','icons','datasource','viewportDatasource',
-        'groupRowRendererParams', 'aggFuncs', 'fullWidthCellRendererParams'
+        'groupRowRendererParams', 'aggFuncs'
         //,'cellRenderers','cellEditors'
     ];
 
@@ -29,8 +29,7 @@ export class ComponentUtil {
     public static NUMBER_PROPERTIES = [
         'rowHeight','rowBuffer','colWidth','headerHeight','groupDefaultExpanded',
         'minColWidth','maxColWidth','viewportRowModelPageSize','viewportRowModelBufferSize',
-        'layoutInterval','autoSizePadding','maxPagesInCache','maxConcurrentDatasourceRequests',
-        'paginationOverflowSize','paginationPageSize','paginationInitialRowCount'
+        'layoutInterval'
     ];
 
     public static BOOLEAN_PROPERTIES = [
@@ -56,7 +55,7 @@ export class ComponentUtil {
         'groupRowRenderer', 'isScrollLag', 'isExternalFilterPresent', 'getRowHeight',
         'doesExternalFilterPass', 'getRowClass','getRowStyle', 'getHeaderCellTemplate', 'traverseNode',
         'getContextMenuItems', 'getMainMenuItems', 'processRowPostCreate', 'processCellForClipboard',
-        'getNodeChildDetails', 'groupRowAggNodes', 'getRowNodeId', 'isFullWidthCell', 'fullWidthCellRenderer'];
+        'getNodeChildDetails', 'groupRowAggNodes'];
 
     public static ALL_PROPERTIES = ComponentUtil.ARRAY_PROPERTIES
         .concat(ComponentUtil.OBJECT_PROPERTIES)

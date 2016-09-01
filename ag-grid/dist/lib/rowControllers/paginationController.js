@@ -1,6 +1,6 @@
 /**
  * ag-grid - Advanced Data Grid / Data Table supporting Javascript / React / AngularJS / Web Components
- * @version v5.3.0
+ * @version v5.0.2
  * @link http://www.ag-grid.com/
  * @license MIT
  */
@@ -13,12 +13,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var utils_1 = require("../utils");
+var utils_1 = require('../utils');
 var gridOptionsWrapper_1 = require("../gridOptionsWrapper");
 var context_1 = require("../context/context");
 var gridPanel_1 = require("../gridPanel/gridPanel");
 var selectionController_1 = require("../selectionController");
+var context_2 = require("../context/context");
 var sortController_1 = require("../sortController");
+var context_3 = require("../context/context");
 var eventService_1 = require("../eventService");
 var events_1 = require("../events");
 var filterManager_1 = require("../filter/filterManager");
@@ -58,12 +60,12 @@ var PaginationController = (function () {
         var paginationEnabled = this.gridOptionsWrapper.isRowModelPagination();
         this.eventService.addEventListener(events_1.Events.EVENT_FILTER_CHANGED, function () {
             if (paginationEnabled && _this.gridOptionsWrapper.isEnableServerSideFilter()) {
-                _this.reset(false);
+                _this.reset();
             }
         });
         this.eventService.addEventListener(events_1.Events.EVENT_SORT_CHANGED, function () {
             if (paginationEnabled && _this.gridOptionsWrapper.isEnableServerSideSorting()) {
-                _this.reset(false);
+                _this.reset();
             }
         });
         if (paginationEnabled && this.gridOptionsWrapper.getDatasource()) {
@@ -76,34 +78,20 @@ var PaginationController = (function () {
             // only continue if we have a valid datasource to work with
             return;
         }
-        this.reset(true);
+        this.reset();
     };
-    PaginationController.prototype.checkForDeprecated = function () {
-        var ds = this.datasource;
-        if (utils_1.Utils.exists(ds.pageSize)) {
-            console.error('ag-Grid: since version 5.1.x, pageSize is replaced with grid property paginationPageSize');
-        }
-    };
-    PaginationController.prototype.reset = function (freshDatasource) {
+    PaginationController.prototype.reset = function () {
         // important to return here, as the user could be setting filter or sort before
         // data-source is set
         if (utils_1.Utils.missing(this.datasource)) {
             return;
         }
-        this.checkForDeprecated();
-        // if user is providing id's, then this means we can keep the selection between datsource hits,
-        // as the rows will keep their unique id's even if, for example, server side sorting or filtering
-        // is done. if it's a new datasource, then always clear the selection.
-        var userGeneratingRows = utils_1.Utils.exists(this.gridOptionsWrapper.getRowNodeIdFunc());
-        var resetSelectionController = freshDatasource || !userGeneratingRows;
-        if (resetSelectionController) {
-            this.selectionController.reset();
-        }
+        this.selectionController.reset();
         // copy pageSize, to guard against it changing the the datasource between calls
-        this.pageSize = this.gridOptionsWrapper.getPaginationPageSize();
-        if (!(this.pageSize >= 1)) {
-            this.pageSize = 100;
+        if (this.datasource.pageSize && typeof this.datasource.pageSize !== 'number') {
+            console.warn('datasource.pageSize should be a number');
         }
+        this.pageSize = this.datasource.pageSize;
         // see if we know the total number of pages, or if it's 'to be decided'
         if (typeof this.datasource.rowCount === 'number' && this.datasource.rowCount >= 0) {
             this.rowCount = this.datasource.rowCount;
@@ -185,8 +173,8 @@ var PaginationController = (function () {
     PaginationController.prototype.loadPage = function () {
         var _this = this;
         this.enableOrDisableButtons();
-        var startRow = this.currentPage * this.pageSize;
-        var endRow = (this.currentPage + 1) * this.pageSize;
+        var startRow = this.currentPage * this.datasource.pageSize;
+        var endRow = (this.currentPage + 1) * this.datasource.pageSize;
         this.lbCurrent.innerHTML = this.myToLocaleString(this.currentPage + 1);
         this.callVersion++;
         var callVersionCopy = this.callVersion;
@@ -310,35 +298,35 @@ var PaginationController = (function () {
         });
     };
     __decorate([
-        context_1.Autowired('filterManager'), 
+        context_2.Autowired('filterManager'), 
         __metadata('design:type', filterManager_1.FilterManager)
     ], PaginationController.prototype, "filterManager", void 0);
     __decorate([
-        context_1.Autowired('gridPanel'), 
+        context_2.Autowired('gridPanel'), 
         __metadata('design:type', gridPanel_1.GridPanel)
     ], PaginationController.prototype, "gridPanel", void 0);
     __decorate([
-        context_1.Autowired('gridOptionsWrapper'), 
+        context_2.Autowired('gridOptionsWrapper'), 
         __metadata('design:type', gridOptionsWrapper_1.GridOptionsWrapper)
     ], PaginationController.prototype, "gridOptionsWrapper", void 0);
     __decorate([
-        context_1.Autowired('selectionController'), 
+        context_2.Autowired('selectionController'), 
         __metadata('design:type', selectionController_1.SelectionController)
     ], PaginationController.prototype, "selectionController", void 0);
     __decorate([
-        context_1.Autowired('sortController'), 
+        context_2.Autowired('sortController'), 
         __metadata('design:type', sortController_1.SortController)
     ], PaginationController.prototype, "sortController", void 0);
     __decorate([
-        context_1.Autowired('eventService'), 
+        context_2.Autowired('eventService'), 
         __metadata('design:type', eventService_1.EventService)
     ], PaginationController.prototype, "eventService", void 0);
     __decorate([
-        context_1.Autowired('rowModel'), 
+        context_2.Autowired('rowModel'), 
         __metadata('design:type', Object)
     ], PaginationController.prototype, "rowModel", void 0);
     __decorate([
-        context_1.PostConstruct, 
+        context_3.PostConstruct, 
         __metadata('design:type', Function), 
         __metadata('design:paramtypes', []), 
         __metadata('design:returntype', void 0)

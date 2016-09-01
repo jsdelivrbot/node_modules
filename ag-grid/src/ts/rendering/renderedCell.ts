@@ -433,8 +433,7 @@ export class RenderedCell extends Component {
         var keyPressListener = (event: KeyboardEvent)=> {
             // check this, in case focus is on a (for example) a text field inside the cell,
             // in which cse we should not be listening for these key pressed
-            var eventTarget = _.getTarget(event);
-            var eventOnChildComponent = eventTarget!==this.getGui();
+            var eventOnChildComponent = event.srcElement!==this.getGui();
             if (eventOnChildComponent) { return; }
 
             if (!this.editingCell) {
@@ -678,9 +677,10 @@ export class RenderedCell extends Component {
         return params;
     }
 
-    private createEvent(event: any): any {
+    private createEvent(event: any, eventSource?: any): any {
         var agEvent = this.createParams();
         agEvent.event = event;
+        //agEvent.eventSource = eventSource;
         return agEvent;
     }
 
@@ -697,11 +697,11 @@ export class RenderedCell extends Component {
         return this.column.isCellEditable(this.node);
     }
 
-    public onMouseEvent(eventName: string, mouseEvent: MouseEvent): void {
+    public onMouseEvent(eventName: string, mouseEvent: MouseEvent, eventSource: HTMLElement): void {
         switch (eventName) {
             case 'click': this.onCellClicked(mouseEvent); break;
             case 'mousedown': this.onMouseDown(); break;
-            case 'dblclick': this.onCellDoubleClicked(mouseEvent); break;
+            case 'dblclick': this.onCellDoubleClicked(mouseEvent, eventSource); break;
             case 'contextmenu': this.onContextMenu(mouseEvent); break;
         }
     }
@@ -728,10 +728,10 @@ export class RenderedCell extends Component {
         }
     }
 
-    private onCellDoubleClicked(mouseEvent: MouseEvent) {
+    private onCellDoubleClicked(mouseEvent: MouseEvent, eventSource: HTMLElement) {
         var colDef = this.column.getColDef();
         // always dispatch event to eventService
-        var agEvent: any = this.createEvent(mouseEvent);
+        var agEvent: any = this.createEvent(mouseEvent, eventSource);
         this.eventService.dispatchEvent(Events.EVENT_CELL_DOUBLE_CLICKED, agEvent);
 
         // check if colDef also wants to handle event
@@ -766,7 +766,7 @@ export class RenderedCell extends Component {
     }
 
     private onCellClicked(mouseEvent: MouseEvent): void {
-        var agEvent = this.createEvent(mouseEvent);
+        var agEvent = this.createEvent(mouseEvent, this);
         this.eventService.dispatchEvent(Events.EVENT_CELL_CLICKED, agEvent);
 
         var colDef = this.column.getColDef();

@@ -44,9 +44,6 @@ export class FilterManager {
         this.eventService.addEventListener(Events.EVENT_NEW_COLUMNS_LOADED, this.onNewColumnsLoaded.bind(this));
 
         this.quickFilter = this.parseQuickFilter(this.gridOptionsWrapper.getQuickFilterText());
-
-        // check this here, in case there is a filter from the start
-        this.checkExternalFilter();
     }
 
     public registerFilter(key: string, Filter: any): void {
@@ -197,15 +194,11 @@ export class FilterManager {
         }
     }
 
-    private checkExternalFilter(): void {
-        this.externalFilterPresent = this.gridOptionsWrapper.isExternalFilterPresent();
-    }
-
     public onFilterChanged(): void {
         this.eventService.dispatchEvent(Events.EVENT_BEFORE_FILTER_CHANGED);
 
         this.advancedFilterPresent = this.isAdvancedFilterPresent();
-        this.checkExternalFilter();
+        this.externalFilterPresent = this.gridOptionsWrapper.isExternalFilterPresent();
 
         _.iterateObject(this.allFilters, function (key, filterWrapper) {
             if (filterWrapper.filter.onAnyFilterChanged) {

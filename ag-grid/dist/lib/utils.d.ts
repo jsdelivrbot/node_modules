@@ -1,4 +1,4 @@
-// Type definitions for ag-grid v5.3.0
+// Type definitions for ag-grid v5.0.2
 // Project: http://www.ag-grid.com/
 // Definitions by: Niall Crosby <https://github.com/ceolter/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -13,9 +13,6 @@ export declare class Utils {
     private static isSafari;
     private static isIE;
     static getNameOfClass(TheClass: any): string;
-    static values<T>(object: {
-        [key: string]: T;
-    }): T[];
     static iterateObject(object: any, callback: (key: string, value: any) => void): void;
     static cloneObject(object: any): any;
     static map<TItem, TResult>(array: TItem[], callback: (item: TItem) => TResult): TResult[];
@@ -59,7 +56,6 @@ export declare class Utils {
     static moveInArray<T>(array: T[], objectsToMove: T[], toIndex: number): void;
     static defaultComparator(valueA: any, valueB: any): number;
     static compareArrays(array1: any[], array2: any[]): boolean;
-    static toStringOrNull(value: any): string;
     static formatWidth(width: number | string): string;
     static formatNumberTwoDecimalPlacesAndCommas(value: number): string;
     /**
@@ -69,13 +65,11 @@ export declare class Utils {
     static createIcon(iconName: string, gridOptionsWrapper: GridOptionsWrapper, column: Column, svgFactoryFunc: () => HTMLElement): HTMLElement;
     static createIconNoSpan(iconName: string, gridOptionsWrapper: GridOptionsWrapper, colDefWrapper: Column, svgFactoryFunc: () => HTMLElement): HTMLElement;
     static addStylesToElement(eElement: any, styles: any): void;
-    static isScrollShowing(element: HTMLElement): boolean;
     static getScrollbarWidth(): number;
     static isKeyPressed(event: KeyboardEvent, keyToCheck: number): boolean;
     static setVisible(element: HTMLElement, visible: boolean, visibleStyle?: string): void;
     static isBrowserIE(): boolean;
     static isBrowserSafari(): boolean;
-    static getTarget(event: Event): Element;
     static getBodyWidth(): number;
     static getBodyHeight(): number;
     static setCheckboxState(eCheckbox: any, state: any): void;

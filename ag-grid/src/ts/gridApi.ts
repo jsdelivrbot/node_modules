@@ -27,7 +27,7 @@ import {IInMemoryRowModel} from "./interfaces/iInMemoryRowModel";
 import {Utils as _} from "./utils";
 import {IViewportDatasource} from "./interfaces/iViewportDatasource";
 import {IMenuFactory} from "./interfaces/iMenuFactory";
-import {VirtualPageRowModel} from "./rowControllers/virtualPagination/virtualPageRowModel";
+import {VirtualPageRowModel} from "./rowControllers/virtualPageRowModel";
 import {CellRendererFactory} from "./rendering/cellRendererFactory";
 import {CellEditorFactory} from "./rendering/cellEditorFactory";
 import {IAggFuncService} from "./interfaces/iAggFuncService";
@@ -61,18 +61,11 @@ export class GridApi {
     @Autowired('cellEditorFactory') private cellEditorFactory: CellEditorFactory;
 
     private inMemoryRowModel: IInMemoryRowModel;
-    private virtualPageRowModel: VirtualPageRowModel;
 
     @PostConstruct
     private init(): void {
-        switch (this.rowModel.getType()) {
-            case Constants.ROW_MODEL_TYPE_NORMAL:
-            case Constants.ROW_MODEL_TYPE_PAGINATION:
-                this.inMemoryRowModel = <IInMemoryRowModel> this.rowModel;
-                break;
-            case Constants.ROW_MODEL_TYPE_VIRTUAL:
-                this.virtualPageRowModel = <VirtualPageRowModel> this.rowModel;
-                break;
+        if (this.rowModel.getType()===Constants.ROW_MODEL_TYPE_NORMAL) {
+            this.inMemoryRowModel = <IInMemoryRowModel> this.rowModel;
         }
     }
 
@@ -120,7 +113,6 @@ export class GridApi {
     
     public setRowData(rowData: any[]) {
         if (this.gridOptionsWrapper.isRowModelDefault()) {
-            this.selectionController.reset();
             this.inMemoryRowModel.setRowData(rowData, true);
         } else {
             console.log('cannot call setRowData unless using normal row model');
@@ -415,7 +407,7 @@ export class GridApi {
     }
 
     public setHeaderHeight(headerHeight: number) {
-        this.gridOptionsWrapper.setProperty(GridOptionsWrapper.PROP_HEADER_HEIGHT, headerHeight);
+        this.gridOptionsWrapper.setHeaderHeight(headerHeight);
     }
 
     public showToolPanel(show:any) {
@@ -526,66 +518,6 @@ export class GridApi {
     public clearAggFuncs(): void {
         if (this.aggFuncService) {
             this.aggFuncService.clear();
-        }
-    }
-
-    public insertItemsAtIndex(index: number, items: any[]): void {
-        this.rowModel.insertItemsAtIndex(index, items);
-    }
-
-    public removeItems(rowNodes: RowNode[]): void {
-        this.rowModel.removeItems(rowNodes);
-    }
-
-    public addItems(items: any[]): void {
-        this.rowModel.addItems(items);
-    }
-
-    public refreshVirtualPageCache(): void {
-        if (this.virtualPageRowModel) {
-            this.virtualPageRowModel.refreshVirtualPageCache();
-        } else {
-            console.warn(`ag-Grid: api.refreshVirtualPageCache is only available when rowModelType='virtual'.`);
-        }
-    }
-
-    public purgeVirtualPageCache(): void {
-        if (this.virtualPageRowModel) {
-            this.virtualPageRowModel.purgeVirtualPageCache();
-        } else {
-            console.warn(`ag-Grid: api.refreshVirtualPageCache is only available when rowModelType='virtual'.`);
-        }
-    }
-
-    public getVirtualRowCount(): number {
-        if (this.virtualPageRowModel) {
-            return this.virtualPageRowModel.getVirtualRowCount();
-        } else {
-            console.warn(`ag-Grid: api.getVirtualRowCount is only available when rowModelType='virtual'.`);
-        }
-    }
-
-    public isMaxRowFound(): boolean {
-        if (this.virtualPageRowModel) {
-            return this.virtualPageRowModel.isMaxRowFound();
-        } else {
-            console.warn(`ag-Grid: api.isMaxRowFound is only available when rowModelType='virtual'.`);
-        }
-    }
-
-    public setVirtualRowCount(rowCount: number, maxRowFound?: boolean): void {
-        if (this.virtualPageRowModel) {
-            this.virtualPageRowModel.setVirtualRowCount(rowCount, maxRowFound);
-        } else {
-            console.warn(`ag-Grid: api.setVirtualRowCount is only available when rowModelType='virtual'.`);
-        }
-    }
-
-    public getVirtualPageState(): any {
-        if (this.virtualPageRowModel) {
-            return this.virtualPageRowModel.getVirtualPageState();
-        } else {
-            console.warn(`ag-Grid: api.getVirtualPageState is only available when rowModelType='virtual'.`);
         }
     }
 
