@@ -3,46 +3,46 @@
     [
       {
         "name": "node-sass",
-        "raw": "node-sass@3.8.0",
-        "rawSpec": "3.8.0",
+        "raw": "node-sass@3.9.2",
+        "rawSpec": "3.9.2",
         "scope": null,
-        "spec": "3.8.0",
+        "spec": "3.9.2",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "node-sass@3.8.0",
-  "_id": "node-sass@3.8.0",
+  "_from": "node-sass@3.9.2",
+  "_id": "node-sass@3.9.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/node-sass",
-  "_nodeVersion": "5.10.1",
+  "_nodeVersion": "5.9.0",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/node-sass-3.8.0.tgz_1466206389572_0.06157258222810924"
+    "tmp": "tmp/node-sass-3.9.2.tgz_1473142284472_0.9937453060410917"
   },
   "_npmUser": {
     "email": "xzyfer@gmail.com",
     "name": "xzyfer"
   },
-  "_npmVersion": "3.8.3",
+  "_npmVersion": "3.7.3",
   "_phantomChildren": {},
   "_requested": {
     "name": "node-sass",
-    "raw": "node-sass@3.8.0",
-    "rawSpec": "3.8.0",
+    "raw": "node-sass@3.9.2",
+    "rawSpec": "3.9.2",
     "scope": null,
-    "spec": "3.8.0",
+    "spec": "3.9.2",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/node-sass/-/node-sass-3.8.0.tgz",
-  "_shasum": "ec0f89ae6625e1d990dc7ff713b275ea15dfee05",
+  "_resolved": "https://registry.npmjs.org/node-sass/-/node-sass-3.9.2.tgz",
+  "_shasum": "2332d27c00f325720c9ab781e28ca1963e3e61b2",
   "_shrinkwrap": null,
-  "_spec": "node-sass@3.8.0",
+  "_spec": "node-sass@3.9.2",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "andrewnez@gmail.com",
@@ -68,22 +68,23 @@
     "mkdirp": "^0.5.1",
     "nan": "^2.3.2",
     "node-gyp": "^3.3.1",
+    "npmlog": "^4.0.0",
     "request": "^2.61.0",
     "sass-graph": "^2.1.1"
   },
   "description": "Wrapper around libsass",
   "devDependencies": {
     "coveralls": "^2.11.8",
+    "eslint": "^2.9.0",
     "istanbul": "^0.4.2",
-    "jshint": "^2.9.1",
     "mocha": "^2.4.5",
     "mocha-lcov-reporter": "^1.2.0",
     "rimraf": "^2.5.2"
   },
   "directories": {},
   "dist": {
-    "shasum": "ec0f89ae6625e1d990dc7ff713b275ea15dfee05",
-    "tarball": "https://registry.npmjs.org/node-sass/-/node-sass-3.8.0.tgz"
+    "shasum": "2332d27c00f325720c9ab781e28ca1963e3e61b2",
+    "tarball": "https://registry.npmjs.org/node-sass/-/node-sass-3.9.2.tgz"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -94,9 +95,10 @@
     "lib",
     "scripts",
     "src",
+    "test",
     "vendor"
   ],
-  "gitHead": "a6594d1419987c766ecfdd0ed30b6eb5f0dde4de",
+  "gitHead": "2c2f6a24478c253022b8e935012745674eedb320",
   "gypfile": true,
   "homepage": "https://github.com/sass/node-sass",
   "keywords": [
@@ -154,10 +156,10 @@
     "build": "node scripts/build.js --force",
     "coverage": "node scripts/coverage.js",
     "install": "node scripts/install.js",
+    "lint": "eslint bin/node-sass lib scripts test",
     "postinstall": "node scripts/build.js",
     "prepublish": "not-in-install && node scripts/prepublish.js || in-install",
-    "pretest": "jshint bin lib scripts test",
     "test": "mocha test"
   },
-  "version": "3.8.0"
+  "version": "3.9.2"
 }
