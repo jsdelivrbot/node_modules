@@ -1,3 +1,9 @@
+/*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/react-select
+*/
+
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -28,6 +34,10 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _utilsDefaultArrowRenderer = require('./utils/defaultArrowRenderer');
+
+var _utilsDefaultArrowRenderer2 = _interopRequireDefault(_utilsDefaultArrowRenderer);
+
 var _utilsDefaultFilterOptions = require('./utils/defaultFilterOptions');
 
 var _utilsDefaultFilterOptions2 = _interopRequireDefault(_utilsDefaultFilterOptions);
@@ -39,6 +49,10 @@ var _utilsDefaultMenuRenderer2 = _interopRequireDefault(_utilsDefaultMenuRendere
 var _Async = require('./Async');
 
 var _Async2 = _interopRequireDefault(_Async);
+
+var _AsyncCreatable = require('./AsyncCreatable');
+
+var _AsyncCreatable2 = _interopRequireDefault(_AsyncCreatable);
 
 var _Creatable = require('./Creatable');
 
@@ -53,11 +67,12 @@ var _Value = require('./Value');
 var _Value2 = _interopRequireDefault(_Value);
 
 function stringifyValue(value) {
-	if (typeof value === 'string') {
+	var valueType = typeof value;
+	if (valueType === 'string') {
 		return value;
-	} else if (typeof value === 'object') {
+	} else if (valueType === 'object') {
 		return JSON.stringify(value);
-	} else if (value || value === 0) {
+	} else if (valueType === 'number' || valueType === 'boolean') {
 		return String(value);
 	} else {
 		return '';
@@ -76,12 +91,12 @@ var Select = _react2['default'].createClass({
 		addLabelText: _react2['default'].PropTypes.string, // placeholder displayed when you want to add a label on a multi-value input
 		'aria-label': _react2['default'].PropTypes.string, // Aria label (for assistive tech)
 		'aria-labelledby': _react2['default'].PropTypes.string, // HTML ID of an element that should be used as the label (for assistive tech)
+		arrowRenderer: _react2['default'].PropTypes.func, // Create drop-down caret element
 		autoBlur: _react2['default'].PropTypes.bool, // automatically blur the component when an option is selected
 		autofocus: _react2['default'].PropTypes.bool, // autofocus the component on mount
 		autosize: _react2['default'].PropTypes.bool, // whether to enable autosizing or not
 		backspaceRemoves: _react2['default'].PropTypes.bool, // whether backspace removes an item if there is no text input
-		backspaceToRemoveMessage: _react2['default'].PropTypes.string, // Message to use for screenreaders to press backspace to remove the current item -
-		// {label} is replaced with the item label
+		backspaceToRemoveMessage: _react2['default'].PropTypes.string, // Message to use for screenreaders to press backspace to remove the current item - {label} is replaced with the item label
 		className: _react2['default'].PropTypes.string, // className for the outer element
 		clearAllText: stringOrNode, // title for the "clear" control when multi: true
 		clearValueText: stringOrNode, // title for the "clear" control
@@ -142,11 +157,12 @@ var Select = _react2['default'].createClass({
 		wrapperStyle: _react2['default'].PropTypes.object },
 
 	// optional style to apply to the component wrapper
-	statics: { Async: _Async2['default'], Creatable: _Creatable2['default'] },
+	statics: { Async: _Async2['default'], AsyncCreatable: _AsyncCreatable2['default'], Creatable: _Creatable2['default'] },
 
 	getDefaultProps: function getDefaultProps() {
 		return {
 			addLabelText: 'Add "{label}"?',
+			arrowRenderer: _utilsDefaultArrowRenderer2['default'],
 			autosize: true,
 			backspaceRemoves: true,
 			backspaceToRemoveMessage: 'Press backspace to remove {label}',
@@ -357,7 +373,7 @@ var Select = _react2['default'].createClass({
 
 			var input = this.input;
 			if (typeof input.getInput === 'function') {
-				// Get the actual DOM input if the ref is an <Input /> component
+				// Get the actual DOM input if the ref is an <AutosizeInput /> component
 				input = input.getInput();
 			}
 
@@ -424,6 +440,7 @@ var Select = _react2['default'].createClass({
 	},
 
 	handleInputFocus: function handleInputFocus(event) {
+		if (this.props.disabled) return;
 		var isOpen = this.state.isOpen || this._openAfterFocus || this.props.openOnFocus;
 		if (this.props.onFocus) {
 			this.props.onFocus(event);
@@ -533,10 +550,16 @@ var Select = _react2['default'].createClass({
 				break;
 			case 35:
 				// end key
+				if (event.shiftKey) {
+					return;
+				}
 				this.focusEndOption();
 				break;
 			case 36:
 				// home key
+				if (event.shiftKey) {
+					return;
+				}
 				this.focusStartOption();
 				break;
 			default:
@@ -601,7 +624,8 @@ var Select = _react2['default'].createClass({
   * @param	{Object}		props	- the Select component's props (or nextProps)
   */
 	expandValue: function expandValue(value, props) {
-		if (typeof value !== 'string' && typeof value !== 'number') return value;
+		var valueType = typeof value;
+		if (valueType !== 'string' && valueType !== 'number' && valueType !== 'boolean') return value;
 		var options = props.options;
 		var valueKey = props.valueKey;
 
@@ -945,10 +969,16 @@ var Select = _react2['default'].createClass({
 	},
 
 	renderArrow: function renderArrow() {
+		var onMouseDown = this.handleMouseDownOnArrow;
+		var arrow = this.props.arrowRenderer({ onMouseDown: onMouseDown });
+
 		return _react2['default'].createElement(
 			'span',
-			{ className: 'Select-arrow-zone', onMouseDown: this.handleMouseDownOnArrow },
-			_react2['default'].createElement('span', { className: 'Select-arrow', onMouseDown: this.handleMouseDownOnArrow })
+			{
+				className: 'Select-arrow-zone',
+				onMouseDown: onMouseDown
+			},
+			arrow
 		);
 	},
 
@@ -973,6 +1003,12 @@ var Select = _react2['default'].createClass({
 		}
 	},
 
+	onOptionRef: function onOptionRef(ref, isFocused) {
+		if (isFocused) {
+			this.focused = ref;
+		}
+	},
+
 	renderMenu: function renderMenu(options, valueArray, focusedOption) {
 		if (options && options.length) {
 			return this.props.menuRenderer({
@@ -988,7 +1024,8 @@ var Select = _react2['default'].createClass({
 				options: options,
 				selectValue: this.selectValue,
 				valueArray: valueArray,
-				valueKey: this.props.valueKey
+				valueKey: this.props.valueKey,
+				onOptionRef: this.onOptionRef
 			});
 		} else if (this.props.noResultsText) {
 			return _react2['default'].createElement(
