@@ -1,9 +1,37 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _animation_mixin = require('pui-react-mixins/mixins/animation_mixin');
 
@@ -37,28 +65,18 @@ var _lodash2 = _interopRequireDefault(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 require('pui-css-tabs');
 
 
 var types = _react2.default.PropTypes;
 
 var Tabs = function (_mixin$with) {
-  _inherits(Tabs, _mixin$with);
+  (0, _inherits3.default)(Tabs, _mixin$with);
 
   function Tabs(props, context) {
-    _classCallCheck(this, Tabs);
+    (0, _classCallCheck3.default)(this, Tabs);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Tabs).call(this, props, context));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Tabs).call(this, props, context));
 
     _this.checkScreenSize = function () {
       if (_mediaSize2.default.matches(_this.props.responsiveBreakpoint)) {
@@ -89,7 +107,7 @@ var Tabs = function (_mixin$with) {
     return _this;
   }
 
-  _createClass(Tabs, [{
+  (0, _createClass3.default)(Tabs, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
       if (nextProps.defaultActiveKey !== this.props.defaultActiveKey) {
@@ -138,8 +156,7 @@ var Tabs = function (_mixin$with) {
       var smallScreenClassName = _props.smallScreenClassName;
       var tabType = _props.tabType;
       var tabWidth = _props.tabWidth;
-
-      var props = _objectWithoutProperties(_props, ['actions', 'animation', 'children', 'className', 'defaultActiveKey', 'id', 'largeScreenClassName', 'onSelect', 'paneWidth', 'position', 'responsiveBreakpoint', 'smallScreenClassName', 'tabType', 'tabWidth']);
+      var props = (0, _objectWithoutProperties3.default)(_props, ['actions', 'animation', 'children', 'className', 'defaultActiveKey', 'id', 'largeScreenClassName', 'onSelect', 'paneWidth', 'position', 'responsiveBreakpoint', 'smallScreenClassName', 'tabType', 'tabWidth']);
 
       var largeScreenClasses = (0, _classnames4.default)(['tab-' + tabType, largeScreenClassName, className]);
 
@@ -148,7 +165,7 @@ var Tabs = function (_mixin$with) {
       var childArray = _react2.default.Children.toArray(children);
 
       if (this.state.smallScreen) {
-        return _react2.default.createElement(_small_tabs.SmallTabs, _extends({}, this.state, this.props, {
+        return _react2.default.createElement(_small_tabs.SmallTabs, (0, _extends3.default)({}, this.state, this.props, {
           transitionProgress: transitionProgress,
           handleClick: this.handleClick
         }));
@@ -190,8 +207,7 @@ var Tabs = function (_mixin$with) {
         var children = _child$props2.children;
         var className = _child$props2.className;
         var tabClassName = _child$props2.tabClassName;
-
-        var props = _objectWithoutProperties(_child$props2, ['eventKey', 'children', 'className', 'tabClassName']);
+        var props = (0, _objectWithoutProperties3.default)(_child$props2, ['eventKey', 'children', 'className', 'tabClassName']);
 
         var paneId = id + '-pane-' + key;
         var tabId = id + '-tab-' + key;
@@ -201,7 +217,7 @@ var Tabs = function (_mixin$with) {
         if (!isActive) return false;
         tabContent = _react2.default.createElement(
           'div',
-          _extends({ className: (0, _classnames4.default)('tab-content', _defineProperty({}, leftPaneClasses, isLeft), className) }, props),
+          (0, _extends3.default)({ className: (0, _classnames4.default)('tab-content', (0, _defineProperty3.default)({}, leftPaneClasses, isLeft), className) }, props),
           _react2.default.createElement(
             'div',
             { className: 'tab-pane fade active in', id: paneId, role: 'tabpanel', 'aria-labelledby': tabId,
@@ -219,19 +235,18 @@ var Tabs = function (_mixin$with) {
 
       return _react2.default.createElement(
         'div',
-        _extends({ className: (0, _classnames4.default)(largeScreenClasses, { 'tab-left clearfix': isLeft }) }, props),
+        (0, _extends3.default)({ className: (0, _classnames4.default)(largeScreenClasses, { 'tab-left clearfix': isLeft }) }, props),
         actionsNode,
         _react2.default.createElement(
           'ul',
           { role: 'tablist',
-            className: (0, _classnames4.default)('nav', { 'nav-tabs': !isLeft }, _defineProperty({}, leftTabClasses, isLeft)) },
+            className: (0, _classnames4.default)('nav', { 'nav-tabs': !isLeft }, (0, _defineProperty3.default)({}, leftTabClasses, isLeft)) },
           listChildren
         ),
         tabContent
       );
     }
   }]);
-
   return Tabs;
 }((0, _puiReactMixins2.default)(_react2.default.Component).with(_animation_mixin2.default));
 
@@ -257,30 +272,27 @@ Tabs.defaultProps = {
 Tabs.ANIMATION_TIME = 400;
 
 var LeftTabs = function (_React$Component) {
-  _inherits(LeftTabs, _React$Component);
+  (0, _inherits3.default)(LeftTabs, _React$Component);
 
   function LeftTabs() {
-    _classCallCheck(this, LeftTabs);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(LeftTabs).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, LeftTabs);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(LeftTabs).apply(this, arguments));
   }
 
-  _createClass(LeftTabs, [{
+  (0, _createClass3.default)(LeftTabs, [{
     key: 'render',
     value: function render() {
       var _props2 = this.props;
       var tabWidth = _props2.tabWidth;
       var paneWidth = _props2.paneWidth;
-
-      var props = _objectWithoutProperties(_props2, ['tabWidth', 'paneWidth']);
+      var props = (0, _objectWithoutProperties3.default)(_props2, ['tabWidth', 'paneWidth']);
 
       if (!paneWidth) {
         paneWidth = 24 - tabWidth;
       }
-      return _react2.default.createElement(Tabs, _extends({}, props, { tabWidth: tabWidth, paneWidth: paneWidth }));
+      return _react2.default.createElement(Tabs, (0, _extends3.default)({}, props, { tabWidth: tabWidth, paneWidth: paneWidth }));
     }
   }]);
-
   return LeftTabs;
 }(_react2.default.Component);
 

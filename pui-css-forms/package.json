@@ -3,47 +3,47 @@
     [
       {
         "name": "pui-css-forms",
-        "raw": "pui-css-forms@^5.3.1",
-        "rawSpec": "^5.3.1",
+        "raw": "pui-css-forms@^5.4.0",
+        "rawSpec": "^5.4.0",
         "scope": null,
-        "spec": ">=5.3.1 <6.0.0",
+        "spec": ">=5.4.0 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-checkbox"
     ]
   ],
-  "_from": "pui-css-forms@>=5.3.1 <6.0.0",
-  "_id": "pui-css-forms@5.3.1",
+  "_from": "pui-css-forms@>=5.4.0 <6.0.0",
+  "_id": "pui-css-forms@5.4.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-forms",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-forms-5.3.1.tgz_1471622980500_0.4879838328342885"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-css-forms-5.4.0.tgz_1475019956437_0.7467195736244321"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.9",
+  "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-forms",
-    "raw": "pui-css-forms@^5.3.1",
-    "rawSpec": "^5.3.1",
+    "raw": "pui-css-forms@^5.4.0",
+    "rawSpec": "^5.4.0",
     "scope": null,
-    "spec": ">=5.3.1 <6.0.0",
+    "spec": ">=5.4.0 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-react-checkbox",
     "/pui-react-inputs"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.3.1.tgz",
-  "_shasum": "61d7d7200f36e353b6e748cab48eea83bac254b7",
+  "_resolved": "https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.4.0.tgz",
+  "_shasum": "e694fb72bd9fa5e25f577547bdb83493c488b08d",
   "_shrinkwrap": null,
-  "_spec": "pui-css-forms@^5.3.1",
+  "_spec": "pui-css-forms@^5.4.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-checkbox",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,14 +52,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.3.1"
+    "pui-css-bootstrap": "^5.4.0"
   },
   "description": "forms css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "61d7d7200f36e353b6e748cab48eea83bac254b7",
-    "tarball": "https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.3.1.tgz"
+    "shasum": "e694fb72bd9fa5e25f577547bdb83493c488b08d",
+    "tarball": "https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.4.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -141,5 +141,5 @@
   },
   "scripts": {},
   "style": "forms.css",
-  "version": "5.3.1"
+  "version": "5.4.0"
 }

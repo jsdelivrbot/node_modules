@@ -1,17 +1,35 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = require('babel-runtime/helpers/extends');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var React = require('react');
 var classnames = require('classnames');
@@ -24,15 +42,14 @@ var charSizes = { small: 's', medium: 'm', large: 'l', xlarge: 'xl' };
 var paddingDirection = { left: 'r', right: 'l' };
 
 var Media = function (_React$Component) {
-  _inherits(Media, _React$Component);
+  (0, _inherits3.default)(Media, _React$Component);
 
   function Media() {
-    _classCallCheck(this, Media);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Media).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, Media);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Media).apply(this, arguments));
   }
 
-  _createClass(Media, [{
+  (0, _createClass3.default)(Media, [{
     key: 'render',
     value: function render() {
       var _props = this.props;
@@ -44,8 +61,8 @@ var Media = function (_React$Component) {
       var vAlign = _props.vAlign;
       var placement = _props.placement;
       var children = _props.children;
+      var other = (0, _objectWithoutProperties3.default)(_props, ['className', 'innerClassName', 'image', 'mediaSpacing', 'stackSize', 'vAlign', 'placement', 'children']);
 
-      var other = _objectWithoutProperties(_props, ['className', 'innerClassName', 'image', 'mediaSpacing', 'stackSize', 'vAlign', 'placement', 'children']);
 
       var vAlignClass = vAlign && 'media-' + vAlign;
 
@@ -71,12 +88,11 @@ var Media = function (_React$Component) {
 
       return React.createElement(
         'div',
-        _extends({}, other, { className: classes }),
+        (0, _extends3.default)({}, other, { className: classes }),
         content
       );
     }
   }]);
-
   return Media;
 }(React.Component);
 
@@ -94,21 +110,19 @@ Media.defaultProps = {
 };
 
 var Flag = function (_React$Component2) {
-  _inherits(Flag, _React$Component2);
+  (0, _inherits3.default)(Flag, _React$Component2);
 
   function Flag() {
-    _classCallCheck(this, Flag);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Flag).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, Flag);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Flag).apply(this, arguments));
   }
 
-  _createClass(Flag, [{
+  (0, _createClass3.default)(Flag, [{
     key: 'render',
     value: function render() {
-      return React.createElement(Media, _extends({}, this.props, { vAlign: 'middle' }));
+      return React.createElement(Media, (0, _extends3.default)({}, this.props, { vAlign: 'middle' }));
     }
   }]);
-
   return Flag;
 }(React.Component);
 

@@ -1,17 +1,35 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = require('babel-runtime/helpers/extends');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var React = require('react');
 var types = React.PropTypes;
@@ -24,12 +42,12 @@ var Media = _require.Media;
 require('pui-css-alerts');
 
 var Alert = function (_React$Component) {
-  _inherits(Alert, _React$Component);
+  (0, _inherits3.default)(Alert, _React$Component);
 
   function Alert(props, context) {
-    _classCallCheck(this, Alert);
+    (0, _classCallCheck3.default)(this, Alert);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Alert).call(this, props, context));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Alert).call(this, props, context));
 
     _this.handleAlertDismiss = function () {
       var dismissable = _this.props.dismissable;
@@ -42,7 +60,7 @@ var Alert = function (_React$Component) {
     return _this;
   }
 
-  _createClass(Alert, [{
+  (0, _createClass3.default)(Alert, [{
     key: 'render',
     value: function render() {
       var _props = this.props;
@@ -50,8 +68,8 @@ var Alert = function (_React$Component) {
       var withIcon = _props.withIcon;
       var alertIcon = _props.alertIcon;
       var children = _props.children;
+      var others = (0, _objectWithoutProperties3.default)(_props, ['dismissable', 'withIcon', 'alertIcon', 'children']);
 
-      var others = _objectWithoutProperties(_props, ['dismissable', 'withIcon', 'alertIcon', 'children']);
 
       if (this.state.alertVisible) {
         var onDismiss = dismissable ? this.handleAlertDismiss : null;
@@ -66,7 +84,7 @@ var Alert = function (_React$Component) {
         }
         return React.createElement(
           BsAlert,
-          _extends({}, others, { onDismiss: onDismiss }),
+          (0, _extends3.default)({}, others, { onDismiss: onDismiss }),
           children
         );
       }
@@ -74,7 +92,6 @@ var Alert = function (_React$Component) {
       return React.createElement('span', null);
     }
   }]);
-
   return Alert;
 }(React.Component);
 
@@ -94,25 +111,23 @@ function defAlert(props) {
   var _class, _temp;
 
   return _temp = _class = function (_React$Component2) {
-    _inherits(_class, _React$Component2);
+    (0, _inherits3.default)(_class, _React$Component2);
 
     function _class() {
-      _classCallCheck(this, _class);
-
-      return _possibleConstructorReturn(this, Object.getPrototypeOf(_class).apply(this, arguments));
+      (0, _classCallCheck3.default)(this, _class);
+      return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(_class).apply(this, arguments));
     }
 
-    _createClass(_class, [{
+    (0, _createClass3.default)(_class, [{
       key: 'render',
       value: function render() {
         var _props2 = this.props;
         var children = _props2.children;
-
-        var others = _objectWithoutProperties(_props2, ['children']);
+        var others = (0, _objectWithoutProperties3.default)(_props2, ['children']);
 
         return React.createElement(
           Alert,
-          _extends({}, props, others),
+          (0, _extends3.default)({}, props, others),
           React.createElement(
             'span',
             { className: 'sr-only' },
@@ -122,7 +137,6 @@ function defAlert(props) {
         );
       }
     }]);
-
     return _class;
   }(React.Component), _class.propTypes = {
     dismissable: types.oneOfType([types.bool, types.func]),

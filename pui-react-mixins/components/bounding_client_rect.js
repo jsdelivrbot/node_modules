@@ -1,21 +1,47 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _setImmediate2 = require('babel-runtime/core-js/set-immediate');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _setImmediate3 = _interopRequireDefault(_setImmediate2);
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _promise = require('babel-runtime/core-js/promise');
+
+var _promise2 = _interopRequireDefault(_promise);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _weakMap = require('babel-runtime/core-js/weak-map');
+
+var _weakMap2 = _interopRequireDefault(_weakMap);
 
 var _mixins = require('../mixins');
 
 var _mixins2 = _interopRequireDefault(_mixins);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var raf = require('raf');
 var React = require('react');
@@ -39,19 +65,19 @@ var rafify = function rafify(callback) {
   };
 };
 
-var privates = new WeakMap();
+var privates = new _weakMap2.default();
 
 var properties = ['width', 'height', 'top', 'right', 'bottom', 'left'];
 
 module.exports = {
   useBoundingClientRect: function useBoundingClientRect(Klass) {
     return function (_Component) {
-      _inherits(BoundingClientRect, _Component);
+      (0, _inherits3.default)(BoundingClientRect, _Component);
 
       function BoundingClientRect(props, context) {
-        _classCallCheck(this, BoundingClientRect);
+        (0, _classCallCheck3.default)(this, BoundingClientRect);
 
-        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(BoundingClientRect).call(this, props, context));
+        var _this2 = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(BoundingClientRect).call(this, props, context));
 
         _this2.resize = function () {
           var _ref = privates.get(_this2) || {};
@@ -66,20 +92,20 @@ module.exports = {
         };
 
         var resolver = void 0;
-        var containerReady = new Promise(function (resolve) {
+        var containerReady = new _promise2.default(function (resolve) {
           return resolver = resolve;
         });
         containerReady.resolve = resolver;
         var state = _this2.state;
 
-        _this2.state = _extends({}, state, { container: null, containerReady: containerReady });
+        _this2.state = (0, _extends3.default)({}, state, { container: null, containerReady: containerReady });
         _this2.resize = rafify(_this2.resize);
 
         _this2.getBoundingClientRect = _this2.getBoundingClientRect.bind(_this2);
         return _this2;
       }
 
-      _createClass(BoundingClientRect, [{
+      (0, _createClass3.default)(BoundingClientRect, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
           var _this3 = this;
@@ -87,7 +113,7 @@ module.exports = {
           privates.set(this, { resize: this.resize });
           window.addEventListener('resize', this.resize);
           this.setState({ container: ReactDOM.findDOMNode(this.component) });
-          setImmediate(function () {
+          (0, _setImmediate3.default)(function () {
             return _this3.state.containerReady.resolve(_this3.state.container);
           });
         }
@@ -122,12 +148,11 @@ module.exports = {
 
           var boundingClientRect = this.getBoundingClientRect();
           privates.set(this, { boundingClientRect: boundingClientRect, resize: resize });
-          return React.createElement(Klass, _extends({}, this.props, this.state, { boundingClientRect: boundingClientRect }, { ref: function ref(_ref4) {
+          return React.createElement(Klass, (0, _extends3.default)({}, this.props, this.state, { boundingClientRect: boundingClientRect }, { ref: function ref(_ref4) {
               return _this4.component = _ref4;
             } }));
         }
       }]);
-
       return BoundingClientRect;
     }(Component);
   }

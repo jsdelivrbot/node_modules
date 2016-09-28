@@ -1,11 +1,41 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = require('babel-runtime/helpers/extends');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _get2 = require('babel-runtime/helpers/get');
+
+var _get3 = _interopRequireDefault(_get2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _weakMap = require('babel-runtime/core-js/weak-map');
+
+var _weakMap2 = _interopRequireDefault(_weakMap);
 
 var _react = require('react');
 
@@ -29,14 +59,6 @@ var _scrim_mixin2 = _interopRequireDefault(_scrim_mixin);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var types = _react2.default.PropTypes;
 
 var TETHER_PLACEMENTS = {
@@ -46,15 +68,15 @@ var TETHER_PLACEMENTS = {
   right: 'middle left'
 };
 
-var privates = new WeakMap();
+var privates = new _weakMap2.default();
 
 var OverlayTrigger = function (_mixin$with) {
-  _inherits(OverlayTrigger, _mixin$with);
+  (0, _inherits3.default)(OverlayTrigger, _mixin$with);
 
   function OverlayTrigger(props, context) {
-    _classCallCheck(this, OverlayTrigger);
+    (0, _classCallCheck3.default)(this, OverlayTrigger);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(OverlayTrigger).call(this, props, context));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(OverlayTrigger).call(this, props, context));
 
     _this.triggerShow = function (eventType) {
       return function () {
@@ -88,12 +110,22 @@ var OverlayTrigger = function (_mixin$with) {
     };
 
     _this.setDisplay = function (display) {
-      clearTimeout(privates.get(_this).timeout);
-      if (display === _this.state.display) return;
+      var oldTimeout = privates.get(_this).timeout;
+
+      if (display === _this.state.display) {
+        clearTimeout(oldTimeout);
+        privates.set(_this, { timeout: null });
+        return;
+      }
+
       var delay = _this.getDelay(display);
+
+      if (oldTimeout && delay) return;
+
       var timeout = void 0;
       if (delay) {
         timeout = setTimeout(function () {
+          privates.set(_this, { timeout: null });
           _this.setState({ display: display });
         }, delay);
       } else {
@@ -124,7 +156,7 @@ var OverlayTrigger = function (_mixin$with) {
     return _this;
   }
 
-  _createClass(OverlayTrigger, [{
+  (0, _createClass3.default)(OverlayTrigger, [{
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(_ref) {
       var display = _ref.display;
@@ -146,7 +178,7 @@ var OverlayTrigger = function (_mixin$with) {
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      if (_get(Object.getPrototypeOf(OverlayTrigger.prototype), 'componentWillUnmount', this)) _get(Object.getPrototypeOf(OverlayTrigger.prototype), 'componentWillUnmount', this).call(this);
+      if ((0, _get3.default)((0, _getPrototypeOf2.default)(OverlayTrigger.prototype), 'componentWillUnmount', this)) (0, _get3.default)((0, _getPrototypeOf2.default)(OverlayTrigger.prototype), 'componentWillUnmount', this).call(this);
       clearTimeout(privates.get(this).timeout);
     }
   }, {
@@ -158,9 +190,7 @@ var OverlayTrigger = function (_mixin$with) {
       var pin = _props2.pin;
       var placement = _props2.placement;
       var trigger = _props2.trigger;
-
-      var props = _objectWithoutProperties(_props2, ['children', 'overlay', 'pin', 'placement', 'trigger']);
-
+      var props = (0, _objectWithoutProperties3.default)(_props2, ['children', 'overlay', 'pin', 'placement', 'trigger']);
       var display = this.state.display;
 
 
@@ -182,11 +212,11 @@ var OverlayTrigger = function (_mixin$with) {
         }
       }[trigger];
 
-      children = _react2.default.cloneElement(children, _extends({
+      children = _react2.default.cloneElement(children, (0, _extends3.default)({
         'aria-describedby': overlayId
       }, triggerHandlers));
 
-      var tetherProps = _extends({
+      var tetherProps = (0, _extends3.default)({
         attachment: TETHER_PLACEMENTS[placement],
         constraints: pin ? [{ to: 'window', attachment: 'together', pin: true }] : [],
         classes: { 'target-attached': 'overlay-placement' }
@@ -200,7 +230,6 @@ var OverlayTrigger = function (_mixin$with) {
       );
     }
   }]);
-
   return OverlayTrigger;
 }((0, _puiReactMixins2.default)(_react2.default.Component).with(_scrim_mixin2.default));
 

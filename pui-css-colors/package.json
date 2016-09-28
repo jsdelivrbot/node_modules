@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-css-colors",
-        "raw": "pui-css-colors@5.3.1",
-        "rawSpec": "5.3.1",
+        "raw": "pui-css-colors@5.4.0",
+        "rawSpec": "5.4.0",
         "scope": null,
-        "spec": "5.3.1",
+        "spec": "5.4.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-css-colors@5.3.1",
-  "_id": "pui-css-colors@5.3.1",
+  "_from": "pui-css-colors@5.4.0",
+  "_id": "pui-css-colors@5.4.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-colors",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-colors-5.3.1.tgz_1471622978226_0.22600265475921333"
+    "tmp": "tmp/pui-css-colors-5.4.0.tgz_1475019950541_0.3317339008208364"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.9",
+  "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-colors",
-    "raw": "pui-css-colors@5.3.1",
-    "rawSpec": "5.3.1",
+    "raw": "pui-css-colors@5.4.0",
+    "rawSpec": "5.4.0",
     "scope": null,
-    "spec": "5.3.1",
+    "spec": "5.4.0",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.3.1.tgz",
-  "_shasum": "4754eff32a9daafa1945566017e11841682b7447",
+  "_resolved": "https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.4.0.tgz",
+  "_shasum": "63739e29dc9e68d3c78f6a0fe7c317dc9e4d50cb",
   "_shrinkwrap": null,
-  "_spec": "pui-css-colors@5.3.1",
+  "_spec": "pui-css-colors@5.4.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -55,8 +55,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "4754eff32a9daafa1945566017e11841682b7447",
-    "tarball": "https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.3.1.tgz"
+    "shasum": "63739e29dc9e68d3c78f6a0fe7c317dc9e4d50cb",
+    "tarball": "https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.4.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -138,5 +138,5 @@
   },
   "scripts": {},
   "style": "colors.css",
-  "version": "5.3.1"
+  "version": "5.4.0"
 }

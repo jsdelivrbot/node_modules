@@ -3,37 +3,37 @@
     [
       {
         "name": "pui-css-iconography",
-        "raw": "pui-css-iconography@^5.3.1",
-        "rawSpec": "^5.3.1",
+        "raw": "pui-css-iconography@^5.4.0",
+        "rawSpec": "^5.4.0",
         "scope": null,
-        "spec": ">=5.3.1 <6.0.0",
+        "spec": ">=5.4.0 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-spinners"
     ]
   ],
-  "_from": "pui-css-iconography@>=5.3.1 <6.0.0",
-  "_id": "pui-css-iconography@5.3.1",
+  "_from": "pui-css-iconography@>=5.4.0 <6.0.0",
+  "_id": "pui-css-iconography@5.4.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-iconography",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-iconography-5.3.1.tgz_1471622986612_0.18809472187422216"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-css-iconography-5.4.0.tgz_1475019963140_0.6555626676417887"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.9",
+  "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-iconography",
-    "raw": "pui-css-iconography@^5.3.1",
-    "rawSpec": "^5.3.1",
+    "raw": "pui-css-iconography@^5.4.0",
+    "rawSpec": "^5.4.0",
     "scope": null,
-    "spec": ">=5.3.1 <6.0.0",
+    "spec": ">=5.4.0 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
@@ -43,10 +43,10 @@
     "/pui-react-alerts",
     "/pui-react-iconography"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.3.1.tgz",
-  "_shasum": "a72cedafca8aa0ccbc234310ac23c48d3e91bc70",
+  "_resolved": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.4.0.tgz",
+  "_shasum": "e983cc9364287052cf6908ff8c541e4f1937d21a",
   "_shrinkwrap": null,
-  "_spec": "pui-css-iconography@^5.3.1",
+  "_spec": "pui-css-iconography@^5.4.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-spinners",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -61,8 +61,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "a72cedafca8aa0ccbc234310ac23c48d3e91bc70",
-    "tarball": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.3.1.tgz"
+    "shasum": "e983cc9364287052cf6908ff8c541e4f1937d21a",
+    "tarball": "https://registry.npmjs.org/pui-css-iconography/-/pui-css-iconography-5.4.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -144,5 +144,5 @@
   },
   "scripts": {},
   "style": "iconography.css",
-  "version": "5.3.1"
+  "version": "5.4.0"
 }

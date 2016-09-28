@@ -3,56 +3,56 @@
     [
       {
         "name": "pui-react-modals",
-        "raw": "pui-react-modals@5.3.1",
-        "rawSpec": "5.3.1",
+        "raw": "pui-react-modals@5.4.0",
+        "rawSpec": "5.4.0",
         "scope": null,
-        "spec": "5.3.1",
+        "spec": "5.4.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-modals@5.3.1",
-  "_id": "pui-react-modals@5.3.1",
+  "_from": "pui-react-modals@5.4.0",
+  "_id": "pui-react-modals@5.4.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-modals",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-modals-5.3.1.tgz_1471623062639_0.21330153569579124"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-react-modals-5.4.0.tgz_1475020021898_0.41754803294315934"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.9",
+  "_npmVersion": "3.5.0",
   "_phantomChildren": {
     "babel-runtime": "6.11.6",
     "classnames": "2.2.5",
     "dom-helpers": "2.4.0",
     "invariant": "2.2.1",
-    "keycode": "2.1.4",
+    "keycode": "2.1.7",
     "react-overlays": "0.6.6",
     "react-prop-types": "0.4.0",
-    "uncontrollable": "4.0.1",
+    "uncontrollable": "4.0.3",
     "warning": "3.0.0"
   },
   "_requested": {
     "name": "pui-react-modals",
-    "raw": "pui-react-modals@5.3.1",
-    "rawSpec": "5.3.1",
+    "raw": "pui-react-modals@5.4.0",
+    "rawSpec": "5.4.0",
     "scope": null,
-    "spec": "5.3.1",
+    "spec": "5.4.0",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-modals/-/pui-react-modals-5.3.1.tgz",
-  "_shasum": "79f7883145827a97fa1ea51a705009c96c6557f6",
+  "_resolved": "https://registry.npmjs.org/pui-react-modals/-/pui-react-modals-5.4.0.tgz",
+  "_shasum": "013450d1adf9d8d097f3ae9020cd914005ac2b93",
   "_shrinkwrap": null,
-  "_spec": "pui-react-modals@5.3.1",
+  "_spec": "pui-react-modals@5.4.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -62,17 +62,17 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-modals": "^5.3.1",
-    "pui-css-typography": "^5.3.1",
-    "pui-react-helpers": "^5.3.1",
+    "pui-css-modals": "^5.4.0",
+    "pui-css-typography": "^5.4.0",
+    "pui-react-helpers": "^5.4.0",
     "react-bootstrap": "0.30.2"
   },
   "description": "React components for opening and closing modal windows",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "79f7883145827a97fa1ea51a705009c96c6557f6",
-    "tarball": "https://registry.npmjs.org/pui-react-modals/-/pui-react-modals-5.3.1.tgz"
+    "shasum": "013450d1adf9d8d097f3ae9020cd914005ac2b93",
+    "tarball": "https://registry.npmjs.org/pui-react-modals/-/pui-react-modals-5.4.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -156,5 +156,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.3.1"
+  "version": "5.4.0"
 }

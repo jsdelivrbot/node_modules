@@ -5,7 +5,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
 exports.mergeProps = mergeProps;
 
@@ -14,8 +20,6 @@ var _classnames = require('classnames');
 var _classnames2 = _interopRequireDefault(_classnames);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 /**
  * @component mergeProps
@@ -52,20 +56,18 @@ function mergeProps(reactInstanceProps, defaultProps) {
   var className = reactInstanceProps.className;
   var id = reactInstanceProps.id;
   var style = reactInstanceProps.style;
-
-  var remainingProps = _objectWithoutProperties(reactInstanceProps, ['className', 'id', 'style']);
-
+  var remainingProps = (0, _objectWithoutProperties3.default)(reactInstanceProps, ['className', 'id', 'style']);
   var defaultClassName = defaultProps.className;
   var defaultId = defaultProps.id;
   var _defaultProps$style = defaultProps.style;
   var defaultStyle = _defaultProps$style === undefined ? {} : _defaultProps$style;
+  var remainingDefaultProps = (0, _objectWithoutProperties3.default)(defaultProps, ['className', 'id', 'style']);
 
-  var remainingDefaultProps = _objectWithoutProperties(defaultProps, ['className', 'id', 'style']);
 
   className = (0, _classnames2.default)(defaultClassName, className);
-  style = _extends({}, defaultStyle, style);
+  style = (0, _extends3.default)({}, defaultStyle, style);
   id = id || defaultId;
-  remainingProps = _extends({}, remainingDefaultProps, remainingProps);
+  remainingProps = (0, _extends3.default)({}, remainingDefaultProps, remainingProps);
 
-  return _extends({ className: className, id: id, style: style }, remainingProps);
+  return (0, _extends3.default)({ className: className, id: id, style: style }, remainingProps);
 }

@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-css-button-group",
-        "raw": "pui-css-button-group@^5.3.1",
-        "rawSpec": "^5.3.1",
+        "raw": "pui-css-button-group@^5.4.0",
+        "rawSpec": "^5.4.0",
         "scope": null,
-        "spec": ">=5.3.1 <6.0.0",
+        "spec": ">=5.4.0 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-dropdowns"
     ]
   ],
-  "_from": "pui-css-button-group@>=5.3.1 <6.0.0",
-  "_id": "pui-css-button-group@5.3.1",
+  "_from": "pui-css-button-group@>=5.4.0 <6.0.0",
+  "_id": "pui-css-button-group@5.4.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-button-group",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-button-group-5.3.1.tgz_1471622969212_0.23438248923048377"
+    "tmp": "tmp/pui-css-button-group-5.4.0.tgz_1475019945188_0.3937591512221843"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.9",
+  "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-button-group",
-    "raw": "pui-css-button-group@^5.3.1",
-    "rawSpec": "^5.3.1",
+    "raw": "pui-css-button-group@^5.4.0",
+    "rawSpec": "^5.4.0",
     "scope": null,
-    "spec": ">=5.3.1 <6.0.0",
+    "spec": ">=5.4.0 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/pui-css-dropdowns"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-button-group/-/pui-css-button-group-5.3.1.tgz",
-  "_shasum": "1eb38445333a5ec2aa79f1389f914db406979de1",
+  "_resolved": "https://registry.npmjs.org/pui-css-button-group/-/pui-css-button-group-5.4.0.tgz",
+  "_shasum": "6f3d5d4539b841238446bae655ae3929402f51e1",
   "_shrinkwrap": null,
-  "_spec": "pui-css-button-group@^5.3.1",
+  "_spec": "pui-css-button-group@^5.4.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-dropdowns",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,15 +51,15 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.3.1",
-    "pui-css-buttons": "^5.3.1"
+    "pui-css-bootstrap": "^5.4.0",
+    "pui-css-buttons": "^5.4.0"
   },
   "description": "button-group css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "1eb38445333a5ec2aa79f1389f914db406979de1",
-    "tarball": "https://registry.npmjs.org/pui-css-button-group/-/pui-css-button-group-5.3.1.tgz"
+    "shasum": "6f3d5d4539b841238446bae655ae3929402f51e1",
+    "tarball": "https://registry.npmjs.org/pui-css-button-group/-/pui-css-button-group-5.4.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -133,5 +133,5 @@
   },
   "scripts": {},
   "style": "button-group.css",
-  "version": "5.3.1"
+  "version": "5.4.0"
 }

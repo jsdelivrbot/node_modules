@@ -1,7 +1,33 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _weakMap = require('babel-runtime/core-js/weak-map');
+
+var _weakMap2 = _interopRequireDefault(_weakMap);
 
 var _animation_mixin = require('pui-react-mixins/mixins/animation_mixin');
 
@@ -21,33 +47,25 @@ var _bounding_client_rect = require('pui-react-mixins/components/bounding_client
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 require('pui-css-collapse');
 
 var types = _react2.default.PropTypes;
 
-var privates = new WeakMap();
+var privates = new _weakMap2.default();
 
 var Collapsible = function (_mixin$with) {
-  _inherits(Collapsible, _mixin$with);
+  (0, _inherits3.default)(Collapsible, _mixin$with);
 
   function Collapsible(props, context) {
-    _classCallCheck(this, Collapsible);
+    (0, _classCallCheck3.default)(this, Collapsible);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Collapsible).call(this, props, context));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Collapsible).call(this, props, context));
 
     privates.set(_this, { isAnimating: false });
     return _this;
   }
 
-  _createClass(Collapsible, [{
+  (0, _createClass3.default)(Collapsible, [{
     key: 'toggleAnimation',
     value: function toggleAnimation(isAnimating) {
       var _props = this.props;
@@ -75,8 +93,8 @@ var Collapsible = function (_mixin$with) {
       var expanded = _props2.expanded;
       var onEntered = _props2.onEntered;
       var onExited = _props2.onExited;
+      var others = (0, _objectWithoutProperties3.default)(_props2, ['boundingClientRect', 'children', 'container', 'containerReady', 'delay', 'expanded', 'onEntered', 'onExited']);
 
-      var others = _objectWithoutProperties(_props2, ['boundingClientRect', 'children', 'container', 'containerReady', 'delay', 'expanded', 'onEntered', 'onExited']);
 
       var fractionOpen = this.animate('fractionOpen', expanded ? 1 : 0, delay);
 
@@ -104,7 +122,6 @@ var Collapsible = function (_mixin$with) {
       );
     }
   }]);
-
   return Collapsible;
 }((0, _puiReactMixins2.default)(_react2.default.Component).with(_animation_mixin2.default));
 

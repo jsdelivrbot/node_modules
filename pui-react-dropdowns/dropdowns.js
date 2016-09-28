@@ -1,9 +1,33 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = require('babel-runtime/helpers/extends');
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _react = require('react');
 
@@ -23,14 +47,6 @@ var _scrim_mixin2 = _interopRequireDefault(_scrim_mixin);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 require('pui-css-dropdowns');
 
 var types = _react2.default.PropTypes;
@@ -39,12 +55,12 @@ var DEFAULT_KIND = 'btn-default';
 var DEFAULT_TOGGLE = _react2.default.createElement('span', { className: 'caret' });
 
 var Dropdown = function (_mixin$with) {
-  _inherits(Dropdown, _mixin$with);
+  (0, _inherits3.default)(Dropdown, _mixin$with);
 
   function Dropdown(props, context) {
-    _classCallCheck(this, Dropdown);
+    (0, _classCallCheck3.default)(this, Dropdown);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Dropdown).call(this, props, context));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Dropdown).call(this, props, context));
 
     _this.click = function (event) {
       _this.setState({ isOpen: !_this.state.isOpen });
@@ -66,7 +82,7 @@ var Dropdown = function (_mixin$with) {
     return _this;
   }
 
-  _createClass(Dropdown, [{
+  (0, _createClass3.default)(Dropdown, [{
     key: 'render',
     value: function render() {
       var _props = this.props;
@@ -82,9 +98,7 @@ var Dropdown = function (_mixin$with) {
       var split = _props.split;
       var title = _props.title;
       var toggle = _props.toggle;
-
-      var props = _objectWithoutProperties(_props, ['border', 'buttonClassName', 'children', 'className', 'closeOnMenuClick', 'disableScrim', 'kind', 'pullRight', 'onClick', 'split', 'title', 'toggle']);
-
+      var props = (0, _objectWithoutProperties3.default)(_props, ['border', 'buttonClassName', 'children', 'className', 'closeOnMenuClick', 'disableScrim', 'kind', 'pullRight', 'onClick', 'split', 'title', 'toggle']);
       var isOpen = this.state.isOpen;
 
 
@@ -104,7 +118,7 @@ var Dropdown = function (_mixin$with) {
       ) : null;
       dropdownToggle = _react2.default.createElement(
         'button',
-        _extends({ type: 'button' }, props, { onClick: this.click, className: (0, _classnames2.default)('dropdown-toggle', buttonStyleClasses) }),
+        (0, _extends3.default)({ type: 'button' }, props, { onClick: this.click, className: (0, _classnames2.default)('dropdown-toggle', buttonStyleClasses) }),
         !split ? title : null,
         toggleNode
       );
@@ -124,7 +138,6 @@ var Dropdown = function (_mixin$with) {
       );
     }
   }]);
-
   return Dropdown;
 }((0, _puiReactMixins2.default)(_react2.default.Component).with(_scrim_mixin2.default));
 
@@ -145,116 +158,110 @@ Dropdown.defaultProps = {
 };
 
 var LinkDropdown = function (_Dropdown) {
-  _inherits(LinkDropdown, _Dropdown);
+  (0, _inherits3.default)(LinkDropdown, _Dropdown);
 
   function LinkDropdown() {
-    _classCallCheck(this, LinkDropdown);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(LinkDropdown).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, LinkDropdown);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(LinkDropdown).apply(this, arguments));
   }
 
   return LinkDropdown;
 }(Dropdown);
 
-LinkDropdown.defaultProps = _extends({}, Dropdown.defaultProps, {
+LinkDropdown.defaultProps = (0, _extends3.default)({}, Dropdown.defaultProps, {
   kind: 'link'
 });
 
 var DefaultAltDropdown = function (_Dropdown2) {
-  _inherits(DefaultAltDropdown, _Dropdown2);
+  (0, _inherits3.default)(DefaultAltDropdown, _Dropdown2);
 
   function DefaultAltDropdown() {
-    _classCallCheck(this, DefaultAltDropdown);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(DefaultAltDropdown).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, DefaultAltDropdown);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(DefaultAltDropdown).apply(this, arguments));
   }
 
   return DefaultAltDropdown;
 }(Dropdown);
 
-DefaultAltDropdown.defaultProps = _extends({}, Dropdown.defaultProps, {
+DefaultAltDropdown.defaultProps = (0, _extends3.default)({}, Dropdown.defaultProps, {
   kind: 'default-alt'
 });
 
 var LowlightDropdown = function (_Dropdown3) {
-  _inherits(LowlightDropdown, _Dropdown3);
+  (0, _inherits3.default)(LowlightDropdown, _Dropdown3);
 
   function LowlightDropdown() {
-    _classCallCheck(this, LowlightDropdown);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(LowlightDropdown).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, LowlightDropdown);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(LowlightDropdown).apply(this, arguments));
   }
 
   return LowlightDropdown;
 }(Dropdown);
 
-LowlightDropdown.defaultProps = _extends({}, Dropdown.defaultProps, {
+LowlightDropdown.defaultProps = (0, _extends3.default)({}, Dropdown.defaultProps, {
   kind: 'lowlight'
 });
 
 var DangerDropdown = function (_Dropdown4) {
-  _inherits(DangerDropdown, _Dropdown4);
+  (0, _inherits3.default)(DangerDropdown, _Dropdown4);
 
   function DangerDropdown() {
-    _classCallCheck(this, DangerDropdown);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(DangerDropdown).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, DangerDropdown);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(DangerDropdown).apply(this, arguments));
   }
 
   return DangerDropdown;
 }(Dropdown);
 
-DangerDropdown.defaultProps = _extends({}, Dropdown.defaultProps, {
+DangerDropdown.defaultProps = (0, _extends3.default)({}, Dropdown.defaultProps, {
   kind: 'danger'
 });
 
 var HighlightDropdown = function (_Dropdown5) {
-  _inherits(HighlightDropdown, _Dropdown5);
+  (0, _inherits3.default)(HighlightDropdown, _Dropdown5);
 
   function HighlightDropdown() {
-    _classCallCheck(this, HighlightDropdown);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(HighlightDropdown).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, HighlightDropdown);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(HighlightDropdown).apply(this, arguments));
   }
 
   return HighlightDropdown;
 }(Dropdown);
 
-HighlightDropdown.defaultProps = _extends({}, Dropdown.defaultProps, {
+HighlightDropdown.defaultProps = (0, _extends3.default)({}, Dropdown.defaultProps, {
   kind: 'highlight'
 });
 
 var HighlightAltDropdown = function (_Dropdown6) {
-  _inherits(HighlightAltDropdown, _Dropdown6);
+  (0, _inherits3.default)(HighlightAltDropdown, _Dropdown6);
 
   function HighlightAltDropdown() {
-    _classCallCheck(this, HighlightAltDropdown);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(HighlightAltDropdown).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, HighlightAltDropdown);
+    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(HighlightAltDropdown).apply(this, arguments));
   }
 
   return HighlightAltDropdown;
 }(Dropdown);
 
-HighlightAltDropdown.defaultProps = _extends({}, Dropdown.defaultProps, {
+HighlightAltDropdown.defaultProps = (0, _extends3.default)({}, Dropdown.defaultProps, {
   kind: 'highlight-alt'
 });
 
 var DropdownItem = function (_React$Component) {
-  _inherits(DropdownItem, _React$Component);
+  (0, _inherits3.default)(DropdownItem, _React$Component);
 
   function DropdownItem() {
     var _Object$getPrototypeO;
 
     var _temp, _this8, _ret;
 
-    _classCallCheck(this, DropdownItem);
+    (0, _classCallCheck3.default)(this, DropdownItem);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this8 = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(DropdownItem)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this8), _this8.handleClick = function (event) {
+    return _ret = (_temp = (_this8 = (0, _possibleConstructorReturn3.default)(this, (_Object$getPrototypeO = (0, _getPrototypeOf2.default)(DropdownItem)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this8), _this8.handleClick = function (event) {
       var _this8$props = _this8.props;
       var href = _this8$props.href;
       var disabled = _this8$props.disabled;
@@ -271,10 +278,10 @@ var DropdownItem = function (_React$Component) {
       if (onSelect) {
         onSelect(event, eventKey);
       }
-    }, _temp), _possibleConstructorReturn(_this8, _ret);
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this8, _ret);
   }
 
-  _createClass(DropdownItem, [{
+  (0, _createClass3.default)(DropdownItem, [{
     key: 'render',
     value: function render() {
       var _props2 = this.props;
@@ -286,8 +293,8 @@ var DropdownItem = function (_React$Component) {
       var header = _props2.header;
       var divider = _props2.divider;
       var disabled = _props2.disabled;
+      var anchorProps = (0, _objectWithoutProperties3.default)(_props2, ['children', 'className', 'eventKey', 'style', 'href', 'header', 'divider', 'disabled']);
 
-      var anchorProps = _objectWithoutProperties(_props2, ['children', 'className', 'eventKey', 'style', 'href', 'header', 'divider', 'disabled']);
 
       if (header) return _react2.default.createElement(
         'li',
@@ -300,7 +307,7 @@ var DropdownItem = function (_React$Component) {
       if (href) {
         anchor = _react2.default.createElement(
           'a',
-          _extends({}, _extends({ href: href, disabled: disabled }, anchorProps), { onClick: this.handleClick }),
+          (0, _extends3.default)({}, (0, _extends3.default)({ href: href, disabled: disabled }, anchorProps), { onClick: this.handleClick }),
           children
         );
       } else {
@@ -311,12 +318,11 @@ var DropdownItem = function (_React$Component) {
       var dropdownItemClass = (0, _classnames2.default)(className, disabledClass);
       return _react2.default.createElement(
         'li',
-        _extends({ style: style }, { className: dropdownItemClass, onClick: href ? '' : this.handleClick }),
+        (0, _extends3.default)({ style: style }, { className: dropdownItemClass, onClick: href ? '' : this.handleClick }),
         anchor
       );
     }
   }]);
-
   return DropdownItem;
 }(_react2.default.Component);
 

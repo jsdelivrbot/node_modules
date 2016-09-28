@@ -3,37 +3,37 @@
     [
       {
         "name": "pui-css-bootstrap",
-        "raw": "pui-css-bootstrap@^5.3.1",
-        "rawSpec": "^5.3.1",
+        "raw": "pui-css-bootstrap@^5.4.0",
+        "rawSpec": "^5.4.0",
         "scope": null,
-        "spec": ">=5.3.1 <6.0.0",
+        "spec": ">=5.4.0 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-buttons"
     ]
   ],
-  "_from": "pui-css-bootstrap@>=5.3.1 <6.0.0",
-  "_id": "pui-css-bootstrap@5.3.1",
+  "_from": "pui-css-bootstrap@>=5.4.0 <6.0.0",
+  "_id": "pui-css-bootstrap@5.4.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-bootstrap",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-bootstrap-5.3.1.tgz_1471622966033_0.0376779546495527"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-css-bootstrap-5.4.0.tgz_1475019941153_0.24532610643655062"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.9",
+  "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-bootstrap",
-    "raw": "pui-css-bootstrap@^5.3.1",
-    "rawSpec": "^5.3.1",
+    "raw": "pui-css-bootstrap@^5.4.0",
+    "rawSpec": "^5.4.0",
     "scope": null,
-    "spec": ">=5.3.1 <6.0.0",
+    "spec": ">=5.4.0 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
@@ -53,10 +53,10 @@
     "/pui-css-tabs",
     "/pui-css-typography"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-bootstrap/-/pui-css-bootstrap-5.3.1.tgz",
-  "_shasum": "3f3d340ee22e5823cf9521e233ccdda3ee38faec",
+  "_resolved": "https://registry.npmjs.org/pui-css-bootstrap/-/pui-css-bootstrap-5.4.0.tgz",
+  "_shasum": "147f0c33ce4b71effd77c2bbc990d403fb8691e4",
   "_shrinkwrap": null,
-  "_spec": "pui-css-bootstrap@^5.3.1",
+  "_spec": "pui-css-bootstrap@^5.4.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-buttons",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -69,8 +69,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "3f3d340ee22e5823cf9521e233ccdda3ee38faec",
-    "tarball": "https://registry.npmjs.org/pui-css-bootstrap/-/pui-css-bootstrap-5.3.1.tgz"
+    "shasum": "147f0c33ce4b71effd77c2bbc990d403fb8691e4",
+    "tarball": "https://registry.npmjs.org/pui-css-bootstrap/-/pui-css-bootstrap-5.4.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -152,5 +152,5 @@
   },
   "scripts": {},
   "style": "bootstrap.css",
-  "version": "5.3.1"
+  "version": "5.4.0"
 }

@@ -3,37 +3,37 @@
     [
       {
         "name": "pui-react-mixins",
-        "raw": "pui-react-mixins@^5.3.1",
-        "rawSpec": "^5.3.1",
+        "raw": "pui-react-mixins@^5.4.0",
+        "rawSpec": "^5.4.0",
         "scope": null,
-        "spec": ">=5.3.1 <6.0.0",
+        "spec": ">=5.4.0 <6.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-dropdowns"
     ]
   ],
-  "_from": "pui-react-mixins@>=5.3.1 <6.0.0",
-  "_id": "pui-react-mixins@5.3.1",
+  "_from": "pui-react-mixins@>=5.4.0 <6.0.0",
+  "_id": "pui-react-mixins@5.4.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-mixins",
   "_nodeVersion": "4.4.5",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-mixins-5.3.1.tgz_1471623062168_0.6265156434383243"
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/pui-react-mixins-5.4.0.tgz_1475020018618_0.39666925463825464"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
-  "_npmVersion": "2.15.9",
+  "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-mixins",
-    "raw": "pui-react-mixins@^5.3.1",
-    "rawSpec": "^5.3.1",
+    "raw": "pui-react-mixins@^5.4.0",
+    "rawSpec": "^5.4.0",
     "scope": null,
-    "spec": ">=5.3.1 <6.0.0",
+    "spec": ">=5.4.0 <6.0.0",
     "type": "range"
   },
   "_requiredBy": [
@@ -42,10 +42,10 @@
     "/pui-react-overlay-trigger",
     "/pui-react-tabs"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-mixins/-/pui-react-mixins-5.3.1.tgz",
-  "_shasum": "a10d1a219276b65ebbf6f862329123e8d031f633",
+  "_resolved": "https://registry.npmjs.org/pui-react-mixins/-/pui-react-mixins-5.4.0.tgz",
+  "_shasum": "ac14e8d200ce8d3fd7475868bef0148fbdfca185",
   "_shrinkwrap": null,
-  "_spec": "pui-react-mixins@^5.3.1",
+  "_spec": "pui-react-mixins@^5.4.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-dropdowns",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -64,8 +64,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "a10d1a219276b65ebbf6f862329123e8d031f633",
-    "tarball": "https://registry.npmjs.org/pui-react-mixins/-/pui-react-mixins-5.3.1.tgz"
+    "shasum": "ac14e8d200ce8d3fd7475868bef0148fbdfca185",
+    "tarball": "https://registry.npmjs.org/pui-react-mixins/-/pui-react-mixins-5.4.0.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/react.html",
   "keywords": [
@@ -113,5 +113,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.3.1"
+  "version": "5.4.0"
 }
