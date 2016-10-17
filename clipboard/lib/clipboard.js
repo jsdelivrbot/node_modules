@@ -62,7 +62,6 @@
          * @param {String|HTMLElement|HTMLCollection|NodeList} trigger
          * @param {Object} options
          */
-
         function Clipboard(trigger, options) {
             _classCallCheck(this, Clipboard);
 
