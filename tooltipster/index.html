@@ -443,7 +443,7 @@ $('.tooltip').tooltipster({
 				<tr>
 					<td><h4>timer</h4></td>
 					<td>integer</td>
-					<td>How long (in ms) the tooltip should live before closing. <strong>Default: 0 (disabled)</strong></td>
+					<td>How long the tooltip should be allowed to live before hiding. <strong>Default: 0 (disabled)</strong></td>
 				</tr>
 				<tr>
 					<td><h4>theme</h4></td>
@@ -801,8 +801,7 @@ $('.tooltip').tooltipster({
 
             $.get('http://example.com/ajax.php', function(data) {
 
-                // call the 'content' method to update the content of our tooltip with the returned data.
-                // note: this content update will trigger an update animation (see the updateAnimation option)
+                // call the 'content' method to update the content of our tooltip with the returned data
                 instance.content(data);
 
                 // to remember that the data has been loaded
@@ -1117,8 +1116,9 @@ $('#tooltip').tooltipster({
 $('.tooltip').tooltipster({
     functionInit: function(instance, helper){
         var content = $(helper.origin).find('.tooltip_content').detach();
-        instance.content(content);
-    }
+            instance.content(content);
+        }
+    });
 });</pre>
 			
 			<h4>c) Deprecated: writing encoded HTML in the title attribute.</h4>
@@ -1678,8 +1678,6 @@ $('#myfield')
 			<p><a href="http://stackoverflow.com/questions/14741688/how-to-display-messages-from-jquery-validate-plugin-inside-of-tooltipster-toolti">Using Tooltipster alongside jQuery Validate</a> by <a href="https://github.com/sparky672">sparky672</a></p>
 			
 			<p><a href="https://github.com/iamceege/tooltipster/issues/485">Using Tooltipster alongside Clipboard.js</a></p>
-			
-			<p><a href="https://github.com/iamceege/tooltipster/issues/538">An Angular directive for Tooltipster</a> by <a href="https://github.com/campbeln">campbeln</a></p>
 			
 			<p>Did you do something awesome with Tooltipster? <a href="https://github.com/iamceege/tooltipster/issues" target="_blank">Tell us</a> and we'll post it up here!</p>
 		</section>
