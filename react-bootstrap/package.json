@@ -3,30 +3,30 @@
     [
       {
         "name": "react-bootstrap",
-        "raw": "react-bootstrap@0.30.5",
-        "rawSpec": "0.30.5",
+        "raw": "react-bootstrap@0.30.6",
+        "rawSpec": "0.30.6",
         "scope": null,
-        "spec": "0.30.5",
+        "spec": "0.30.6",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "react-bootstrap@0.30.5",
-  "_id": "react-bootstrap@0.30.5",
+  "_from": "react-bootstrap@0.30.6",
+  "_id": "react-bootstrap@0.30.6",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-bootstrap",
-  "_nodeVersion": "6.3.1",
+  "_nodeVersion": "7.0.0",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/react-bootstrap-0.30.5.tgz_1475514739989_0.043912566266953945"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/react-bootstrap-0.30.6.tgz_1477680174956_0.3036094370763749"
   },
   "_npmUser": {
     "email": "tesrin@gmail.com",
     "name": "taion"
   },
-  "_npmVersion": "3.10.5",
+  "_npmVersion": "3.10.9",
   "_phantomChildren": {
     "classnames": "2.2.5",
     "dom-helpers": "2.4.0",
@@ -35,19 +35,19 @@
   },
   "_requested": {
     "name": "react-bootstrap",
-    "raw": "react-bootstrap@0.30.5",
-    "rawSpec": "0.30.5",
+    "raw": "react-bootstrap@0.30.6",
+    "rawSpec": "0.30.6",
     "scope": null,
-    "spec": "0.30.5",
+    "spec": "0.30.6",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-0.30.5.tgz",
-  "_shasum": "22d9bdab13b9eec04918206602709e1c8a0d76e2",
+  "_resolved": "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-0.30.6.tgz",
+  "_shasum": "288662a245f9dbb79f7740ee595e4ec931d6a4a9",
   "_shrinkwrap": null,
-  "_spec": "react-bootstrap@0.30.5",
+  "_spec": "react-bootstrap@0.30.6",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "stevoland@gmail.com",
@@ -146,8 +146,8 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "22d9bdab13b9eec04918206602709e1c8a0d76e2",
-    "tarball": "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-0.30.5.tgz"
+    "shasum": "288662a245f9dbb79f7740ee595e4ec931d6a4a9",
+    "tarball": "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-0.30.6.tgz"
   },
   "files": [
     "CHANGELOG.md",
@@ -155,7 +155,7 @@
     "dist",
     "es"
   ],
-  "gitHead": "b4a516afa597dae8590eb3feb89026827d5ad121",
+  "gitHead": "c84f3031c3b09adce2ef4288ed24235e9c204760",
   "homepage": "https://react-bootstrap.github.io/",
   "jsnext:main": "es/index.js",
   "keywords": [
@@ -213,5 +213,5 @@
     "test-browser": "cross-env NODE_ENV=test karma start --single-run",
     "test-node": "mocha --compilers js:babel-register test/server/*Spec.js"
   },
-  "version": "0.30.5"
+  "version": "0.30.6"
 }
