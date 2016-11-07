@@ -3,24 +3,24 @@
     [
       {
         "name": "node-sass",
-        "raw": "node-sass@3.10.1",
-        "rawSpec": "3.10.1",
+        "raw": "node-sass@3.11.2",
+        "rawSpec": "3.11.2",
         "scope": null,
-        "spec": "3.10.1",
+        "spec": "3.11.2",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "node-sass@3.10.1",
-  "_id": "node-sass@3.10.1",
+  "_from": "node-sass@3.11.2",
+  "_id": "node-sass@3.11.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/node-sass",
   "_nodeVersion": "5.12.0",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/node-sass-3.10.1.tgz_1475218502758_0.22819128329865634"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/node-sass-3.11.2.tgz_1478327362980_0.733085063053295"
   },
   "_npmUser": {
     "email": "xzyfer@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "node-sass",
-    "raw": "node-sass@3.10.1",
-    "rawSpec": "3.10.1",
+    "raw": "node-sass@3.11.2",
+    "rawSpec": "3.11.2",
     "scope": null,
-    "spec": "3.10.1",
+    "spec": "3.11.2",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/node-sass/-/node-sass-3.10.1.tgz",
-  "_shasum": "c535b2e1a5439240591e06d7308cb663820d616c",
+  "_resolved": "https://registry.npmjs.org/node-sass/-/node-sass-3.11.2.tgz",
+  "_shasum": "ba3bef8cd46bd1698c2bdb2b6d2af1f9e7d7878f",
   "_shrinkwrap": null,
-  "_spec": "node-sass@3.10.1",
+  "_spec": "node-sass@3.11.2",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "andrewnez@gmail.com",
@@ -87,8 +87,8 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "c535b2e1a5439240591e06d7308cb663820d616c",
-    "tarball": "https://registry.npmjs.org/node-sass/-/node-sass-3.10.1.tgz"
+    "shasum": "ba3bef8cd46bd1698c2bdb2b6d2af1f9e7d7878f",
+    "tarball": "https://registry.npmjs.org/node-sass/-/node-sass-3.11.2.tgz"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -102,7 +102,7 @@
     "test",
     "vendor"
   ],
-  "gitHead": "7e27148d834dc2b092f4882895a0b18e70c4bbea",
+  "gitHead": "7fe625c6e860e0fcac7643703c3ec14258df02e6",
   "gypfile": true,
   "homepage": "https://github.com/sass/node-sass",
   "keywords": [
@@ -163,7 +163,7 @@
     "lint": "eslint bin/node-sass lib scripts test",
     "postinstall": "node scripts/build.js",
     "prepublish": "not-in-install && node scripts/prepublish.js || in-install",
-    "test": "mocha test"
+    "test": "mocha test/{*,**/**}.js"
   },
-  "version": "3.10.1"
+  "version": "3.11.2"
 }
