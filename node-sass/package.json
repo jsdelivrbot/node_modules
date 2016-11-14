@@ -3,46 +3,46 @@
     [
       {
         "name": "node-sass",
-        "raw": "node-sass@3.11.2",
-        "rawSpec": "3.11.2",
+        "raw": "node-sass@3.12.1",
+        "rawSpec": "3.12.1",
         "scope": null,
-        "spec": "3.11.2",
+        "spec": "3.12.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "node-sass@3.11.2",
-  "_id": "node-sass@3.11.2",
+  "_from": "node-sass@3.12.1",
+  "_id": "node-sass@3.12.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/node-sass",
-  "_nodeVersion": "5.12.0",
+  "_nodeVersion": "6.5.0",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/node-sass-3.11.2.tgz_1478327362980_0.733085063053295"
+    "tmp": "tmp/node-sass-3.12.1.tgz_1479082925754_0.17534893518313766"
   },
   "_npmUser": {
     "email": "xzyfer@gmail.com",
     "name": "xzyfer"
   },
-  "_npmVersion": "3.8.6",
+  "_npmVersion": "3.10.3",
   "_phantomChildren": {},
   "_requested": {
     "name": "node-sass",
-    "raw": "node-sass@3.11.2",
-    "rawSpec": "3.11.2",
+    "raw": "node-sass@3.12.1",
+    "rawSpec": "3.12.1",
     "scope": null,
-    "spec": "3.11.2",
+    "spec": "3.12.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/node-sass/-/node-sass-3.11.2.tgz",
-  "_shasum": "ba3bef8cd46bd1698c2bdb2b6d2af1f9e7d7878f",
+  "_resolved": "https://registry.npmjs.org/node-sass/-/node-sass-3.12.1.tgz",
+  "_shasum": "c48315edec4175266f938b0df8af9c372465b866",
   "_shrinkwrap": null,
-  "_spec": "node-sass@3.11.2",
+  "_spec": "node-sass@3.12.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "andrewnez@gmail.com",
@@ -78,7 +78,7 @@
     "coveralls": "^2.11.8",
     "eslint": "^3.4.0",
     "istanbul": "^0.4.2",
-    "mocha": "^2.4.5",
+    "mocha": "^3.1.2",
     "mocha-lcov-reporter": "^1.2.0",
     "object-merge": "^2.5.1",
     "read-yaml": "^1.0.0",
@@ -87,8 +87,8 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "ba3bef8cd46bd1698c2bdb2b6d2af1f9e7d7878f",
-    "tarball": "https://registry.npmjs.org/node-sass/-/node-sass-3.11.2.tgz"
+    "shasum": "c48315edec4175266f938b0df8af9c372465b866",
+    "tarball": "https://registry.npmjs.org/node-sass/-/node-sass-3.12.1.tgz"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -102,7 +102,7 @@
     "test",
     "vendor"
   ],
-  "gitHead": "7fe625c6e860e0fcac7643703c3ec14258df02e6",
+  "gitHead": "aa76f8fd8cc0545a4f95846fe7b8dfad88272ec9",
   "gypfile": true,
   "homepage": "https://github.com/sass/node-sass",
   "keywords": [
@@ -165,5 +165,5 @@
     "prepublish": "not-in-install && node scripts/prepublish.js || in-install",
     "test": "mocha test/{*,**/**}.js"
   },
-  "version": "3.11.2"
+  "version": "3.12.1"
 }
