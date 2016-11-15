@@ -10,8 +10,6 @@ var pkg = require('../package.json'),
   log = require('npmlog'),
   sass = require('../lib/extensions');
 
-log.stream = process.stdout;
-
 /**
  * After build
  *
@@ -151,7 +149,7 @@ function build(options) {
         return;
       }
 
-      if (errorCode === 127) {
+      if (errorCode === 127 ) {
         log.error('node-sass build', 'node-gyp not found!');
       } else {
         log.error('node-sass build', 'Build failed with error code: %d', errorCode);

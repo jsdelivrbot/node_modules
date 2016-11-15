@@ -11,8 +11,6 @@ var fs = require('fs'),
   log = require('npmlog'),
   downloadOptions = require('./util/downloadoptions');
 
-log.stream = process.stdout;
-
 /**
  * Download file, if succeeds save, if not delete
  *
