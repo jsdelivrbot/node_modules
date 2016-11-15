@@ -3,24 +3,24 @@
     [
       {
         "name": "node-sass",
-        "raw": "node-sass@3.12.2",
-        "rawSpec": "3.12.2",
+        "raw": "node-sass@3.12.3",
+        "rawSpec": "3.12.3",
         "scope": null,
-        "spec": "3.12.2",
+        "spec": "3.12.3",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "node-sass@3.12.2",
-  "_id": "node-sass@3.12.2",
+  "_from": "node-sass@3.12.3",
+  "_id": "node-sass@3.12.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/node-sass",
   "_nodeVersion": "6.5.0",
   "_npmOperationalInternal": {
     "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/node-sass-3.12.2.tgz_1479101714975_0.7719818986952305"
+    "tmp": "tmp/node-sass-3.12.3.tgz_1479176252954_0.781213590176776"
   },
   "_npmUser": {
     "email": "xzyfer@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "node-sass",
-    "raw": "node-sass@3.12.2",
-    "rawSpec": "3.12.2",
+    "raw": "node-sass@3.12.3",
+    "rawSpec": "3.12.3",
     "scope": null,
-    "spec": "3.12.2",
+    "spec": "3.12.3",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/node-sass/-/node-sass-3.12.2.tgz",
-  "_shasum": "dc6dfe0463ec6968b8b7776f30d2c5d30a967b84",
+  "_resolved": "https://registry.npmjs.org/node-sass/-/node-sass-3.12.3.tgz",
+  "_shasum": "ce528eb34d79bf3f08fdd731f352c4388219dc4c",
   "_shrinkwrap": null,
-  "_spec": "node-sass@3.12.2",
+  "_spec": "node-sass@3.12.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "andrewnez@gmail.com",
@@ -87,8 +87,8 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "dc6dfe0463ec6968b8b7776f30d2c5d30a967b84",
-    "tarball": "https://registry.npmjs.org/node-sass/-/node-sass-3.12.2.tgz"
+    "shasum": "ce528eb34d79bf3f08fdd731f352c4388219dc4c",
+    "tarball": "https://registry.npmjs.org/node-sass/-/node-sass-3.12.3.tgz"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -102,7 +102,7 @@
     "test",
     "vendor"
   ],
-  "gitHead": "33fbd2b6e4117df3681037ebf1d400d759221a9c",
+  "gitHead": "bee91ae850d791ad01931a765a309983010de681",
   "gypfile": true,
   "homepage": "https://github.com/sass/node-sass",
   "keywords": [
@@ -165,5 +165,5 @@
     "prepublish": "not-in-install && node scripts/prepublish.js || in-install",
     "test": "mocha test/{*,**/**}.js"
   },
-  "version": "3.12.2"
+  "version": "3.12.3"
 }

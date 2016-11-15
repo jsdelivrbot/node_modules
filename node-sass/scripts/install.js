@@ -11,6 +11,8 @@ var fs = require('fs'),
   log = require('npmlog'),
   downloadOptions = require('./util/downloadoptions');
 
+log.stream = process.stdout;
+
 /**
  * Download file, if succeeds save, if not delete
  *
@@ -110,6 +112,7 @@ function checkAndDownloadBinary() {
   try {
     mkdir.sync(path.dirname(binaryPath));
   } catch (err) {
+    log.stream = process.stderr;
     log.error('node-sass install', 'Unable to save binary to %s: %s', path.dirname(binaryPath), err);
     return;
   }
@@ -122,6 +125,7 @@ function checkAndDownloadBinary() {
 
   download(sass.getBinaryUrl(), binaryPath, function(err) {
     if (err) {
+      log.stream = process.stderr;
       log.error('node-sass install', err);
       return;
     }
@@ -137,7 +141,7 @@ function checkAndDownloadBinary() {
         mkdir.sync(path.dirname(cachedBinary));
         fs.createReadStream(binaryPath)
           .pipe(fs.createWriteStream(cachedBinary))
-          .on('error', function (e) {
+          .on('error', function (err) {
             log.error('node-sass install', 'Failed to cache binary: %s', err);
           });
       } catch (err) {
