@@ -3,28 +3,28 @@
     [
       {
         "name": "react",
-        "raw": "react@15.4.0",
-        "rawSpec": "15.4.0",
+        "raw": "react@15.4.1",
+        "rawSpec": "15.4.1",
         "scope": null,
-        "spec": "15.4.0",
+        "spec": "15.4.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "react@15.4.0",
-  "_id": "react@15.4.0",
+  "_from": "react@15.4.1",
+  "_id": "react@15.4.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/react",
-  "_nodeVersion": "6.9.1",
+  "_nodeVersion": "6.9.0",
   "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/react-15.4.0.tgz_1479306785093_0.7718154781032354"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/react-15.4.1.tgz_1479866354701_0.6043999863322824"
   },
   "_npmUser": {
-    "email": "tomocchino@gmail.com",
-    "name": "tomocchino"
+    "email": "ben@benalpert.com",
+    "name": "spicyj"
   },
   "_npmVersion": "3.10.8",
   "_phantomChildren": {
@@ -36,20 +36,20 @@
   },
   "_requested": {
     "name": "react",
-    "raw": "react@15.4.0",
-    "rawSpec": "15.4.0",
+    "raw": "react@15.4.1",
+    "rawSpec": "15.4.1",
     "scope": null,
-    "spec": "15.4.0",
+    "spec": "15.4.1",
     "type": "version"
   },
   "_requiredBy": [
     "/",
     "/pui-react-animation"
   ],
-  "_resolved": "https://registry.npmjs.org/react/-/react-15.4.0.tgz",
-  "_shasum": "736c1c7c542e8088127106e1f450b010f86d172b",
+  "_resolved": "https://registry.npmjs.org/react/-/react-15.4.1.tgz",
+  "_shasum": "498e918602677a3983cd0fd206dfe700389a0dd6",
   "_shrinkwrap": null,
-  "_spec": "react@15.4.0",
+  "_spec": "react@15.4.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "browserify": {
     "transform": [
@@ -68,8 +68,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "736c1c7c542e8088127106e1f450b010f86d172b",
-    "tarball": "https://registry.npmjs.org/react/-/react-15.4.0.tgz"
+    "shasum": "498e918602677a3983cd0fd206dfe700389a0dd6",
+    "tarball": "https://registry.npmjs.org/react/-/react-15.4.1.tgz"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -131,5 +131,5 @@
     "url": "git+https://github.com/facebook/react.git"
   },
   "scripts": {},
-  "version": "15.4.0"
+  "version": "15.4.1"
 }
