@@ -1,14 +1,6 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _extends2 = require('babel-runtime/helpers/extends');
-
-var _extends3 = _interopRequireDefault(_extends2);
-
-var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
-
-var _defineProperty3 = _interopRequireDefault(_defineProperty2);
-
 var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
 
 var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
@@ -35,41 +27,70 @@ var _inherits3 = _interopRequireDefault(_inherits2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var classnames = require('classnames');
+var _require = require('pui-react-helpers'),
+    mergeProps = _require.mergeProps;
+
 var React = require('react');
-var ReactFaIcon = require('react-fa/lib/Icon');
+
+var _require2 = require('pui-react-svg'),
+    Svg = _require2.Svg;
+
 require('pui-css-iconography');
 
 var types = React.PropTypes;
+
+var SvgIcon = function (_Svg) {
+  (0, _inherits3.default)(SvgIcon, _Svg);
+
+  function SvgIcon() {
+    (0, _classCallCheck3.default)(this, SvgIcon);
+    return (0, _possibleConstructorReturn3.default)(this, (SvgIcon.__proto__ || (0, _getPrototypeOf2.default)(SvgIcon)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(SvgIcon, [{
+    key: 'svgPathLoader',
+    value: function svgPathLoader(src) {
+      return require('!!babel!svg-react!pui-css-iconography/svgs/' + src + '.svg');
+    }
+  }]);
+  return SvgIcon;
+}(Svg);
 
 var Icon = function (_React$Component) {
   (0, _inherits3.default)(Icon, _React$Component);
 
   function Icon() {
     (0, _classCallCheck3.default)(this, Icon);
-    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Icon).apply(this, arguments));
+    return (0, _possibleConstructorReturn3.default)(this, (Icon.__proto__ || (0, _getPrototypeOf2.default)(Icon)).apply(this, arguments));
   }
 
   (0, _createClass3.default)(Icon, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var size = _props.size;
-      var className = _props.className;
-      var props = (0, _objectWithoutProperties3.default)(_props, ['size', 'className']);
+      var _props = this.props,
+          src = _props.src,
+          style = _props.style,
+          others = (0, _objectWithoutProperties3.default)(_props, ['src', 'style']);
 
 
-      var classes = classnames(className, (0, _defineProperty3.default)({}, 'fa-' + size, size));
-
-      return React.createElement(ReactFaIcon, (0, _extends3.default)({ className: classes }, props));
+      var props = mergeProps(others, { className: 'svgicon' });
+      return React.createElement(
+        'span',
+        props,
+        React.createElement(SvgIcon, { src: src, style: style, className: 'icon-' + src, key: src })
+      );
     }
   }]);
   return Icon;
 }(React.Component);
 
 Icon.propTypes = {
-  className: types.string,
-  size: types.string
+  src: types.string.isRequired,
+  style: types.object
+};
+Icon.defaultProps = {
+  size: 'inherit',
+  style: {}
 };
 
 

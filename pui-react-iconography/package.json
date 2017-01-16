@@ -3,46 +3,49 @@
     [
       {
         "name": "pui-react-iconography",
-        "raw": "pui-react-iconography@5.4.0",
-        "rawSpec": "5.4.0",
+        "raw": "pui-react-iconography@7.3.1",
+        "rawSpec": "7.3.1",
         "scope": null,
-        "spec": "5.4.0",
+        "spec": "7.3.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-iconography@5.4.0",
-  "_id": "pui-react-iconography@5.4.0",
+  "_from": "pui-react-iconography@7.3.1",
+  "_id": "pui-react-iconography@7.3.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-iconography",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "7.2.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-iconography-5.4.0.tgz_1475020010257_0.2079724231734872"
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/pui-react-iconography-7.3.1.tgz_1481733886255_0.27264471212401986"
   },
   "_npmUser": {
     "email": "chansen87@gmail.com",
     "name": "charleshansen"
   },
   "_npmVersion": "3.5.0",
-  "_phantomChildren": {},
+  "_phantomChildren": {
+    "babel-runtime": "6.11.6",
+    "classnames": "2.2.5"
+  },
   "_requested": {
     "name": "pui-react-iconography",
-    "raw": "pui-react-iconography@5.4.0",
-    "rawSpec": "5.4.0",
+    "raw": "pui-react-iconography@7.3.1",
+    "rawSpec": "7.3.1",
     "scope": null,
-    "spec": "5.4.0",
+    "spec": "7.3.1",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-5.4.0.tgz",
-  "_shasum": "9764644bcff61be5b1227fb64e65799bf616e719",
+  "_resolved": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-7.3.1.tgz",
+  "_shasum": "96db51061e8b2919d00086abf1c9a8c547aee3d1",
   "_shrinkwrap": null,
-  "_spec": "pui-react-iconography@5.4.0",
+  "_spec": "pui-react-iconography@7.3.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,17 +55,16 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "classnames": "^2.2.0",
-    "object-assign": "^4.0.0",
-    "pui-css-iconography": "^5.4.0",
-    "react-fa": "^4.0.0"
+    "pui-css-iconography": "^7.3.1",
+    "pui-react-helpers": "^7.3.1",
+    "pui-react-svg": "^7.3.1"
   },
   "description": "A React component for rendering Font Awesome icons",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "9764644bcff61be5b1227fb64e65799bf616e719",
-    "tarball": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-5.4.0.tgz"
+    "shasum": "96db51061e8b2919d00086abf1c9a8c547aee3d1",
+    "tarball": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-7.3.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -146,5 +148,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.4.0"
+  "version": "7.3.1"
 }
