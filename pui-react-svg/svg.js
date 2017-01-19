@@ -1,6 +1,11 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Svg = undefined;
+
 var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
 
 var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
@@ -25,13 +30,15 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var React = require('react');
+var types = _react2.default.PropTypes;
 
-var types = React.PropTypes;
-
-var Svg = function (_React$Component) {
+var Svg = exports.Svg = function (_React$Component) {
   (0, _inherits3.default)(Svg, _React$Component);
 
   function Svg(props, context) {
@@ -65,16 +72,13 @@ var Svg = function (_React$Component) {
           props = (0, _objectWithoutProperties3.default)(_props, ['src']);
       var Component = this.state.Component;
 
-      if (Component) return React.createElement(Component, props);
-      return React.createElement('svg', props);
+      if (Component) return _react2.default.createElement(Component, props);
+      return _react2.default.createElement('svg', props);
     }
   }]);
   return Svg;
-}(React.Component);
+}(_react2.default.Component);
 
 Svg.propTypes = {
   src: types.string.isRequired
 };
-
-
-module.exports = { Svg: Svg };

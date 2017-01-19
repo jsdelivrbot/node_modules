@@ -1,9 +1,18 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Icon = undefined;
+
 var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
 
 var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
 
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
@@ -13,10 +22,6 @@ var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
-
 var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
@@ -25,38 +30,43 @@ var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _puiReactHelpers = require('pui-react-helpers');
 
-var _require = require('pui-react-helpers'),
-    mergeProps = _require.mergeProps;
+var _react = require('react');
 
-var React = require('react');
+var _react2 = _interopRequireDefault(_react);
 
-var _require2 = require('pui-react-svg'),
-    Svg = _require2.Svg;
+var _puiReactSvg = require('pui-react-svg');
 
 require('pui-css-iconography');
 
-var types = React.PropTypes;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var types = _react2.default.PropTypes;
 
 var SvgIcon = function (_Svg) {
   (0, _inherits3.default)(SvgIcon, _Svg);
 
   function SvgIcon() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     (0, _classCallCheck3.default)(this, SvgIcon);
-    return (0, _possibleConstructorReturn3.default)(this, (SvgIcon.__proto__ || (0, _getPrototypeOf2.default)(SvgIcon)).apply(this, arguments));
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = SvgIcon.__proto__ || (0, _getPrototypeOf2.default)(SvgIcon)).call.apply(_ref, [this].concat(args))), _this), _this.svgPathLoader = function (src) {
+      return require('!!babel!svg-react!pui-css-iconography/svgs/' + src + '.svg');
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
 
-  (0, _createClass3.default)(SvgIcon, [{
-    key: 'svgPathLoader',
-    value: function svgPathLoader(src) {
-      return require('!!babel!svg-react!pui-css-iconography/svgs/' + src + '.svg');
-    }
-  }]);
   return SvgIcon;
-}(Svg);
+}(_puiReactSvg.Svg);
 
-var Icon = function (_React$Component) {
+var Icon = exports.Icon = function (_React$Component) {
   (0, _inherits3.default)(Icon, _React$Component);
 
   function Icon() {
@@ -70,28 +80,28 @@ var Icon = function (_React$Component) {
       var _props = this.props,
           src = _props.src,
           style = _props.style,
-          others = (0, _objectWithoutProperties3.default)(_props, ['src', 'style']);
+          verticalAlign = _props.verticalAlign,
+          others = (0, _objectWithoutProperties3.default)(_props, ['src', 'style', 'verticalAlign']);
 
+      var props = (0, _puiReactHelpers.mergeProps)(others, { className: 'svgicon svg-' + verticalAlign });
 
-      var props = mergeProps(others, { className: 'svgicon' });
-      return React.createElement(
+      return _react2.default.createElement(
         'span',
         props,
-        React.createElement(SvgIcon, { src: src, style: style, className: 'icon-' + src, key: src })
+        _react2.default.createElement(SvgIcon, { src: src, style: style, className: 'icon-' + src, key: src })
       );
     }
   }]);
   return Icon;
-}(React.Component);
+}(_react2.default.Component);
 
 Icon.propTypes = {
   src: types.string.isRequired,
-  style: types.object
+  style: types.object,
+  verticalAlign: types.oneOf(['middle', 'baseline'])
 };
 Icon.defaultProps = {
   size: 'inherit',
-  style: {}
+  style: {},
+  verticalAlign: 'middle'
 };
-
-
-module.exports = { Icon: Icon };
