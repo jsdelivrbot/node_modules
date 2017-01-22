@@ -3,24 +3,24 @@
     [
       {
         "name": "tooltipster",
-        "raw": "tooltipster@4.1.6",
-        "rawSpec": "4.1.6",
+        "raw": "tooltipster@4.1.7",
+        "rawSpec": "4.1.7",
         "scope": null,
-        "spec": "4.1.6",
+        "spec": "4.1.7",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "tooltipster@4.1.6",
-  "_id": "tooltipster@4.1.6",
+  "_from": "tooltipster@4.1.7",
+  "_id": "tooltipster@4.1.7",
   "_inCache": true,
   "_installable": true,
   "_location": "/tooltipster",
   "_nodeVersion": "4.5.0",
   "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/tooltipster-4.1.6.tgz_1477990372532_0.511558398604393"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/tooltipster-4.1.7.tgz_1485017990304_0.7819662087131292"
   },
   "_npmUser": {
     "email": "evangun2001@yahoo.fr",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "tooltipster",
-    "raw": "tooltipster@4.1.6",
-    "rawSpec": "4.1.6",
+    "raw": "tooltipster@4.1.7",
+    "rawSpec": "4.1.7",
     "scope": null,
-    "spec": "4.1.6",
+    "spec": "4.1.7",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/tooltipster/-/tooltipster-4.1.6.tgz",
-  "_shasum": "6289907d43c47ca2aae9a90f3a3a19ed31073e7e",
+  "_resolved": "https://registry.npmjs.org/tooltipster/-/tooltipster-4.1.7.tgz",
+  "_shasum": "fff69e5c64a2092ee70580a855a365add4a7edf2",
   "_shrinkwrap": null,
-  "_spec": "tooltipster@4.1.6",
+  "_spec": "tooltipster@4.1.7",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "hello@calebjacob.com",
@@ -67,8 +67,8 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "6289907d43c47ca2aae9a90f3a3a19ed31073e7e",
-    "tarball": "https://registry.npmjs.org/tooltipster/-/tooltipster-4.1.6.tgz"
+    "shasum": "fff69e5c64a2092ee70580a855a365add4a7edf2",
+    "tarball": "https://registry.npmjs.org/tooltipster/-/tooltipster-4.1.7.tgz"
   },
   "homepage": "https://github.com/iamceege/tooltipster",
   "keywords": [
@@ -98,5 +98,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "4.1.6"
+  "version": "4.1.7"
 }
