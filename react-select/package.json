@@ -3,46 +3,46 @@
     [
       {
         "name": "react-select",
-        "raw": "react-select@1.0.0-rc.2",
-        "rawSpec": "1.0.0-rc.2",
+        "raw": "react-select@1.0.0-rc.3",
+        "rawSpec": "1.0.0-rc.3",
         "scope": null,
-        "spec": "1.0.0-rc.2",
+        "spec": "1.0.0-rc.3",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "react-select@1.0.0-rc.2",
-  "_id": "react-select@1.0.0-rc.2",
+  "_from": "react-select@1.0.0-rc.3",
+  "_id": "react-select@1.0.0-rc.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-select",
-  "_nodeVersion": "6.3.1",
+  "_nodeVersion": "7.2.0",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/react-select-1.0.0-rc.2.tgz_1474287224090_0.8404810877982527"
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/react-select-1.0.0-rc.3.tgz_1485874516014_0.7496515417005867"
   },
   "_npmUser": {
     "email": "jed.watson@me.com",
     "name": "jedwatson"
   },
-  "_npmVersion": "3.10.3",
+  "_npmVersion": "3.10.9",
   "_phantomChildren": {},
   "_requested": {
     "name": "react-select",
-    "raw": "react-select@1.0.0-rc.2",
-    "rawSpec": "1.0.0-rc.2",
+    "raw": "react-select@1.0.0-rc.3",
+    "rawSpec": "1.0.0-rc.3",
     "scope": null,
-    "spec": "1.0.0-rc.2",
+    "spec": "1.0.0-rc.3",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/react-select/-/react-select-1.0.0-rc.2.tgz",
-  "_shasum": "9fc11b149a3dc1ac831289d21b40a59742f82f8d",
+  "_resolved": "https://registry.npmjs.org/react-select/-/react-select-1.0.0-rc.3.tgz",
+  "_shasum": "94ade090522153067eff09282d0525249ea1d9e3",
   "_shrinkwrap": null,
-  "_spec": "react-select@1.0.0-rc.2",
+  "_spec": "react-select@1.0.0-rc.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Jed Watson"
@@ -90,10 +90,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "9fc11b149a3dc1ac831289d21b40a59742f82f8d",
-    "tarball": "https://registry.npmjs.org/react-select/-/react-select-1.0.0-rc.2.tgz"
+    "shasum": "94ade090522153067eff09282d0525249ea1d9e3",
+    "tarball": "https://registry.npmjs.org/react-select/-/react-select-1.0.0-rc.3.tgz"
   },
-  "gitHead": "2b144481d773807827befd75b443a6a7568b3e1d",
+  "gitHead": "63a59dcececbc46e341a0b77be8af5b4da790c1d",
   "homepage": "https://github.com/JedWatson/react-select#readme",
   "keywords": [
     "combobox",
@@ -108,6 +108,10 @@
   "license": "MIT",
   "main": "lib/Select.js",
   "maintainers": [
+    {
+      "email": "briandavidvaughn@gmail.com",
+      "name": "brianvaughn"
+    },
     {
       "email": "jed.watson@me.com",
       "name": "jedwatson"
@@ -140,5 +144,5 @@
     "watch": "gulp watch:lib"
   },
   "style": "dist/react-select.min.css",
-  "version": "1.0.0-rc.2"
+  "version": "1.0.0-rc.3"
 }

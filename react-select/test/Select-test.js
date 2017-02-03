@@ -84,6 +84,10 @@ describe('Select', () => {
 		TestUtils.Simulate.keyDown(searchInputNode, { keyCode: 8, key: 'Backspace' });
 	};
 
+	var pressDelete = () => {
+		TestUtils.Simulate.keyDown(searchInputNode, { keyCode: 46, key: 'Backspace' });
+	};
+
 	var pressUp = () => {
 		TestUtils.Simulate.keyDown(getSelectControl(instance), { keyCode: 38, key: 'ArrowUp' });
 	};
@@ -1796,6 +1800,32 @@ describe('Select', () => {
                 </span>);
 		});
 
+		it('removes the last selected option with delete', () => {
+
+			setValueProp(['four','three']);
+			onChange.reset();  // Ignore previous onChange calls
+			pressDelete();
+			expect(onChange, 'was called with', [{ label: 'Four', value: 'four' }]);
+		});
+
+		it('does not remove the last selected option with delete when deleteRemoves=false', () => {
+
+			// Disable delete
+			wrapper.setPropsForChild({
+				deleteRemoves: false,
+				value: ['four', 'three']
+			});
+			onChange.reset();  // Ignore previous onChange calls
+
+			pressDelete();
+			expect(onChange, 'was not called');
+			expect(instance, 'to contain',
+				<span className="Select-multi-value-wrapper">
+                    <div><span className="Select-value-label">Four</span></div>
+                    <div><span className="Select-value-label">Three</span></div>
+                </span>);
+		});
+
 		it('removes an item when clicking on the X', () => {
 
 			setValueProp(['four', 'three', 'two']);
@@ -2222,6 +2252,23 @@ describe('Select', () => {
 				expect(ReactDOM.findDOMNode(instance).querySelector('.Select-clear-zone'), 'to have attributes', {
 					title: 'Remove All Items Test Title'
 				});
+			});
+		});
+
+		describe('clearRenderer', () => {
+
+			beforeEach(() => {
+				instance = createControl({
+					clearable: true,
+					value: 'three',
+					clearRenderer: () => <span className="Select-custom-clear">O</span>,
+					options: defaultOptions
+				});
+			});
+
+			it('renders a custom clear', () => {
+
+				expect(instance, 'to contain', <span className="Select-custom-clear">O</span>);
 			});
 		});
 
@@ -3031,6 +3078,40 @@ describe('Select', () => {
 			});
 		});
 
+		describe('inputRenderer', () => {
+
+			var inputRenderer;
+
+			beforeEach(() => {
+
+				inputRenderer = (inputProps) => {
+					return (
+						<input id="custom-input" type="text" />
+					);
+				};
+
+				inputRenderer = sinon.spy(inputRenderer);
+
+				instance = createControl({
+					options: defaultOptions,
+					inputRenderer: inputRenderer
+				});
+			});
+
+			it('renders the options using the inputRenderer', () => {
+				var input = ReactDOM.findDOMNode(instance).querySelector('#custom-input');
+				expect(input, 'not to equal', undefined);
+			});
+
+			it('calls the renderer exactly once', () => {
+				expect(inputRenderer, 'was called times', 1);
+			});
+
+			it('calls the renderer with props', () => {
+				expect(inputRenderer, 'was called with', { value: '', className: 'Select-input' });
+			});
+		});
+
 		describe('optionRenderer', () => {
 
 			var optionRenderer;
@@ -3797,6 +3878,19 @@ describe('Select', () => {
 					});
 
 			});
+		});
+	});
+
+	describe('.focus()', () => {
+		beforeEach(() => {
+			instance = createControl({});
+		});
+
+		it('focuses the search input', () => {
+			var input = ReactDOM.findDOMNode(instance.input).querySelector('input');
+			expect(input, 'not to equal', document.activeElement);
+			instance.focus();
+			expect(input, 'to equal', document.activeElement);
 		});
 	});
 });

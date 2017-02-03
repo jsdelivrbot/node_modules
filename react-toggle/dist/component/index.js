@@ -26,10 +26,6 @@ var _x2 = _interopRequireDefault(_x);
 
 var _util = require('./util');
 
-var _reactAddonsShallowCompare = require('react-addons-shallow-compare');
-
-var _reactAddonsShallowCompare2 = _interopRequireDefault(_reactAddonsShallowCompare);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -40,8 +36,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Toggle = function (_Component) {
-  _inherits(Toggle, _Component);
+var Toggle = function (_PureComponent) {
+  _inherits(Toggle, _PureComponent);
 
   function Toggle(props) {
     _classCallCheck(this, Toggle);
@@ -147,19 +143,15 @@ var Toggle = function (_Component) {
       return icons[type] === undefined ? Toggle.defaultProps.icons[type] : icons[type];
     }
   }, {
-    key: 'shouldComponentUpdate',
-    value: function shouldComponentUpdate(nextProps, nextState) {
-      return (0, _reactAddonsShallowCompare2.default)(this, nextProps, nextState);
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
-      var _props = this.props,
-          className = _props.className,
-          _icons = _props.icons,
-          inputProps = _objectWithoutProperties(_props, ['className', 'icons']);
+      var _props = this.props;
+      var className = _props.className;
+      var _icons = _props.icons;
+
+      var inputProps = _objectWithoutProperties(_props, ['className', 'icons']);
 
       var classes = (0, _classnames2.default)('react-toggle', {
         'react-toggle--checked': this.state.checked,
@@ -202,7 +194,7 @@ var Toggle = function (_Component) {
   }]);
 
   return Toggle;
-}(_react.Component);
+}(_react.PureComponent);
 
 exports.default = Toggle;
 

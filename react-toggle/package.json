@@ -3,46 +3,46 @@
     [
       {
         "name": "react-toggle",
-        "raw": "react-toggle@2.2.0",
-        "rawSpec": "2.2.0",
+        "raw": "react-toggle@2.2.1",
+        "rawSpec": "2.2.1",
         "scope": null,
-        "spec": "2.2.0",
+        "spec": "2.2.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "react-toggle@2.2.0",
-  "_id": "react-toggle@2.2.0",
+  "_from": "react-toggle@2.2.1",
+  "_id": "react-toggle@2.2.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-toggle",
-  "_nodeVersion": "6.3.1",
+  "_nodeVersion": "7.4.0",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/react-toggle-2.2.0.tgz_1480526544773_0.7044647841248661"
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/react-toggle-2.2.1.tgz_1485805056093_0.919689665781334"
   },
   "_npmUser": {
-    "email": "aaronshaf@gmail.com",
-    "name": "aaronshaf"
+    "email": "hi@ahst.ro",
+    "name": "ahstro"
   },
-  "_npmVersion": "3.10.7",
+  "_npmVersion": "4.1.2",
   "_phantomChildren": {},
   "_requested": {
     "name": "react-toggle",
-    "raw": "react-toggle@2.2.0",
-    "rawSpec": "2.2.0",
+    "raw": "react-toggle@2.2.1",
+    "rawSpec": "2.2.1",
     "scope": null,
-    "spec": "2.2.0",
+    "spec": "2.2.1",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/react-toggle/-/react-toggle-2.2.0.tgz",
-  "_shasum": "43f942ee0b3b093b420e96e745e6c445a6dfb64b",
+  "_resolved": "https://registry.npmjs.org/react-toggle/-/react-toggle-2.2.1.tgz",
+  "_shasum": "ee0f3743c4c92addb2ece43ae0e6cadfb8ba5947",
   "_shrinkwrap": null,
-  "_spec": "react-toggle@2.2.0",
+  "_spec": "react-toggle@2.2.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "aaronshaf@gmail.com",
@@ -77,7 +77,6 @@
     "jsdom": "^9.6.0",
     "mocha": "^3.1.2",
     "react": "^15.3.1",
-    "react-addons-shallow-compare": "^15.3.1",
     "react-dom": "^15.3.1",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2",
@@ -85,10 +84,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "43f942ee0b3b093b420e96e745e6c445a6dfb64b",
-    "tarball": "https://registry.npmjs.org/react-toggle/-/react-toggle-2.2.0.tgz"
+    "shasum": "ee0f3743c4c92addb2ece43ae0e6cadfb8ba5947",
+    "tarball": "https://registry.npmjs.org/react-toggle/-/react-toggle-2.2.1.tgz"
   },
-  "gitHead": "e1f334a263f6ec892c2175d4b3a32b5fe2eec133",
+  "gitHead": "a9c31a05586ee7ac0ec9a3b0d430e00436408344",
   "homepage": "https://github.com/aaronshaf/react-toggle",
   "keywords": [
     "toggle",
@@ -112,6 +111,10 @@
       "name": "brentburgoyne"
     },
     {
+      "email": "nbrempel@gmail.com",
+      "name": "nbrempel"
+    },
+    {
       "email": "tgroshon@gmail.com",
       "name": "tgroshon"
     },
@@ -124,7 +127,6 @@
   "optionalDependencies": {},
   "peerDependencies": {
     "react": "~0.14.0 || ^15.0.0",
-    "react-addons-shallow-compare": "~0.14.0 || ^15.0.0",
     "react-dom": "~0.14.0 || ^15.0.0"
   },
   "readme": "ERROR: No README data found!",
@@ -142,5 +144,5 @@
     "test": "mocha --require babel-register --require spec/setup.js spec/**/*.spec.js"
   },
   "style": "src/style.css",
-  "version": "2.2.0"
+  "version": "2.2.1"
 }
