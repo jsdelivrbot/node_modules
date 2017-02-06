@@ -59,7 +59,7 @@ var SvgIcon = function (_Svg) {
     }
 
     return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = SvgIcon.__proto__ || (0, _getPrototypeOf2.default)(SvgIcon)).call.apply(_ref, [this].concat(args))), _this), _this.svgPathLoader = function (src) {
-      return require('!!babel!svg-react!pui-css-iconography/svgs/' + src + '.svg');
+      return require('!!babel-loader!svg-react-loader!pui-css-iconography/svgs/' + src + '.svg');
     }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
 
@@ -79,16 +79,15 @@ var Icon = exports.Icon = function (_React$Component) {
     value: function render() {
       var _props = this.props,
           src = _props.src,
-          style = _props.style,
           verticalAlign = _props.verticalAlign,
-          others = (0, _objectWithoutProperties3.default)(_props, ['src', 'style', 'verticalAlign']);
+          others = (0, _objectWithoutProperties3.default)(_props, ['src', 'verticalAlign']);
 
       var props = (0, _puiReactHelpers.mergeProps)(others, { className: 'svgicon svg-' + verticalAlign });
 
       return _react2.default.createElement(
         'span',
         props,
-        _react2.default.createElement(SvgIcon, { src: src, style: style, className: 'icon-' + src, key: src })
+        _react2.default.createElement(SvgIcon, { src: src, className: 'icon-' + src, key: src })
       );
     }
   }]);
