@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-react-svg",
-        "raw": "pui-react-svg@^7.5.0",
-        "rawSpec": "^7.5.0",
+        "raw": "pui-react-svg@=7.5.1",
+        "rawSpec": "=7.5.1",
         "scope": null,
-        "spec": ">=7.5.0 <8.0.0",
-        "type": "range"
+        "spec": "7.5.1",
+        "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-iconography"
     ]
   ],
-  "_from": "pui-react-svg@>=7.5.0 <8.0.0",
-  "_id": "pui-react-svg@7.5.0",
+  "_from": "pui-react-svg@7.5.1",
+  "_id": "pui-react-svg@7.5.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-svg",
-  "_nodeVersion": "6.7.0",
+  "_nodeVersion": "6.9.4",
   "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-svg-7.5.0.tgz_1486144114404_0.2858929233625531"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-svg-7.5.1.tgz_1486487374301_0.37615152169018984"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "jadekler@gmail.com",
+    "name": "jadekler"
   },
   "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-svg",
-    "raw": "pui-react-svg@^7.5.0",
-    "rawSpec": "^7.5.0",
+    "raw": "pui-react-svg@=7.5.1",
+    "rawSpec": "=7.5.1",
     "scope": null,
-    "spec": ">=7.5.0 <8.0.0",
-    "type": "range"
+    "spec": "7.5.1",
+    "type": "version"
   },
   "_requiredBy": [
     "/pui-react-iconography"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.0.tgz",
-  "_shasum": "b598bc601b361beeed670ec247fc37469a616a24",
+  "_resolved": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.1.tgz",
+  "_shasum": "12a8e7c492549ee9d0f3b3ad1e0614d40204cb36",
   "_shrinkwrap": null,
-  "_spec": "pui-react-svg@^7.5.0",
+  "_spec": "pui-react-svg@=7.5.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-iconography",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -57,8 +57,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "b598bc601b361beeed670ec247fc37469a616a24",
-    "tarball": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.0.tgz"
+    "shasum": "12a8e7c492549ee9d0f3b3ad1e0614d40204cb36",
+    "tarball": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -114,5 +114,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "7.5.0"
+  "version": "7.5.1"
 }

@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-css-lists",
-        "raw": "pui-css-lists@^7.5.0",
-        "rawSpec": "^7.5.0",
+        "raw": "pui-css-lists@=7.5.1",
+        "rawSpec": "=7.5.1",
         "scope": null,
-        "spec": ">=7.5.0 <8.0.0",
-        "type": "range"
+        "spec": "7.5.1",
+        "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-draggable-list"
     ]
   ],
-  "_from": "pui-css-lists@>=7.5.0 <8.0.0",
-  "_id": "pui-css-lists@7.5.0",
+  "_from": "pui-css-lists@7.5.1",
+  "_id": "pui-css-lists@7.5.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-lists",
-  "_nodeVersion": "6.7.0",
+  "_nodeVersion": "6.9.4",
   "_npmOperationalInternal": {
     "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-lists-7.5.0.tgz_1486143915675_0.2169710653834045"
+    "tmp": "tmp/pui-css-lists-7.5.1.tgz_1486487207284_0.07391238026320934"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "jadekler@gmail.com",
+    "name": "jadekler"
   },
   "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-lists",
-    "raw": "pui-css-lists@^7.5.0",
-    "rawSpec": "^7.5.0",
+    "raw": "pui-css-lists@=7.5.1",
+    "rawSpec": "=7.5.1",
     "scope": null,
-    "spec": ">=7.5.0 <8.0.0",
-    "type": "range"
+    "spec": "7.5.1",
+    "type": "version"
   },
   "_requiredBy": [
     "/pui-react-draggable-list"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-lists/-/pui-css-lists-7.5.0.tgz",
-  "_shasum": "c2aa626349c8c34498a4a3e377271e1981bca034",
+  "_resolved": "https://registry.npmjs.org/pui-css-lists/-/pui-css-lists-7.5.1.tgz",
+  "_shasum": "eb2567ebaf3632575c78b4fd82a876ea755d4c2a",
   "_shrinkwrap": null,
-  "_spec": "pui-css-lists@^7.5.0",
+  "_spec": "pui-css-lists@=7.5.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-draggable-list",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-typography": "^7.5.0"
+    "pui-css-typography": "=7.5.1"
   },
   "description": "lists css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "c2aa626349c8c34498a4a3e377271e1981bca034",
-    "tarball": "https://registry.npmjs.org/pui-css-lists/-/pui-css-lists-7.5.0.tgz"
+    "shasum": "eb2567ebaf3632575c78b4fd82a876ea755d4c2a",
+    "tarball": "https://registry.npmjs.org/pui-css-lists/-/pui-css-lists-7.5.1.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -148,5 +148,5 @@
   },
   "scripts": {},
   "style": "lists.css",
-  "version": "7.5.0"
+  "version": "7.5.1"
 }
