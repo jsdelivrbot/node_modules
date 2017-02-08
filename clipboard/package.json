@@ -3,24 +3,24 @@
     [
       {
         "name": "clipboard",
-        "raw": "clipboard@1.5.16",
-        "rawSpec": "1.5.16",
+        "raw": "clipboard@1.6.0",
+        "rawSpec": "1.6.0",
         "scope": null,
-        "spec": "1.5.16",
+        "spec": "1.6.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "clipboard@1.5.16",
-  "_id": "clipboard@1.5.16",
+  "_from": "clipboard@1.6.0",
+  "_id": "clipboard@1.6.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/clipboard",
   "_nodeVersion": "6.9.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/clipboard-1.5.16.tgz_1481551118075_0.8001045684795827"
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/clipboard-1.6.0.tgz_1486540950610_0.7517849381547421"
   },
   "_npmUser": {
     "email": "zno.rocha@gmail.com",
@@ -30,26 +30,26 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "clipboard",
-    "raw": "clipboard@1.5.16",
-    "rawSpec": "1.5.16",
+    "raw": "clipboard@1.6.0",
+    "rawSpec": "1.6.0",
     "scope": null,
-    "spec": "1.5.16",
+    "spec": "1.6.0",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/clipboard/-/clipboard-1.5.16.tgz",
-  "_shasum": "916d5e739b0064be61b0b48a535731ecaef3d367",
+  "_resolved": "https://registry.npmjs.org/clipboard/-/clipboard-1.6.0.tgz",
+  "_shasum": "e308641d10b1d70306be881ae8997ee71bcc1534",
   "_shrinkwrap": null,
-  "_spec": "clipboard@1.5.16",
+  "_spec": "clipboard@1.6.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "bugs": {
     "url": "https://github.com/zenorocha/clipboard.js/issues"
   },
   "dependencies": {
     "good-listener": "^1.2.0",
-    "select": "^1.0.6",
+    "select": "^1.1.2",
     "tiny-emitter": "^1.0.0"
   },
   "description": "Modern copy to clipboard. No Flash. Just 2kb",
@@ -77,10 +77,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "916d5e739b0064be61b0b48a535731ecaef3d367",
-    "tarball": "https://registry.npmjs.org/clipboard/-/clipboard-1.5.16.tgz"
+    "shasum": "e308641d10b1d70306be881ae8997ee71bcc1534",
+    "tarball": "https://registry.npmjs.org/clipboard/-/clipboard-1.6.0.tgz"
   },
-  "gitHead": "402c9ee17bed6f273bcbc7efa81874fd9a50b84c",
+  "gitHead": "a00f1fe32784f823db7bce3a3ec5d7fc8e3f9eab",
   "homepage": "https://github.com/zenorocha/clipboard.js#readme",
   "keywords": [
     "clipboard",
@@ -110,5 +110,5 @@
     "prepublish": "babel src --out-dir lib",
     "test": "karma start --single-run"
   },
-  "version": "1.5.16"
+  "version": "1.6.0"
 }
