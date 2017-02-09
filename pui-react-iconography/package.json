@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-iconography",
-        "raw": "pui-react-iconography@7.5.1",
-        "rawSpec": "7.5.1",
+        "raw": "pui-react-iconography@7.5.2",
+        "rawSpec": "7.5.2",
         "scope": null,
-        "spec": "7.5.1",
+        "spec": "7.5.2",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-iconography@7.5.1",
-  "_id": "pui-react-iconography@7.5.1",
+  "_from": "pui-react-iconography@7.5.2",
+  "_id": "pui-react-iconography@7.5.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-iconography",
   "_nodeVersion": "6.9.4",
   "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-iconography-7.5.1.tgz_1486487315923_0.1402800204232335"
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-react-iconography-7.5.2.tgz_1486583281417_0.28639320214278996"
   },
   "_npmUser": {
     "email": "jadekler@gmail.com",
@@ -33,20 +33,20 @@
   },
   "_requested": {
     "name": "pui-react-iconography",
-    "raw": "pui-react-iconography@7.5.1",
-    "rawSpec": "7.5.1",
+    "raw": "pui-react-iconography@7.5.2",
+    "rawSpec": "7.5.2",
     "scope": null,
-    "spec": "7.5.1",
+    "spec": "7.5.2",
     "type": "version"
   },
   "_requiredBy": [
     "/",
     "/pui-react-draggable-list"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-7.5.1.tgz",
-  "_shasum": "3a43fd519613e6d456018c2ae48dd85b5c54b257",
+  "_resolved": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-7.5.2.tgz",
+  "_shasum": "eee7ed3e1e4cd1d49d2bf5e6980de57567a3ec4c",
   "_shrinkwrap": null,
-  "_spec": "pui-react-iconography@7.5.1",
+  "_spec": "pui-react-iconography@7.5.2",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -56,16 +56,16 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-iconography": "=7.5.1",
-    "pui-react-helpers": "=7.5.1",
-    "pui-react-svg": "=7.5.1"
+    "pui-css-iconography": "=7.5.2",
+    "pui-react-helpers": "=7.5.2",
+    "pui-react-svg": "=7.5.2"
   },
   "description": "A React component for rendering Font Awesome icons",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "3a43fd519613e6d456018c2ae48dd85b5c54b257",
-    "tarball": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-7.5.1.tgz"
+    "shasum": "eee7ed3e1e4cd1d49d2bf5e6980de57567a3ec4c",
+    "tarball": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-7.5.2.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -157,5 +157,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "7.5.1"
+  "version": "7.5.2"
 }

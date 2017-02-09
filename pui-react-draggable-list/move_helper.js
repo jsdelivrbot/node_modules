@@ -22,3 +22,5 @@ exports.default = function (collection, startIndex, endIndex) {
 
   return collection;
 };
+
+module.exports = exports["default"];
