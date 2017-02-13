@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-css-lists",
-        "raw": "pui-css-lists@=7.5.2",
-        "rawSpec": "=7.5.2",
+        "raw": "pui-css-lists@=7.5.4",
+        "rawSpec": "=7.5.4",
         "scope": null,
-        "spec": "7.5.2",
+        "spec": "7.5.4",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-draggable-list"
     ]
   ],
-  "_from": "pui-css-lists@7.5.2",
-  "_id": "pui-css-lists@7.5.2",
+  "_from": "pui-css-lists@7.5.4",
+  "_id": "pui-css-lists@7.5.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-lists",
   "_nodeVersion": "6.9.4",
   "_npmOperationalInternal": {
     "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/pui-css-lists-7.5.2.tgz_1486583182481_0.03497242438606918"
+    "tmp": "tmp/pui-css-lists-7.5.4.tgz_1486748803609_0.536814165301621"
   },
   "_npmUser": {
     "email": "jadekler@gmail.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-lists",
-    "raw": "pui-css-lists@=7.5.2",
-    "rawSpec": "=7.5.2",
+    "raw": "pui-css-lists@=7.5.4",
+    "rawSpec": "=7.5.4",
     "scope": null,
-    "spec": "7.5.2",
+    "spec": "7.5.4",
     "type": "version"
   },
   "_requiredBy": [
     "/pui-react-draggable-list"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-lists/-/pui-css-lists-7.5.2.tgz",
-  "_shasum": "a145747b3ee27bc50a3aa8a62013c77e7ade2113",
+  "_resolved": "https://registry.npmjs.org/pui-css-lists/-/pui-css-lists-7.5.4.tgz",
+  "_shasum": "45323c43263cafdf22d58aed60bac1ffdae5802d",
   "_shrinkwrap": null,
-  "_spec": "pui-css-lists@=7.5.2",
+  "_spec": "pui-css-lists@=7.5.4",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-draggable-list",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-typography": "=7.5.2"
+    "pui-css-typography": "=7.5.4"
   },
   "description": "lists css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "a145747b3ee27bc50a3aa8a62013c77e7ade2113",
-    "tarball": "https://registry.npmjs.org/pui-css-lists/-/pui-css-lists-7.5.2.tgz"
+    "shasum": "45323c43263cafdf22d58aed60bac1ffdae5802d",
+    "tarball": "https://registry.npmjs.org/pui-css-lists/-/pui-css-lists-7.5.4.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -148,5 +148,5 @@
   },
   "scripts": {},
   "style": "lists.css",
-  "version": "7.5.2"
+  "version": "7.5.4"
 }

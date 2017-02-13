@@ -39,9 +39,9 @@ var defaults = {
 		IEmin: 6,
 		interactive: false,
 		multiple: false,
-		// must be 'body' for now, or an element positioned at (0, 0)
+		// will default to document.body, or must be an element positioned at (0, 0)
 		// in the document, typically like the very top views of an app.
-		parent: 'body',
+		parent: null,
 		plugins: ['sideTip'],
 		repositionOnScroll: false,
 		restoration: 'none',
@@ -89,7 +89,7 @@ var defaults = {
 		hasTransitions: transitionSupport(),
 		IE: false,
 		// don't set manually, it will be updated by a build task after the manifest
-		semVer: '4.1.7',
+		semVer: '4.1.8',
 		window: win
 	},
 	core = function() {
@@ -568,7 +568,7 @@ $.Tooltipster.prototype = {
 			
 			// to detect swiping
 			if (env.hasTouchCapability) {
-				$('body').on('touchmove.'+ self.__namespace +'-triggerOpen', function(event) {
+				$(env.window.document.body).on('touchmove.'+ self.__namespace +'-triggerOpen', function(event) {
 					self._touchRecordEvent(event);
 				});
 			}
@@ -963,7 +963,10 @@ $.Tooltipster.prototype = {
 		}
 		
 		// determine the future parent
-		if (typeof this.__options.parent == 'string') {
+		if (this.__options.parent === null) {
+			this.__options.parent = $(env.window.document.body);
+		}
+		else if (typeof this.__options.parent == 'string') {
 			this.__options.parent = $(this.__options.parent);
 		}
 		
@@ -1541,7 +1544,7 @@ $.Tooltipster.prototype = {
 						// clear the array to prevent memory leaks
 						self.__$originParents = null;
 						
-						$('body').off('.'+ self.__namespace +'-triggerClose');
+						$(env.window.document.body).off('.'+ self.__namespace +'-triggerClose');
 						
 						self._$origin.off('.'+ self.__namespace +'-triggerClose');
 						
@@ -1985,7 +1988,9 @@ $.Tooltipster.prototype = {
 									
 									if (self.__state != 'closed') {
 										
-										var eventNames = '';
+										var eventNames = '',
+											$body = $(env.window.document.body);
+										
 										if (self.__options.triggerClose.click) {
 											eventNames += 'click.'+ self.__namespace +'-triggerClose ';
 										}
@@ -1993,7 +1998,7 @@ $.Tooltipster.prototype = {
 											eventNames += 'touchend.'+ self.__namespace +'-triggerClose';
 										}
 										
-										$('body').on(eventNames, function(event) {
+										$body.on(eventNames, function(event) {
 											
 											if (self._touchIsMeaningfulEvent(event)) {
 												
@@ -2008,7 +2013,7 @@ $.Tooltipster.prototype = {
 										// needed to detect and ignore swiping
 										if (self.__options.triggerClose.tap && env.hasTouchCapability) {
 											
-											$('body').on('touchstart.'+ self.__namespace +'-triggerClose', function(event) {
+											$body.on('touchstart.'+ self.__namespace +'-triggerClose', function(event) {
 												self._touchRecordEvent(event);
 											});
 										}
@@ -2507,7 +2512,7 @@ $.Tooltipster.prototype = {
 						.off('.'+ self.__namespace +'-triggerOpen');
 					
 					// remove the touch listener
-					$('body').off('.' + self.__namespace +'-triggerOpen');
+					$(env.window.document.body).off('.' + self.__namespace +'-triggerOpen');
 					
 					var ns = self._$origin.data('tooltipster-ns');
 					
@@ -3092,7 +3097,7 @@ Ruler.prototype = {
 		
 		this.$container = $('<div class="tooltipster-ruler"></div>')
 			.append(this.__$tooltip)
-			.appendTo('body');
+			.appendTo(env.window.document.body);
 	},
 	
 	/**

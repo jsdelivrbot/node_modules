@@ -61,7 +61,7 @@ var Svg = exports.Svg = function (_React$Component) {
     key: 'svgPathLoader',
     value: function svgPathLoader(src) {
       try {
-        return require('!!babel-loader!svg-react-loader!../pui-css-iconography/svgs/' + src + '.svg');
+        return require('!!babel!svg-react!../../app/svg/' + src + '.svg');
       } catch (e) {}
     }
   }, {
