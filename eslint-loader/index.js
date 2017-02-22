@@ -5,6 +5,7 @@ var crypto = require("crypto")
 var fs = require("fs")
 var findCacheDir = require("find-cache-dir")
 var objectHash = require("object-hash")
+var os = require("os")
 
 var engines = {}
 var cache = null
@@ -147,7 +148,7 @@ module.exports = function(input, map) {
     // user defaults
     this.options.eslint || {},
     // loader query string
-    loaderUtils.parseQuery(this.query)
+    loaderUtils.getOptions(this)
   )
   this.cacheable()
 
@@ -165,7 +166,7 @@ module.exports = function(input, map) {
         thunk: true,
         create: true,
       })
-      cachePath = thunk("data.json")
+      cachePath = thunk("data.json") || os.tmpdir() + "/data.json"
       try {
         cache = require(cachePath)
       }
