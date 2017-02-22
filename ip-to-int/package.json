@@ -1,0 +1,94 @@
+{
+  "_args": [
+    [
+      {
+        "name": "ip-to-int",
+        "raw": "ip-to-int@0.3.1",
+        "rawSpec": "0.3.1",
+        "scope": null,
+        "spec": "0.3.1",
+        "type": "version"
+      },
+      "/tmp/build/88bfaeb5/gpcc/frontend"
+    ]
+  ],
+  "_from": "ip-to-int@0.3.1",
+  "_id": "ip-to-int@0.3.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/ip-to-int",
+  "_nodeVersion": "4.4.3",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/ip-to-int-0.3.1.tgz_1464206588661_0.34337898064404726"
+  },
+  "_npmUser": {
+    "email": "joshua.marquez.n@gmail.com",
+    "name": "joshua.marquez"
+  },
+  "_npmVersion": "2.15.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "ip-to-int",
+    "raw": "ip-to-int@0.3.1",
+    "rawSpec": "0.3.1",
+    "scope": null,
+    "spec": "0.3.1",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/ip-to-int/-/ip-to-int-0.3.1.tgz",
+  "_shasum": "4eb315c2d0e604010047515db499e38b1fb3ef40",
+  "_shrinkwrap": null,
+  "_spec": "ip-to-int@0.3.1",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
+  "author": {
+    "email": "joshua.marquezn@gmail.com",
+    "name": "Joshua Marquez"
+  },
+  "bugs": {
+    "url": "https://github.com/joshuamarquez/node-ip-to-int/issues"
+  },
+  "dependencies": {},
+  "description": "IP to Integer converter for Node.js",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "4eb315c2d0e604010047515db499e38b1fb3ef40",
+    "tarball": "https://registry.npmjs.org/ip-to-int/-/ip-to-int-0.3.1.tgz"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "gitHead": "2f86d63df2d1d206063638069b5576309599abd7",
+  "homepage": "https://github.com/joshuamarquez/node-ip-to-int#readme",
+  "keywords": [
+    "ipv4",
+    "ip",
+    "integer",
+    "int",
+    "decimal",
+    "converter"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "email": "joshua.marquez.n@gmail.com",
+      "name": "joshua.marquez"
+    }
+  ],
+  "name": "ip-to-int",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/joshuamarquez/node-ip-to-int.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.3.1"
+}
