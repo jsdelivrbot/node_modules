@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-draggable-list",
-        "raw": "pui-react-draggable-list@7.5.4",
-        "rawSpec": "7.5.4",
+        "raw": "pui-react-draggable-list@7.5.5",
+        "rawSpec": "7.5.5",
         "scope": null,
-        "spec": "7.5.4",
+        "spec": "7.5.5",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-draggable-list@7.5.4",
-  "_id": "pui-react-draggable-list@7.5.4",
+  "_from": "pui-react-draggable-list@7.5.5",
+  "_id": "pui-react-draggable-list@7.5.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-draggable-list",
   "_nodeVersion": "6.9.4",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-draggable-list-7.5.4.tgz_1486748887760_0.09804882085882127"
+    "tmp": "tmp/pui-react-draggable-list-7.5.5.tgz_1488989873980_0.8223591931164265"
   },
   "_npmUser": {
     "email": "jadekler@gmail.com",
@@ -33,19 +33,19 @@
   },
   "_requested": {
     "name": "pui-react-draggable-list",
-    "raw": "pui-react-draggable-list@7.5.4",
-    "rawSpec": "7.5.4",
+    "raw": "pui-react-draggable-list@7.5.5",
+    "rawSpec": "7.5.5",
     "scope": null,
-    "spec": "7.5.4",
+    "spec": "7.5.5",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-draggable-list/-/pui-react-draggable-list-7.5.4.tgz",
-  "_shasum": "c0d6077bc31d5eb1ffb000fa3c112658f9f5d83f",
+  "_resolved": "https://registry.npmjs.org/pui-react-draggable-list/-/pui-react-draggable-list-7.5.5.tgz",
+  "_shasum": "0e6529ced67a229d76c974406d2b22aaea303e0e",
   "_shrinkwrap": null,
-  "_spec": "pui-react-draggable-list@7.5.4",
+  "_spec": "pui-react-draggable-list@7.5.5",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -56,16 +56,16 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
-    "pui-css-lists": "=7.5.4",
-    "pui-react-helpers": "=7.5.4",
-    "pui-react-iconography": "=7.5.4"
+    "pui-css-lists": "=7.5.5",
+    "pui-react-helpers": "=7.5.5",
+    "pui-react-iconography": "=7.5.5"
   },
   "description": "A React component for showing a list of items that can be re-ordered by the user",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "c0d6077bc31d5eb1ffb000fa3c112658f9f5d83f",
-    "tarball": "https://registry.npmjs.org/pui-react-draggable-list/-/pui-react-draggable-list-7.5.4.tgz"
+    "shasum": "0e6529ced67a229d76c974406d2b22aaea303e0e",
+    "tarball": "https://registry.npmjs.org/pui-react-draggable-list/-/pui-react-draggable-list-7.5.5.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -153,5 +153,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "7.5.4"
+  "version": "7.5.5"
 }
