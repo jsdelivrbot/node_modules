@@ -3,50 +3,51 @@
     [
       {
         "name": "eslint-loader",
-        "raw": "eslint-loader@1.6.3",
-        "rawSpec": "1.6.3",
+        "raw": "eslint-loader@1.7.0",
+        "rawSpec": "1.7.0",
         "scope": null,
-        "spec": "1.6.3",
+        "spec": "1.7.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "eslint-loader@1.6.3",
-  "_id": "eslint-loader@1.6.3",
+  "_from": "eslint-loader@1.7.0",
+  "_id": "eslint-loader@1.7.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/eslint-loader",
-  "_nodeVersion": "6.9.2",
+  "_nodeVersion": "6.10.0",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/eslint-loader-1.6.3.tgz_1487761666411_0.4448649410624057"
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/eslint-loader-1.7.0.tgz_1490251170824_0.15904216095805168"
   },
   "_npmUser": {
     "email": "m@moox.io",
     "name": "moox"
   },
-  "_npmVersion": "3.10.9",
+  "_npmVersion": "3.10.10",
   "_phantomChildren": {
     "big.js": "3.1.3",
     "emojis-list": "2.1.0",
+    "glob": "7.0.5",
     "json5": "0.5.1"
   },
   "_requested": {
     "name": "eslint-loader",
-    "raw": "eslint-loader@1.6.3",
-    "rawSpec": "1.6.3",
+    "raw": "eslint-loader@1.7.0",
+    "rawSpec": "1.7.0",
     "scope": null,
-    "spec": "1.6.3",
+    "spec": "1.7.0",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/eslint-loader/-/eslint-loader-1.6.3.tgz",
-  "_shasum": "52fdcb32e9e8355108f8380dad4efe51a28986f9",
+  "_resolved": "https://registry.npmjs.org/eslint-loader/-/eslint-loader-1.7.0.tgz",
+  "_shasum": "9813e77046730191ab399938732dff7960c639cb",
   "_shrinkwrap": null,
-  "_spec": "eslint-loader@1.6.3",
+  "_spec": "eslint-loader@1.7.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Maxime Thirouin"
@@ -62,9 +63,11 @@
   },
   "dependencies": {
     "find-cache-dir": "^0.1.1",
+    "loader-fs-cache": "^1.0.0",
     "loader-utils": "^1.0.2",
     "object-assign": "^4.0.1",
-    "object-hash": "^1.1.4"
+    "object-hash": "^1.1.4",
+    "rimraf": "^2.6.1"
   },
   "description": "eslint loader (for webpack)",
   "devDependencies": {
@@ -76,13 +79,13 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "52fdcb32e9e8355108f8380dad4efe51a28986f9",
-    "tarball": "https://registry.npmjs.org/eslint-loader/-/eslint-loader-1.6.3.tgz"
+    "shasum": "9813e77046730191ab399938732dff7960c639cb",
+    "tarball": "https://registry.npmjs.org/eslint-loader/-/eslint-loader-1.7.0.tgz"
   },
   "files": [
     "index.js"
   ],
-  "gitHead": "d7f003dad82304f1d433dfb247848c6ae6d86e27",
+  "gitHead": "966157cd74b7a99777ae0724a750e4c95acb1854",
   "homepage": "https://github.com/MoOx/eslint-loader#readme",
   "keywords": [
     "lint",
@@ -114,5 +117,5 @@
     "release": "npmpub",
     "test": "npm run lint && npm run ava"
   },
-  "version": "1.6.3"
+  "version": "1.7.0"
 }
