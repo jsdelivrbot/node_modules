@@ -3,24 +3,24 @@
     [
       {
         "name": "eslint-loader",
-        "raw": "eslint-loader@1.7.0",
-        "rawSpec": "1.7.0",
+        "raw": "eslint-loader@1.7.1",
+        "rawSpec": "1.7.1",
         "scope": null,
-        "spec": "1.7.0",
+        "spec": "1.7.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "eslint-loader@1.7.0",
-  "_id": "eslint-loader@1.7.0",
+  "_from": "eslint-loader@1.7.1",
+  "_id": "eslint-loader@1.7.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/eslint-loader",
   "_nodeVersion": "6.10.0",
   "_npmOperationalInternal": {
     "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/eslint-loader-1.7.0.tgz_1490251170824_0.15904216095805168"
+    "tmp": "tmp/eslint-loader-1.7.1.tgz_1490938160482_0.14041294530034065"
   },
   "_npmUser": {
     "email": "m@moox.io",
@@ -35,19 +35,19 @@
   },
   "_requested": {
     "name": "eslint-loader",
-    "raw": "eslint-loader@1.7.0",
-    "rawSpec": "1.7.0",
+    "raw": "eslint-loader@1.7.1",
+    "rawSpec": "1.7.1",
     "scope": null,
-    "spec": "1.7.0",
+    "spec": "1.7.1",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/eslint-loader/-/eslint-loader-1.7.0.tgz",
-  "_shasum": "9813e77046730191ab399938732dff7960c639cb",
+  "_resolved": "https://registry.npmjs.org/eslint-loader/-/eslint-loader-1.7.1.tgz",
+  "_shasum": "50b158dd6272dcefb97e984254837f81a5802ce0",
   "_shrinkwrap": null,
-  "_spec": "eslint-loader@1.7.0",
+  "_spec": "eslint-loader@1.7.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Maxime Thirouin"
@@ -79,13 +79,13 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "9813e77046730191ab399938732dff7960c639cb",
-    "tarball": "https://registry.npmjs.org/eslint-loader/-/eslint-loader-1.7.0.tgz"
+    "shasum": "50b158dd6272dcefb97e984254837f81a5802ce0",
+    "tarball": "https://registry.npmjs.org/eslint-loader/-/eslint-loader-1.7.1.tgz"
   },
   "files": [
     "index.js"
   ],
-  "gitHead": "966157cd74b7a99777ae0724a750e4c95acb1854",
+  "gitHead": "56ad1d8fa13fd8215d58cc2341524b3ac044b4bd",
   "homepage": "https://github.com/MoOx/eslint-loader#readme",
   "keywords": [
     "lint",
@@ -117,5 +117,5 @@
     "release": "npmpub",
     "test": "npm run lint && npm run ava"
   },
-  "version": "1.7.0"
+  "version": "1.7.1"
 }

@@ -13,20 +13,20 @@
     ]
   ],
   "_from": "loader-fs-cache@>=1.0.0 <2.0.0",
-  "_id": "loader-fs-cache@1.0.0",
+  "_id": "loader-fs-cache@1.0.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/loader-fs-cache",
-  "_nodeVersion": "7.4.0",
+  "_nodeVersion": "6.9.5",
   "_npmOperationalInternal": {
     "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/loader-fs-cache-1.0.0.tgz_1488230471128_0.20648591499775648"
+    "tmp": "tmp/loader-fs-cache-1.0.1.tgz_1490291523753_0.3486142177134752"
   },
   "_npmUser": {
     "email": "viankakrisna@gmail.com",
     "name": "viankakrisna"
   },
-  "_npmVersion": "4.0.5",
+  "_npmVersion": "3.10.10",
   "_phantomChildren": {},
   "_requested": {
     "name": "loader-fs-cache",
@@ -39,8 +39,8 @@
   "_requiredBy": [
     "/eslint-loader"
   ],
-  "_resolved": "https://registry.npmjs.org/loader-fs-cache/-/loader-fs-cache-1.0.0.tgz",
-  "_shasum": "bbfc18ff4d986dcd39b41d0570fd752f08366340",
+  "_resolved": "https://registry.npmjs.org/loader-fs-cache/-/loader-fs-cache-1.0.1.tgz",
+  "_shasum": "56e0bf08bd9708b26a765b68509840c8dec9fdbc",
   "_shrinkwrap": null,
   "_spec": "loader-fs-cache@^1.0.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/eslint-loader",
@@ -48,15 +48,17 @@
     "name": "Ade Viankakrisna Fadlil"
   },
   "dependencies": {
-    "find-cache-dir": "^0.1.1"
+    "find-cache-dir": "^0.1.1",
+    "mkdirp": "0.5.1"
   },
   "description": "A published package of https://github.com/babel/babel-loader/blob/master/src/fs-cache.js",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "bbfc18ff4d986dcd39b41d0570fd752f08366340",
-    "tarball": "https://registry.npmjs.org/loader-fs-cache/-/loader-fs-cache-1.0.0.tgz"
+    "shasum": "56e0bf08bd9708b26a765b68509840c8dec9fdbc",
+    "tarball": "https://registry.npmjs.org/loader-fs-cache/-/loader-fs-cache-1.0.1.tgz"
   },
+  "gitHead": "f0cf502dd4618075b11d064d61d72188a4ca6724",
   "license": "ISC",
   "main": "index.js",
   "maintainers": [
@@ -71,5 +73,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
