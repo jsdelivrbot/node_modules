@@ -1,50 +1,113 @@
 {
-  "name": "style-loader",
-  "version": "0.8.3",
+  "_args": [
+    [
+      {
+        "name": "style-loader",
+        "raw": "style-loader@0.16.1",
+        "rawSpec": "0.16.1",
+        "scope": null,
+        "spec": "0.16.1",
+        "type": "version"
+      },
+      "/tmp/build/88bfaeb5/gpcc/frontend"
+    ]
+  ],
+  "_from": "style-loader@0.16.1",
+  "_id": "style-loader@0.16.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/style-loader",
+  "_nodeVersion": "7.7.4",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/style-loader-0.16.1.tgz_1490707737929_0.08060540654696524"
+  },
+  "_npmUser": {
+    "email": "wiens.joshua@gmail.com",
+    "name": "d3viant0ne"
+  },
+  "_npmVersion": "4.1.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "style-loader",
+    "raw": "style-loader@0.16.1",
+    "rawSpec": "0.16.1",
+    "scope": null,
+    "spec": "0.16.1",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/style-loader/-/style-loader-0.16.1.tgz",
+  "_shasum": "50e325258d4e78421dd9680636b41e8661595d10",
+  "_shrinkwrap": null,
+  "_spec": "style-loader@0.16.1",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Tobias Koppers @sokra"
   },
-  "description": "style loader module for webpack",
-  "devDependencies": {
-    "css-loader": "~0.8.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:webpack/style-loader.git"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
-    }
-  ],
-  "dependencies": {
-    "loader-utils": "^0.2.5"
-  },
-  "gitHead": "5e375d894f6744f586a520401e6eba1fbdf0d6bd",
   "bugs": {
     "url": "https://github.com/webpack/style-loader/issues"
   },
-  "homepage": "https://github.com/webpack/style-loader",
-  "_id": "style-loader@0.8.3",
-  "scripts": {},
-  "_shasum": "f4f92eb7db63768748f15065cd6700f5a1c85357",
-  "_from": "style-loader@>=0.8.0 <0.9.0",
-  "_npmVersion": "1.4.23",
-  "_npmUser": {
-    "name": "sokra",
-    "email": "tobias.koppers@googlemail.com"
+  "dependencies": {
+    "loader-utils": "^1.0.2"
   },
-  "maintainers": [
-    {
-      "name": "sokra",
-      "email": "tobias.koppers@googlemail.com"
-    }
-  ],
-  "dist": {
-    "shasum": "f4f92eb7db63768748f15065cd6700f5a1c85357",
-    "tarball": "http://registry.npmjs.org/style-loader/-/style-loader-0.8.3.tgz"
+  "description": "style loader module for webpack",
+  "devDependencies": {
+    "css-loader": "^0.27.3",
+    "file-loader": "^0.10.1",
+    "jsdom": "^9.11.0",
+    "memory-fs": "^0.4.1",
+    "mocha": "^3.2.0",
+    "standard-version": "^4.0.0",
+    "webpack": "^2.2.1"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/style-loader/-/style-loader-0.8.3.tgz"
+  "dist": {
+    "shasum": "50e325258d4e78421dd9680636b41e8661595d10",
+    "tarball": "https://registry.npmjs.org/style-loader/-/style-loader-0.16.1.tgz"
+  },
+  "gitHead": "5f56f9fd56aab7965d4eba28019d6e6079f5d610",
+  "homepage": "https://github.com/webpack/style-loader#readme",
+  "license": "MIT",
+  "maintainers": [
+    {
+      "email": "bebraw@gmail.com",
+      "name": "bebraw"
+    },
+    {
+      "email": "wiens.joshua@gmail.com",
+      "name": "d3viant0ne"
+    },
+    {
+      "email": "eric@smarterspam.com",
+      "name": "ericclemmons"
+    },
+    {
+      "email": "mail@johannesewald.de",
+      "name": "jhnns"
+    },
+    {
+      "email": "tobias.koppers@googlemail.com",
+      "name": "sokra"
+    },
+    {
+      "email": "sean.larkin@cuw.edu",
+      "name": "thelarkinn"
+    }
+  ],
+  "name": "style-loader",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/webpack/style-loader.git"
+  },
+  "scripts": {
+    "release": "yarn run standard-version",
+    "test": "mocha",
+    "travis:test": "yarn run test"
+  },
+  "version": "0.16.1"
 }

@@ -3,30 +3,30 @@
     [
       {
         "name": "react-bootstrap",
-        "raw": "react-bootstrap@0.30.9",
-        "rawSpec": "0.30.9",
+        "raw": "react-bootstrap@0.30.10",
+        "rawSpec": "0.30.10",
         "scope": null,
-        "spec": "0.30.9",
+        "spec": "0.30.10",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "react-bootstrap@0.30.9",
-  "_id": "react-bootstrap@0.30.9",
+  "_from": "react-bootstrap@0.30.10",
+  "_id": "react-bootstrap@0.30.10",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-bootstrap",
-  "_nodeVersion": "7.8.0",
+  "_nodeVersion": "6.10.0",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/react-bootstrap-0.30.9.tgz_1492557099310_0.8659471152350307"
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/react-bootstrap-0.30.10.tgz_1492785602212_0.658936854917556"
   },
   "_npmUser": {
-    "email": "tesrin@gmail.com",
-    "name": "taion"
+    "email": "monastic.panic@gmail.com",
+    "name": "monastic.panic"
   },
-  "_npmVersion": "4.4.4",
+  "_npmVersion": "3.10.10",
   "_phantomChildren": {
     "classnames": "2.2.5",
     "react-prop-types": "0.4.0",
@@ -34,19 +34,19 @@
   },
   "_requested": {
     "name": "react-bootstrap",
-    "raw": "react-bootstrap@0.30.9",
-    "rawSpec": "0.30.9",
+    "raw": "react-bootstrap@0.30.10",
+    "rawSpec": "0.30.10",
     "scope": null,
-    "spec": "0.30.9",
+    "spec": "0.30.10",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-0.30.9.tgz",
-  "_shasum": "acdb20119fac189fd6546257cb741f463d4cd965",
+  "_resolved": "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-0.30.10.tgz",
+  "_shasum": "dbba6909595f2af4d91937db0f96ec8c2df2d1a8",
   "_shrinkwrap": null,
-  "_spec": "react-bootstrap@0.30.9",
+  "_spec": "react-bootstrap@0.30.10",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "stevoland@gmail.com",
@@ -61,6 +61,7 @@
     "dom-helpers": "^3.2.0",
     "invariant": "^2.2.1",
     "keycode": "^2.1.2",
+    "prop-types": "^15.5.6",
     "react-overlays": "^0.6.12",
     "react-prop-types": "^0.4.0",
     "uncontrollable": "^4.0.1",
@@ -125,7 +126,6 @@
     "nodemon": "^1.9.2",
     "output-file-sync": "^1.1.2",
     "portfinder": "^1.0.3",
-    "prop-types": "^15.5.6",
     "react": "^15.4.0",
     "react-addons-test-utils": "^15.4.0",
     "react-component-metadata": "^3.1.0",
@@ -147,8 +147,8 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "acdb20119fac189fd6546257cb741f463d4cd965",
-    "tarball": "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-0.30.9.tgz"
+    "shasum": "dbba6909595f2af4d91937db0f96ec8c2df2d1a8",
+    "tarball": "https://registry.npmjs.org/react-bootstrap/-/react-bootstrap-0.30.10.tgz"
   },
   "files": [
     "CHANGELOG.md",
@@ -156,7 +156,7 @@
     "dist",
     "es"
   ],
-  "gitHead": "f84bebede966af0da9cb68fe55316a7cd587461b",
+  "gitHead": "5d3a9e823f0a85c5f8921a55dc77a29f0c467066",
   "homepage": "https://react-bootstrap.github.io/",
   "jsnext:main": "es/index.js",
   "keywords": [
@@ -214,5 +214,5 @@
     "test-browser": "cross-env NODE_ENV=test karma start --single-run",
     "test-node": "mocha --compilers js:babel-register test/server/*Spec.js"
   },
-  "version": "0.30.9"
+  "version": "0.30.10"
 }

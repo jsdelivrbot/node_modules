@@ -10,14 +10,29 @@ var stylesInDom = {},
 			return memo;
 		};
 	},
-	isIE9 = memoize(function() {
-		return /msie 9\b/.test(window.navigator.userAgent.toLowerCase());
+	isOldIE = memoize(function() {
+		// Test for IE <= 9 as proposed by Browserhacks
+		// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+		// Tests for existence of standard globals is to allow style-loader 
+		// to operate correctly into non-standard environments
+		// @see https://github.com/webpack-contrib/style-loader/issues/177
+		return window && document && document.all && !window.atob;
 	}),
-	getHeadElement = memoize(function () {
-		return document.head || document.getElementsByTagName("head")[0];
+	getElement = (function(fn) {
+		var memo = {};
+		return function(selector) {
+			if (typeof memo[selector] === "undefined") {
+				memo[selector] = fn.call(this, selector);
+			}
+			return memo[selector]
+		};
+	})(function (styleTarget) {
+		return document.querySelector(styleTarget)
 	}),
 	singletonElement = null,
-	singletonCounter = 0;
+	singletonCounter = 0,
+	styleElementsInsertedAtTop = [],
+	fixUrls = require("./fixUrls");
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -25,9 +40,17 @@ module.exports = function(list, options) {
 	}
 
 	options = options || {};
-	// Force single-tag solution on IE9, which has a hard limit on the # of <style>
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 	// tags it will allow on a page
-	if (typeof options.singleton === "undefined") options.singleton = isIE9();
+	if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+	if (typeof options.insertInto === "undefined") options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
 
 	var styles = listToStyles(list);
 	addStylesToDom(styles, options);
@@ -53,7 +76,7 @@ module.exports = function(list, options) {
 			}
 		}
 	};
-}
+};
 
 function addStylesToDom(styles, options) {
 	for(var i = 0; i < styles.length; i++) {
@@ -95,12 +118,59 @@ function listToStyles(list) {
 	return styles;
 }
 
-function createStyleElement() {
+function insertStyleElement(options, styleElement) {
+	var styleTarget = getElement(options.insertInto)
+	if (!styleTarget) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+	var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+	if (options.insertAt === "top") {
+		if(!lastStyleElementInsertedAtTop) {
+			styleTarget.insertBefore(styleElement, styleTarget.firstChild);
+		} else if(lastStyleElementInsertedAtTop.nextSibling) {
+			styleTarget.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			styleTarget.appendChild(styleElement);
+		}
+		styleElementsInsertedAtTop.push(styleElement);
+	} else if (options.insertAt === "bottom") {
+		styleTarget.appendChild(styleElement);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement(styleElement) {
+	styleElement.parentNode.removeChild(styleElement);
+	var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+	if(idx >= 0) {
+		styleElementsInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement(options) {
 	var styleElement = document.createElement("style");
-	var head = getHeadElement();
-	styleElement.type = "text/css";
-	head.appendChild(styleElement);
+	options.attrs.type = "text/css";
+
+	attachTagAttrs(styleElement, options.attrs);
+	insertStyleElement(options, styleElement);
 	return styleElement;
+}
+
+function createLinkElement(options) {
+	var linkElement = document.createElement("link");
+	options.attrs.type = "text/css";
+	options.attrs.rel = "stylesheet";
+
+	attachTagAttrs(linkElement, options.attrs);
+	insertStyleElement(options, linkElement);
+	return linkElement;
+}
+
+function attachTagAttrs(element, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		element.setAttribute(key, attrs[key]);
+	});
 }
 
 function addStyle(obj, options) {
@@ -108,14 +178,27 @@ function addStyle(obj, options) {
 
 	if (options.singleton) {
 		var styleIndex = singletonCounter++;
-		styleElement = singletonElement || (singletonElement = createStyleElement());
+		styleElement = singletonElement || (singletonElement = createStyleElement(options));
 		update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
 		remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+	} else if(obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function") {
+		styleElement = createLinkElement(options);
+		update = updateLink.bind(null, styleElement, options);
+		remove = function() {
+			removeStyleElement(styleElement);
+			if(styleElement.href)
+				URL.revokeObjectURL(styleElement.href);
+		};
 	} else {
-		styleElement = createStyleElement();
+		styleElement = createStyleElement(options);
 		update = applyToTag.bind(null, styleElement);
-		remove = function () {
-			styleElement.parentNode.removeChild(styleElement);
+		remove = function() {
+			removeStyleElement(styleElement);
 		};
 	}
 
@@ -132,25 +215,20 @@ function addStyle(obj, options) {
 	};
 }
 
-function replaceText(source, id, replacement) {
-	var boundaries = ["/** >>" + id + " **/", "/** " + id + "<< **/"];
-	var start = source.lastIndexOf(boundaries[0]);
-	var wrappedReplacement = replacement
-		? (boundaries[0] + replacement + boundaries[1])
-		: "";
-	if (source.lastIndexOf(boundaries[0]) >= 0) {
-		var end = source.lastIndexOf(boundaries[1]) + boundaries[1].length;
-		return source.slice(0, start) + wrappedReplacement + source.slice(end);
-	} else {
-		return source + wrappedReplacement;
-	}
-}
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
 
 function applyToSingletonTag(styleElement, index, remove, obj) {
 	var css = remove ? "" : obj.css;
 
-	if(styleElement.styleSheet) {
-		styleElement.styleSheet.cssText = replaceText(styleElement.styleSheet.cssText, index, css);
+	if (styleElement.styleSheet) {
+		styleElement.styleSheet.cssText = replaceText(index, css);
 	} else {
 		var cssNode = document.createTextNode(css);
 		var childNodes = styleElement.childNodes;
@@ -166,14 +244,6 @@ function applyToSingletonTag(styleElement, index, remove, obj) {
 function applyToTag(styleElement, obj) {
 	var css = obj.css;
 	var media = obj.media;
-	var sourceMap = obj.sourceMap;
-
-	if(sourceMap && typeof btoa === "function") {
-		try {
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(JSON.stringify(sourceMap)) + " */";
-			css = "@import url(\"data:text/css;base64," + btoa(css) + "\")";
-		} catch(e) {}
-	}
 
 	if(media) {
 		styleElement.setAttribute("media", media)
@@ -187,4 +257,34 @@ function applyToTag(styleElement, obj) {
 		}
 		styleElement.appendChild(document.createTextNode(css));
 	}
+}
+
+function updateLink(linkElement, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/* If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+	and there is no publicPath defined then lets turn convertToAbsoluteUrls
+	on by default.  Otherwise default to the convertToAbsoluteUrls option
+	directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls){
+		css = fixUrls(css);
+	}
+
+	if(sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = linkElement.href;
+
+	linkElement.href = URL.createObjectURL(blob);
+
+	if(oldSrc)
+		URL.revokeObjectURL(oldSrc);
 }

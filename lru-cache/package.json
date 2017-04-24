@@ -3,47 +3,42 @@
     [
       {
         "name": "lru-cache",
-        "raw": "lru-cache@^4.0.1",
-        "rawSpec": "^4.0.1",
+        "raw": "lru-cache@2.2.x",
+        "rawSpec": "2.2.x",
         "scope": null,
-        "spec": ">=4.0.1 <5.0.0",
+        "spec": ">=2.2.0 <2.3.0",
         "type": "range"
       },
-      "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/cross-spawn"
+      "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/useragent"
     ]
   ],
-  "_from": "lru-cache@>=4.0.1 <5.0.0",
-  "_id": "lru-cache@4.0.2",
+  "_from": "lru-cache@>=2.2.0 <2.3.0",
+  "_id": "lru-cache@2.2.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/lru-cache",
-  "_nodeVersion": "6.5.0",
-  "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/lru-cache-4.0.2.tgz_1480273800672_0.31606275402009487"
-  },
   "_npmUser": {
     "email": "i@izs.me",
     "name": "isaacs"
   },
-  "_npmVersion": "3.10.9",
+  "_npmVersion": "1.2.15",
   "_phantomChildren": {},
   "_requested": {
     "name": "lru-cache",
-    "raw": "lru-cache@^4.0.1",
-    "rawSpec": "^4.0.1",
+    "raw": "lru-cache@2.2.x",
+    "rawSpec": "2.2.x",
     "scope": null,
-    "spec": ">=4.0.1 <5.0.0",
+    "spec": ">=2.2.0 <2.3.0",
     "type": "range"
   },
   "_requiredBy": [
-    "/cross-spawn"
+    "/useragent"
   ],
-  "_resolved": "https://registry.npmjs.org/lru-cache/-/lru-cache-4.0.2.tgz",
-  "_shasum": "1d17679c069cda5d040991a09dbc2c0db377e55e",
+  "_resolved": "https://registry.npmjs.org/lru-cache/-/lru-cache-2.2.4.tgz",
+  "_shasum": "6c658619becf14031d0d0b594b16042ce4dc063d",
   "_shrinkwrap": null,
-  "_spec": "lru-cache@^4.0.1",
-  "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/cross-spawn",
+  "_spec": "lru-cache@2.2.x",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/useragent",
   "author": {
     "email": "i@izs.me",
     "name": "Isaac Z. Schlueter"
@@ -51,40 +46,57 @@
   "bugs": {
     "url": "https://github.com/isaacs/node-lru-cache/issues"
   },
-  "dependencies": {
-    "pseudomap": "^1.0.1",
-    "yallist": "^2.0.0"
-  },
+  "contributors": [
+    {
+      "email": "i@izs.me",
+      "name": "Isaac Z. Schlueter"
+    },
+    {
+      "email": "carlos@carloslage.net",
+      "name": "Carlos Brito Lage"
+    },
+    {
+      "email": "marko.mikulicic@isti.cnr.it",
+      "name": "Marko Mikulicic"
+    },
+    {
+      "email": "trentm@gmail.com",
+      "name": "Trent Mick"
+    },
+    {
+      "email": "kevinohara80@gmail.com",
+      "name": "Kevin O'Hara"
+    },
+    {
+      "email": "marco.rogers@gmail.com",
+      "name": "Marco Rogers"
+    },
+    {
+      "email": "jesse.dailey@gmail.com",
+      "name": "Jesse Dailey"
+    }
+  ],
+  "dependencies": {},
   "description": "A cache object that deletes the least-recently-used items.",
   "devDependencies": {
-    "standard": "^5.4.1",
-    "tap": "^8.0.1"
+    "tap": "",
+    "weak": ""
   },
   "directories": {},
   "dist": {
-    "shasum": "1d17679c069cda5d040991a09dbc2c0db377e55e",
-    "tarball": "https://registry.npmjs.org/lru-cache/-/lru-cache-4.0.2.tgz"
+    "shasum": "6c658619becf14031d0d0b594b16042ce4dc063d",
+    "tarball": "https://registry.npmjs.org/lru-cache/-/lru-cache-2.2.4.tgz"
   },
-  "files": [
-    "lib/lru-cache.js"
-  ],
-  "gitHead": "f25bdae0b4bb0166a75fa01d664a3e3cece1ce98",
   "homepage": "https://github.com/isaacs/node-lru-cache#readme",
-  "keywords": [
-    "mru",
-    "lru",
-    "cache"
-  ],
-  "license": "ISC",
+  "license": {
+    "type": "MIT",
+    "url": "http://github.com/isaacs/node-lru-cache/raw/master/LICENSE"
+  },
   "main": "lib/lru-cache.js",
   "maintainers": [
     {
-      "email": "isaacs@npmjs.com",
+      "email": "i@izs.me",
       "name": "isaacs"
-    },
-    {
-      "email": "ogd@aoaioxxysz.net",
-      "name": "othiym23"
     }
   ],
   "name": "lru-cache",
@@ -95,8 +107,7 @@
     "url": "git://github.com/isaacs/node-lru-cache.git"
   },
   "scripts": {
-    "posttest": "standard test/*.js lib/*.js",
-    "test": "tap test --100"
+    "test": "tap test --gc"
   },
-  "version": "4.0.2"
+  "version": "2.2.4"
 }
