@@ -6,7 +6,6 @@
  * LICENSE file in the root directory of this source tree. An additional grant
  * of patent rights can be found in the PATENTS file in the same directory.
  *
- * @providesModule React
  */
 
 'use strict';
@@ -15,6 +14,7 @@ var _assign = require('object-assign');
 
 var ReactChildren = require('./ReactChildren');
 var ReactComponent = require('./ReactComponent');
+var ReactPureComponent = require('./ReactPureComponent');
 var ReactClass = require('./ReactClass');
 var ReactDOMFactories = require('./ReactDOMFactories');
 var ReactElement = require('./ReactElement');
@@ -29,7 +29,9 @@ var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
+  var canDefineProperty = require('./canDefineProperty');
   var ReactElementValidator = require('./ReactElementValidator');
+  var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
   cloneElement = ReactElementValidator.cloneElement;
@@ -59,6 +61,7 @@ var React = {
   },
 
   Component: ReactComponent,
+  PureComponent: ReactPureComponent,
 
   createElement: createElement,
   cloneElement: cloneElement,
@@ -83,5 +86,18 @@ var React = {
   // Deprecated hook for JSX spread, don't use this for anything.
   __spread: __spread
 };
+
+// TODO: Fix tests so that this deprecation warning doesn't cause failures.
+if (process.env.NODE_ENV !== 'production') {
+  if (canDefineProperty) {
+    Object.defineProperty(React, 'PropTypes', {
+      get: function () {
+        process.env.NODE_ENV !== 'production' ? warning(didWarnPropTypesDeprecated, 'Accessing PropTypes via the main React package is deprecated. Use ' + 'the prop-types package from npm instead.') : void 0;
+        didWarnPropTypesDeprecated = true;
+        return ReactPropTypes;
+      }
+    });
+  }
+}
 
 module.exports = React;
