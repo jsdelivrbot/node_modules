@@ -145,7 +145,7 @@ Configuration for webpack-dev-middleware.
 ### `beforeMiddleware`
 
 `beforeMiddleware` is a webpack option that allows injecting middleware before
-karma's own middleware are run. This loader provides a `webpackBlocker`
+karama's own middleware are run. This loader provides a `webpackBlocker`
 middleware that will block tests from running until code recompiles. That is,
 given this scenario:
 
