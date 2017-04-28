@@ -2,40 +2,47 @@
 	MIT License http://www.opensource.org/licenses/mit-license.php
 	Author Tobias Koppers @sokra
 */
-var path = require("path");
+var loaderUtils = require("loader-utils"),
+	path = require("path");
 module.exports = function() {};
 module.exports.pitch = function(remainingRequest) {
-	this.cacheable && this.cacheable();
+	if(this.cacheable) this.cacheable();
+	var query = loaderUtils.getOptions(this) || {};
 	return [
 		"var refs = 0;",
 		"var dispose;",
+		"var content = require(" + loaderUtils.stringifyRequest(this, "!!" + remainingRequest) + ");",
+		"if(typeof content === 'string') content = [[module.id, content, '']];",
+		"if(content.locals) exports.locals = content.locals;",
 		"exports.use = exports.ref = function() {",
 		"	if(!(refs++)) {",
-		"		var content = require(" + JSON.stringify("!!" + remainingRequest) + ")",
-		"		if(typeof content === 'string') content = [[module.id, content, '']];",
-		"		dispose = require(" + JSON.stringify("!" + path.join(__dirname, "addStyles.js")) + ")(content);",
+		"		dispose = require(" + loaderUtils.stringifyRequest(this, "!" + path.join(__dirname, "addStyles.js")) + ")(content, " + JSON.stringify(query) + ");",
 		"	}",
-		"	return exports",
+		"	return exports;",
 		"};",
 		"exports.unuse = exports.unref = function() {",
-		"	if(!(--refs)) {",
+		"       if(refs > 0 && !(--refs)) {",
 		"		dispose();",
 		"		dispose = null;",
 		"	}",
 		"};",
 		"if(module.hot) {",
-		"	refs = module.hot.data && module.hot.data.refs || 0;",
-		"	if(refs) {",
-		"		refs--;",
+		"	var lastRefs = module.hot.data && module.hot.data.refs || 0;",
+		"	if(lastRefs) {",
 		"		exports.ref();",
+		"		if(!content.locals) {",
+		"			refs = lastRefs;",
+		"		}",
 		"	}",
-		"	module.hot.accept();",
+		"	if(!content.locals) {",
+		"		module.hot.accept();",
+		"	}",
 		"	module.hot.dispose(function(data) {",
-		"		data.refs = refs;",
+		"		data.refs = content.locals ? 0 : refs;",
 		"		if(dispose) {",
 		"			dispose();",
 		"		}",
 		"	});",
-		"}",
+		"}"
 	].join("\n");
 };
