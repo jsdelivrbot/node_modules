@@ -3,24 +3,24 @@
     [
       {
         "name": "tooltipster",
-        "raw": "tooltipster@4.2.4",
-        "rawSpec": "4.2.4",
+        "raw": "tooltipster@4.2.5",
+        "rawSpec": "4.2.5",
         "scope": null,
-        "spec": "4.2.4",
+        "spec": "4.2.5",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "tooltipster@4.2.4",
-  "_id": "tooltipster@4.2.4",
+  "_from": "tooltipster@4.2.5",
+  "_id": "tooltipster@4.2.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/tooltipster",
   "_nodeVersion": "6.9.5",
   "_npmOperationalInternal": {
     "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/tooltipster-4.2.4.tgz_1493328449592_0.20920091541483998"
+    "tmp": "tmp/tooltipster-4.2.5.tgz_1493389191311_0.5191242459695786"
   },
   "_npmUser": {
     "email": "evangun2001@yahoo.fr",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "tooltipster",
-    "raw": "tooltipster@4.2.4",
-    "rawSpec": "4.2.4",
+    "raw": "tooltipster@4.2.5",
+    "rawSpec": "4.2.5",
     "scope": null,
-    "spec": "4.2.4",
+    "spec": "4.2.5",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/tooltipster/-/tooltipster-4.2.4.tgz",
-  "_shasum": "a543cebc4d4bc705391ef27a975a0857a186b49d",
+  "_resolved": "https://registry.npmjs.org/tooltipster/-/tooltipster-4.2.5.tgz",
+  "_shasum": "e492fc3984576418f8c18b1aaee1456c1bd8b0a9",
   "_shrinkwrap": null,
-  "_spec": "tooltipster@4.2.4",
+  "_spec": "tooltipster@4.2.5",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "hello@calebjacob.com",
@@ -67,8 +67,8 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "a543cebc4d4bc705391ef27a975a0857a186b49d",
-    "tarball": "https://registry.npmjs.org/tooltipster/-/tooltipster-4.2.4.tgz"
+    "shasum": "e492fc3984576418f8c18b1aaee1456c1bd8b0a9",
+    "tarball": "https://registry.npmjs.org/tooltipster/-/tooltipster-4.2.5.tgz"
   },
   "homepage": "https://github.com/iamceege/tooltipster",
   "keywords": [
@@ -98,5 +98,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "4.2.4"
+  "version": "4.2.5"
 }
