@@ -3,24 +3,24 @@
     [
       {
         "name": "webpack",
-        "raw": "webpack@2.5.0",
-        "rawSpec": "2.5.0",
+        "raw": "webpack@2.5.1",
+        "rawSpec": "2.5.1",
         "scope": null,
-        "spec": "2.5.0",
+        "spec": "2.5.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "webpack@2.5.0",
-  "_id": "webpack@2.5.0",
+  "_from": "webpack@2.5.1",
+  "_id": "webpack@2.5.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/webpack",
   "_nodeVersion": "7.4.0",
   "_npmOperationalInternal": {
     "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/webpack-2.5.0.tgz_1493893058251_0.6332980373408645"
+    "tmp": "tmp/webpack-2.5.1.tgz_1494101276975_0.570454575587064"
   },
   "_npmUser": {
     "email": "tobias.koppers@googlemail.com",
@@ -51,19 +51,19 @@
   },
   "_requested": {
     "name": "webpack",
-    "raw": "webpack@2.5.0",
-    "rawSpec": "2.5.0",
+    "raw": "webpack@2.5.1",
+    "rawSpec": "2.5.1",
     "scope": null,
-    "spec": "2.5.0",
+    "spec": "2.5.1",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/webpack/-/webpack-2.5.0.tgz",
-  "_shasum": "5a17089f8d0e43442e606d6cf9b2a146c8ed9911",
+  "_resolved": "https://registry.npmjs.org/webpack/-/webpack-2.5.1.tgz",
+  "_shasum": "61742f0cf8af555b87460a9cd8bba2f1e3ee2fce",
   "_shrinkwrap": null,
-  "_spec": "webpack@2.5.0",
+  "_spec": "webpack@2.5.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Tobias Koppers @sokra"
@@ -141,8 +141,8 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "5a17089f8d0e43442e606d6cf9b2a146c8ed9911",
-    "tarball": "https://registry.npmjs.org/webpack/-/webpack-2.5.0.tgz"
+    "shasum": "61742f0cf8af555b87460a9cd8bba2f1e3ee2fce",
+    "tarball": "https://registry.npmjs.org/webpack/-/webpack-2.5.1.tgz"
   },
   "engines": {
     "node": ">=4.3.0 <5.0.0 || >=5.10"
@@ -155,7 +155,7 @@
     "web_modules/",
     "schemas/"
   ],
-  "gitHead": "bf3652b16b65c27db5243aa0d674e2de4a8ccde9",
+  "gitHead": "ad2f68f1f21602750ad891ea89a926806acbc95f",
   "homepage": "https://github.com/webpack/webpack",
   "license": "MIT",
   "main": "lib/webpack.js",
@@ -200,6 +200,6 @@
     "travis:lint": "npm run lint-files && npm run nsp",
     "travis:test": "npm run cover:min"
   },
-  "version": "2.5.0",
+  "version": "2.5.1",
   "web": "lib/webpack.web.js"
 }

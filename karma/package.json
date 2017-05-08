@@ -3,30 +3,30 @@
     [
       {
         "name": "karma",
-        "raw": "karma@1.6.0",
-        "rawSpec": "1.6.0",
+        "raw": "karma@1.7.0",
+        "rawSpec": "1.7.0",
         "scope": null,
-        "spec": "1.6.0",
+        "spec": "1.7.0",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "karma@1.6.0",
-  "_id": "karma@1.6.0",
+  "_from": "karma@1.7.0",
+  "_id": "karma@1.7.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/karma",
-  "_nodeVersion": "7.2.1",
+  "_nodeVersion": "7.9.0",
   "_npmOperationalInternal": {
     "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/karma-1.6.0.tgz_1491406002950_0.6314460865687579"
+    "tmp": "tmp/karma-1.7.0.tgz_1494062178212_0.14078618143685162"
   },
   "_npmUser": {
     "email": "dignifiedquire@gmail.com",
     "name": "dignifiedquire"
   },
-  "_npmVersion": "4.3.0",
+  "_npmVersion": "4.5.0",
   "_phantomChildren": {
     "fs.realpath": "1.0.0",
     "inflight": "1.0.6",
@@ -37,19 +37,19 @@
   },
   "_requested": {
     "name": "karma",
-    "raw": "karma@1.6.0",
-    "rawSpec": "1.6.0",
+    "raw": "karma@1.7.0",
+    "rawSpec": "1.7.0",
     "scope": null,
-    "spec": "1.6.0",
+    "spec": "1.7.0",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/karma/-/karma-1.6.0.tgz",
-  "_shasum": "0e871d4527d5eac56c41d181f03c5c0a7e6dbf3e",
+  "_resolved": "https://registry.npmjs.org/karma/-/karma-1.7.0.tgz",
+  "_shasum": "6f7a1a406446fa2e187ec95398698f4cee476269",
   "_shrinkwrap": null,
-  "_spec": "karma@1.6.0",
+  "_spec": "karma@1.7.0",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "vojta.jina@gmail.com",
@@ -107,28 +107,28 @@
       "name": "Ciro Nunes"
     },
     {
-      "email": "tim@gfxmonk.net",
-      "name": "Tim Cuthbertson"
-    },
-    {
       "email": "pkozlowski.opensource@gmail.com",
       "name": "Pawel Kozlowski"
     },
     {
-      "email": "shyamseshadri@gmail.com",
-      "name": "Shyam Seshadri"
+      "email": "hop2deep@gmail.com",
+      "name": "Robo"
     },
     {
       "email": "mark@zzo.com",
       "name": "Mark Trostler"
     },
     {
+      "email": "tim@gfxmonk.net",
+      "name": "Tim Cuthbertson"
+    },
+    {
       "email": "christi@n-bud.de",
       "name": "Christian Budde Christensen"
     },
     {
-      "email": "hop2deep@gmail.com",
-      "name": "Robo"
+      "email": "shyamseshadri@gmail.com",
+      "name": "Shyam Seshadri"
     },
     {
       "email": "mark@zzo.com",
@@ -139,12 +139,12 @@
       "name": "Mourad"
     },
     {
-      "email": "m.goleb@gmail.com",
-      "name": "Michał Gołębiowski"
-    },
-    {
       "email": "vivek@vivekganesan.com",
       "name": "vivganes"
+    },
+    {
+      "email": "m.goleb@gmail.com",
+      "name": "Michał Gołębiowski"
     },
     {
       "email": "desk@danielcompton.net",
@@ -155,28 +155,12 @@
       "name": "Kim Joar Bekkelund"
     },
     {
-      "email": "nmalaguti@palantir.com",
-      "name": "Nick Malaguti"
-    },
-    {
       "email": "joshjb84@hotmail.com",
       "name": "joshjb84"
     },
     {
-      "email": "pavelgj@gmail.com",
-      "name": "pavelgj"
-    },
-    {
-      "email": "chriscasola@gmail.com",
-      "name": "Chris Casola"
-    },
-    {
-      "email": "sylvainhamel0@gmail.com",
-      "name": "sylvain-hamel"
-    },
-    {
-      "email": "Iristyle@github",
-      "name": "Iristyle"
+      "email": "nmalaguti@palantir.com",
+      "name": "Nick Malaguti"
     },
     {
       "email": "ivolodin@vistaprint.com",
@@ -187,12 +171,40 @@
       "name": "Andrew Martin"
     },
     {
+      "email": "chriscasola@gmail.com",
+      "name": "Chris Casola"
+    },
+    {
+      "email": "m.goleb@gmail.com",
+      "name": "Michał Gołębiowski"
+    },
+    {
       "email": "jeffjewiss@gmail.com",
       "name": "Jeff Jewiss"
     },
     {
+      "email": "marcello.nuccio@gmail.com",
+      "name": "Marcello Nuccio"
+    },
+    {
+      "email": "pavelgj@gmail.com",
+      "name": "pavelgj"
+    },
+    {
       "email": "davidsouther@gmail.com",
       "name": "David Souther"
+    },
+    {
+      "email": "sylvainhamel0@gmail.com",
+      "name": "sylvain-hamel"
+    },
+    {
+      "email": "code@daniel.priv.no",
+      "name": "Daniel Aleksandersen"
+    },
+    {
+      "email": "Iristyle@github",
+      "name": "Iristyle"
     },
     {
       "email": "btford@umich.edu",
@@ -203,24 +215,12 @@
       "name": "Aymeric Beaumet"
     },
     {
-      "email": "marcello.nuccio@gmail.com",
-      "name": "Marcello Nuccio"
-    },
-    {
       "email": "jeremy.judeaux@volune.net",
       "name": "Jérémy Judéaux"
     },
     {
-      "email": "code@daniel.priv.no",
-      "name": "Daniel Aleksandersen"
-    },
-    {
       "email": "matthew.lewis@socialsignin.co.uk",
       "name": "Matt Lewis"
-    },
-    {
-      "email": "jonas.pommerening@aixigo.de",
-      "name": "Jonas Pommerening"
     },
     {
       "email": "ngiebel@starkinvestments.com",
@@ -244,8 +244,8 @@
       "name": "Sammy Jelin"
     },
     {
-      "email": "voltrevo@gmail.com",
-      "name": "Andrew Morris"
+      "email": "pt@bebop.co",
+      "name": "Pat Tullmann"
     },
     {
       "email": "support@greenkeeper.io",
@@ -336,8 +336,8 @@
       "name": "Vladimir Starkov"
     },
     {
-      "email": "pt@bebop.co",
-      "name": "Pat Tullmann"
+      "email": "jonas.pommerening@aixigo.de",
+      "name": "Jonas Pommerening"
     },
     {
       "email": "ethan_j_brown@hotmail.com",
@@ -352,12 +352,12 @@
       "name": "PatrickJS"
     },
     {
-      "email": "luke.a.page@gmail.com",
-      "name": "Luke Page"
-    },
-    {
       "email": "david@parsson.se",
       "name": "David Pärsson"
+    },
+    {
+      "email": "luke.a.page@gmail.com",
+      "name": "Luke Page"
     },
     {
       "email": "james@talmage.io",
@@ -372,12 +372,12 @@
       "name": "comdiv"
     },
     {
-      "email": "rwharrington87@gmail.com",
-      "name": "Richard Harrington"
-    },
-    {
       "email": "mallluhuct@gmail.com",
       "name": "Bulat Shakirzyanov"
+    },
+    {
+      "email": "rwharrington87@gmail.com",
+      "name": "Richard Harrington"
     },
     {
       "email": "roarke.gaskill@gmail.com",
@@ -392,16 +392,16 @@
       "name": "karmarunnerbot"
     },
     {
+      "email": "voltrevo@gmail.com",
+      "name": "Andrew Morris"
+    },
+    {
       "email": "robin.gnail@gmail.com",
       "name": "Robin Liang"
     },
     {
       "email": "ruben.bridgewater@fintura.de",
       "name": "Ruben Bridgewater"
-    },
-    {
-      "email": "jurko.gospodnetic@pke.hr",
-      "name": "Jurko Gospodnetić"
     },
     {
       "email": "jridgewell@users.noreply.github.com",
@@ -446,6 +446,10 @@
     {
       "email": "lenny@itslennysfault.com",
       "name": "Lenny Urbanowski"
+    },
+    {
+      "email": "just.another.michaelv@gmail.com",
+      "name": "LoveIsGrief"
     },
     {
       "email": "lucastheisen@pastdev.com",
@@ -518,10 +522,6 @@
     {
       "email": "merrick.christensen@gmail.com",
       "name": "Merrick Christensen"
-    },
-    {
-      "email": "m.goleb@gmail.com",
-      "name": "Michał Gołębiowski"
     },
     {
       "email": "mike21@aol.pl",
@@ -642,6 +642,10 @@
     {
       "email": "philip@mailharrison.com",
       "name": "Philip Harrison"
+    },
+    {
+      "email": "piperchester@users.noreply.github.com",
+      "name": "Piper Chester"
     },
     {
       "email": "rl@stamina.pl",
@@ -1259,6 +1263,10 @@
     {
       "email": "julian.connor@venmo.com",
       "name": "Julian Connor"
+    },
+    {
+      "email": "jurko.gospodnetic@pke.hr",
+      "name": "Jurko Gospodnetić"
     }
   ],
   "dependencies": {
@@ -1315,6 +1323,7 @@
     "grunt-conventional-changelog": "^6.0.1",
     "grunt-conventional-github-releaser": "^1.0.0",
     "grunt-cucumberjs": "^1.0.0",
+    "grunt-eslint": "^19.0.0",
     "grunt-mocha-test": "^0.13.2",
     "grunt-npm": "0.0.2",
     "http2": "^3.3.6",
@@ -1359,13 +1368,13 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "0e871d4527d5eac56c41d181f03c5c0a7e6dbf3e",
-    "tarball": "https://registry.npmjs.org/karma/-/karma-1.6.0.tgz"
+    "shasum": "6f7a1a406446fa2e187ec95398698f4cee476269",
+    "tarball": "https://registry.npmjs.org/karma/-/karma-1.7.0.tgz"
   },
   "engines": {
     "node": "0.10 || 0.12 || 4 || 5 || 6 || 7"
   },
-  "gitHead": "03958ce307893a3b615b301cc944742058ab161d",
+  "gitHead": "2a847c250bb62134d87f5230d97be8483d4a13cf",
   "homepage": "http://karma-runner.github.io/",
   "keywords": [
     "karma",
@@ -1421,5 +1430,5 @@
     "travis": "npm run build && npm test && npm run test:integration",
     "unlink": "node --eval \"require('fs').unlinkSync(require('path').resolve(__dirname, 'node_modules', 'karma'))\""
   },
-  "version": "1.6.0"
+  "version": "1.7.0"
 }
