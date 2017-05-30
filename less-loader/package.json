@@ -3,46 +3,46 @@
     [
       {
         "name": "less-loader",
-        "raw": "less-loader@4.0.3",
-        "rawSpec": "4.0.3",
+        "raw": "less-loader@4.0.4",
+        "rawSpec": "4.0.4",
         "scope": null,
-        "spec": "4.0.3",
+        "spec": "4.0.4",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "less-loader@4.0.3",
-  "_id": "less-loader@4.0.3",
+  "_from": "less-loader@4.0.4",
+  "_id": "less-loader@4.0.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/less-loader",
-  "_nodeVersion": "7.7.3",
+  "_nodeVersion": "7.10.0",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/less-loader-4.0.3.tgz_1490897838453_0.23240861087106168"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/less-loader-4.0.4.tgz_1496150993848_0.3434112824033946"
   },
   "_npmUser": {
-    "email": "mail@johannesewald.de",
-    "name": "jhnns"
+    "email": "wiens.joshua@gmail.com",
+    "name": "d3viant0ne"
   },
-  "_npmVersion": "4.4.4",
+  "_npmVersion": "4.2.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "less-loader",
-    "raw": "less-loader@4.0.3",
-    "rawSpec": "4.0.3",
+    "raw": "less-loader@4.0.4",
+    "rawSpec": "4.0.4",
     "scope": null,
-    "spec": "4.0.3",
+    "spec": "4.0.4",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/less-loader/-/less-loader-4.0.3.tgz",
-  "_shasum": "d1e6462ca2f090c11248455e14b8dda4616d0521",
+  "_resolved": "https://registry.npmjs.org/less-loader/-/less-loader-4.0.4.tgz",
+  "_shasum": "b4a8c43843e65c67d2ea2eb1465b5c4233d5006a",
   "_shrinkwrap": null,
-  "_spec": "less-loader@4.0.3",
+  "_spec": "less-loader@4.0.4",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Johannes Ewald @jhnns"
@@ -58,7 +58,7 @@
   "description": "Less loader for webpack. Compiles Less to CSS.",
   "devDependencies": {
     "babel-cli": "^6.24.0",
-    "babel-jest": "^19.0.0",
+    "babel-jest": "^20.0.3",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-env": "^1.2.2",
@@ -68,7 +68,7 @@
     "eslint-config-webpack": "^1.2.1",
     "eslint-plugin-import": "^2.2.0",
     "inspect-loader": "^1.0.0",
-    "jest": "^19.0.2",
+    "jest": "^20.0.3",
     "less": "^2.3.1",
     "lint-staged": "^3.4.0",
     "nodemon": "^1.11.0",
@@ -76,22 +76,22 @@
     "pre-commit": "^1.2.2",
     "standard-version": "^4.0.0",
     "webpack": "^2.3.2",
-    "webpack-defaults": "^0.4.5"
+    "webpack-defaults": "^1.0.1"
   },
   "directories": {},
   "dist": {
-    "shasum": "d1e6462ca2f090c11248455e14b8dda4616d0521",
-    "tarball": "https://registry.npmjs.org/less-loader/-/less-loader-4.0.3.tgz"
+    "shasum": "b4a8c43843e65c67d2ea2eb1465b5c4233d5006a",
+    "tarball": "https://registry.npmjs.org/less-loader/-/less-loader-4.0.4.tgz"
   },
   "engines": {
-    "node": ">=4.3 <5.0.0 || >=5.10"
+    "node": ">= 4.3 < 5.0.0 || >= 5.10"
   },
   "files": [
     "README.md",
     "LICENSE",
     "dist"
   ],
-  "gitHead": "e8b7d48a43ebbe82a818efa33efdb6fcf36c4a61",
+  "gitHead": "83837f7c12d1d4ef23cfad176ea5c3ddbe89974a",
   "homepage": "https://github.com/webpack-contrib/less-loader#readme",
   "license": "MIT",
   "lint-staged": {
@@ -103,28 +103,32 @@
   "main": "dist/index.js",
   "maintainers": [
     {
-      "email": "bebraw@gmail.com",
-      "name": "bebraw"
+      "email": "eric@smarterspam.com",
+      "name": "ericclemmons"
     },
     {
       "email": "wiens.joshua@gmail.com",
       "name": "d3viant0ne"
     },
     {
-      "email": "eric@smarterspam.com",
-      "name": "ericclemmons"
+      "email": "bebraw@gmail.com",
+      "name": "bebraw"
     },
     {
-      "email": "mail@johannesewald.de",
-      "name": "jhnns"
+      "email": "sean.larkin@cuw.edu",
+      "name": "thelarkinn"
     },
     {
       "email": "tobias.koppers@googlemail.com",
       "name": "sokra"
     },
     {
-      "email": "sean.larkin@cuw.edu",
-      "name": "thelarkinn"
+      "email": "mail@johannesewald.de",
+      "name": "jhnns"
+    },
+    {
+      "email": "j.tangelder@gmail.com",
+      "name": "jtangelder"
     }
   ],
   "name": "less-loader",
@@ -141,19 +145,20 @@
   },
   "scripts": {
     "appveyor:test": "npm test",
-    "build": "cross-env NODE_ENV=production babel -s true src -d dist --ignore 'src/**/*.test.js'",
+    "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js'",
+    "clean": "del-cli dist",
     "clean:dist": "del-cli dist",
     "create-spec": "babel-node test/helpers/createSpec.js",
     "lint": "eslint --cache src test",
     "lint-staged": "lint-staged",
     "posttest": "npm run lint",
-    "prebuild": "yarn run clean:dist",
+    "prebuild": "yarn run clean",
     "prepublish": "yarn run build",
     "pretest": "npm run create-spec",
     "release": "yarn run standard-version",
     "security": "nsp check",
     "serve:dev": "nodemon $2 --exec babel-node",
-    "start": "yarn run serve:dev src",
+    "start": "yarn run build -- -w",
     "test": "jest",
     "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
     "test:watch": "jest --watch",
@@ -162,5 +167,5 @@
     "travis:test": "yarn run test",
     "webpack-defaults": "webpack-defaults"
   },
-  "version": "4.0.3"
+  "version": "4.0.4"
 }
