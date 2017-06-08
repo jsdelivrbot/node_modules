@@ -1,0 +1,63 @@
+{
+  "_from": "karma-htmlfile-reporter@https://registry.npmjs.org/karma-htmlfile-reporter/-/karma-htmlfile-reporter-0.2.3.tgz",
+  "_id": "karma-htmlfile-reporter@0.2.3",
+  "_inBundle": false,
+  "_integrity": "sha1-59MeqatsfsK9ksqY/Lwhyern6lw=",
+  "_location": "/karma-htmlfile-reporter",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "karma-htmlfile-reporter@https://registry.npmjs.org/karma-htmlfile-reporter/-/karma-htmlfile-reporter-0.2.3.tgz",
+    "name": "karma-htmlfile-reporter",
+    "escapedName": "karma-htmlfile-reporter",
+    "rawSpec": "https://registry.npmjs.org/karma-htmlfile-reporter/-/karma-htmlfile-reporter-0.2.3.tgz",
+    "saveSpec": "https://registry.npmjs.org/karma-htmlfile-reporter/-/karma-htmlfile-reporter-0.2.3.tgz",
+    "fetchSpec": "https://registry.npmjs.org/karma-htmlfile-reporter/-/karma-htmlfile-reporter-0.2.3.tgz"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/karma-htmlfile-reporter/-/karma-htmlfile-reporter-0.2.3.tgz",
+  "_spec": "karma-htmlfile-reporter@https://registry.npmjs.org/karma-htmlfile-reporter/-/karma-htmlfile-reporter-0.2.3.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Matthias Schuetz",
+    "email": "MatthiasSchuetz@gmx.de"
+  },
+  "bugs": {
+    "url": "https://github.com/matthias-schuetz/karma-htmlfile-reporter/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [],
+  "dependencies": {
+    "xmlbuilder": "3.1.0"
+  },
+  "deprecated": false,
+  "description": "A Karma plugin. Report results in styled html format.",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-auto-release": "~0.0.2",
+    "grunt-bump": "~0.0.7",
+    "grunt-npm": "~0.0.2"
+  },
+  "homepage": "https://github.com/matthias-schuetz/karma-htmlfile-reporter#readme",
+  "keywords": [
+    "karma-plugin",
+    "karma-reporter",
+    "html"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "karma-htmlfile-reporter",
+  "peerDependencies": {
+    "karma": ">=0.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/matthias-schuetz/karma-htmlfile-reporter.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.2.3"
+}

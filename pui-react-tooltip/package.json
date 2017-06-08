@@ -1,0 +1,55 @@
+{
+  "_from": "pui-react-tooltip@https://registry.npmjs.org/pui-react-tooltip/-/pui-react-tooltip-5.4.0.tgz",
+  "_id": "pui-react-tooltip@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-ldlZTDAyRwdH64MDs/VEregmEv4=",
+  "_location": "/pui-react-tooltip",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-react-tooltip@https://registry.npmjs.org/pui-react-tooltip/-/pui-react-tooltip-5.4.0.tgz",
+    "name": "pui-react-tooltip",
+    "escapedName": "pui-react-tooltip",
+    "rawSpec": "https://registry.npmjs.org/pui-react-tooltip/-/pui-react-tooltip-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-react-tooltip/-/pui-react-tooltip-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-react-tooltip/-/pui-react-tooltip-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-react-tooltip/-/pui-react-tooltip-5.4.0.tgz",
+  "_spec": "pui-react-tooltip@https://registry.npmjs.org/pui-react-tooltip/-/pui-react-tooltip-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "classnames": "^2.2.0",
+    "pui-css-tooltips": "^5.4.0"
+  },
+  "deprecated": false,
+  "description": "A React component that provides styled tooltips",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "license": "MIT",
+  "main": "tooltip.js",
+  "name": "pui-react-tooltip",
+  "peerDependencies": {
+    "react": ">=15.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "version": "5.4.0"
+}

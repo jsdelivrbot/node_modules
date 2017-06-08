@@ -1,0 +1,52 @@
+{
+  "_from": "pui-css-tabs@https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.4.0.tgz",
+  "_id": "pui-css-tabs@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-lz09GT2moz1itkQPLC8adFUOsJ4=",
+  "_location": "/pui-css-tabs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-css-tabs@https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.4.0.tgz",
+    "name": "pui-css-tabs",
+    "escapedName": "pui-css-tabs",
+    "rawSpec": "https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/",
+    "/pui-react-tabs"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.4.0.tgz",
+  "_spec": "pui-css-tabs@https://registry.npmjs.org/pui-css-tabs/-/pui-css-tabs-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "pui-css-bootstrap": "^5.4.0"
+  },
+  "deprecated": false,
+  "description": "tabs css component for Pivotal UI based on Bootstrap",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "pui-css-tabs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "style": "tabs.css",
+  "version": "5.4.0"
+}

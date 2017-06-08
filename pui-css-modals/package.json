@@ -1,0 +1,52 @@
+{
+  "_from": "pui-css-modals@https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.4.0.tgz",
+  "_id": "pui-css-modals@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-vT2porpA866AZU52U/h/x1eCpQk=",
+  "_location": "/pui-css-modals",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-css-modals@https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.4.0.tgz",
+    "name": "pui-css-modals",
+    "escapedName": "pui-css-modals",
+    "rawSpec": "https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/pui-react-modals"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.4.0.tgz",
+  "_spec": "pui-css-modals@https://registry.npmjs.org/pui-css-modals/-/pui-css-modals-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "pui-css-bootstrap": "^5.4.0",
+    "pui-css-typography": "^5.4.0"
+  },
+  "deprecated": false,
+  "description": "modals css component for Pivotal UI based on Bootstrap",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "pui-css-modals",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "style": "modals.css",
+  "version": "5.4.0"
+}

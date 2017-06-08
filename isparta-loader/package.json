@@ -1,0 +1,59 @@
+{
+  "_from": "isparta-loader@https://registry.npmjs.org/isparta-loader/-/isparta-loader-1.0.0.tgz",
+  "_id": "isparta-loader@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-9lhZxTd7rwI6IItXYFWCaad44ZI=",
+  "_location": "/isparta-loader",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "isparta-loader@https://registry.npmjs.org/isparta-loader/-/isparta-loader-1.0.0.tgz",
+    "name": "isparta-loader",
+    "escapedName": "isparta-loader",
+    "rawSpec": "https://registry.npmjs.org/isparta-loader/-/isparta-loader-1.0.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/isparta-loader/-/isparta-loader-1.0.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/isparta-loader/-/isparta-loader-1.0.0.tgz"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/isparta-loader/-/isparta-loader-1.0.0.tgz",
+  "_spec": "isparta-loader@https://registry.npmjs.org/isparta-loader/-/isparta-loader-1.0.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Kir Belevich",
+    "email": "kir@soulshine.in",
+    "url": "https://github.com/deepsweet"
+  },
+  "bugs": {
+    "url": "https://github.com/deepsweet/isparta-loader/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "isparta": "3.x.x"
+  },
+  "deprecated": false,
+  "description": "isparta instrumenter loader for webpack",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "homepage": "https://github.com/deepsweet/isparta-loader",
+  "keywords": [
+    "webpack",
+    "loader",
+    "isparta",
+    "istanbul",
+    "coverage"
+  ],
+  "license": "WTFPL",
+  "main": "index.js",
+  "name": "isparta-loader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepsweet/isparta-loader.git"
+  },
+  "version": "1.0.0"
+}

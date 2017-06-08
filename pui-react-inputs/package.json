@@ -1,0 +1,56 @@
+{
+  "_from": "pui-react-inputs@https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.4.0.tgz",
+  "_id": "pui-react-inputs@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-ktc+hFLMSiHHrHygsJOJBjQS8NQ=",
+  "_location": "/pui-react-inputs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-react-inputs@https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.4.0.tgz",
+    "name": "pui-react-inputs",
+    "escapedName": "pui-react-inputs",
+    "rawSpec": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.4.0.tgz",
+  "_spec": "pui-react-inputs@https://registry.npmjs.org/pui-react-inputs/-/pui-react-inputs-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "classnames": "^2.2.0",
+    "pui-css-forms": "^5.4.0",
+    "pui-react-helpers": "^5.4.0"
+  },
+  "deprecated": false,
+  "description": "A collection of React components providing styled inputs",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "license": "MIT",
+  "main": "inputs.js",
+  "name": "pui-react-inputs",
+  "peerDependencies": {
+    "react": ">=15.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "version": "5.4.0"
+}

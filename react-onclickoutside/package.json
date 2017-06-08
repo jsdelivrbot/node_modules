@@ -1,0 +1,50 @@
+{
+  "_from": "react-onclickoutside@https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-4.9.0.tgz",
+  "_id": "react-onclickoutside@4.9.0",
+  "_inBundle": false,
+  "_integrity": "sha1-KQjDE24kQQK+peVDeoOKUo1dKZU=",
+  "_location": "/react-onclickoutside",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "react-onclickoutside@https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-4.9.0.tgz",
+    "name": "react-onclickoutside",
+    "escapedName": "react-onclickoutside",
+    "rawSpec": "https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-4.9.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-4.9.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-4.9.0.tgz"
+  },
+  "_requiredBy": [
+    "/react-datepicker"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-4.9.0.tgz",
+  "_spec": "react-onclickoutside@https://registry.npmjs.org/react-onclickoutside/-/react-onclickoutside-4.9.0.tgz",
+  "_where": ".",
+  "authors": [
+    "Pomax <pomax@nihongoresources.com>"
+  ],
+  "bugs": {
+    "url": "https://github.com/Pomax/react-onclickoutside/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "object-assign": "^4.0.1"
+  },
+  "deprecated": false,
+  "description": "An onClickOutside mixin for React components",
+  "homepage": "https://github.com/Pomax/react-onclickoutside",
+  "keywords": [
+    "react",
+    "onclick",
+    "outside",
+    "onclickoutside"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "react-onclickoutside",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pomax/react-onclickoutside.git"
+  },
+  "version": "4.9.0"
+}

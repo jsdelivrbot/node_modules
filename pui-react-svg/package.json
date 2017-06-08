@@ -1,0 +1,57 @@
+{
+  "_from": "pui-react-svg@7.5.5",
+  "_id": "pui-react-svg@7.5.5",
+  "_inBundle": false,
+  "_integrity": "sha1-VwzTeb3sVbQHPaCvmD5Og0XsO/4=",
+  "_location": "/pui-react-svg",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "pui-react-svg@7.5.5",
+    "name": "pui-react-svg",
+    "escapedName": "pui-react-svg",
+    "rawSpec": "7.5.5",
+    "saveSpec": null,
+    "fetchSpec": "7.5.5"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/",
+    "/pui-react-iconography"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.5.tgz",
+  "_shasum": "570cd379bdec55b4073da0af983e4e8345ec3bfe",
+  "_spec": "pui-react-svg@7.5.5",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "babel-runtime": "^6.1.18"
+  },
+  "deprecated": false,
+  "description": "React components to display flash messages to the user",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "license": "MIT",
+  "main": "svg.js",
+  "name": "pui-react-svg",
+  "peerDependencies": {
+    "react": ">=15.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "version": "7.5.5"
+}

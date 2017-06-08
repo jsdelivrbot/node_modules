@@ -1,0 +1,165 @@
+{
+  "_from": "karma-junit-reporter@https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.3.8.tgz",
+  "_id": "karma-junit-reporter@0.3.8",
+  "_inBundle": false,
+  "_integrity": "sha1-0kuFuFB7fdssjO0NH08rGscA0/4=",
+  "_location": "/karma-junit-reporter",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "karma-junit-reporter@https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.3.8.tgz",
+    "name": "karma-junit-reporter",
+    "escapedName": "karma-junit-reporter",
+    "rawSpec": "https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.3.8.tgz",
+    "saveSpec": "https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.3.8.tgz",
+    "fetchSpec": "https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.3.8.tgz"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.3.8.tgz",
+  "_spec": "karma-junit-reporter@https://registry.npmjs.org/karma-junit-reporter/-/karma-junit-reporter-0.3.8.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Vojta Jina",
+    "email": "vojta.jina@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/karma-runner/karma-junit-reporter/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "dignifiedquire",
+      "email": "dignifiedquire@gmail.com"
+    },
+    {
+      "name": "Friedel Ziegelmayer",
+      "email": "dignifiedquire@gmail.com"
+    },
+    {
+      "name": "Simen Bekkhus",
+      "email": "sbekkhus91@gmail.com"
+    },
+    {
+      "name": "Friedel Ziegelmayer",
+      "email": "friedel.ziegelmayer@gmail.com"
+    },
+    {
+      "name": "Janek Lasocki-Biczysko",
+      "email": "iamjanek@gmail.com"
+    },
+    {
+      "name": "Janek Lasocki-Biczysko",
+      "email": "j.lasocki-biczysko@intrallect.com"
+    },
+    {
+      "name": "John Haugeland",
+      "email": "stonecypher@gmail.com"
+    },
+    {
+      "name": "Kira Cheung",
+      "email": "killercentury@gmail.com"
+    },
+    {
+      "name": "Maksim Ryzhikov",
+      "email": "rv.maksim@gmail.com"
+    },
+    {
+      "name": "Nikita Shirin",
+      "email": "shirin.nikita@gmail.com"
+    },
+    {
+      "name": "Rob Richardson",
+      "email": "robrich@robrich.org"
+    },
+    {
+      "name": "Sylvain Hamel",
+      "email": "sylvainhamel0@gmail.com"
+    },
+    {
+      "name": "Trey Hyde",
+      "email": "thyde@centraldesktop.com"
+    },
+    {
+      "name": "Vladimir Alaev",
+      "email": "scff@yandex-team.ru"
+    },
+    {
+      "name": "budde377",
+      "email": "budde377@gmail.com"
+    },
+    {
+      "name": "mon.asuncion",
+      "email": "mon@englishcentral.com"
+    },
+    {
+      "name": "Adriaan Thomas",
+      "email": "athomas@xebia.com"
+    },
+    {
+      "name": "sylvain-hamel",
+      "email": "sylvainhamel0@gmail.com"
+    },
+    {
+      "name": "Alex Alvarez",
+      "email": "dominalexican@gmail.com"
+    },
+    {
+      "name": "Brian Donovan",
+      "email": "me@brian-donovan.com"
+    },
+    {
+      "name": "Brian Meneses",
+      "email": "brian.meneses@gmail.com"
+    },
+    {
+      "name": "Cesar Andreu",
+      "email": "cesarandreu@gmail.com"
+    },
+    {
+      "name": "David Pärsson",
+      "email": "david@parsson.se"
+    }
+  ],
+  "dependencies": {
+    "xmlbuilder": "3.1.0"
+  },
+  "deprecated": false,
+  "description": "A Karma plugin. Report results in junit xml format.",
+  "devDependencies": {
+    "eslint": "^1.2.1",
+    "eslint-config-standard": "^4.1.0",
+    "eslint-plugin-standard": "^1.3.1",
+    "grunt": "^0.4.1",
+    "grunt-bump": "^0.5.0",
+    "grunt-conventional-changelog": "^4.1.0",
+    "grunt-conventional-github-releaser": "^0.4.0",
+    "grunt-eslint": "^17.1.0",
+    "grunt-npm": "^0.0.2",
+    "load-grunt-tasks": "^3.2.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "homepage": "https://github.com/karma-runner/karma-junit-reporter#readme",
+  "keywords": [
+    "junit",
+    "karma-plugin",
+    "karma-reporter"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "karma-junit-reporter",
+  "peerDependencies": {
+    "karma": ">=0.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/karma-runner/karma-junit-reporter.git"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "version": "0.3.8"
+}

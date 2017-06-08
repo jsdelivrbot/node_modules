@@ -1,0 +1,56 @@
+{
+  "_from": "pui-react-overlay-trigger@https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.4.0.tgz",
+  "_id": "pui-react-overlay-trigger@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-pBGfVPLC+8/RVCgDwtkZ2Sqstso=",
+  "_location": "/pui-react-overlay-trigger",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-react-overlay-trigger@https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.4.0.tgz",
+    "name": "pui-react-overlay-trigger",
+    "escapedName": "pui-react-overlay-trigger",
+    "rawSpec": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.4.0.tgz",
+  "_spec": "pui-react-overlay-trigger@https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "lodash.uniqueid": "^3.0.0",
+    "pui-react-mixins": "^5.4.0",
+    "react-tether": "^0.5.2"
+  },
+  "deprecated": false,
+  "description": "A React component for displaying a tooltip or popover on user action",
+  "homepage": "http://styleguide.pivotal.io/react.html#tooltips_react",
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "license": "MIT",
+  "main": "overlay-trigger.js",
+  "name": "pui-react-overlay-trigger",
+  "peerDependencies": {
+    "react": ">=15.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "version": "5.4.0"
+}

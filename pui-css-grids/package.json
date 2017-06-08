@@ -1,0 +1,51 @@
+{
+  "_from": "pui-css-grids@https://registry.npmjs.org/pui-css-grids/-/pui-css-grids-5.4.0.tgz",
+  "_id": "pui-css-grids@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-+q7BvMWH+RacjF9w3bmW/pGLz18=",
+  "_location": "/pui-css-grids",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-css-grids@https://registry.npmjs.org/pui-css-grids/-/pui-css-grids-5.4.0.tgz",
+    "name": "pui-css-grids",
+    "escapedName": "pui-css-grids",
+    "rawSpec": "https://registry.npmjs.org/pui-css-grids/-/pui-css-grids-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-css-grids/-/pui-css-grids-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-css-grids/-/pui-css-grids-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/pui-react-grids"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-grids/-/pui-css-grids-5.4.0.tgz",
+  "_spec": "pui-css-grids@https://registry.npmjs.org/pui-css-grids/-/pui-css-grids-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "pui-css-bootstrap": "^5.4.0"
+  },
+  "deprecated": false,
+  "description": "grids css component for Pivotal UI based on Bootstrap",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "pui-css-grids",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "style": "grids.css",
+  "version": "5.4.0"
+}

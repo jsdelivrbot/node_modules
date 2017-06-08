@@ -1,0 +1,57 @@
+{
+  "_from": "pui-react-alerts@https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.4.0.tgz",
+  "_id": "pui-react-alerts@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-H03bo4EnzP1DjHQQ7iBRkk2hSv4=",
+  "_location": "/pui-react-alerts",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-react-alerts@https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.4.0.tgz",
+    "name": "pui-react-alerts",
+    "escapedName": "pui-react-alerts",
+    "rawSpec": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.4.0.tgz",
+  "_spec": "pui-react-alerts@https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "pui-css-alerts": "^5.4.0",
+    "pui-css-iconography": "^5.4.0",
+    "pui-react-media": "^5.4.0",
+    "react-bootstrap": "0.30.2"
+  },
+  "deprecated": false,
+  "description": "React components to display flash messages to the user",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "license": "MIT",
+  "main": "alerts.js",
+  "name": "pui-react-alerts",
+  "peerDependencies": {
+    "react": ">=15.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "version": "5.4.0"
+}

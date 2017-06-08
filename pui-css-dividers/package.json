@@ -1,0 +1,50 @@
+{
+  "_from": "pui-css-dividers@https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.4.0.tgz",
+  "_id": "pui-css-dividers@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-SSump6d8W8dv7v7URphLwi2FzH0=",
+  "_location": "/pui-css-dividers",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-css-dividers@https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.4.0.tgz",
+    "name": "pui-css-dividers",
+    "escapedName": "pui-css-dividers",
+    "rawSpec": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/",
+    "/pui-css-collapse"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.4.0.tgz",
+  "_spec": "pui-css-dividers@https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "dividers css component for Pivotal UI based on Bootstrap",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "pui-css-dividers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "style": "dividers.css",
+  "version": "5.4.0"
+}

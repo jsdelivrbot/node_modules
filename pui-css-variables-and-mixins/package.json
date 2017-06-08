@@ -1,0 +1,43 @@
+{
+  "_from": "pui-css-variables-and-mixins@https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.4.0.tgz",
+  "_id": "pui-css-variables-and-mixins@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-T4bAPUABmqzkYbWDYOwe+txC9m8=",
+  "_location": "/pui-css-variables-and-mixins",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-css-variables-and-mixins@https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.4.0.tgz",
+    "name": "pui-css-variables-and-mixins",
+    "escapedName": "pui-css-variables-and-mixins",
+    "rawSpec": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.4.0.tgz",
+  "_spec": "pui-css-variables-and-mixins@https://registry.npmjs.org/pui-css-variables-and-mixins/-/pui-css-variables-and-mixins-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "homepage": "https://github.com/pivotal-cf/pivotal-ui#readme",
+  "keywords": [
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "license": "MIT",
+  "name": "pui-css-variables-and-mixins",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "version": "5.4.0"
+}

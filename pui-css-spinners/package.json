@@ -1,0 +1,51 @@
+{
+  "_from": "pui-css-spinners@https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.4.0.tgz",
+  "_id": "pui-css-spinners@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-l8a0SwUVqoa32z5P53+s0JVeT2E=",
+  "_location": "/pui-css-spinners",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-css-spinners@https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.4.0.tgz",
+    "name": "pui-css-spinners",
+    "escapedName": "pui-css-spinners",
+    "rawSpec": "https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.4.0.tgz",
+  "_spec": "pui-css-spinners@https://registry.npmjs.org/pui-css-spinners/-/pui-css-spinners-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "pui-css-iconography": "^5.4.0"
+  },
+  "deprecated": false,
+  "description": "spinners css component for Pivotal UI based on Bootstrap",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "pui-css-spinners",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "style": "spinners.css",
+  "version": "5.4.0"
+}

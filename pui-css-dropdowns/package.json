@@ -1,0 +1,54 @@
+{
+  "_from": "pui-css-dropdowns@https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.4.0.tgz",
+  "_id": "pui-css-dropdowns@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-EPws0ojmlu4l/S7z/NcXJ8KDDko=",
+  "_location": "/pui-css-dropdowns",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-css-dropdowns@https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.4.0.tgz",
+    "name": "pui-css-dropdowns",
+    "escapedName": "pui-css-dropdowns",
+    "rawSpec": "https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/pui-react-dropdowns"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.4.0.tgz",
+  "_spec": "pui-css-dropdowns@https://registry.npmjs.org/pui-css-dropdowns/-/pui-css-dropdowns-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "pui-css-bootstrap": "^5.4.0",
+    "pui-css-button-group": "^5.4.0",
+    "pui-css-buttons": "^5.4.0",
+    "pui-css-links": "^5.4.0"
+  },
+  "deprecated": false,
+  "description": "dropdowns css component for Pivotal UI based on Bootstrap",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "pui-css-dropdowns",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "style": "dropdowns.css",
+  "version": "5.4.0"
+}

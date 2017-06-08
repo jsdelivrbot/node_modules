@@ -1,0 +1,52 @@
+{
+  "_from": "pui-css-forms@https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.4.0.tgz",
+  "_id": "pui-css-forms@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-5pT7cr2fpeJfV3VHvbg0k8SIsI0=",
+  "_location": "/pui-css-forms",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-css-forms@https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.4.0.tgz",
+    "name": "pui-css-forms",
+    "escapedName": "pui-css-forms",
+    "rawSpec": "https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/pui-react-checkbox",
+    "/pui-react-inputs"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.4.0.tgz",
+  "_spec": "pui-css-forms@https://registry.npmjs.org/pui-css-forms/-/pui-css-forms-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "pui-css-bootstrap": "^5.4.0"
+  },
+  "deprecated": false,
+  "description": "forms css component for Pivotal UI based on Bootstrap",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "pui-css-forms",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "style": "forms.css",
+  "version": "5.4.0"
+}

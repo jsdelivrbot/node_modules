@@ -1,0 +1,53 @@
+{
+  "_from": "pui-css-collapse@https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz",
+  "_id": "pui-css-collapse@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-YLfAGglGwHGQBPdVUWppmXgddY4=",
+  "_location": "/pui-css-collapse",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-css-collapse@https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz",
+    "name": "pui-css-collapse",
+    "escapedName": "pui-css-collapse",
+    "rawSpec": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/pui-react-collapsible"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz",
+  "_spec": "pui-css-collapse@https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "pui-css-bootstrap": "^5.4.0",
+    "pui-css-dividers": "^5.4.0",
+    "pui-css-iconography": "^5.4.0"
+  },
+  "deprecated": false,
+  "description": "collapse css component for Pivotal UI based on Bootstrap",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "pui-css-collapse",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "style": "collapse.css",
+  "version": "5.4.0"
+}

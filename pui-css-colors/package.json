@@ -1,0 +1,49 @@
+{
+  "_from": "pui-css-colors@https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.4.0.tgz",
+  "_id": "pui-css-colors@5.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-Y3OeKdyeaNPHj2oP58MX3J5NUMs=",
+  "_location": "/pui-css-colors",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "pui-css-colors@https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.4.0.tgz",
+    "name": "pui-css-colors",
+    "escapedName": "pui-css-colors",
+    "rawSpec": "https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.4.0.tgz",
+    "saveSpec": "https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.4.0.tgz",
+    "fetchSpec": "https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.4.0.tgz"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.4.0.tgz",
+  "_spec": "pui-css-colors@https://registry.npmjs.org/pui-css-colors/-/pui-css-colors-5.4.0.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "description": "colors css component for Pivotal UI based on Bootstrap",
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "pui-css-colors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "style": "colors.css",
+  "version": "5.4.0"
+}

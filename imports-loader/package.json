@@ -1,0 +1,44 @@
+{
+  "_from": "imports-loader@https://registry.npmjs.org/imports-loader/-/imports-loader-0.6.5.tgz",
+  "_id": "imports-loader@0.6.5",
+  "_inBundle": false,
+  "_integrity": "sha1-rnRlMDHVnjezwvslRKxhrq41MKY=",
+  "_location": "/imports-loader",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "remote",
+    "raw": "imports-loader@https://registry.npmjs.org/imports-loader/-/imports-loader-0.6.5.tgz",
+    "name": "imports-loader",
+    "escapedName": "imports-loader",
+    "rawSpec": "https://registry.npmjs.org/imports-loader/-/imports-loader-0.6.5.tgz",
+    "saveSpec": "https://registry.npmjs.org/imports-loader/-/imports-loader-0.6.5.tgz",
+    "fetchSpec": "https://registry.npmjs.org/imports-loader/-/imports-loader-0.6.5.tgz"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/imports-loader/-/imports-loader-0.6.5.tgz",
+  "_spec": "imports-loader@https://registry.npmjs.org/imports-loader/-/imports-loader-0.6.5.tgz",
+  "_where": ".",
+  "author": {
+    "name": "Tobias Koppers @sokra"
+  },
+  "bugs": {
+    "url": "https://github.com/webpack/imports-loader/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "loader-utils": "0.2.x",
+    "source-map": "0.1.x"
+  },
+  "deprecated": false,
+  "description": "imports loader module for webpack",
+  "homepage": "https://github.com/webpack/imports-loader#readme",
+  "license": "MIT",
+  "name": "imports-loader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webpack/imports-loader.git"
+  },
+  "version": "0.6.5"
+}
