@@ -1,0 +1,148 @@
+{
+  "_args": [
+    [
+      {
+        "name": "pui-css-collapse",
+        "raw": "pui-css-collapse@^5.4.0",
+        "rawSpec": "^5.4.0",
+        "scope": null,
+        "spec": ">=5.4.0 <6.0.0",
+        "type": "range"
+      },
+      "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-collapsible"
+    ]
+  ],
+  "_from": "pui-css-collapse@>=5.4.0 <6.0.0",
+  "_id": "pui-css-collapse@5.4.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/pui-css-collapse",
+  "_nodeVersion": "4.4.5",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/pui-css-collapse-5.4.0.tgz_1475019950033_0.8413018535356969"
+  },
+  "_npmUser": {
+    "email": "chansen87@gmail.com",
+    "name": "charleshansen"
+  },
+  "_npmVersion": "3.5.0",
+  "_phantomChildren": {
+    "font-awesome": "4.7.0"
+  },
+  "_requested": {
+    "name": "pui-css-collapse",
+    "raw": "pui-css-collapse@^5.4.0",
+    "rawSpec": "^5.4.0",
+    "scope": null,
+    "spec": ">=5.4.0 <6.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/pui-react-collapsible"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz",
+  "_shasum": "60b7c01a0946c0719004f755516a6999781d758e",
+  "_shrinkwrap": null,
+  "_spec": "pui-css-collapse@^5.4.0",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-collapsible",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "dependencies": {
+    "pui-css-bootstrap": "^5.4.0",
+    "pui-css-dividers": "^5.4.0",
+    "pui-css-iconography": "^5.4.0"
+  },
+  "description": "collapse css component for Pivotal UI based on Bootstrap",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "60b7c01a0946c0719004f755516a6999781d758e",
+    "tarball": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
+    },
+    {
+      "email": "cthompson@pivotal.io",
+      "name": "cthompson"
+    },
+    {
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
+    },
+    {
+      "email": "issaq_al-ahmed@outlook.com",
+      "name": "ial-ahmed"
+    },
+    {
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
+    },
+    {
+      "email": "mroyal@pivotal.io",
+      "name": "mattroyal"
+    },
+    {
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
+    },
+    {
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
+    },
+    {
+      "email": "nicole@stubbornella.org",
+      "name": "stubbornella"
+    },
+    {
+      "email": "vinsonchuong@gmail.com",
+      "name": "vinsonchuong"
+    }
+  ],
+  "name": "pui-css-collapse",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "scripts": {},
+  "style": "collapse.css",
+  "version": "5.4.0"
+}

@@ -1,0 +1,119 @@
+{
+  "_args": [
+    [
+      {
+        "name": "pui-react-svg",
+        "raw": "pui-react-svg@7.5.5",
+        "rawSpec": "7.5.5",
+        "scope": null,
+        "spec": "7.5.5",
+        "type": "version"
+      },
+      "/tmp/build/88bfaeb5/gpcc/frontend"
+    ]
+  ],
+  "_from": "pui-react-svg@7.5.5",
+  "_id": "pui-react-svg@7.5.5",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/pui-react-svg",
+  "_nodeVersion": "6.9.4",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/pui-react-svg-7.5.5.tgz_1488989946533_0.5815768372267485"
+  },
+  "_npmUser": {
+    "email": "jadekler@gmail.com",
+    "name": "jadekler"
+  },
+  "_npmVersion": "3.5.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "pui-react-svg",
+    "raw": "pui-react-svg@7.5.5",
+    "rawSpec": "7.5.5",
+    "scope": null,
+    "spec": "7.5.5",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/",
+    "/pui-react-iconography"
+  ],
+  "_resolved": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.5.tgz",
+  "_shasum": "570cd379bdec55b4073da0af983e4e8345ec3bfe",
+  "_shrinkwrap": null,
+  "_spec": "pui-react-svg@7.5.5",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
+  "author": {
+    "name": "Pivotal Software, Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.1.18"
+  },
+  "description": "React components to display flash messages to the user",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "570cd379bdec55b4073da0af983e4e8345ec3bfe",
+    "tarball": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.5.tgz"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "license": "MIT",
+  "main": "svg.js",
+  "maintainers": [
+    {
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
+    },
+    {
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
+    },
+    {
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
+    },
+    {
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
+    }
+  ],
+  "name": "pui-react-svg",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react": ">=15.0.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "scripts": {},
+  "version": "7.5.5"
+}

@@ -1,0 +1,103 @@
+{
+  "_args": [
+    [
+      {
+        "name": "sorty",
+        "raw": "sorty@1.2.2",
+        "rawSpec": "1.2.2",
+        "scope": null,
+        "spec": "1.2.2",
+        "type": "version"
+      },
+      "/tmp/build/88bfaeb5/gpcc/frontend"
+    ]
+  ],
+  "_from": "sorty@1.2.2",
+  "_id": "sorty@1.2.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/sorty",
+  "_nodeVersion": "4.3.0",
+  "_npmOperationalInternal": {
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/sorty-1.2.2.tgz_1458207245644_0.46742880274541676"
+  },
+  "_npmUser": {
+    "email": "contact@zippyui.com",
+    "name": "zippyui"
+  },
+  "_npmVersion": "2.14.12",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "sorty",
+    "raw": "sorty@1.2.2",
+    "rawSpec": "1.2.2",
+    "scope": null,
+    "spec": "1.2.2",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/sorty/-/sorty-1.2.2.tgz",
+  "_shasum": "7a723468e462b4320773d3387b4c8da2584747a6",
+  "_shrinkwrap": null,
+  "_spec": "sorty@1.2.2",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
+  "author": {
+    "name": "Radu Brehar"
+  },
+  "bugs": {
+    "url": "https://github.com/radubrehar/sorty/issues"
+  },
+  "dependencies": {},
+  "description": "Utility for sorting object arrays on multiple properties",
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "should": "^4.3.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "7a723468e462b4320773d3387b4c8da2584747a6",
+    "tarball": "https://registry.npmjs.org/sorty/-/sorty-1.2.2.tgz"
+  },
+  "gitHead": "f9ec894cf9ea6ec66283326fff2a13d2d898510a",
+  "homepage": "https://github.com/radubrehar/sorty",
+  "keywords": [
+    "sort",
+    "object",
+    "array",
+    "multi",
+    "multiple",
+    "property"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "email": "bogdanpintican@gmail.com",
+      "name": "bogdanpetru"
+    },
+    {
+      "email": "radu@evanghelic.ro",
+      "name": "radubrehar"
+    },
+    {
+      "email": "contact@zippyui.com",
+      "name": "zippyui"
+    }
+  ],
+  "name": "sorty",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/zippyui/sorty.git"
+  },
+  "scripts": {
+    "test": "make test",
+    "test-debug": "mocha --debug-brk",
+    "test-w": "make test-w"
+  },
+  "version": "1.2.2"
+}
