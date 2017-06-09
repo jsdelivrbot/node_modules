@@ -3,43 +3,48 @@
     [
       {
         "name": "globals",
-        "raw": "globals@^6.4.0",
-        "rawSpec": "^6.4.0",
+        "raw": "globals@^9.0.0",
+        "rawSpec": "^9.0.0",
         "scope": null,
-        "spec": ">=6.4.0 <7.0.0",
+        "spec": ">=9.0.0 <10.0.0",
         "type": "range"
       },
-      "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/babel-core"
+      "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/babel-template/node_modules/babel-traverse"
     ]
   ],
-  "_from": "globals@>=6.4.0 <7.0.0",
-  "_id": "globals@6.4.1",
+  "_from": "globals@>=9.0.0 <10.0.0",
+  "_id": "globals@9.18.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/globals",
-  "_nodeVersion": "0.12.0",
+  "_nodeVersion": "8.0.0",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/globals-9.18.0.tgz_1496827524121_0.8153965487144887"
+  },
   "_npmUser": {
     "email": "sindresorhus@gmail.com",
     "name": "sindresorhus"
   },
-  "_npmVersion": "2.5.1",
+  "_npmVersion": "5.0.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "globals",
-    "raw": "globals@^6.4.0",
-    "rawSpec": "^6.4.0",
+    "raw": "globals@^9.0.0",
+    "rawSpec": "^9.0.0",
     "scope": null,
-    "spec": ">=6.4.0 <7.0.0",
+    "spec": ">=9.0.0 <10.0.0",
     "type": "range"
   },
   "_requiredBy": [
-    "/babel-core"
+    "/babel-core/babel-traverse",
+    "/babel-template/babel-traverse"
   ],
-  "_resolved": "https://registry.npmjs.org/globals/-/globals-6.4.1.tgz",
-  "_shasum": "8498032b3b6d1cc81eebc5f79690d8fe29fabf4f",
+  "_resolved": "https://registry.npmjs.org/globals/-/globals-9.18.0.tgz",
+  "_shasum": "aa3896b3e69b487f17e31ed2143d69a8e30c2d8a",
   "_shrinkwrap": null,
-  "_spec": "globals@^6.4.0",
-  "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/babel-core",
+  "_spec": "globals@^9.0.0",
+  "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/babel-template/node_modules/babel-traverse",
   "author": {
     "email": "sindresorhus@gmail.com",
     "name": "Sindre Sorhus",
@@ -55,8 +60,9 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "8498032b3b6d1cc81eebc5f79690d8fe29fabf4f",
-    "tarball": "https://registry.npmjs.org/globals/-/globals-6.4.1.tgz"
+    "integrity": "sha512-S0nG3CLEQiY/ILxqtztTWH/3iRRdyBLw6KMDxnKMchrtbj2OFmehVh0WUCfW3DUrIgx/qFrJPICrq4Z4sTR9UQ==",
+    "shasum": "aa3896b3e69b487f17e31ed2143d69a8e30c2d8a",
+    "tarball": "https://registry.npmjs.org/globals/-/globals-9.18.0.tgz"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -65,8 +71,8 @@
     "index.js",
     "globals.json"
   ],
-  "gitHead": "c8e9f2aba0eaea2a732452667a386178ddd6bcb7",
-  "homepage": "https://github.com/sindresorhus/globals",
+  "gitHead": "09ba8754235e5953507b8d0543d65098bc7bb78d",
+  "homepage": "https://github.com/sindresorhus/globals#readme",
   "keywords": [
     "globals",
     "global",
@@ -80,16 +86,20 @@
   "license": "MIT",
   "maintainers": [
     {
-      "email": "sindresorhus@gmail.com",
-      "name": "sindresorhus"
+      "email": "ben@byk.im",
+      "name": "byk"
+    },
+    {
+      "email": "schreck.mathias@gmail.com",
+      "name": "lo1tuma"
     },
     {
       "email": "nicholas@nczconsulting.com",
       "name": "nzakas"
     },
     {
-      "email": "schreck.mathias@gmail.com",
-      "name": "lo1tuma"
+      "email": "sindresorhus@gmail.com",
+      "name": "sindresorhus"
     }
   ],
   "name": "globals",
@@ -102,5 +112,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "6.4.1"
+  "version": "9.18.0"
 }

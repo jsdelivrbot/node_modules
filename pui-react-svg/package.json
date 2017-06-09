@@ -3,24 +3,24 @@
     [
       {
         "name": "pui-react-svg",
-        "raw": "pui-react-svg@7.5.5",
-        "rawSpec": "7.5.5",
+        "raw": "pui-react-svg@7.5.2",
+        "rawSpec": "7.5.2",
         "scope": null,
-        "spec": "7.5.5",
+        "spec": "7.5.2",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-svg@7.5.5",
-  "_id": "pui-react-svg@7.5.5",
+  "_from": "pui-react-svg@7.5.2",
+  "_id": "pui-react-svg@7.5.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-svg",
   "_nodeVersion": "6.9.4",
   "_npmOperationalInternal": {
     "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-svg-7.5.5.tgz_1488989946533_0.5815768372267485"
+    "tmp": "tmp/pui-react-svg-7.5.2.tgz_1486583332213_0.381916910642758"
   },
   "_npmUser": {
     "email": "jadekler@gmail.com",
@@ -30,20 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-svg",
-    "raw": "pui-react-svg@7.5.5",
-    "rawSpec": "7.5.5",
+    "raw": "pui-react-svg@7.5.2",
+    "rawSpec": "7.5.2",
     "scope": null,
-    "spec": "7.5.5",
+    "spec": "7.5.2",
     "type": "version"
   },
   "_requiredBy": [
-    "/",
-    "/pui-react-iconography"
+    "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.5.tgz",
-  "_shasum": "570cd379bdec55b4073da0af983e4e8345ec3bfe",
+  "_resolved": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.2.tgz",
+  "_shasum": "2552b291c5ef1c242ae774bca18c03dbe0bef661",
   "_shrinkwrap": null,
-  "_spec": "pui-react-svg@7.5.5",
+  "_spec": "pui-react-svg@7.5.2",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -58,8 +57,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "570cd379bdec55b4073da0af983e4e8345ec3bfe",
-    "tarball": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.5.tgz"
+    "shasum": "2552b291c5ef1c242ae774bca18c03dbe0bef661",
+    "tarball": "https://registry.npmjs.org/pui-react-svg/-/pui-react-svg-7.5.2.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -115,5 +114,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "7.5.5"
+  "version": "7.5.2"
 }
