@@ -3,24 +3,24 @@
     [
       {
         "name": "jasmine-core",
-        "raw": "jasmine-core@2.6.3",
-        "rawSpec": "2.6.3",
+        "raw": "jasmine-core@2.6.4",
+        "rawSpec": "2.6.4",
         "scope": null,
-        "spec": "2.6.3",
+        "spec": "2.6.4",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "jasmine-core@2.6.3",
-  "_id": "jasmine-core@2.6.3",
+  "_from": "jasmine-core@2.6.4",
+  "_id": "jasmine-core@2.6.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/jasmine-core",
   "_nodeVersion": "7.5.0",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/jasmine-core-2.6.3.tgz_1496869247900_0.3872144946362823"
+    "tmp": "tmp/jasmine-core-2.6.4.tgz_1497645817817_0.09735987964086235"
   },
   "_npmUser": {
     "email": "gregg@slackersoft.net",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "jasmine-core",
-    "raw": "jasmine-core@2.6.3",
-    "rawSpec": "2.6.3",
+    "raw": "jasmine-core@2.6.4",
+    "rawSpec": "2.6.4",
     "scope": null,
-    "spec": "2.6.3",
+    "spec": "2.6.4",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.6.3.tgz",
-  "_shasum": "45072950e4a42b1e322fe55c001100a465d77815",
+  "_resolved": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.6.4.tgz",
+  "_shasum": "dec926cd0a9fa287fb6db5c755fa487e74cecac5",
   "_shrinkwrap": null,
-  "_spec": "jasmine-core@2.6.3",
+  "_spec": "jasmine-core@2.6.4",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "bugs": {
     "url": "https://github.com/jasmine/jasmine/issues"
@@ -64,10 +64,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "45072950e4a42b1e322fe55c001100a465d77815",
-    "tarball": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.6.3.tgz"
+    "shasum": "dec926cd0a9fa287fb6db5c755fa487e74cecac5",
+    "tarball": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.6.4.tgz"
   },
-  "gitHead": "ca5b1de2eb40b7cae84a839dc66857bf270027b5",
+  "gitHead": "02c18a359645239c18762fc20e8d8164481c0d32",
   "homepage": "http://jasmine.github.io",
   "keywords": [
     "test",
@@ -97,5 +97,5 @@
   "scripts": {
     "test": "grunt jshint execSpecsInNode"
   },
-  "version": "2.6.3"
+  "version": "2.6.4"
 }
