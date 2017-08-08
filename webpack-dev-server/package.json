@@ -3,30 +3,30 @@
     [
       {
         "name": "webpack-dev-server",
-        "raw": "webpack-dev-server@2.6.1",
-        "rawSpec": "2.6.1",
+        "raw": "webpack-dev-server@2.7.1",
+        "rawSpec": "2.7.1",
         "scope": null,
-        "spec": "2.6.1",
+        "spec": "2.7.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "webpack-dev-server@2.6.1",
-  "_id": "webpack-dev-server@2.6.1",
+  "_from": "webpack-dev-server@2.7.1",
+  "_id": "webpack-dev-server@2.7.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/webpack-dev-server",
-  "_nodeVersion": "7.7.2",
+  "_nodeVersion": "7.8.0",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/webpack-dev-server-2.6.1.tgz_1500803955833_0.42655801749788225"
+    "tmp": "tmp/webpack-dev-server-2.7.1.tgz_1502215920001_0.5402056723833084"
   },
   "_npmUser": {
-    "email": "kees@webduck.nl",
-    "name": "spacek33z"
+    "email": "andrew@shellscape.org",
+    "name": "shellscape"
   },
-  "_npmVersion": "4.1.2",
+  "_npmVersion": "4.2.0",
   "_phantomChildren": {
     "array-union": "1.0.2",
     "brace-expansion": "1.1.8",
@@ -57,19 +57,19 @@
   },
   "_requested": {
     "name": "webpack-dev-server",
-    "raw": "webpack-dev-server@2.6.1",
-    "rawSpec": "2.6.1",
+    "raw": "webpack-dev-server@2.7.1",
+    "rawSpec": "2.7.1",
     "scope": null,
-    "spec": "2.6.1",
+    "spec": "2.7.1",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-2.6.1.tgz",
-  "_shasum": "0b292a9da96daf80a65988f69f87b4166e5defe7",
+  "_resolved": "https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-2.7.1.tgz",
+  "_shasum": "21580f5a08cd065c71144cf6f61c345bca59a8b8",
   "_shrinkwrap": null,
-  "_spec": "webpack-dev-server@2.6.1",
+  "_spec": "webpack-dev-server@2.7.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Tobias Koppers @sokra"
@@ -91,6 +91,7 @@
     "html-entities": "^1.2.0",
     "http-proxy-middleware": "~0.17.4",
     "internal-ip": "^1.2.0",
+    "ip": "^1.1.5",
     "loglevel": "^1.4.1",
     "opn": "4.0.2",
     "portfinder": "^1.0.9",
@@ -128,8 +129,8 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "0b292a9da96daf80a65988f69f87b4166e5defe7",
-    "tarball": "https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-2.6.1.tgz"
+    "shasum": "21580f5a08cd065c71144cf6f61c345bca59a8b8",
+    "tarball": "https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-2.7.1.tgz"
   },
   "engines": {
     "node": ">=4.7"
@@ -140,7 +141,7 @@
     "client/",
     "ssl/"
   ],
-  "gitHead": "09ffe239a889c22f13809e9c39478e92a4c69879",
+  "gitHead": "65f05864b8a14dd06f2c9dcbdeee3e6ef7828bc6",
   "homepage": "http://github.com/webpack/webpack-dev-server",
   "license": "MIT",
   "main": "lib/Server.js",
@@ -188,5 +189,5 @@
     "test": "mocha --full-trace --check-leaks",
     "travis": "npm run cover -- --report lcovonly && npm run lint"
   },
-  "version": "2.6.1"
+  "version": "2.7.1"
 }
