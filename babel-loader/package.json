@@ -3,30 +3,30 @@
     [
       {
         "name": "babel-loader",
-        "raw": "babel-loader@7.1.1",
-        "rawSpec": "7.1.1",
+        "raw": "babel-loader@7.1.2",
+        "rawSpec": "7.1.2",
         "scope": null,
-        "spec": "7.1.1",
+        "spec": "7.1.2",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "babel-loader@7.1.1",
-  "_id": "babel-loader@7.1.1",
+  "_from": "babel-loader@7.1.2",
+  "_id": "babel-loader@7.1.2",
   "_inCache": true,
   "_installable": true,
   "_location": "/babel-loader",
-  "_nodeVersion": "6.11.0",
+  "_nodeVersion": "8.4.0",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/babel-loader-7.1.1.tgz_1498609846408_0.7077073762193322"
+    "tmp": "tmp/babel-loader-7.1.2.tgz_1503096280403_0.7360114715993404"
   },
   "_npmUser": {
     "email": "daniel@tschinder.de",
     "name": "danez"
   },
-  "_npmVersion": "3.10.10",
+  "_npmVersion": "5.3.0",
   "_phantomChildren": {
     "commondir": "1.0.1",
     "locate-path": "2.0.0",
@@ -34,19 +34,19 @@
   },
   "_requested": {
     "name": "babel-loader",
-    "raw": "babel-loader@7.1.1",
-    "rawSpec": "7.1.1",
+    "raw": "babel-loader@7.1.2",
+    "rawSpec": "7.1.2",
     "scope": null,
-    "spec": "7.1.1",
+    "spec": "7.1.2",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/babel-loader/-/babel-loader-7.1.1.tgz",
-  "_shasum": "b87134c8b12e3e4c2a94e0546085bc680a2b8488",
+  "_resolved": "https://registry.npmjs.org/babel-loader/-/babel-loader-7.1.2.tgz",
+  "_shasum": "f6cbe122710f1aa2af4d881c6d5b54358ca24126",
   "_shrinkwrap": null,
-  "_spec": "babel-loader@7.1.1",
+  "_spec": "babel-loader@7.1.2",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "hello@luiscouto.pt",
@@ -73,7 +73,7 @@
   },
   "description": "babel module loader for webpack",
   "devDependencies": {
-    "ava": "^0.19.0",
+    "ava": "^0.22.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.0.0",
     "babel-eslint": "^7.1.0",
@@ -98,8 +98,9 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "b87134c8b12e3e4c2a94e0546085bc680a2b8488",
-    "tarball": "https://registry.npmjs.org/babel-loader/-/babel-loader-7.1.1.tgz"
+    "integrity": "sha512-jRwlFbINAeyDStqK6Dd5YuY0k5YuzQUvlz2ZamuXrXmxav3pNqe9vfJ402+2G+OmlJSXxCOpB6Uz0INM7RQe2A==",
+    "shasum": "f6cbe122710f1aa2af4d881c6d5b54358ca24126",
+    "tarball": "https://registry.npmjs.org/babel-loader/-/babel-loader-7.1.2.tgz"
   },
   "engines": {
     "node": ">=4"
@@ -107,7 +108,7 @@
   "files": [
     "lib"
   ],
-  "gitHead": "5953fcf2929536b10cdcc6ea37d81a877b1a5395",
+  "gitHead": "1ca5c7856d2129a28d6ba031bd8a5759aa80b8eb",
   "homepage": "https://github.com/babel/babel-loader",
   "keywords": [
     "webpack",
@@ -192,5 +193,5 @@
     "test": "yarn run lint && cross-env BABEL_ENV=test yarn run build && yarn run test-only",
     "test-only": "nyc ava"
   },
-  "version": "7.1.1"
+  "version": "7.1.2"
 }
