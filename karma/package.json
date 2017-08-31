@@ -3,32 +3,32 @@
     [
       {
         "name": "karma",
-        "raw": "karma@1.7.0",
-        "rawSpec": "1.7.0",
+        "raw": "karma@1.7.1",
+        "rawSpec": "1.7.1",
         "scope": null,
-        "spec": "1.7.0",
+        "spec": "1.7.1",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "karma@1.7.0",
-  "_id": "karma@1.7.0",
+  "_from": "karma@1.7.1",
+  "_id": "karma@1.7.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/karma",
-  "_nodeVersion": "7.9.0",
+  "_nodeVersion": "8.4.0",
   "_npmOperationalInternal": {
-    "host": "packages-18-east.internal.npmjs.com",
-    "tmp": "tmp/karma-1.7.0.tgz_1494062178212_0.14078618143685162"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/karma-1.7.1.tgz_1504089549993_0.7018666390795261"
   },
   "_npmUser": {
     "email": "dignifiedquire@gmail.com",
     "name": "dignifiedquire"
   },
-  "_npmVersion": "4.5.0",
+  "_npmVersion": "5.3.0",
   "_phantomChildren": {
-    "brace-expansion": "1.1.7",
+    "brace-expansion": "1.1.8",
     "content-type": "1.0.2",
     "encodeurl": "1.0.1",
     "escape-html": "1.0.3",
@@ -48,19 +48,19 @@
   },
   "_requested": {
     "name": "karma",
-    "raw": "karma@1.7.0",
-    "rawSpec": "1.7.0",
+    "raw": "karma@1.7.1",
+    "rawSpec": "1.7.1",
     "scope": null,
-    "spec": "1.7.0",
+    "spec": "1.7.1",
     "type": "version"
   },
   "_requiredBy": [
     "#DEV:/"
   ],
-  "_resolved": "https://registry.npmjs.org/karma/-/karma-1.7.0.tgz",
-  "_shasum": "6f7a1a406446fa2e187ec95398698f4cee476269",
+  "_resolved": "https://registry.npmjs.org/karma/-/karma-1.7.1.tgz",
+  "_shasum": "85cc08e9e0a22d7ce9cca37c4a1be824f6a2b1ae",
   "_shrinkwrap": null,
-  "_spec": "karma@1.7.0",
+  "_spec": "karma@1.7.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "email": "vojta.jina@gmail.com",
@@ -106,32 +106,20 @@
       "name": "Liam Newman"
     },
     {
-      "email": "todd@twolfson.com",
-      "name": "Todd Wolfson"
-    },
-    {
       "email": "wesley.cho@gmail.com",
       "name": "Wesley Cho"
+    },
+    {
+      "email": "todd@twolfson.com",
+      "name": "Todd Wolfson"
     },
     {
       "email": "ciroanunes@gmail.com",
       "name": "Ciro Nunes"
     },
     {
-      "email": "pkozlowski.opensource@gmail.com",
-      "name": "Pawel Kozlowski"
-    },
-    {
-      "email": "hop2deep@gmail.com",
-      "name": "Robo"
-    },
-    {
       "email": "mark@zzo.com",
       "name": "Mark Trostler"
-    },
-    {
-      "email": "tim@gfxmonk.net",
-      "name": "Tim Cuthbertson"
     },
     {
       "email": "christi@n-bud.de",
@@ -142,6 +130,18 @@
       "name": "Shyam Seshadri"
     },
     {
+      "email": "hop2deep@gmail.com",
+      "name": "Robo"
+    },
+    {
+      "email": "tim@gfxmonk.net",
+      "name": "Tim Cuthbertson"
+    },
+    {
+      "email": "pkozlowski.opensource@gmail.com",
+      "name": "Pawel Kozlowski"
+    },
+    {
       "email": "mark@zzo.com",
       "name": "Mark Ethan Trostler"
     },
@@ -150,8 +150,8 @@
       "name": "Mourad"
     },
     {
-      "email": "vivek@vivekganesan.com",
-      "name": "vivganes"
+      "email": "nmalaguti@palantir.com",
+      "name": "Nick Malaguti"
     },
     {
       "email": "m.goleb@gmail.com",
@@ -162,6 +162,10 @@
       "name": "Daniel Compton"
     },
     {
+      "email": "vivek@vivekganesan.com",
+      "name": "vivganes"
+    },
+    {
       "email": "kjbekkelund@gmail.com",
       "name": "Kim Joar Bekkelund"
     },
@@ -170,24 +174,16 @@
       "name": "joshjb84"
     },
     {
-      "email": "nmalaguti@palantir.com",
-      "name": "Nick Malaguti"
-    },
-    {
-      "email": "ivolodin@vistaprint.com",
-      "name": "Ilya Volodin"
-    },
-    {
-      "email": "sublimino@gmail.com",
-      "name": "Andrew Martin"
-    },
-    {
-      "email": "chriscasola@gmail.com",
-      "name": "Chris Casola"
+      "email": "jeremy.judeaux@volune.net",
+      "name": "Jérémy Judéaux"
     },
     {
       "email": "m.goleb@gmail.com",
       "name": "Michał Gołębiowski"
+    },
+    {
+      "email": "davidsouther@gmail.com",
+      "name": "David Souther"
     },
     {
       "email": "jeffjewiss@gmail.com",
@@ -198,36 +194,40 @@
       "name": "Marcello Nuccio"
     },
     {
-      "email": "pavelgj@gmail.com",
-      "name": "pavelgj"
-    },
-    {
-      "email": "davidsouther@gmail.com",
-      "name": "David Souther"
-    },
-    {
-      "email": "sylvainhamel0@gmail.com",
-      "name": "sylvain-hamel"
-    },
-    {
-      "email": "code@daniel.priv.no",
-      "name": "Daniel Aleksandersen"
+      "email": "sublimino@gmail.com",
+      "name": "Andrew Martin"
     },
     {
       "email": "Iristyle@github",
       "name": "Iristyle"
     },
     {
-      "email": "btford@umich.edu",
-      "name": "Brian Ford"
+      "email": "chriscasola@gmail.com",
+      "name": "Chris Casola"
+    },
+    {
+      "email": "code@daniel.priv.no",
+      "name": "Daniel Aleksandersen"
     },
     {
       "email": "aymeric@beaumet.me",
       "name": "Aymeric Beaumet"
     },
     {
-      "email": "jeremy.judeaux@volune.net",
-      "name": "Jérémy Judéaux"
+      "email": "pavelgj@gmail.com",
+      "name": "pavelgj"
+    },
+    {
+      "email": "sylvainhamel0@gmail.com",
+      "name": "sylvain-hamel"
+    },
+    {
+      "email": "btford@umich.edu",
+      "name": "Brian Ford"
+    },
+    {
+      "email": "ivolodin@vistaprint.com",
+      "name": "Ilya Volodin"
     },
     {
       "email": "matthew.lewis@socialsignin.co.uk",
@@ -238,17 +238,17 @@
       "name": "ngiebel"
     },
     {
-      "email": "aseembansal@live.com",
-      "name": "Aseem Bansal"
+      "email": "czchen@gmail.com",
+      "name": "ChangZhuo Chen",
+      "url": "陳昌倬"
     },
     {
       "email": "rubenoz@gmail.com",
       "name": "rdodev"
     },
     {
-      "email": "czchen@gmail.com",
-      "name": "ChangZhuo Chen",
-      "url": "陳昌倬"
+      "email": "jonas.pommerening@aixigo.de",
+      "name": "Jonas Pommerening"
     },
     {
       "email": "sjelin@gmail.com",
@@ -257,10 +257,6 @@
     {
       "email": "pt@bebop.co",
       "name": "Pat Tullmann"
-    },
-    {
-      "email": "support@greenkeeper.io",
-      "name": "Greenkeeper"
     },
     {
       "email": "freethejazz@gmail.com",
@@ -275,12 +271,12 @@
       "name": "KJ Tsanaktsidis"
     },
     {
-      "email": "dragnev@telerik.com",
-      "name": "Stefan Dragnev"
-    },
-    {
       "email": "hmalphettes@gmail.com",
       "name": "Hugues Malphettes"
+    },
+    {
+      "email": "dragnev@telerik.com",
+      "name": "Stefan Dragnev"
     },
     {
       "email": "maochenyan@gmail.com",
@@ -315,6 +311,10 @@
       "name": "Thomas Parisot"
     },
     {
+      "email": "carlos.darth@gmail.com",
+      "name": "DarthCharles"
+    },
+    {
       "email": "kevinziwenhuang@gmail.com",
       "name": "Kevin Huang"
     },
@@ -323,12 +323,12 @@
       "name": "Tom Erik Støwer"
     },
     {
-      "email": "carlos.darth@gmail.com",
-      "name": "DarthCharles"
-    },
-    {
       "email": "kevin.wenner@massmotionmedia.com",
       "name": "Kevin WENNER"
+    },
+    {
+      "email": "ethan_j_brown@hotmail.com",
+      "name": "Ethan J. Brown"
     },
     {
       "email": "me@levithomason.com",
@@ -347,32 +347,28 @@
       "name": "Vladimir Starkov"
     },
     {
-      "email": "jonas.pommerening@aixigo.de",
-      "name": "Jonas Pommerening"
-    },
-    {
-      "email": "ethan_j_brown@hotmail.com",
-      "name": "Ethan J. Brown"
+      "email": "support@greenkeeper.io",
+      "name": "Greenkeeper"
     },
     {
       "email": "jford@psyked.co.uk",
       "name": "James Ford"
     },
     {
-      "email": "github@gdi2290.com",
-      "name": "PatrickJS"
-    },
-    {
       "email": "david@parsson.se",
       "name": "David Pärsson"
     },
     {
-      "email": "luke.a.page@gmail.com",
-      "name": "Luke Page"
+      "email": "github@gdi2290.com",
+      "name": "PatrickJS"
     },
     {
       "email": "james@talmage.io",
       "name": "James Talmage"
+    },
+    {
+      "email": "luke.a.page@gmail.com",
+      "name": "Luke Page"
     },
     {
       "email": "alias.mac@gmail.com",
@@ -395,6 +391,10 @@
       "name": "Roarke Gaskill"
     },
     {
+      "email": "voltrevo@gmail.com",
+      "name": "Andrew Morris"
+    },
+    {
       "email": "johnjbarton@johnjbarton.com",
       "name": "johnjbarton"
     },
@@ -403,8 +403,8 @@
       "name": "karmarunnerbot"
     },
     {
-      "email": "voltrevo@gmail.com",
-      "name": "Andrew Morris"
+      "email": "aseembansal@live.com",
+      "name": "Aseem Bansal"
     },
     {
       "email": "robin.gnail@gmail.com",
@@ -441,6 +441,10 @@
     {
       "email": "github@keithcirkel.co.uk",
       "name": "Keith Cirkel"
+    },
+    {
+      "email": "kellyrayj@gmail.com",
+      "name": "Kelly Jensen"
     },
     {
       "email": "kent@doddsfamily.us",
@@ -1379,13 +1383,14 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "6f7a1a406446fa2e187ec95398698f4cee476269",
-    "tarball": "https://registry.npmjs.org/karma/-/karma-1.7.0.tgz"
+    "integrity": "sha512-k5pBjHDhmkdaUccnC7gE3mBzZjcxyxYsYVaqiL2G5AqlfLyBO5nw2VdNK+O16cveEPd/gIOWULH7gkiYYwVNHg==",
+    "shasum": "85cc08e9e0a22d7ce9cca37c4a1be824f6a2b1ae",
+    "tarball": "https://registry.npmjs.org/karma/-/karma-1.7.1.tgz"
   },
   "engines": {
-    "node": "0.10 || 0.12 || 4 || 5 || 6 || 7"
+    "node": "0.10 || 0.12 || 4 || 5 || 6 || 7 || 8"
   },
-  "gitHead": "2a847c250bb62134d87f5230d97be8483d4a13cf",
+  "gitHead": "ee40570953765a9da26d11f0d85cb30a9d8ed070",
   "homepage": "http://karma-runner.github.io/",
   "keywords": [
     "karma",
@@ -1441,5 +1446,5 @@
     "travis": "npm run build && npm test && npm run test:integration",
     "unlink": "node --eval \"require('fs').unlinkSync(require('path').resolve(__dirname, 'node_modules', 'karma'))\""
   },
-  "version": "1.7.0"
+  "version": "1.7.1"
 }
