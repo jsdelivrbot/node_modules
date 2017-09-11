@@ -2,34 +2,33 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Select from './Select';
 import stripDiacritics from './utils/stripDiacritics';
-
 const propTypes = {
 	autoload: PropTypes.bool.isRequired,       // automatically call the `loadOptions` prop on-mount; defaults to true
 	cache: PropTypes.any,                      // object to use to cache results; set to null/false to disable caching
 	children: PropTypes.func.isRequired,       // Child function responsible for creating the inner Select component; (props: Object): PropTypes.element
 	ignoreAccents: PropTypes.bool,             // strip diacritics when filtering; defaults to true
 	ignoreCase: PropTypes.bool,                // perform case-insensitive filtering; defaults to true
+	loadOptions: PropTypes.func.isRequired,    // callback to load options asynchronously; (inputValue: string, callback: Function): ?Promise
 	loadingPlaceholder: PropTypes.oneOfType([  // replaces the placeholder while options are loading
 		PropTypes.string,
 		PropTypes.node
 	]),
-	loadOptions: PropTypes.func.isRequired,    // callback to load options asynchronously; (inputValue: string, callback: Function): ?Promise
 	multi: PropTypes.bool,                     // multi-value input
-	options: PropTypes.array.isRequired,             // array of options
-	placeholder: PropTypes.oneOfType([         // field placeholder, displayed when there's no value (shared with Select)
-		PropTypes.string,
-		PropTypes.node
-	]),
 	noResultsText: PropTypes.oneOfType([       // field noResultsText, displayed when no options come back from the server
 		PropTypes.string,
 		PropTypes.node
 	]),
 	onChange: PropTypes.func,                  // onChange handler: function (newValue) {}
+	onInputChange: PropTypes.func,             // optional for keeping track of what is being typed
+	options: PropTypes.array.isRequired,       // array of options
+	placeholder: PropTypes.oneOfType([         // field placeholder, displayed when there's no value (shared with Select)
+		PropTypes.string,
+		PropTypes.node
+	]),
 	searchPromptText: PropTypes.oneOfType([    // label to prompt for search input
 		PropTypes.string,
 		PropTypes.node
 	]),
-	onInputChange: PropTypes.func,             // optional for keeping track of what is being typed
 	value: PropTypes.any,                      // initial field value
 };
 
@@ -68,15 +67,12 @@ export default class Async extends Component {
 		}
 	}
 
-	componentWillUpdate (nextProps, nextState) {
-		const propertiesToSync = ['options'];
-		propertiesToSync.forEach((prop) => {
-			if (this.props[prop] !== nextProps[prop]) {
-				this.setState({
-					[prop]: nextProps[prop]
-				});
-			}
-		});
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.options !== this.props.options) {
+			this.setState({
+				options: nextProps.options,
+			});
+		}
 	}
 
 	clearOptions() {
@@ -134,26 +130,28 @@ export default class Async extends Component {
 				isLoading: true
 			});
 		}
-
-		return inputValue;
 	}
 
 	_onInputChange (inputValue) {
 		const { ignoreAccents, ignoreCase, onInputChange } = this.props;
+		let transformedInputValue = inputValue;
 
 		if (ignoreAccents) {
-			inputValue = stripDiacritics(inputValue);
+			transformedInputValue = stripDiacritics(transformedInputValue);
 		}
 
 		if (ignoreCase) {
-			inputValue = inputValue.toLowerCase();
+			transformedInputValue = transformedInputValue.toLowerCase();
 		}
 
 		if (onInputChange) {
-			onInputChange(inputValue);
+			onInputChange(transformedInputValue);
 		}
 
-		return this.loadOptions(inputValue);
+		this.loadOptions(transformedInputValue);
+
+		// Return the original input value to avoid modifying the user's view of the input while typing.
+		return inputValue;
 	}
 
 	inputValue() {

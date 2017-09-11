@@ -3,24 +3,24 @@
     [
       {
         "name": "react-input-autosize",
-        "raw": "react-input-autosize@^1.1.3",
-        "rawSpec": "^1.1.3",
+        "raw": "react-input-autosize@^1.1.5",
+        "rawSpec": "^1.1.5",
         "scope": null,
-        "spec": ">=1.1.3 <2.0.0",
+        "spec": ">=1.1.5 <2.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/react-select"
     ]
   ],
-  "_from": "react-input-autosize@>=1.1.3 <2.0.0",
-  "_id": "react-input-autosize@1.1.4",
+  "_from": "react-input-autosize@>=1.1.5 <2.0.0",
+  "_id": "react-input-autosize@1.1.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-input-autosize",
   "_nodeVersion": "7.7.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/react-input-autosize-1.1.4.tgz_1494743075192_0.5194365275092423"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/react-input-autosize-1.1.5.tgz_1504960451256_0.7989441107492894"
   },
   "_npmUser": {
     "email": "jed.watson@me.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "react-input-autosize",
-    "raw": "react-input-autosize@^1.1.3",
-    "rawSpec": "^1.1.3",
+    "raw": "react-input-autosize@^1.1.5",
+    "rawSpec": "^1.1.5",
     "scope": null,
-    "spec": ">=1.1.3 <2.0.0",
+    "spec": ">=1.1.5 <2.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/react-select"
   ],
-  "_resolved": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-1.1.4.tgz",
-  "_shasum": "cbc45072d4084ddc57806db8e3b34e644b8366ac",
+  "_resolved": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-1.1.5.tgz",
+  "_shasum": "6f36d21d3aaf9166c97856296a75310d6ada299b",
   "_shrinkwrap": null,
-  "_spec": "react-input-autosize@^1.1.3",
+  "_spec": "react-input-autosize@^1.1.5",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/react-select",
   "author": {
     "name": "Jed Watson"
@@ -73,10 +73,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "cbc45072d4084ddc57806db8e3b34e644b8366ac",
-    "tarball": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-1.1.4.tgz"
+    "shasum": "6f36d21d3aaf9166c97856296a75310d6ada299b",
+    "tarball": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-1.1.5.tgz"
   },
-  "gitHead": "34d4be8c6d9a807a8eb57ddc87d083374b87e00f",
+  "gitHead": "ad45a8a01b70f6ca9a20a9d770f63f006366fbad",
   "homepage": "https://github.com/JedWatson/react-input-autosize#readme",
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
@@ -107,7 +107,7 @@
   "name": "react-input-autosize",
   "optionalDependencies": {},
   "peerDependencies": {
-    "react": "^0.14 || ^15.0.0-rc || ^15.0"
+    "react": "^0.14 || ^15.0 || ^16.0.0-rc || ^16.0"
   },
   "readme": "ERROR: No README data found!",
   "repository": {
@@ -127,5 +127,5 @@
     "test": "jest; true",
     "watch": "gulp watch:lib"
   },
-  "version": "1.1.4"
+  "version": "1.1.5"
 }
