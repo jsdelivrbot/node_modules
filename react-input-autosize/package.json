@@ -13,14 +13,14 @@
     ]
   ],
   "_from": "react-input-autosize@>=1.1.5 <2.0.0",
-  "_id": "react-input-autosize@1.1.5",
+  "_id": "react-input-autosize@1.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-input-autosize",
   "_nodeVersion": "7.7.1",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/react-input-autosize-1.1.5.tgz_1504960451256_0.7989441107492894"
+    "tmp": "tmp/react-input-autosize-1.2.0.tgz_1505188880808_0.16439256514422596"
   },
   "_npmUser": {
     "email": "jed.watson@me.com",
@@ -39,8 +39,8 @@
   "_requiredBy": [
     "/react-select"
   ],
-  "_resolved": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-1.1.5.tgz",
-  "_shasum": "6f36d21d3aaf9166c97856296a75310d6ada299b",
+  "_resolved": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-1.2.0.tgz",
+  "_shasum": "87241071159f742123897691da6796ec33b57d05",
   "_shrinkwrap": null,
   "_spec": "react-input-autosize@^1.1.5",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/react-select",
@@ -73,10 +73,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "6f36d21d3aaf9166c97856296a75310d6ada299b",
-    "tarball": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-1.1.5.tgz"
+    "shasum": "87241071159f742123897691da6796ec33b57d05",
+    "tarball": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-1.2.0.tgz"
   },
-  "gitHead": "ad45a8a01b70f6ca9a20a9d770f63f006366fbad",
+  "gitHead": "c2a0ca430789d8448e2aebb81f863760b481958c",
   "homepage": "https://github.com/JedWatson/react-input-autosize#readme",
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
@@ -127,5 +127,5 @@
     "test": "jest; true",
     "watch": "gulp watch:lib"
   },
-  "version": "1.1.5"
+  "version": "1.2.0"
 }
