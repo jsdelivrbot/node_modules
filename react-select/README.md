@@ -52,12 +52,14 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 ```
 
-You can also use the standalone build by including `react-select.js` and `react-select.css` in your page. (If you do this though you'll also need to include the dependencies.) For example:
+You can also use the standalone UMD build by including `dist/react-select.js` and `dist/react-select.css` in your page. If you do this you'll also need to include the dependencies. For example:
+
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js"></script>
-<script src="https://unpkg.com/classnames/index.js"></script>
-<script src="https://unpkg.com/react-input-autosize/dist/react-input-autosize.js"></script>
+<script src="https://unpkg.com/react@15.6.1/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15.6.1/dist/react-dom.js"></script>
+<script src="https://unpkg.com/prop-types@15.5.10/prop-types.js"></script>
+<script src="https://unpkg.com/classnames@2.2.5/index.js"></script>
+<script src="https://unpkg.com/react-input-autosize@2.0.0/dist/react-input-autosize.js"></script>
 <script src="https://unpkg.com/react-select/dist/react-select.js"></script>
 
 <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css">
@@ -360,7 +362,7 @@ function onInputKeyDown(event) {
 | clearAllText | string | 'Clear all' | title for the "clear" control when `multi` is true |
 | clearRenderer | func | undefined | Renders a custom clear to be shown in the right-hand side of the select when clearable true: `clearRenderer()` |
 | clearValueText | string | 'Clear value' | title for the "clear" control |
-| resetValue | any | null | value to use when you clear the control |
+| closeOnSelect | bool | true | whether to close the menu when a value is selected
 | deleteRemoves | bool | true | whether pressing delete key removes the last item when there is no input value |
 | delimiter | string | ',' | delimiter to use to join multiple values |
 | disabled | bool | false | whether the Select is disabled or not |
@@ -391,11 +393,13 @@ function onInputKeyDown(event) {
 | onOpen | func | undefined | handler for when the menu opens: `function () {}` |
 | onSelectResetsInput | bool | true | whether the input value should be reset when options are selected, for `multi`
 | onValueClick | func | undefined | onClick handler for value labels: `function (value, event) {}` |
-| openOnFocus | bool | false | open the options menu when the input gets focus (requires searchable = true) |
+| openOnClick | bool | true | open the options menu when the control is clicked (requires searchable = true) |
+| openOnFocus | bool | false | open the options menu when the control gets focus (requires searchable = true) |
 | optionRenderer | func | undefined | function which returns a custom way to render the options in the menu |
 | options | array | undefined | array of options |
 | placeholder | string\|node | 'Select ...' | field placeholder, displayed when there's no value |
 | required | bool | false | applies HTML5 required attribute when needed |
+| resetValue | any | null | value to set when the control is cleared |
 | scrollMenuIntoView | bool | true | whether the viewport will shift to display the entire menu when engaged |
 | searchable | bool | true | whether to enable searching feature or not |
 | searchPromptText | string\|node | 'Type to search' | label to prompt for search input |

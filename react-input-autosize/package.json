@@ -3,24 +3,24 @@
     [
       {
         "name": "react-input-autosize",
-        "raw": "react-input-autosize@^1.1.5",
-        "rawSpec": "^1.1.5",
+        "raw": "react-input-autosize@^2.0.1",
+        "rawSpec": "^2.0.1",
         "scope": null,
-        "spec": ">=1.1.5 <2.0.0",
+        "spec": ">=2.0.1 <3.0.0",
         "type": "range"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/react-select"
     ]
   ],
-  "_from": "react-input-autosize@>=1.1.5 <2.0.0",
-  "_id": "react-input-autosize@1.2.0",
+  "_from": "react-input-autosize@>=2.0.1 <3.0.0",
+  "_id": "react-input-autosize@2.0.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-input-autosize",
   "_nodeVersion": "7.7.1",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/react-input-autosize-1.2.0.tgz_1505188880808_0.16439256514422596"
+    "tmp": "tmp/react-input-autosize-2.0.1.tgz_1505238169306_0.31935199559666216"
   },
   "_npmUser": {
     "email": "jed.watson@me.com",
@@ -30,19 +30,19 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "react-input-autosize",
-    "raw": "react-input-autosize@^1.1.5",
-    "rawSpec": "^1.1.5",
+    "raw": "react-input-autosize@^2.0.1",
+    "rawSpec": "^2.0.1",
     "scope": null,
-    "spec": ">=1.1.5 <2.0.0",
+    "spec": ">=2.0.1 <3.0.0",
     "type": "range"
   },
   "_requiredBy": [
     "/react-select"
   ],
-  "_resolved": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-1.2.0.tgz",
-  "_shasum": "87241071159f742123897691da6796ec33b57d05",
+  "_resolved": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-2.0.1.tgz",
+  "_shasum": "e92190497b4026c2780ad0f2fd703c835ba03e33",
   "_shrinkwrap": null,
-  "_spec": "react-input-autosize@^1.1.5",
+  "_spec": "react-input-autosize@^2.0.1",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/react-select",
   "author": {
     "name": "Jed Watson"
@@ -59,37 +59,58 @@
   },
   "description": "Auto-resizing Input Component for React",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
     "babel-jest": "^6.0.1",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.7",
     "eslint": "^3.19.0",
     "eslint-config-keystone": "^3.0.0",
     "eslint-config-keystone-react": "^1.0.0",
     "eslint-plugin-react": "^6.10.3",
-    "gulp": "^3.9.0",
-    "jest-cli": "^0.8.1",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-loader": "^0.5.1",
+    "html-webpack-plugin": "^2.30.1",
+    "jest-cli": "^21.0.2",
+    "less": "^2.3.1",
+    "less-loader": "^4.0.5",
+    "nps": "^5.7.1",
+    "nps-utils": "^1.3.0",
     "react": "^15.0",
-    "react-addons-test-utils": "^15.0",
-    "react-component-gulp-tasks": "^0.7.6",
-    "react-dom": "^15.0"
+    "react-dom": "^15.0",
+    "rollup": "^0.49.2",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "style-loader": "^0.18.2",
+    "uglify-es": "^3.0.28",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
   },
   "directories": {},
   "dist": {
-    "shasum": "87241071159f742123897691da6796ec33b57d05",
-    "tarball": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-1.2.0.tgz"
+    "shasum": "e92190497b4026c2780ad0f2fd703c835ba03e33",
+    "tarball": "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-2.0.1.tgz"
   },
-  "gitHead": "c2a0ca430789d8448e2aebb81f863760b481958c",
+  "gitHead": "5b79b5e56ab55ea9d8025857d89d16846c73aa57",
   "homepage": "https://github.com/JedWatson/react-input-autosize#readme",
   "jest": {
-    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
-    "testPathDirs": [
+    "roots": [
       "<rootDir>/src"
     ],
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/react",
       "<rootDir>/node_modules/fbjs",
-      "<rootDir>/node_modules/react-dom",
-      "<rootDir>/node_modules/react-addons-test-utils"
+      "<rootDir>/node_modules/react-dom"
     ]
   },
+  "js:next": "dist/react-input-autosize.es.js",
   "keywords": [
     "react",
     "react-component",
@@ -107,7 +128,7 @@
   "name": "react-input-autosize",
   "optionalDependencies": {},
   "peerDependencies": {
-    "react": "^0.14 || ^15.0 || ^16.0.0-rc || ^16.0"
+    "react": "^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0"
   },
   "readme": "ERROR: No README data found!",
   "repository": {
@@ -115,17 +136,12 @@
     "url": "git+https://github.com/JedWatson/react-input-autosize.git"
   },
   "scripts": {
-    "build": "gulp clean && NODE_ENV=production gulp build",
-    "bump": "gulp bump",
-    "bump:major": "gulp bump:major",
-    "bump:minor": "gulp bump:minor",
-    "examples": "gulp dev:server",
+    "build": "nps build",
+    "build-examples": "nps examples",
     "lint": "eslint ./; true",
-    "publish:site": "NODE_ENV=production gulp publish:examples",
-    "release": "NODE_ENV=production gulp release",
-    "start": "gulp dev",
-    "test": "jest; true",
-    "watch": "gulp watch:lib"
+    "publish-examples": "NODE_ENV=production nps publish",
+    "start": "webpack-dev-server --progress",
+    "test": "jest; true"
   },
-  "version": "1.2.0"
+  "version": "2.0.1"
 }

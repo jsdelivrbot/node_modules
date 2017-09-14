@@ -3,24 +3,24 @@
     [
       {
         "name": "react-select",
-        "raw": "react-select@1.0.0-rc.7",
-        "rawSpec": "1.0.0-rc.7",
+        "raw": "react-select@1.0.0-rc.10",
+        "rawSpec": "1.0.0-rc.10",
         "scope": null,
-        "spec": "1.0.0-rc.7",
+        "spec": "1.0.0-rc.10",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "react-select@1.0.0-rc.7",
-  "_id": "react-select@1.0.0-rc.7",
+  "_from": "react-select@1.0.0-rc.10",
+  "_id": "react-select@1.0.0-rc.10",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-select",
   "_nodeVersion": "7.7.1",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/react-select-1.0.0-rc.7.tgz_1505106469283_0.352764398092404"
+    "tmp": "tmp/react-select-1.0.0-rc.10.tgz_1505308944899_0.46038091578520834"
   },
   "_npmUser": {
     "email": "jed.watson@me.com",
@@ -30,28 +30,22 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "react-select",
-    "raw": "react-select@1.0.0-rc.7",
-    "rawSpec": "1.0.0-rc.7",
+    "raw": "react-select@1.0.0-rc.10",
+    "rawSpec": "1.0.0-rc.10",
     "scope": null,
-    "spec": "1.0.0-rc.7",
+    "spec": "1.0.0-rc.10",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/react-select/-/react-select-1.0.0-rc.7.tgz",
-  "_shasum": "fab65abb7a6d51ccdde51d6ff6b594018fc208bc",
+  "_resolved": "https://registry.npmjs.org/react-select/-/react-select-1.0.0-rc.10.tgz",
+  "_shasum": "f137346250f9255c979fbfa21860899928772350",
   "_shrinkwrap": null,
-  "_spec": "react-select@1.0.0-rc.7",
+  "_spec": "react-select@1.0.0-rc.10",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Jed Watson"
-  },
-  "browserify-shim": {
-    "classnames": "global:classNames",
-    "react": "global:React",
-    "react-dom": "global:ReactDOM",
-    "react-input-autosize": "global:AutosizeInput"
   },
   "bugs": {
     "url": "https://github.com/JedWatson/react-select/issues"
@@ -59,7 +53,7 @@
   "dependencies": {
     "classnames": "^2.2.4",
     "prop-types": "^15.5.8",
-    "react-input-autosize": "^1.1.5"
+    "react-input-autosize": "^2.0.1"
   },
   "description": "A Select control built with and for ReactJS",
   "devDependencies": {
@@ -117,10 +111,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "fab65abb7a6d51ccdde51d6ff6b594018fc208bc",
-    "tarball": "https://registry.npmjs.org/react-select/-/react-select-1.0.0-rc.7.tgz"
+    "shasum": "f137346250f9255c979fbfa21860899928772350",
+    "tarball": "https://registry.npmjs.org/react-select/-/react-select-1.0.0-rc.10.tgz"
   },
-  "gitHead": "8650f167d4b3194ca0bef5d93ff05ebb04a9c824",
+  "gitHead": "546403ad6894c2082b20fa63af514d68891dcf2e",
   "homepage": "https://github.com/JedWatson/react-select#readme",
   "jsnext:main": "dist/react-select.es.js",
   "keywords": [
@@ -148,8 +142,8 @@
   "name": "react-select",
   "optionalDependencies": {},
   "peerDependencies": {
-    "react": "^0.14 || ^15.0 || ^16.0.0-rc || ^16.0",
-    "react-dom": "^0.14 || ^15.0 || ^16.0.0-rc || ^16.0"
+    "react": "^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0",
+    "react-dom": "^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0"
   },
   "readme": "ERROR: No README data found!",
   "repository": {
@@ -166,5 +160,5 @@
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register"
   },
   "style": "dist/react-select.min.css",
-  "version": "1.0.0-rc.7"
+  "version": "1.0.0-rc.10"
 }
