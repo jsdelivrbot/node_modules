@@ -3,56 +3,46 @@
     [
       {
         "name": "pui-react-tabs",
-        "raw": "pui-react-tabs@5.4.0",
-        "rawSpec": "5.4.0",
+        "raw": "pui-react-tabs@8.3.3",
+        "rawSpec": "8.3.3",
         "scope": null,
-        "spec": "5.4.0",
+        "spec": "8.3.3",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-tabs@5.4.0",
-  "_id": "pui-react-tabs@5.4.0",
+  "_from": "pui-react-tabs@8.3.3",
+  "_id": "pui-react-tabs@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-tabs",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-tabs-5.4.0.tgz_1475020037451_0.24192002625204623"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-react-tabs-8.3.3.tgz_1503434284795_0.9877461527939886"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
-  "_phantomChildren": {
-    "babel-runtime": "6.23.0",
-    "classnames": "2.2.5",
-    "dom-helpers": "2.4.0",
-    "invariant": "2.2.2",
-    "keycode": "2.1.9",
-    "loose-envify": "1.3.1",
-    "react-overlays": "0.6.12",
-    "react-prop-types": "0.4.0",
-    "uncontrollable": "4.1.0"
-  },
+  "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-tabs",
-    "raw": "pui-react-tabs@5.4.0",
-    "rawSpec": "5.4.0",
+    "raw": "pui-react-tabs@8.3.3",
+    "rawSpec": "8.3.3",
     "scope": null,
-    "spec": "5.4.0",
+    "spec": "8.3.3",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-tabs/-/pui-react-tabs-5.4.0.tgz",
-  "_shasum": "e03a6161d9ba353aa97430fa0103c572ea20517a",
+  "_resolved": "https://registry.npmjs.org/pui-react-tabs/-/pui-react-tabs-8.3.3.tgz",
+  "_shasum": "f04a13eb61399272ccb9c5e0b4a75b7b0e6ba3f1",
   "_shrinkwrap": null,
-  "_spec": "pui-react-tabs@5.4.0",
+  "_spec": "pui-react-tabs@8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -64,18 +54,18 @@
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
     "lodash.uniqueid": "^3.0.0",
-    "pui-css-tabs": "^5.4.0",
-    "pui-react-collapsible": "^5.4.0",
-    "pui-react-mixins": "^5.4.0",
-    "raf": "^3.1.0",
-    "react-bootstrap": "0.30.2"
+    "prop-types": ">=15.5.6",
+    "pui-css-tabs": "=8.3.3",
+    "pui-react-collapsible": "=8.3.3",
+    "pui-react-mixins": "=8.3.3",
+    "raf": "^3.1.0"
   },
   "description": "React components for tab-based content toggling",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "e03a6161d9ba353aa97430fa0103c572ea20517a",
-    "tarball": "https://registry.npmjs.org/pui-react-tabs/-/pui-react-tabs-5.4.0.tgz"
+    "shasum": "f04a13eb61399272ccb9c5e0b4a75b7b0e6ba3f1",
+    "tarball": "https://registry.npmjs.org/pui-react-tabs/-/pui-react-tabs-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -88,48 +78,68 @@
   "main": "tabs.js",
   "maintainers": [
     {
-      "email": "aberkovec@pivotal.io",
-      "name": "aberkovec"
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
     },
     {
-      "email": "chansen87@gmail.com",
-      "name": "charleshansen"
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
     },
     {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
     },
     {
-      "email": "cthompson@pivotal.io",
-      "name": "cthompson"
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
     },
     {
-      "email": "dom.reinhold@gmail.com",
-      "name": "d-reinhold"
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
     },
     {
       "email": "esharma@pivotal.io",
       "name": "esharma"
     },
     {
-      "email": "gpleiss@gmail.com",
-      "name": "gpleiss"
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
+    },
+    {
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
+    },
+    {
+      "email": "cthompson@pivotal.io",
+      "name": "cthompson"
     },
     {
       "email": "kennyw1019@gmail.com",
       "name": "kennyw1019"
     },
     {
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
+    },
+    {
       "email": "mroyal@pivotal.io",
       "name": "mattroyal"
     },
     {
-      "email": "pivotal-ui@pivotal.io",
-      "name": "pivotal-ui"
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
     },
     {
       "email": "ryan.dy@gmail.com",
@@ -142,6 +152,10 @@
     {
       "email": "vinsonchuong@gmail.com",
       "name": "vinsonchuong"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
     }
   ],
   "name": "pui-react-tabs",
@@ -155,5 +169,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.4.0"
+  "version": "8.3.3"
 }

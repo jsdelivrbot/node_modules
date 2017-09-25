@@ -19,7 +19,7 @@ Note that this requires the Bootstrap JavaScript.
 
 ```html
 <div class="dropdown btn-group">
-  <button id="dropdown-button-1" class="dropdown-toggle btn btn-default" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button id="dropdown-button-1" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Button Dropdown
     <span class="caret"></span>
   </button>
@@ -51,4 +51,4 @@ This is a component of Pivotal UI, a collection of [React](https://facebook.gith
 [Github](https://github.com/pivotal-cf/pivotal-ui)
 [npm](https://www.npmjs.com/browse/keyword/pivotal%20ui%20modularized)
 
-(c) Copyright 2016 Pivotal Software, Inc. All Rights Reserved.
+(c) Copyright 2017 Pivotal Software, Inc. All Rights Reserved.

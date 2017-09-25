@@ -3,48 +3,46 @@
     [
       {
         "name": "pui-css-collapse",
-        "raw": "pui-css-collapse@^5.4.0",
-        "rawSpec": "^5.4.0",
+        "raw": "pui-css-collapse@=8.3.3",
+        "rawSpec": "=8.3.3",
         "scope": null,
-        "spec": ">=5.4.0 <6.0.0",
-        "type": "range"
+        "spec": "8.3.3",
+        "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-collapsible"
     ]
   ],
-  "_from": "pui-css-collapse@>=5.4.0 <6.0.0",
-  "_id": "pui-css-collapse@5.4.0",
+  "_from": "pui-css-collapse@8.3.3",
+  "_id": "pui-css-collapse@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-collapse",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-collapse-5.4.0.tgz_1475019950033_0.8413018535356969"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-css-collapse-8.3.3.tgz_1503427015433_0.7036642460152507"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
-  "_phantomChildren": {
-    "font-awesome": "4.7.0"
-  },
+  "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-collapse",
-    "raw": "pui-css-collapse@^5.4.0",
-    "rawSpec": "^5.4.0",
+    "raw": "pui-css-collapse@=8.3.3",
+    "rawSpec": "=8.3.3",
     "scope": null,
-    "spec": ">=5.4.0 <6.0.0",
-    "type": "range"
+    "spec": "8.3.3",
+    "type": "version"
   },
   "_requiredBy": [
     "/pui-react-collapsible"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz",
-  "_shasum": "60b7c01a0946c0719004f755516a6999781d758e",
+  "_resolved": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-8.3.3.tgz",
+  "_shasum": "a243406cad6191c54831fb8b2084a2e6ed52a190",
   "_shrinkwrap": null,
-  "_spec": "pui-css-collapse@^5.4.0",
+  "_spec": "pui-css-collapse@=8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-collapsible",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -53,16 +51,17 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.4.0",
-    "pui-css-dividers": "^5.4.0",
-    "pui-css-iconography": "^5.4.0"
+    "pui-css-bootstrap": "=8.3.3",
+    "pui-css-dividers": "=8.3.3",
+    "pui-css-iconography": "=8.3.3",
+    "pui-css-panels": "=8.3.3"
   },
   "description": "collapse css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "60b7c01a0946c0719004f755516a6999781d758e",
-    "tarball": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-5.4.0.tgz"
+    "shasum": "a243406cad6191c54831fb8b2084a2e6ed52a190",
+    "tarball": "https://registry.npmjs.org/pui-css-collapse/-/pui-css-collapse-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -75,20 +74,40 @@
   "main": "index.js",
   "maintainers": [
     {
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
+    },
+    {
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
+    },
+    {
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
+    },
+    {
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
+    },
+    {
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
+    },
+    {
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
       "email": "aberkovec@pivotal.io",
       "name": "aberkovec"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
-    },
-    {
-      "email": "chansen87@gmail.com",
-      "name": "charleshansen"
-    },
-    {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
     },
     {
       "email": "cthompson@pivotal.io",
@@ -99,32 +118,24 @@
       "name": "d-reinhold"
     },
     {
-      "email": "esharma@pivotal.io",
-      "name": "esharma"
-    },
-    {
-      "email": "gpleiss@gmail.com",
-      "name": "gpleiss"
-    },
-    {
-      "email": "issaq_al-ahmed@outlook.com",
-      "name": "ial-ahmed"
-    },
-    {
       "email": "kennyw1019@gmail.com",
       "name": "kennyw1019"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
     },
     {
       "email": "mroyal@pivotal.io",
       "name": "mattroyal"
     },
     {
-      "email": "pivotal-ui@pivotal.io",
-      "name": "pivotal-ui"
-    },
-    {
-      "email": "ryan.dy@gmail.com",
-      "name": "rdy"
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
     },
     {
       "email": "nicole@stubbornella.org",
@@ -133,6 +144,18 @@
     {
       "email": "vinsonchuong@gmail.com",
       "name": "vinsonchuong"
+    },
+    {
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
+    },
+    {
+      "email": "issaq_al-ahmed@outlook.com",
+      "name": "ial-ahmed"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
     }
   ],
   "name": "pui-css-collapse",
@@ -144,5 +167,5 @@
   },
   "scripts": {},
   "style": "collapse.css",
-  "version": "5.4.0"
+  "version": "8.3.3"
 }

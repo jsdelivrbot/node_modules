@@ -3,47 +3,47 @@
     [
       {
         "name": "pui-css-dividers",
-        "raw": "pui-css-dividers@5.4.0",
-        "rawSpec": "5.4.0",
+        "raw": "pui-css-dividers@8.3.3",
+        "rawSpec": "8.3.3",
         "scope": null,
-        "spec": "5.4.0",
+        "spec": "8.3.3",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-css-dividers@5.4.0",
-  "_id": "pui-css-dividers@5.4.0",
+  "_from": "pui-css-dividers@8.3.3",
+  "_id": "pui-css-dividers@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-dividers",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-dividers-5.4.0.tgz_1475019951063_0.6876990685705096"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-css-dividers-8.3.3.tgz_1503427333900_0.44363265996798873"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-dividers",
-    "raw": "pui-css-dividers@5.4.0",
-    "rawSpec": "5.4.0",
+    "raw": "pui-css-dividers@8.3.3",
+    "rawSpec": "8.3.3",
     "scope": null,
-    "spec": "5.4.0",
+    "spec": "8.3.3",
     "type": "version"
   },
   "_requiredBy": [
     "/",
     "/pui-css-collapse"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.4.0.tgz",
-  "_shasum": "492ba6a7a77c5bc76feefed446984bc22d85cc7d",
+  "_resolved": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-8.3.3.tgz",
+  "_shasum": "1a56d749e3216a128ec9a82f799394b038791d32",
   "_shrinkwrap": null,
-  "_spec": "pui-css-dividers@5.4.0",
+  "_spec": "pui-css-dividers@8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -56,8 +56,8 @@
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "492ba6a7a77c5bc76feefed446984bc22d85cc7d",
-    "tarball": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-5.4.0.tgz"
+    "shasum": "1a56d749e3216a128ec9a82f799394b038791d32",
+    "tarball": "https://registry.npmjs.org/pui-css-dividers/-/pui-css-dividers-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -70,20 +70,40 @@
   "main": "index.js",
   "maintainers": [
     {
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
+    },
+    {
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
+    },
+    {
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
+    },
+    {
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
+    },
+    {
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
+    },
+    {
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
       "email": "aberkovec@pivotal.io",
       "name": "aberkovec"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
-    },
-    {
-      "email": "chansen87@gmail.com",
-      "name": "charleshansen"
-    },
-    {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
     },
     {
       "email": "cthompson@pivotal.io",
@@ -94,8 +114,20 @@
       "name": "d-reinhold"
     },
     {
-      "email": "esharma@pivotal.io",
-      "name": "esharma"
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
+    },
+    {
+      "email": "mroyal@pivotal.io",
+      "name": "mattroyal"
     },
     {
       "email": "gpleiss@gmail.com",
@@ -106,28 +138,20 @@
       "name": "ial-ahmed"
     },
     {
-      "email": "kennyw1019@gmail.com",
-      "name": "kennyw1019"
-    },
-    {
-      "email": "mroyal@pivotal.io",
-      "name": "mattroyal"
-    },
-    {
-      "email": "pivotal-ui@pivotal.io",
-      "name": "pivotal-ui"
-    },
-    {
-      "email": "ryan.dy@gmail.com",
-      "name": "rdy"
+      "email": "vinsonchuong@gmail.com",
+      "name": "vinsonchuong"
     },
     {
       "email": "nicole@stubbornella.org",
       "name": "stubbornella"
     },
     {
-      "email": "vinsonchuong@gmail.com",
-      "name": "vinsonchuong"
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
     }
   ],
   "name": "pui-css-dividers",
@@ -139,5 +163,5 @@
   },
   "scripts": {},
   "style": "dividers.css",
-  "version": "5.4.0"
+  "version": "8.3.3"
 }

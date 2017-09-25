@@ -3,57 +3,46 @@
     [
       {
         "name": "pui-react-alerts",
-        "raw": "pui-react-alerts@5.4.0",
-        "rawSpec": "5.4.0",
+        "raw": "pui-react-alerts@8.3.3",
+        "rawSpec": "8.3.3",
         "scope": null,
-        "spec": "5.4.0",
+        "spec": "8.3.3",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-alerts@5.4.0",
-  "_id": "pui-react-alerts@5.4.0",
+  "_from": "pui-react-alerts@8.3.3",
+  "_id": "pui-react-alerts@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-alerts",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-alerts-5.4.0.tgz_1475019990556_0.6018718474078923"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-react-alerts-8.3.3.tgz_1503430481664_0.536262848880142"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
-  "_phantomChildren": {
-    "babel-runtime": "6.23.0",
-    "classnames": "2.2.5",
-    "dom-helpers": "2.4.0",
-    "font-awesome": "4.7.0",
-    "invariant": "2.2.2",
-    "keycode": "2.1.9",
-    "loose-envify": "1.3.1",
-    "react-overlays": "0.6.12",
-    "react-prop-types": "0.4.0",
-    "uncontrollable": "4.1.0"
-  },
+  "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-alerts",
-    "raw": "pui-react-alerts@5.4.0",
-    "rawSpec": "5.4.0",
+    "raw": "pui-react-alerts@8.3.3",
+    "rawSpec": "8.3.3",
     "scope": null,
-    "spec": "5.4.0",
+    "spec": "8.3.3",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.4.0.tgz",
-  "_shasum": "1f4ddba38127ccfd438c7410ee2051924da14afe",
+  "_resolved": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-8.3.3.tgz",
+  "_shasum": "4d94091ec450f078360655b824b9bd17f568c58e",
   "_shrinkwrap": null,
-  "_spec": "pui-react-alerts@5.4.0",
+  "_spec": "pui-react-alerts@8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -63,17 +52,18 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-alerts": "^5.4.0",
-    "pui-css-iconography": "^5.4.0",
-    "pui-react-media": "^5.4.0",
-    "react-bootstrap": "0.30.2"
+    "classnames": "2.2.5",
+    "prop-types": ">=15.5.6",
+    "pui-css-alerts": "=8.3.3",
+    "pui-react-iconography": "=8.3.3",
+    "pui-react-media": "=8.3.3"
   },
   "description": "React components to display flash messages to the user",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "1f4ddba38127ccfd438c7410ee2051924da14afe",
-    "tarball": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-5.4.0.tgz"
+    "shasum": "4d94091ec450f078360655b824b9bd17f568c58e",
+    "tarball": "https://registry.npmjs.org/pui-react-alerts/-/pui-react-alerts-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -86,20 +76,40 @@
   "main": "alerts.js",
   "maintainers": [
     {
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
+    },
+    {
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
+    },
+    {
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
+    },
+    {
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
+    },
+    {
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
+    },
+    {
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
       "email": "aberkovec@pivotal.io",
       "name": "aberkovec"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
-    },
-    {
-      "email": "chansen87@gmail.com",
-      "name": "charleshansen"
-    },
-    {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
     },
     {
       "email": "cthompson@pivotal.io",
@@ -110,24 +120,24 @@
       "name": "d-reinhold"
     },
     {
-      "email": "esharma@pivotal.io",
-      "name": "esharma"
-    },
-    {
-      "email": "gpleiss@gmail.com",
-      "name": "gpleiss"
-    },
-    {
       "email": "kennyw1019@gmail.com",
       "name": "kennyw1019"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
     },
     {
       "email": "mroyal@pivotal.io",
       "name": "mattroyal"
     },
     {
-      "email": "pivotal-ui@pivotal.io",
-      "name": "pivotal-ui"
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
     },
     {
       "email": "ryan.dy@gmail.com",
@@ -140,6 +150,10 @@
     {
       "email": "vinsonchuong@gmail.com",
       "name": "vinsonchuong"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
     }
   ],
   "name": "pui-react-alerts",
@@ -153,5 +167,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.4.0"
+  "version": "8.3.3"
 }

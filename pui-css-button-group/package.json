@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-css-button-group",
-        "raw": "pui-css-button-group@^5.4.0",
-        "rawSpec": "^5.4.0",
+        "raw": "pui-css-button-group@=8.3.3",
+        "rawSpec": "=8.3.3",
         "scope": null,
-        "spec": ">=5.4.0 <6.0.0",
-        "type": "range"
+        "spec": "8.3.3",
+        "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-dropdowns"
     ]
   ],
-  "_from": "pui-css-button-group@>=5.4.0 <6.0.0",
-  "_id": "pui-css-button-group@5.4.0",
+  "_from": "pui-css-button-group@8.3.3",
+  "_id": "pui-css-button-group@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-button-group",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-button-group-5.4.0.tgz_1475019945188_0.3937591512221843"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-css-button-group-8.3.3.tgz_1503426695195_0.5469634679611772"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-button-group",
-    "raw": "pui-css-button-group@^5.4.0",
-    "rawSpec": "^5.4.0",
+    "raw": "pui-css-button-group@=8.3.3",
+    "rawSpec": "=8.3.3",
     "scope": null,
-    "spec": ">=5.4.0 <6.0.0",
-    "type": "range"
+    "spec": "8.3.3",
+    "type": "version"
   },
   "_requiredBy": [
     "/pui-css-dropdowns"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-button-group/-/pui-css-button-group-5.4.0.tgz",
-  "_shasum": "6f3d5d4539b841238446bae655ae3929402f51e1",
+  "_resolved": "https://registry.npmjs.org/pui-css-button-group/-/pui-css-button-group-8.3.3.tgz",
+  "_shasum": "b99d0a18573f580f6ecc69cfdeb51f6a3b13afcf",
   "_shrinkwrap": null,
-  "_spec": "pui-css-button-group@^5.4.0",
+  "_spec": "pui-css-button-group@=8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-dropdowns",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,15 +51,15 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.4.0",
-    "pui-css-buttons": "^5.4.0"
+    "pui-css-bootstrap": "=8.3.3",
+    "pui-css-buttons": "=8.3.3"
   },
   "description": "button-group css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "6f3d5d4539b841238446bae655ae3929402f51e1",
-    "tarball": "https://registry.npmjs.org/pui-css-button-group/-/pui-css-button-group-5.4.0.tgz"
+    "shasum": "b99d0a18573f580f6ecc69cfdeb51f6a3b13afcf",
+    "tarball": "https://registry.npmjs.org/pui-css-button-group/-/pui-css-button-group-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -72,20 +72,44 @@
   "main": "index.js",
   "maintainers": [
     {
-      "email": "aberkovec@pivotal.io",
-      "name": "aberkovec"
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
+    },
+    {
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
+    },
+    {
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
+    },
+    {
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
+    },
+    {
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
     },
     {
       "email": "chansen87@gmail.com",
       "name": "charleshansen"
     },
     {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
     },
     {
       "email": "cthompson@pivotal.io",
@@ -96,32 +120,32 @@
       "name": "d-reinhold"
     },
     {
-      "email": "esharma@pivotal.io",
-      "name": "esharma"
-    },
-    {
-      "email": "gpleiss@gmail.com",
-      "name": "gpleiss"
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
     },
     {
       "email": "kennyw1019@gmail.com",
       "name": "kennyw1019"
     },
     {
-      "email": "mroyal@pivotal.io",
-      "name": "mattroyal"
-    },
-    {
-      "email": "pivotal-ui@pivotal.io",
-      "name": "pivotal-ui"
-    },
-    {
-      "email": "ryan.dy@gmail.com",
-      "name": "rdy"
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
     },
     {
       "email": "nicole@stubbornella.org",
       "name": "stubbornella"
+    },
+    {
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
+    },
+    {
+      "email": "mroyal@pivotal.io",
+      "name": "mattroyal"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
     }
   ],
   "name": "pui-css-button-group",
@@ -133,5 +157,5 @@
   },
   "scripts": {},
   "style": "button-group.css",
-  "version": "5.4.0"
+  "version": "8.3.3"
 }

@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-react-labels",
-        "raw": "pui-react-labels@5.4.0",
-        "rawSpec": "5.4.0",
+        "raw": "pui-react-labels@8.3.3",
+        "rawSpec": "8.3.3",
         "scope": null,
-        "spec": "5.4.0",
+        "spec": "8.3.3",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-labels@5.4.0",
-  "_id": "pui-react-labels@5.4.0",
+  "_from": "pui-react-labels@8.3.3",
+  "_id": "pui-react-labels@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-labels",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/pui-react-labels-5.4.0.tgz_1475020013168_0.33322072122246027"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-react-labels-8.3.3.tgz_1503432467064_0.21805109619162977"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-labels",
-    "raw": "pui-react-labels@5.4.0",
-    "rawSpec": "5.4.0",
+    "raw": "pui-react-labels@8.3.3",
+    "rawSpec": "8.3.3",
     "scope": null,
-    "spec": "5.4.0",
+    "spec": "8.3.3",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-5.4.0.tgz",
-  "_shasum": "b26575abfcd954730da859fc8e8c7f47c3e323f0",
+  "_resolved": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-8.3.3.tgz",
+  "_shasum": "ef90ec5b1ba964ba4bbb02b9c799b0069b3a2718",
   "_shrinkwrap": null,
-  "_spec": "pui-react-labels@5.4.0",
+  "_spec": "pui-react-labels@8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -52,15 +52,16 @@
   },
   "dependencies": {
     "babel-runtime": "^6.1.18",
-    "pui-css-labels": "^5.4.0",
-    "pui-react-helpers": "^5.4.0"
+    "pui-css-labels": "=8.3.3",
+    "pui-react-helpers": "=8.3.3"
   },
+  "deprecated": "This will removed in the next major release",
   "description": "A React component for showing a colored pill of text",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "b26575abfcd954730da859fc8e8c7f47c3e323f0",
-    "tarball": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-5.4.0.tgz"
+    "shasum": "ef90ec5b1ba964ba4bbb02b9c799b0069b3a2718",
+    "tarball": "https://registry.npmjs.org/pui-react-labels/-/pui-react-labels-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -73,20 +74,40 @@
   "main": "labels.js",
   "maintainers": [
     {
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
+    },
+    {
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
+    },
+    {
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
+    },
+    {
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
+    },
+    {
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
+    },
+    {
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
       "email": "aberkovec@pivotal.io",
       "name": "aberkovec"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
-    },
-    {
-      "email": "chansen87@gmail.com",
-      "name": "charleshansen"
-    },
-    {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
     },
     {
       "email": "cthompson@pivotal.io",
@@ -97,24 +118,28 @@
       "name": "d-reinhold"
     },
     {
-      "email": "esharma@pivotal.io",
-      "name": "esharma"
-    },
-    {
-      "email": "gpleiss@gmail.com",
-      "name": "gpleiss"
-    },
-    {
       "email": "kennyw1019@gmail.com",
       "name": "kennyw1019"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
     },
     {
       "email": "mroyal@pivotal.io",
       "name": "mattroyal"
     },
     {
-      "email": "pivotal-ui@pivotal.io",
-      "name": "pivotal-ui"
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
+    },
+    {
+      "email": "vinsonchuong@gmail.com",
+      "name": "vinsonchuong"
     },
     {
       "email": "ryan.dy@gmail.com",
@@ -125,8 +150,8 @@
       "name": "stubbornella"
     },
     {
-      "email": "vinsonchuong@gmail.com",
-      "name": "vinsonchuong"
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
     }
   ],
   "name": "pui-react-labels",
@@ -140,5 +165,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.4.0"
+  "version": "8.3.3"
 }

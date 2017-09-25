@@ -1,7 +1,9 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 "use strict";
 
-module.exports = function mixin(ParentClass) {
+exports.__esModule = true;
+
+exports.default = function (ParentClass) {
   return {
     with: function _with() {
       for (var _len = arguments.length, classGenerators = Array(_len), _key = 0; _key < _len; _key++) {
@@ -14,3 +16,5 @@ module.exports = function mixin(ParentClass) {
     }
   };
 };
+
+module.exports = exports["default"];

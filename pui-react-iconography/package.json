@@ -3,49 +3,50 @@
     [
       {
         "name": "pui-react-iconography",
-        "raw": "pui-react-iconography@7.5.2",
-        "rawSpec": "7.5.2",
+        "raw": "pui-react-iconography@8.3.3",
+        "rawSpec": "8.3.3",
         "scope": null,
-        "spec": "7.5.2",
+        "spec": "8.3.3",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-iconography@7.5.2",
-  "_id": "pui-react-iconography@7.5.2",
+  "_from": "pui-react-iconography@8.3.3",
+  "_id": "pui-react-iconography@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-iconography",
-  "_nodeVersion": "6.9.4",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-iconography-7.5.2.tgz_1486583281417_0.28639320214278996"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-react-iconography-8.3.3.tgz_1503432147284_0.05239474051631987"
   },
   "_npmUser": {
-    "email": "jadekler@gmail.com",
-    "name": "jadekler"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
-  "_phantomChildren": {
-    "babel-runtime": "6.23.0",
-    "classnames": "2.2.5"
-  },
+  "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-iconography",
-    "raw": "pui-react-iconography@7.5.2",
-    "rawSpec": "7.5.2",
+    "raw": "pui-react-iconography@8.3.3",
+    "rawSpec": "8.3.3",
     "scope": null,
-    "spec": "7.5.2",
+    "spec": "8.3.3",
     "type": "version"
   },
   "_requiredBy": [
-    "/"
+    "/",
+    "/pui-react-alerts",
+    "/pui-react-draggable-list",
+    "/pui-react-dropdowns",
+    "/pui-react-inputs"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-7.5.2.tgz",
-  "_shasum": "eee7ed3e1e4cd1d49d2bf5e6980de57567a3ec4c",
+  "_resolved": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-8.3.3.tgz",
+  "_shasum": "b24bc645d3d673938aa34ce87893e9d09160d635",
   "_shrinkwrap": null,
-  "_spec": "pui-react-iconography@7.5.2",
+  "_spec": "pui-react-iconography@8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -54,17 +55,20 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
+    "babel-loader": ">=6.0.0",
     "babel-runtime": "^6.1.18",
-    "pui-css-iconography": "=7.5.2",
-    "pui-react-helpers": "=7.5.2",
-    "pui-react-svg": "=7.5.2"
+    "prop-types": ">=15.5.6",
+    "pui-css-iconography": "=8.3.3",
+    "pui-react-helpers": "=8.3.3",
+    "pui-react-svg": "=8.3.3",
+    "react-svg-loader": "^1.1.1"
   },
   "description": "A React component for rendering Font Awesome icons",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "eee7ed3e1e4cd1d49d2bf5e6980de57567a3ec4c",
-    "tarball": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-7.5.2.tgz"
+    "shasum": "b24bc645d3d673938aa34ce87893e9d09160d635",
+    "tarball": "https://registry.npmjs.org/pui-react-iconography/-/pui-react-iconography-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -77,24 +81,40 @@
   "main": "iconography.js",
   "maintainers": [
     {
-      "email": "aberkovec@pivotal.io",
-      "name": "aberkovec"
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
     },
     {
-      "email": "chansen87@gmail.com",
-      "name": "charleshansen"
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
+    },
+    {
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
+    },
+    {
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
     },
     {
       "email": "chentom77@gmail.com",
       "name": "chentom88"
     },
     {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
+    },
+    {
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
     },
     {
       "email": "cthompson@pivotal.io",
@@ -105,44 +125,44 @@
       "name": "d-reinhold"
     },
     {
-      "email": "esharma@pivotal.io",
-      "name": "esharma"
-    },
-    {
-      "email": "gpleiss@gmail.com",
-      "name": "gpleiss"
-    },
-    {
-      "email": "issaq_al-ahmed@outlook.com",
-      "name": "ial-ahmed"
-    },
-    {
-      "email": "jadekler@gmail.com",
-      "name": "jadekler"
-    },
-    {
       "email": "kennyw1019@gmail.com",
       "name": "kennyw1019"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
     },
     {
       "email": "mroyal@pivotal.io",
       "name": "mattroyal"
     },
     {
-      "email": "pivotal-ui@pivotal.io",
-      "name": "pivotal-ui"
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
     },
     {
-      "email": "ryan.dy@gmail.com",
-      "name": "rdy"
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
+    },
+    {
+      "email": "vinsonchuong@gmail.com",
+      "name": "vinsonchuong"
+    },
+    {
+      "email": "issaq_al-ahmed@outlook.com",
+      "name": "ial-ahmed"
     },
     {
       "email": "nicole@stubbornella.org",
       "name": "stubbornella"
     },
     {
-      "email": "vinsonchuong@gmail.com",
-      "name": "vinsonchuong"
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
     }
   ],
   "name": "pui-react-iconography",
@@ -156,5 +176,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "7.5.2"
+  "version": "8.3.3"
 }

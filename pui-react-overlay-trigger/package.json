@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-react-overlay-trigger",
-        "raw": "pui-react-overlay-trigger@5.4.0",
-        "rawSpec": "5.4.0",
+        "raw": "pui-react-overlay-trigger@8.3.3",
+        "rawSpec": "8.3.3",
         "scope": null,
-        "spec": "5.4.0",
+        "spec": "8.3.3",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-overlay-trigger@5.4.0",
-  "_id": "pui-react-overlay-trigger@5.4.0",
+  "_from": "pui-react-overlay-trigger@8.3.3",
+  "_id": "pui-react-overlay-trigger@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-overlay-trigger",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-overlay-trigger-5.4.0.tgz_1475020026693_0.9066623176913708"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-react-overlay-trigger-8.3.3.tgz_1503433107299_0.015234932769089937"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-overlay-trigger",
-    "raw": "pui-react-overlay-trigger@5.4.0",
-    "rawSpec": "5.4.0",
+    "raw": "pui-react-overlay-trigger@8.3.3",
+    "rawSpec": "8.3.3",
     "scope": null,
-    "spec": "5.4.0",
+    "spec": "8.3.3",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.4.0.tgz",
-  "_shasum": "a4119f54f2c2fbcfd1542803c2d919d92aacb6ca",
+  "_resolved": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-8.3.3.tgz",
+  "_shasum": "06f3f248f5e56f6c5f3d106c2b96f4d46487c384",
   "_shrinkwrap": null,
-  "_spec": "pui-react-overlay-trigger@5.4.0",
+  "_spec": "pui-react-overlay-trigger@8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -53,15 +53,16 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "lodash.uniqueid": "^3.0.0",
-    "pui-react-mixins": "^5.4.0",
+    "prop-types": ">=15.5.6",
+    "pui-react-mixins": "=8.3.3",
     "react-tether": "^0.5.2"
   },
   "description": "A React component for displaying a tooltip or popover on user action",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "a4119f54f2c2fbcfd1542803c2d919d92aacb6ca",
-    "tarball": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-5.4.0.tgz"
+    "shasum": "06f3f248f5e56f6c5f3d106c2b96f4d46487c384",
+    "tarball": "https://registry.npmjs.org/pui-react-overlay-trigger/-/pui-react-overlay-trigger-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/react.html#tooltips_react",
   "keywords": [
@@ -74,64 +75,88 @@
   "main": "overlay-trigger.js",
   "maintainers": [
     {
-      "email": "aberkovec@pivotal.io",
-      "name": "aberkovec"
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
     },
     {
-      "email": "chansen87@gmail.com",
-      "name": "charleshansen"
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
     },
     {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
     },
     {
-      "email": "cthompson@pivotal.io",
-      "name": "cthompson"
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
     },
     {
-      "email": "dom.reinhold@gmail.com",
-      "name": "d-reinhold"
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
     },
     {
       "email": "esharma@pivotal.io",
       "name": "esharma"
     },
     {
-      "email": "gpleiss@gmail.com",
-      "name": "gpleiss"
-    },
-    {
-      "email": "issaq_al-ahmed@outlook.com",
-      "name": "ial-ahmed"
-    },
-    {
-      "email": "kennyw1019@gmail.com",
-      "name": "kennyw1019"
-    },
-    {
-      "email": "mroyal@pivotal.io",
-      "name": "mattroyal"
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
     },
     {
       "email": "pivotal-ui@pivotal.io",
       "name": "pivotal-ui"
     },
     {
-      "email": "ryan.dy@gmail.com",
-      "name": "rdy"
+      "email": "cthompson@pivotal.io",
+      "name": "cthompson"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
+    },
+    {
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
+    },
+    {
+      "email": "mroyal@pivotal.io",
+      "name": "mattroyal"
+    },
+    {
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
+    },
+    {
+      "email": "vinsonchuong@gmail.com",
+      "name": "vinsonchuong"
+    },
+    {
+      "email": "issaq_al-ahmed@outlook.com",
+      "name": "ial-ahmed"
     },
     {
       "email": "nicole@stubbornella.org",
       "name": "stubbornella"
     },
     {
-      "email": "vinsonchuong@gmail.com",
-      "name": "vinsonchuong"
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
     }
   ],
   "name": "pui-react-overlay-trigger",
@@ -145,5 +170,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "5.4.0"
+  "version": "8.3.3"
 }

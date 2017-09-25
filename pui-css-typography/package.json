@@ -3,49 +3,50 @@
     [
       {
         "name": "pui-css-typography",
-        "raw": "pui-css-typography@^5.4.0",
-        "rawSpec": "^5.4.0",
+        "raw": "pui-css-typography@=8.3.3",
+        "rawSpec": "=8.3.3",
         "scope": null,
-        "spec": ">=5.4.0 <6.0.0",
-        "type": "range"
+        "spec": "8.3.3",
+        "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-buttons"
     ]
   ],
-  "_from": "pui-css-typography@>=5.4.0 <6.0.0",
-  "_id": "pui-css-typography@5.4.0",
+  "_from": "pui-css-typography@8.3.3",
+  "_id": "pui-css-typography@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-typography",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-typography-5.4.0.tgz_1475019983646_0.752975876443088"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-css-typography-8.3.3.tgz_1503430053999_0.404414372285828"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-typography",
-    "raw": "pui-css-typography@^5.4.0",
-    "rawSpec": "^5.4.0",
+    "raw": "pui-css-typography@=8.3.3",
+    "rawSpec": "=8.3.3",
     "scope": null,
-    "spec": ">=5.4.0 <6.0.0",
-    "type": "range"
+    "spec": "8.3.3",
+    "type": "version"
   },
   "_requiredBy": [
     "/pui-css-alerts",
     "/pui-css-buttons",
+    "/pui-css-lists",
     "/pui-css-modals",
     "/pui-react-modals"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-typography/-/pui-css-typography-5.4.0.tgz",
-  "_shasum": "d760e13382094066a75b8bb2f0b98d9fe40d6cc1",
+  "_resolved": "https://registry.npmjs.org/pui-css-typography/-/pui-css-typography-8.3.3.tgz",
+  "_shasum": "eab676ff20cf2efdcd54725fdd0c18a6673711fc",
   "_shrinkwrap": null,
-  "_spec": "pui-css-typography@^5.4.0",
+  "_spec": "pui-css-typography@=8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-css-buttons",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -54,14 +55,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.4.0"
+    "pui-css-bootstrap": "=8.3.3"
   },
   "description": "typography css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "d760e13382094066a75b8bb2f0b98d9fe40d6cc1",
-    "tarball": "https://registry.npmjs.org/pui-css-typography/-/pui-css-typography-5.4.0.tgz"
+    "shasum": "eab676ff20cf2efdcd54725fdd0c18a6673711fc",
+    "tarball": "https://registry.npmjs.org/pui-css-typography/-/pui-css-typography-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -74,64 +75,88 @@
   "main": "index.js",
   "maintainers": [
     {
-      "email": "aberkovec@pivotal.io",
-      "name": "aberkovec"
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
     },
     {
-      "email": "chansen87@gmail.com",
-      "name": "charleshansen"
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
     },
     {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
     },
     {
-      "email": "cthompson@pivotal.io",
-      "name": "cthompson"
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
     },
     {
-      "email": "dom.reinhold@gmail.com",
-      "name": "d-reinhold"
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
     },
     {
       "email": "esharma@pivotal.io",
       "name": "esharma"
     },
     {
-      "email": "gpleiss@gmail.com",
-      "name": "gpleiss"
-    },
-    {
-      "email": "issaq_al-ahmed@outlook.com",
-      "name": "ial-ahmed"
-    },
-    {
-      "email": "kennyw1019@gmail.com",
-      "name": "kennyw1019"
-    },
-    {
-      "email": "mroyal@pivotal.io",
-      "name": "mattroyal"
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
     },
     {
       "email": "pivotal-ui@pivotal.io",
       "name": "pivotal-ui"
     },
     {
-      "email": "ryan.dy@gmail.com",
-      "name": "rdy"
+      "email": "cthompson@pivotal.io",
+      "name": "cthompson"
+    },
+    {
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
+    },
+    {
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
+    },
+    {
+      "email": "mroyal@pivotal.io",
+      "name": "mattroyal"
+    },
+    {
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
+    },
+    {
+      "email": "vinsonchuong@gmail.com",
+      "name": "vinsonchuong"
     },
     {
       "email": "nicole@stubbornella.org",
       "name": "stubbornella"
     },
     {
-      "email": "vinsonchuong@gmail.com",
-      "name": "vinsonchuong"
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
+    },
+    {
+      "email": "issaq_al-ahmed@outlook.com",
+      "name": "ial-ahmed"
     }
   ],
   "name": "pui-css-typography",
@@ -143,5 +168,5 @@
   },
   "scripts": {},
   "style": "typography.css",
-  "version": "5.4.0"
+  "version": "8.3.3"
 }

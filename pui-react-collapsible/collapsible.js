@@ -1,21 +1,16 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
+exports.__esModule = true;
+exports.Collapsible = undefined;
+
 var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
 
 var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
 var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
 
 var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
 
@@ -29,13 +24,13 @@ var _weakMap = require('babel-runtime/core-js/weak-map');
 
 var _weakMap2 = _interopRequireDefault(_weakMap);
 
-var _animation_mixin = require('pui-react-mixins/mixins/animation_mixin');
-
-var _animation_mixin2 = _interopRequireDefault(_animation_mixin);
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _animation_mixin = require('pui-react-mixins/mixins/animation_mixin');
+
+var _animation_mixin2 = _interopRequireDefault(_animation_mixin);
 
 var _puiReactMixins = require('pui-react-mixins');
 
@@ -43,102 +38,103 @@ var _puiReactMixins2 = _interopRequireDefault(_puiReactMixins);
 
 var _puiReactHelpers = require('pui-react-helpers');
 
-var _bounding_client_rect = require('pui-react-mixins/components/bounding_client_rect');
+var _propTypes = require('prop-types');
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _bounding_client_rect = require('pui-react-mixins/components/bounding_client_rect');
 
 require('pui-css-collapse');
 
-var types = _react2.default.PropTypes;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var privates = new _weakMap2.default();
 
-var Collapsible = function (_mixin$with) {
-  (0, _inherits3.default)(Collapsible, _mixin$with);
+var CollapsibleComponent = function (_mixin$with) {
+  (0, _inherits3.default)(CollapsibleComponent, _mixin$with);
 
-  function Collapsible(props, context) {
-    (0, _classCallCheck3.default)(this, Collapsible);
+  function CollapsibleComponent(props, context) {
+    (0, _classCallCheck3.default)(this, CollapsibleComponent);
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Collapsible).call(this, props, context));
+    var _this = (0, _possibleConstructorReturn3.default)(this, _mixin$with.call(this, props, context));
 
-    privates.set(_this, { isAnimating: false });
+    _this.toggleAnimation = function (isAnimating) {
+      return privates.set(_this, { isAnimating: isAnimating });
+    };
+
+    _this.triggerExpansionCallbacks = function (isAnimating) {
+      if (isAnimating) return;
+      var _this$props = _this.props,
+          expanded = _this$props.expanded,
+          onEntered = _this$props.onEntered,
+          onExited = _this$props.onExited;
+
+      expanded && onEntered && onEntered();
+      !expanded && onExited && onExited();
+      privates.set(_this, { expanded: expanded });
+    };
+
+    privates.set(_this, { isAnimating: false, expanded: props.expanded });
     return _this;
   }
 
-  (0, _createClass3.default)(Collapsible, [{
-    key: 'toggleAnimation',
-    value: function toggleAnimation(isAnimating) {
-      var _props = this.props;
-      var expanded = _props.expanded;
-      var onEntered = _props.onEntered;
-      var onExited = _props.onExited;
+  CollapsibleComponent.prototype.render = function render() {
+    var _props = this.props,
+        _props$boundingClient = _props.boundingClientRect.height,
+        height = _props$boundingClient === undefined ? 0 : _props$boundingClient,
+        children = _props.children,
+        container = _props.container,
+        containerReady = _props.containerReady,
+        delay = _props.delay,
+        expanded = _props.expanded,
+        onEntered = _props.onEntered,
+        onExited = _props.onExited,
+        others = (0, _objectWithoutProperties3.default)(_props, ['boundingClientRect', 'children', 'container', 'containerReady', 'delay', 'expanded', 'onEntered', 'onExited']);
 
-      if (!isAnimating) {
-        expanded && onEntered && onEntered();
-        !expanded && onExited && onExited();
-      }
+    var fractionOpen = this.animate('fractionOpen', expanded ? 1 : 0, delay);
+    var isAnimating = !expanded && fractionOpen > 0 || expanded && fractionOpen < 1;
+    var style = height && isAnimating ? { marginBottom: -height * (1 - fractionOpen) } : {};
 
-      privates.set(this, { isAnimating: isAnimating });
+    if (privates.get(this).isAnimating !== isAnimating) {
+      this.toggleAnimation(isAnimating);
     }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props2 = this.props;
-      var _props2$boundingClien = _props2.boundingClientRect.height;
-      var height = _props2$boundingClien === undefined ? 0 : _props2$boundingClien;
-      var children = _props2.children;
-      var container = _props2.container;
-      var containerReady = _props2.containerReady;
-      var delay = _props2.delay;
-      var expanded = _props2.expanded;
-      var onEntered = _props2.onEntered;
-      var onExited = _props2.onExited;
-      var others = (0, _objectWithoutProperties3.default)(_props2, ['boundingClientRect', 'children', 'container', 'containerReady', 'delay', 'expanded', 'onEntered', 'onExited']);
 
+    if (privates.get(this).expanded !== expanded) {
+      this.triggerExpansionCallbacks(isAnimating);
+    }
 
-      var fractionOpen = this.animate('fractionOpen', expanded ? 1 : 0, delay);
+    var props = (0, _puiReactHelpers.mergeProps)(others, {
+      className: ['collapse', { 'in': expanded || isAnimating }],
+      style: isAnimating ? { overflow: 'hidden' } : {},
+      'aria-hidden': !expanded
+    });
 
-      var isAnimating = !expanded && fractionOpen > 0 || expanded && fractionOpen < 1;
-      var style = height && isAnimating ? { marginBottom: -height * (1 - fractionOpen) } : {};
-
-      if (privates.get(this).isAnimating !== isAnimating) {
-        this.toggleAnimation(isAnimating);
-      }
-
-      var props = (0, _puiReactHelpers.mergeProps)(others, {
-        className: ['collapse', { 'in': expanded || isAnimating }],
-        style: isAnimating ? { overflow: 'hidden' } : {},
-        'aria-hidden': !expanded
-      });
-
-      return _react2.default.createElement(
+    return _react2.default.createElement(
+      'div',
+      props,
+      _react2.default.createElement(
         'div',
-        props,
-        _react2.default.createElement(
-          'div',
-          { className: 'collapse-shield', style: style },
-          children
-        )
-      );
-    }
-  }]);
-  return Collapsible;
+        { className: 'collapse-shield', style: style },
+        children
+      )
+    );
+  };
+
+  return CollapsibleComponent;
 }((0, _puiReactMixins2.default)(_react2.default.Component).with(_animation_mixin2.default));
 
-Collapsible.propTypes = {
-  boundingClientRect: types.object,
-  container: types.object,
-  containerReady: types.object,
-  delay: types.number,
-  disableAnimation: types.bool,
-  expanded: types.bool,
-  onEntered: types.func,
-  onExited: types.func,
-  transitionProgress: types.number
+CollapsibleComponent.propTypes = {
+  boundingClientRect: _propTypes2.default.object,
+  container: _propTypes2.default.object,
+  containerReady: _propTypes2.default.object,
+  delay: _propTypes2.default.number,
+  disableAnimation: _propTypes2.default.bool,
+  expanded: _propTypes2.default.bool,
+  onEntered: _propTypes2.default.func,
+  onExited: _propTypes2.default.func,
+  transitionProgress: _propTypes2.default.number
 };
-Collapsible.defaultProps = {
+CollapsibleComponent.defaultProps = {
   delay: 400
 };
-
-
-module.exports = { Collapsible: (0, _bounding_client_rect.useBoundingClientRect)(Collapsible) };
+var Collapsible = exports.Collapsible = (0, _bounding_client_rect.useBoundingClientRect)(CollapsibleComponent);

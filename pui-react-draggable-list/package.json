@@ -3,49 +3,46 @@
     [
       {
         "name": "pui-react-draggable-list",
-        "raw": "pui-react-draggable-list@7.5.5",
-        "rawSpec": "7.5.5",
+        "raw": "pui-react-draggable-list@8.3.3",
+        "rawSpec": "8.3.3",
         "scope": null,
-        "spec": "7.5.5",
+        "spec": "8.3.3",
         "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend"
     ]
   ],
-  "_from": "pui-react-draggable-list@7.5.5",
-  "_id": "pui-react-draggable-list@7.5.5",
+  "_from": "pui-react-draggable-list@8.3.3",
+  "_id": "pui-react-draggable-list@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-react-draggable-list",
-  "_nodeVersion": "6.9.4",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-react-draggable-list-7.5.5.tgz_1488989873980_0.8223591931164265"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-react-draggable-list-8.3.3.tgz_1503431508158_0.19067536969669163"
   },
   "_npmUser": {
-    "email": "jadekler@gmail.com",
-    "name": "jadekler"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
-  "_phantomChildren": {
-    "babel-runtime": "6.23.0",
-    "classnames": "2.2.5"
-  },
+  "_phantomChildren": {},
   "_requested": {
     "name": "pui-react-draggable-list",
-    "raw": "pui-react-draggable-list@7.5.5",
-    "rawSpec": "7.5.5",
+    "raw": "pui-react-draggable-list@8.3.3",
+    "rawSpec": "8.3.3",
     "scope": null,
-    "spec": "7.5.5",
+    "spec": "8.3.3",
     "type": "version"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-react-draggable-list/-/pui-react-draggable-list-7.5.5.tgz",
-  "_shasum": "0e6529ced67a229d76c974406d2b22aaea303e0e",
+  "_resolved": "https://registry.npmjs.org/pui-react-draggable-list/-/pui-react-draggable-list-8.3.3.tgz",
+  "_shasum": "59dfe6ecd7cdd37cab0fa1203bf972ed78d3b1b1",
   "_shrinkwrap": null,
-  "_spec": "pui-react-draggable-list@7.5.5",
+  "_spec": "pui-react-draggable-list@8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -56,16 +53,17 @@
   "dependencies": {
     "babel-runtime": "^6.1.18",
     "classnames": "^2.2.0",
-    "pui-css-lists": "=7.5.5",
-    "pui-react-helpers": "=7.5.5",
-    "pui-react-iconography": "=7.5.5"
+    "prop-types": ">=15.5.6",
+    "pui-css-lists": "=8.3.3",
+    "pui-react-helpers": "=8.3.3",
+    "pui-react-iconography": "=8.3.3"
   },
   "description": "A React component for showing a list of items that can be re-ordered by the user",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "0e6529ced67a229d76c974406d2b22aaea303e0e",
-    "tarball": "https://registry.npmjs.org/pui-react-draggable-list/-/pui-react-draggable-list-7.5.5.tgz"
+    "shasum": "59dfe6ecd7cdd37cab0fa1203bf972ed78d3b1b1",
+    "tarball": "https://registry.npmjs.org/pui-react-draggable-list/-/pui-react-draggable-list-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -78,56 +76,68 @@
   "main": "draggable-list.js",
   "maintainers": [
     {
-      "email": "aberkovec@pivotal.io",
-      "name": "aberkovec"
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
     },
     {
-      "email": "chansen87@gmail.com",
-      "name": "charleshansen"
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
     },
     {
-      "email": "chentom77@gmail.com",
-      "name": "chentom88"
-    },
-    {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
-    },
-    {
-      "email": "cthompson@pivotal.io",
-      "name": "cthompson"
-    },
-    {
-      "email": "dom.reinhold@gmail.com",
-      "name": "d-reinhold"
-    },
-    {
-      "email": "esharma@pivotal.io",
-      "name": "esharma"
-    },
-    {
-      "email": "gpleiss@gmail.com",
-      "name": "gpleiss"
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
     },
     {
       "email": "jadekler@gmail.com",
       "name": "jadekler"
     },
     {
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
+      "email": "aberkovec@pivotal.io",
+      "name": "aberkovec"
+    },
+    {
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
+    },
+    {
+      "email": "cthompson@pivotal.io",
+      "name": "cthompson"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
+    },
+    {
+      "email": "dom.reinhold@gmail.com",
+      "name": "d-reinhold"
+    },
+    {
       "email": "kennyw1019@gmail.com",
       "name": "kennyw1019"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
     },
     {
       "email": "mroyal@pivotal.io",
       "name": "mattroyal"
     },
     {
-      "email": "pivotal-ui@pivotal.io",
-      "name": "pivotal-ui"
+      "email": "gpleiss@gmail.com",
+      "name": "gpleiss"
     },
     {
       "email": "ryan.dy@gmail.com",
@@ -140,6 +150,10 @@
     {
       "email": "vinsonchuong@gmail.com",
       "name": "vinsonchuong"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
     }
   ],
   "name": "pui-react-draggable-list",
@@ -153,5 +167,5 @@
     "url": "git+https://github.com/pivotal-cf/pivotal-ui.git"
   },
   "scripts": {},
-  "version": "7.5.5"
+  "version": "8.3.3"
 }

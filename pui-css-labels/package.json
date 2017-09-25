@@ -3,46 +3,46 @@
     [
       {
         "name": "pui-css-labels",
-        "raw": "pui-css-labels@^5.4.0",
-        "rawSpec": "^5.4.0",
+        "raw": "pui-css-labels@=8.3.3",
+        "rawSpec": "=8.3.3",
         "scope": null,
-        "spec": ">=5.4.0 <6.0.0",
-        "type": "range"
+        "spec": "8.3.3",
+        "type": "version"
       },
       "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-labels"
     ]
   ],
-  "_from": "pui-css-labels@>=5.4.0 <6.0.0",
-  "_id": "pui-css-labels@5.4.0",
+  "_from": "pui-css-labels@8.3.3",
+  "_id": "pui-css-labels@8.3.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/pui-css-labels",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "7.10.1",
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/pui-css-labels-5.4.0.tgz_1475019964368_0.3180709285661578"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/pui-css-labels-8.3.3.tgz_1503428345697_0.39462067768909037"
   },
   "_npmUser": {
-    "email": "chansen87@gmail.com",
-    "name": "charleshansen"
+    "email": "esharma@pivotal.io",
+    "name": "esharma"
   },
   "_npmVersion": "3.5.0",
   "_phantomChildren": {},
   "_requested": {
     "name": "pui-css-labels",
-    "raw": "pui-css-labels@^5.4.0",
-    "rawSpec": "^5.4.0",
+    "raw": "pui-css-labels@=8.3.3",
+    "rawSpec": "=8.3.3",
     "scope": null,
-    "spec": ">=5.4.0 <6.0.0",
-    "type": "range"
+    "spec": "8.3.3",
+    "type": "version"
   },
   "_requiredBy": [
     "/pui-react-labels"
   ],
-  "_resolved": "https://registry.npmjs.org/pui-css-labels/-/pui-css-labels-5.4.0.tgz",
-  "_shasum": "dbc6bc548f8df893bdea3b8154d0827cf1af906c",
+  "_resolved": "https://registry.npmjs.org/pui-css-labels/-/pui-css-labels-8.3.3.tgz",
+  "_shasum": "68b25acf1e2a5a280807a6dc0e1edc723b4bdd02",
   "_shrinkwrap": null,
-  "_spec": "pui-css-labels@^5.4.0",
+  "_spec": "pui-css-labels@=8.3.3",
   "_where": "/tmp/build/88bfaeb5/gpcc/frontend/node_modules/pui-react-labels",
   "author": {
     "name": "Pivotal Software, Inc"
@@ -51,14 +51,14 @@
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
   "dependencies": {
-    "pui-css-bootstrap": "^5.4.0"
+    "pui-css-bootstrap": "=8.3.3"
   },
   "description": "labels css component for Pivotal UI based on Bootstrap",
   "devDependencies": {},
   "directories": {},
   "dist": {
-    "shasum": "dbc6bc548f8df893bdea3b8154d0827cf1af906c",
-    "tarball": "https://registry.npmjs.org/pui-css-labels/-/pui-css-labels-5.4.0.tgz"
+    "shasum": "68b25acf1e2a5a280807a6dc0e1edc723b4bdd02",
+    "tarball": "https://registry.npmjs.org/pui-css-labels/-/pui-css-labels-8.3.3.tgz"
   },
   "homepage": "http://styleguide.pivotal.io/",
   "keywords": [
@@ -71,20 +71,40 @@
   "main": "index.js",
   "maintainers": [
     {
+      "email": "cfaccounts+npm_appsmanager@pivotal.io",
+      "name": "apps-manager"
+    },
+    {
+      "email": "ekoren@pivotal.io",
+      "name": "elana"
+    },
+    {
+      "email": "jberney@pivotal.io",
+      "name": "jberney"
+    },
+    {
+      "email": "s.jolicoeur@gmail.com",
+      "name": "sjolicoeur"
+    },
+    {
+      "email": "jadekler@gmail.com",
+      "name": "jadekler"
+    },
+    {
+      "email": "chentom77@gmail.com",
+      "name": "chentom88"
+    },
+    {
+      "email": "esharma@pivotal.io",
+      "name": "esharma"
+    },
+    {
       "email": "aberkovec@pivotal.io",
       "name": "aberkovec"
     },
     {
-      "email": "august.toman.yih@gmail.com",
-      "name": "atomanyih"
-    },
-    {
-      "email": "chansen87@gmail.com",
-      "name": "charleshansen"
-    },
-    {
-      "email": "ctaymor@gmail.com",
-      "name": "ctaymor"
+      "email": "pivotal-ui@pivotal.io",
+      "name": "pivotal-ui"
     },
     {
       "email": "cthompson@pivotal.io",
@@ -95,8 +115,20 @@
       "name": "d-reinhold"
     },
     {
-      "email": "esharma@pivotal.io",
-      "name": "esharma"
+      "email": "kennyw1019@gmail.com",
+      "name": "kennyw1019"
+    },
+    {
+      "email": "august.toman.yih@gmail.com",
+      "name": "atomanyih"
+    },
+    {
+      "email": "ctaymor@gmail.com",
+      "name": "ctaymor"
+    },
+    {
+      "email": "mroyal@pivotal.io",
+      "name": "mattroyal"
     },
     {
       "email": "gpleiss@gmail.com",
@@ -107,28 +139,20 @@
       "name": "ial-ahmed"
     },
     {
-      "email": "kennyw1019@gmail.com",
-      "name": "kennyw1019"
-    },
-    {
-      "email": "mroyal@pivotal.io",
-      "name": "mattroyal"
-    },
-    {
-      "email": "pivotal-ui@pivotal.io",
-      "name": "pivotal-ui"
-    },
-    {
-      "email": "ryan.dy@gmail.com",
-      "name": "rdy"
+      "email": "vinsonchuong@gmail.com",
+      "name": "vinsonchuong"
     },
     {
       "email": "nicole@stubbornella.org",
       "name": "stubbornella"
     },
     {
-      "email": "vinsonchuong@gmail.com",
-      "name": "vinsonchuong"
+      "email": "ryan.dy@gmail.com",
+      "name": "rdy"
+    },
+    {
+      "email": "chansen87@gmail.com",
+      "name": "charleshansen"
     }
   ],
   "name": "pui-css-labels",
@@ -140,5 +164,5 @@
   },
   "scripts": {},
   "style": "labels.css",
-  "version": "5.4.0"
+  "version": "8.3.3"
 }

@@ -1,17 +1,12 @@
 /*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 'use strict';
 
-var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
-
-var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+exports.__esModule = true;
+exports.SmallTabs = undefined;
 
 var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-var _createClass2 = require('babel-runtime/helpers/createClass');
-
-var _createClass3 = _interopRequireDefault(_createClass2);
 
 var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
 
@@ -25,6 +20,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _puiReactCollapsible = require('pui-react-collapsible');
 
 var _classnames = require('classnames');
@@ -33,141 +32,151 @@ var _classnames2 = _interopRequireDefault(_classnames);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var types = _react2.default.PropTypes;
-
-var SmallTab = function (_React$Component) {
-  (0, _inherits3.default)(SmallTab, _React$Component);
+var SmallTab = function (_React$PureComponent) {
+  (0, _inherits3.default)(SmallTab, _React$PureComponent);
 
   function SmallTab() {
     (0, _classCallCheck3.default)(this, SmallTab);
-    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(SmallTab).apply(this, arguments));
+    return (0, _possibleConstructorReturn3.default)(this, _React$PureComponent.apply(this, arguments));
   }
 
-  (0, _createClass3.default)(SmallTab, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props;
-      var animation = _props.animation;
-      var children = _props.children;
-      var expanded = _props.expanded;
-      var header = _props.header;
-      var onClick = _props.onClick;
-      var paneId = _props.paneId;
+  SmallTab.prototype.render = function render() {
+    var _props = this.props,
+        animation = _props.animation,
+        ariaLabelledBy = _props.ariaLabelledBy,
+        children = _props.children,
+        disabled = _props.disabled,
+        expanded = _props.expanded,
+        header = _props.header,
+        onClick = _props.onClick,
+        paneId = _props.paneId;
 
-      var delay = void 0;
-      if (!animation) delay = 0;
-      return _react2.default.createElement(
+    var delay = void 0;
+    if (!animation) delay = 0;
+
+    var collapsibleProps = {
+      'aria-labelledby': ariaLabelledBy,
+      className: 'tab-content',
+      delay: delay,
+      expanded: expanded,
+      role: 'tabpanel'
+    };
+
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
         'div',
-        null,
+        { className: 'tab-heading' },
         _react2.default.createElement(
-          'div',
-          { className: 'tab-heading' },
+          'h4',
+          { className: 'tab-title', role: 'presentation' },
           _react2.default.createElement(
-            'h4',
-            { className: 'tab-title', role: 'presentation' },
-            _react2.default.createElement(
-              'a',
-              { 'aria-expanded': expanded, 'aria-controls': paneId, 'aria-selected': expanded, role: 'tab',
-                onClick: onClick },
-              header
-            )
+            'a',
+            { 'aria-expanded': expanded, 'aria-controls': paneId, 'aria-selected': expanded,
+              className: (0, _classnames2.default)({ disabled: disabled }), role: 'tab', onClick: onClick },
+            header
           )
-        ),
-        _react2.default.createElement(
-          _puiReactCollapsible.Collapsible,
-          { expanded: expanded, delay: delay, role: 'tabpanel' },
-          children
         )
-      );
-    }
-  }]);
+      ),
+      _react2.default.createElement(
+        _puiReactCollapsible.Collapsible,
+        collapsibleProps,
+        children
+      )
+    );
+  };
+
   return SmallTab;
-}(_react2.default.Component);
+}(_react2.default.PureComponent);
 
 SmallTab.propTypes = {
-  animation: types.bool,
-  expanded: types.bool,
-  header: types.node,
-  onClick: types.func,
-  paneId: types.string
+  animation: _propTypes2.default.bool,
+  ariaLabelledBy: _propTypes2.default.string,
+  disabled: _propTypes2.default.bool,
+  expanded: _propTypes2.default.bool,
+  header: _propTypes2.default.node,
+  onClick: _propTypes2.default.func,
+  paneId: _propTypes2.default.string
 };
 
-var SmallTabs = function (_React$Component2) {
-  (0, _inherits3.default)(SmallTabs, _React$Component2);
+var SmallTabs = exports.SmallTabs = function (_React$Component) {
+  (0, _inherits3.default)(SmallTabs, _React$Component);
 
   function SmallTabs() {
     (0, _classCallCheck3.default)(this, SmallTabs);
-    return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(SmallTabs).apply(this, arguments));
+    return (0, _possibleConstructorReturn3.default)(this, _React$Component.apply(this, arguments));
   }
 
-  (0, _createClass3.default)(SmallTabs, [{
-    key: 'render',
-    value: function render() {
-      var _props2 = this.props;
-      var actions = _props2.actions;
-      var activeKey = _props2.activeKey;
-      var animation = _props2.animation;
-      var children = _props2.children;
-      var className = _props2.className;
-      var id = _props2.id;
-      var handleClick = _props2.handleClick;
-      var onSelect = _props2.onSelect;
-      var smallScreenClassName = _props2.smallScreenClassName;
-      var tabType = _props2.tabType;
+  SmallTabs.prototype.render = function render() {
+    var _props2 = this.props,
+        actions = _props2.actions,
+        activeKey = _props2.activeKey,
+        animation = _props2.animation,
+        children = _props2.children,
+        className = _props2.className,
+        id = _props2.id,
+        handleClick = _props2.handleClick,
+        onSelect = _props2.onSelect,
+        smallScreenClassName = _props2.smallScreenClassName,
+        tabType = _props2.tabType;
 
-      var smallScreenClasses = (0, _classnames2.default)(['tab-' + tabType + '-small-screen', 'panel-group', smallScreenClassName, className]);
-      var childArray = _react2.default.Children.toArray(children);
-      var childrenAsPanels = childArray.map(function (child, key) {
-        var _child$props = child.props;
-        var title = _child$props.title;
-        var eventKey = _child$props.eventKey;
-        var children = _child$props.children;
+    var smallScreenClasses = (0, _classnames2.default)(['tab-' + tabType + '-small-screen', 'panel-group', smallScreenClassName, className]);
+    var childArray = _react2.default.Children.toArray(children);
+    var childrenAsPanels = childArray.map(function (child, key) {
+      var _child$props = child.props,
+          ariaLabelledBy = _child$props['aria-labelledby'],
+          disabled = _child$props.disabled,
+          title = _child$props.title,
+          eventKey = _child$props.eventKey,
+          children = _child$props.children;
 
-        var paneId = id + '-pane-' + key;
-        var myProps = {
-          animation: animation,
-          expanded: eventKey === activeKey,
-          header: title,
-          key: key,
-          onClick: function onClick(e) {
-            return handleClick(e, eventKey, onSelect);
-          },
-          paneId: paneId
-        };
-        return _react2.default.createElement(
-          SmallTab,
-          myProps,
-          children
-        );
-      });
-
-      var actionsNode = actions ? _react2.default.createElement(
-        'div',
-        { className: 'tabs-action' },
-        actions
-      ) : null;
-
+      var paneId = id + '-pane-' + key;
+      var tabId = id + '-tab-' + key;
+      var onClick = disabled ? function () {} : function (e) {
+        return handleClick(e, eventKey, onSelect);
+      };
+      var myProps = {
+        animation: animation,
+        ariaLabelledBy: ariaLabelledBy || tabId,
+        disabled: disabled,
+        expanded: eventKey === activeKey,
+        header: title,
+        key: key,
+        onClick: onClick,
+        paneId: paneId
+      };
       return _react2.default.createElement(
-        'div',
-        { className: smallScreenClasses },
-        actionsNode,
-        childrenAsPanels
+        SmallTab,
+        myProps,
+        children
       );
-    }
-  }]);
+    });
+
+    var actionsNode = actions ? _react2.default.createElement(
+      'div',
+      { className: 'tabs-action' },
+      actions
+    ) : null;
+
+    return _react2.default.createElement(
+      'div',
+      { className: smallScreenClasses },
+      actionsNode,
+      childrenAsPanels
+    );
+  };
+
   return SmallTabs;
 }(_react2.default.Component);
 
 SmallTabs.propTypes = {
-  actions: types.node,
-  activeKey: types.number,
-  animation: types.bool,
-  id: types.string,
-  handleClick: types.func,
-  onSelect: types.func,
-  smallScreenClassName: types.string,
-  tabType: types.string
+  actions: _propTypes2.default.oneOfType([_propTypes2.default.node, _propTypes2.default.object]),
+  activeKey: _propTypes2.default.number,
+  animation: _propTypes2.default.bool,
+  id: _propTypes2.default.string,
+  handleClick: _propTypes2.default.func,
+  onSelect: _propTypes2.default.func,
+  smallScreenClassName: _propTypes2.default.string,
+  tabType: _propTypes2.default.string
 };
-
-
-module.exports = { SmallTabs: SmallTabs };
