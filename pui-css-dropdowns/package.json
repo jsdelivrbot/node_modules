@@ -1,0 +1,30 @@
+{
+  "name": "pui-css-dropdowns",
+  "style": "dropdowns.css",
+  "version": "8.3.3",
+  "main": "index.js",
+  "description": "dropdowns css component for Pivotal UI based on Bootstrap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "author": "Pivotal Software, Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "dependencies": {
+    "pui-css-bootstrap": "=8.3.3",
+    "pui-css-buttons": "=8.3.3",
+    "pui-css-button-group": "=8.3.3",
+    "pui-css-forms": "=8.3.3",
+    "pui-css-links": "=8.3.3"
+  }
+}

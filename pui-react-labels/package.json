@@ -1,0 +1,30 @@
+{
+  "name": "pui-react-labels",
+  "version": "8.3.3",
+  "description": "A React component for showing a colored pill of text",
+  "main": "labels.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "author": "Pivotal Software, Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "peerDependencies": {
+    "react": ">=15.0.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "pui-css-labels": "=8.3.3",
+    "pui-react-helpers": "=8.3.3"
+  }
+}

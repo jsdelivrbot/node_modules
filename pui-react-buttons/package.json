@@ -1,0 +1,31 @@
+{
+  "name": "pui-react-buttons",
+  "version": "8.3.3",
+  "description": "A collection of React components providing styled buttons and links",
+  "main": "buttons.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "react",
+    "pivotal ui",
+    "pivotal ui modularized"
+  ],
+  "author": "Pivotal Software, Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "peerDependencies": {
+    "react": ">=15.0.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.1.18",
+    "prop-types": ">=15.5.6",
+    "pui-css-buttons": "=8.3.3",
+    "pui-react-helpers": "=8.3.3"
+  }
+}
