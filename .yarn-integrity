@@ -1149,7 +1149,7 @@
     "mkdirp@~0.5.1": "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903",
     "mock-socket@^6.1.0": "https://registry.yarnpkg.com/mock-socket/-/mock-socket-6.1.0.tgz#f0a8815c8d05eae4a4db2485bd398f23e303052c",
     "modify-babel-preset@^1.0.0": "https://registry.yarnpkg.com/modify-babel-preset/-/modify-babel-preset-1.2.0.tgz#d1b7c8c24896e19dbc4847347213e6b7144d1bc7",
-    "moment@^2.10.6": "https://registry.yarnpkg.com/moment/-/moment-2.19.0.tgz#44f675ef6b944942762581b1c179fb679e599d67",
+    "moment@^2.10.6": "https://registry.yarnpkg.com/moment/-/moment-2.19.1.tgz#56da1a2d1cbf01d38b7e1afc31c10bcfa1929167",
     "moment@^2.13.0": "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f",
     "morgan@~1.6.1": "https://registry.yarnpkg.com/morgan/-/morgan-1.6.1.tgz#5fd818398c6819cba28a7cd6664f292fe1c0bbf2",
     "ms@0.7.1": "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098",
