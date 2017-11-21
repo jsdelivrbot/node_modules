@@ -1134,7 +1134,7 @@
     "node-libs-browser@^0.7.0": "https://registry.yarnpkg.com/node-libs-browser/-/node-libs-browser-0.7.0.tgz#3e272c0819e308935e26674408d7af0e1491b83b",
     "node-libs-browser@^2.0.0": "https://registry.yarnpkg.com/node-libs-browser/-/node-libs-browser-2.0.0.tgz#a3a59ec97024985b46e958379646f96c4b616646",
     "node-pre-gyp@^0.6.36": "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.36.tgz#db604112cb74e0d477554e9b505b17abddfab786",
-    "node-sass@^4.5.2": "https://registry.yarnpkg.com/node-sass/-/node-sass-4.7.1.tgz#bec978ab33b5cf56825bf72922323a56ebaf4f66",
+    "node-sass@^4.5.2": "https://registry.yarnpkg.com/node-sass/-/node-sass-4.7.2.tgz#9366778ba1469eb01438a9e8592f4262bcb6794e",
     "node-uuid@^1.4.8": "https://registry.yarnpkg.com/node-uuid/-/node-uuid-1.4.8.tgz#b040eb0923968afabf8d32fb1f17f1167fdab907",
     "nomnom@~1.6.2": "https://registry.yarnpkg.com/nomnom/-/nomnom-1.6.2.tgz#84a66a260174408fc5b77a18f888eccc44fb6971",
     "nopt@2 || 3": "https://registry.yarnpkg.com/nopt/-/nopt-3.0.6.tgz#c6465dbf08abcd4db359317f79ac68a646b28ff9",
@@ -1786,6 +1786,11 @@
       "vendor/linux-x64-48/binding.node"
     ],
     "node-sass@4.7.1": [
+      "vendor",
+      "vendor/linux-x64-48",
+      "vendor/linux-x64-48/binding.node"
+    ],
+    "node-sass@4.7.2": [
       "vendor",
       "vendor/linux-x64-48",
       "vendor/linux-x64-48/binding.node"
