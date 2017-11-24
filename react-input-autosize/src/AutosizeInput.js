@@ -11,6 +11,30 @@ const sizerStyle = {
 	whiteSpace: 'pre',
 };
 
+const INPUT_PROPS_BLACKLIST = [
+	'injectStyles',
+	'inputClassName',
+	'inputRef',
+	'inputStyle',
+	'minWidth',
+	'onAutosize',
+	'placeholderIsMinWidth',
+];
+
+const cleanInputProps = (inputProps) => {
+	INPUT_PROPS_BLACKLIST.forEach(field => delete inputProps[field]);
+	return inputProps;
+};
+
+const copyStyles = (styles, node) => {
+	node.style.fontSize = styles.fontSize;
+	node.style.fontFamily = styles.fontFamily;
+	node.style.fontWeight = styles.fontWeight;
+	node.style.fontStyle = styles.fontStyle;
+	node.style.letterSpacing = styles.letterSpacing;
+	node.style.textTransform = styles.textTransform;
+};
+
 class AutosizeInput extends Component {
 	constructor (props) {
 		super(props);
@@ -51,25 +75,13 @@ class AutosizeInput extends Component {
 		if (!this.mounted || !window.getComputedStyle) {
 			return;
 		}
-		const inputStyle = this.input && window.getComputedStyle(this.input);
-		if (!inputStyle) {
+		const inputStyles = this.input && window.getComputedStyle(this.input);
+		if (!inputStyles) {
 			return;
 		}
-		const widthNode = this.sizer;
-		widthNode.style.fontSize = inputStyle.fontSize;
-		widthNode.style.fontFamily = inputStyle.fontFamily;
-		widthNode.style.fontWeight = inputStyle.fontWeight;
-		widthNode.style.fontStyle = inputStyle.fontStyle;
-		widthNode.style.letterSpacing = inputStyle.letterSpacing;
-		widthNode.style.textTransform = inputStyle.textTransform;
-		if (this.props.placeholder) {
-			const placeholderNode = this.placeHolderSizer;
-			placeholderNode.style.fontSize = inputStyle.fontSize;
-			placeholderNode.style.fontFamily = inputStyle.fontFamily;
-			placeholderNode.style.fontWeight = inputStyle.fontWeight;
-			placeholderNode.style.fontStyle = inputStyle.fontStyle;
-			placeholderNode.style.letterSpacing = inputStyle.letterSpacing;
-			placeholderNode.style.textTransform = inputStyle.textTransform;
+		copyStyles(inputStyles, this.sizer);
+		if (this.placeHolderSizer) {
+			copyStyles(inputStyles, this.placeHolderSizer);
 		}
 	}
 	updateInputWidth () {
@@ -81,6 +93,10 @@ class AutosizeInput extends Component {
 			newInputWidth = Math.max(this.sizer.scrollWidth, this.placeHolderSizer.scrollWidth) + 2;
 		} else {
 			newInputWidth = this.sizer.scrollWidth + 2;
+		}
+		// allow for stepper UI on number types
+		if (this.props.type === 'number') {
+			newInputWidth += 16;
 		}
 		if (newInputWidth < this.props.minWidth) {
 			newInputWidth = this.props.minWidth;
@@ -103,6 +119,14 @@ class AutosizeInput extends Component {
 	select () {
 		this.input.select();
 	}
+	renderStyles () {
+		const { injectStyles } = this.props;
+		return injectStyles ? (
+			<style dangerouslySetInnerHTML={{
+				__html: `input#${this.state.inputId}::-ms-clear {display: none;}`,
+			}} />
+		) : null;
+	}
 	render () {
 		const sizerValue = [this.props.defaultValue, this.props.value, ''].reduce((previousValue, currentValue) => {
 			if (previousValue !== null && previousValue !== undefined) {
@@ -113,25 +137,22 @@ class AutosizeInput extends Component {
 
 		const wrapperStyle = { ...this.props.style };
 		if (!wrapperStyle.display) wrapperStyle.display = 'inline-block';
-		const inputStyle = { ...this.props.inputStyle };
-		inputStyle.width = this.state.inputWidth + 'px';
-		inputStyle.boxSizing = 'content-box';
+
+		const inputStyle = {
+			boxSizing: 'content-box',
+			width: `${this.state.inputWidth}px`,
+			...this.props.inputStyle,
+		};
+
 		const { ...inputProps } = this.props;
+		cleanInputProps(inputProps);
 		inputProps.className = this.props.inputClassName;
 		inputProps.style = inputStyle;
-		// ensure props meant for `AutosizeInput` don't end up on the `input`
-		delete inputProps.inputClassName;
-		delete inputProps.inputStyle;
-		delete inputProps.minWidth;
-		delete inputProps.onAutosize;
-		delete inputProps.placeholderIsMinWidth;
-		delete inputProps.inputRef;
+
 		return (
 			<div className={this.props.className} style={wrapperStyle}>
-				<style dangerouslySetInnerHTML={{
-					__html: [`input#${this.state.id}::-ms-clear {display: none;}`].join('\n'),
-				}} />
-				<input id={this.state.id} {...inputProps} ref={this.inputRef} />
+				{this.renderStyles()}
+				<input id={this.state.inputId} {...inputProps} ref={this.inputRef} />
 				<div ref={this.sizerRef} style={sizerStyle}>{sizerValue}</div>
 				{this.props.placeholder
 					? <div ref={this.placeHolderSizerRef} style={sizerStyle}>{this.props.placeholder}</div>
@@ -145,6 +166,7 @@ class AutosizeInput extends Component {
 AutosizeInput.propTypes = {
 	className: PropTypes.string,               // className for the outer element
 	defaultValue: PropTypes.any,               // default field value
+	injectStyles: PropTypes.bool,              // inject the custom stylesheet to hide clear UI, defaults to true
 	inputClassName: PropTypes.string,          // className for the input element
 	inputRef: PropTypes.func,                  // ref callback for the input element
 	inputStyle: PropTypes.object,              // css styles for the input element
@@ -161,6 +183,7 @@ AutosizeInput.propTypes = {
 };
 AutosizeInput.defaultProps = {
 	minWidth: 1,
+	injectStyles: true,
 };
 
 export default AutosizeInput;

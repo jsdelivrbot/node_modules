@@ -1,6 +1,6 @@
 {
   "name": "commander",
-  "version": "2.12.0",
+  "version": "2.12.1",
   "description": "the complete solution for node.js command-line programs",
   "keywords": [
     "commander",
@@ -22,12 +22,11 @@
   "files": [
     "index.js"
   ],
-  "dependencies": {
-    "@types/node": "^7.0.48"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/node": "^7.0.48",
     "should": "^11.2.1",
-    "sinon": "^2.3.5",
+    "sinon": "^2.4.1",
     "typescript": "^2.6.1"
   },
   "typings": "typings/index.d.ts"

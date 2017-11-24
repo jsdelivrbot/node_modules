@@ -12,7 +12,7 @@ class App extends Component {
 		this.state = {
 			value1: '',
 			value2: 'example',
-			value3: 0,
+			value3: 3,
 			value4: '',
 			value5: '',
 		};
@@ -27,6 +27,7 @@ class App extends Component {
 			<div>
 				<h3>Simple example:</h3>
 				<AutosizeInput
+					autoFocus
 					value={this.state.value1}
 					onChange={this.updateInputValue.bind(this, 'value1')}
 				/>
