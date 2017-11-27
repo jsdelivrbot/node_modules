@@ -35,18 +35,32 @@ const copyStyles = (styles, node) => {
 	node.style.textTransform = styles.textTransform;
 };
 
+const isIE = (typeof window === 'undefined') ? false : /MSIE |Trident\/|Edge\//.test(window.navigator.userAgent);
+
+const generateId = () => {
+	// we only need an auto-generated ID for stylesheet injection, which is only
+	// used for IE. so if the browser is not IE, this should return undefined.
+	return isIE ? '_' + Math.random().toString(36).substr(2, 12) : undefined;
+};
+
 class AutosizeInput extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
 			inputWidth: props.minWidth,
-			inputId: '_' + Math.random().toString(36).substr(2, 12),
+			inputId: props.id || generateId(),
 		};
 	}
 	componentDidMount () {
 		this.mounted = true;
 		this.copyInputStyles();
 		this.updateInputWidth();
+	}
+	componentWillReceiveProps (nextProps) {
+		const { id } = nextProps;
+		if (id !== this.props.id) {
+			this.setState({ inputId: id || generateId() });
+		}
 	}
 	componentDidUpdate (prevProps, prevState) {
 		if (prevState.inputWidth !== this.state.inputWidth) {
@@ -120,8 +134,11 @@ class AutosizeInput extends Component {
 		this.input.select();
 	}
 	renderStyles () {
+		// this method injects styles to hide IE's clear indicator, which messes
+		// with input size detection. the stylesheet is only injected when the
+		// browser is IE, and can also be disabled by the `injectStyles` prop.
 		const { injectStyles } = this.props;
-		return injectStyles ? (
+		return isIE && injectStyles ? (
 			<style dangerouslySetInnerHTML={{
 				__html: `input#${this.state.inputId}::-ms-clear {display: none;}`,
 			}} />
@@ -147,12 +164,13 @@ class AutosizeInput extends Component {
 		const { ...inputProps } = this.props;
 		cleanInputProps(inputProps);
 		inputProps.className = this.props.inputClassName;
+		inputProps.id = this.state.inputId;
 		inputProps.style = inputStyle;
 
 		return (
 			<div className={this.props.className} style={wrapperStyle}>
 				{this.renderStyles()}
-				<input id={this.state.inputId} {...inputProps} ref={this.inputRef} />
+				<input {...inputProps} ref={this.inputRef} />
 				<div ref={this.sizerRef} style={sizerStyle}>{sizerValue}</div>
 				{this.props.placeholder
 					? <div ref={this.placeHolderSizerRef} style={sizerStyle}>{this.props.placeholder}</div>
@@ -166,6 +184,7 @@ class AutosizeInput extends Component {
 AutosizeInput.propTypes = {
 	className: PropTypes.string,               // className for the outer element
 	defaultValue: PropTypes.any,               // default field value
+	id: PropTypes.string,                      // id to use for the input, can be set for consistent snapshots
 	injectStyles: PropTypes.bool,              // inject the custom stylesheet to hide clear UI, defaults to true
 	inputClassName: PropTypes.string,          // className for the input element
 	inputRef: PropTypes.func,                  // ref callback for the input element
