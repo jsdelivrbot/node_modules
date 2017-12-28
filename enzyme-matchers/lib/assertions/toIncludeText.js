@@ -35,8 +35,8 @@ function toIncludeText(enzymeWrapper, text) {
     message: 'Expected ' + wrapperName + ' to contain "' + text + '" but it did not.',
     negatedMessage: 'Expected ' + wrapperName + ' not to contain "' + text + '" but it did.',
     contextualInformation: {
-      expected: text,
-      actual: actualText
+      expected: 'Expected HTML: "' + text + '"',
+      actual: 'Actual HTML: "' + actualText + '"'
     }
   };
 } /**

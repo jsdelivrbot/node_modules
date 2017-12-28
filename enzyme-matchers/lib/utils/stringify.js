@@ -14,21 +14,24 @@ var _colors = require('./colors');
 
 var _colors2 = _interopRequireDefault(_colors);
 
+var _circularJsonEs = require('circular-json-es6');
+
+var _circularJsonEs2 = _interopRequireDefault(_circularJsonEs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function stringifySingle(key, value) {
   var stringifyingValue = value;
+  var skipCircularCheck = false;
   if (Array.isArray(value)) {
     var values = value.map(function (v) {
       return stringifySingle('', v)[1];
     });
 
-    // replace value with something safe so that the JSON.stringify call won't
-    // complain about circular values since we've already safely dealt with those above
-    // eslint-disable-next-line no-param-reassign
-    value = [];
+    // Skip circular check because we have already safely dealt with it above
+    skipCircularCheck = true;
 
     var joined = values.join(' ');
     var initialBracket = _colors2.default.gray('[');
@@ -44,7 +47,7 @@ function stringifySingle(key, value) {
   } else if (value === null) {
     stringifyingValue = _colors2.default.gray(value);
   } else if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object') {
-    stringifyingValue = _colors2.default.gray(value.toString());
+    stringifyingValue = _colors2.default.gray(_circularJsonEs2.default.stringify(value));
   } else if (typeof value === 'string') {
     stringifyingValue = _colors2.default.gray('"' + value + '"');
   } else if (typeof value === 'number') {
@@ -57,7 +60,9 @@ function stringifySingle(key, value) {
 
   try {
     // circular if you cant stringify
-    JSON.stringify(_defineProperty({}, key, value));
+    if (!skipCircularCheck) {
+      JSON.stringify(_defineProperty({}, key, value));
+    }
 
     return [key, stringifyingValue];
   } catch (e) {
