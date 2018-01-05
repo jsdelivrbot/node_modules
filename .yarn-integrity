@@ -1260,7 +1260,7 @@
     "pify@^3.0.0": "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176",
     "pinkie-promise@^2.0.0": "https://registry.yarnpkg.com/pinkie-promise/-/pinkie-promise-2.0.1.tgz#2135d6dfa7a358c069ac9b178776288228450ffa",
     "pinkie@^2.0.0": "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870",
-    "pivotal-ui@^9.1.2": "https://registry.yarnpkg.com/pivotal-ui/-/pivotal-ui-9.2.0.tgz#1500ef65903bf1f5cfb3b37d77b977ae39f9c41a",
+    "pivotal-ui@^9.1.2": "https://registry.yarnpkg.com/pivotal-ui/-/pivotal-ui-9.2.1.tgz#c40df41deacdca84984b1a08f8943258a95db381",
     "pkg-dir@^1.0.0": "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-1.0.0.tgz#7a4b508a8d5bb2d629d447056ff4e9c9314cf3d4",
     "pkg-dir@^2.0.0": "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-2.0.0.tgz#f6d5d1109e19d63edf428e0bd57e12777615334b",
     "portfinder@^1.0.9": "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.13.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9",

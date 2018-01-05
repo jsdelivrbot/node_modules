@@ -62,7 +62,7 @@ var Svg = exports.Svg = function (_React$PureComponent) {
 
   Svg.prototype.svgPathLoader = function svgPathLoader(src) {
     try {
-      return require('!!babel-loader?{"presets":["react"]}!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../../../app/svgs/' + src + '.svg');
+      return __non_webpack_require__('!!babel-loader?{"presets":["react"]}!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../../../app/svgs/' + src + '.svg');
     } catch (e) {}
   };
 
