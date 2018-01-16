@@ -9,7 +9,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /*!
-                                                                                                                                                                                                                                                                                Copyright (c) 2017 Jed Watson.
+                                                                                                                                                                                                                                                                                Copyright (c) 2018 Jed Watson.
                                                                                                                                                                                                                                                                                 Licensed under the MIT License (MIT), see
                                                                                                                                                                                                                                                                                 http://jedwatson.github.io/react-select
                                                                                                                                                                                                                                                                               */
@@ -621,8 +621,8 @@ var Select = function (_React$Component) {
 					break;
 				case 46:
 					// delete
-					event.preventDefault();
 					if (!this.state.inputValue && this.props.deleteRemoves) {
+						event.preventDefault();
 						this.popValue();
 					}
 					break;
@@ -1052,7 +1052,7 @@ var Select = function (_React$Component) {
 			}
 			return _react2.default.createElement(
 				'div',
-				{ className: className, key: 'input-wrap' },
+				{ className: className, key: 'input-wrap', style: { display: 'inline-block' } },
 				_react2.default.createElement('input', _extends({ id: this.props.id }, inputProps))
 			);
 		}
