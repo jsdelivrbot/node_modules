@@ -963,7 +963,7 @@
     "jsonpointer@^4.0.0": "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-4.0.1.tgz#4fd92cb34e0e9db3c89c8622ecf51f9b978c6cb9",
     "jsprim@^1.2.2": "https://registry.yarnpkg.com/jsprim/-/jsprim-1.4.0.tgz#a3b87e40298d8c380552d8cc7628a0bb95a22918",
     "karma-chrome-launcher@^0.2.1": "https://registry.yarnpkg.com/karma-chrome-launcher/-/karma-chrome-launcher-0.2.3.tgz#4c6d700d163a9d34c618efd87918be49e7a4a8c9",
-    "karma-coverage-istanbul-reporter@^1.3.0": "https://registry.yarnpkg.com/karma-coverage-istanbul-reporter/-/karma-coverage-istanbul-reporter-1.4.0.tgz#705145594c613e471b09dee3856d0304cc78ae4f",
+    "karma-coverage-istanbul-reporter@^1.3.0": "https://registry.yarnpkg.com/karma-coverage-istanbul-reporter/-/karma-coverage-istanbul-reporter-1.4.1.tgz#2b42d145ddbb4868d85d52888c495a21c61d873c",
     "karma-firefox-launcher@^0.1.7": "https://registry.yarnpkg.com/karma-firefox-launcher/-/karma-firefox-launcher-0.1.7.tgz#c05dd86533691e62f31952595098e8bd357d39f3",
     "karma-htmlfile-reporter@^0.3.5": "https://registry.yarnpkg.com/karma-htmlfile-reporter/-/karma-htmlfile-reporter-0.3.5.tgz#09abca9910a3eb1dbba27a9a766026948c96ca04",
     "karma-jasmine@^0.3.5": "https://registry.yarnpkg.com/karma-jasmine/-/karma-jasmine-0.3.8.tgz#5b6457791ad9b89aa173f079e3ebe1b8c805236c",
