@@ -4,13 +4,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _addMatcher2 = require('./addMatcher');
-
-var _addMatcher3 = _interopRequireDefault(_addMatcher2);
-
 var _enzymeMatchers = require('enzyme-matchers');
 
 var _enzymeMatchers2 = _interopRequireDefault(_enzymeMatchers);
+
+var _addMatcher2 = require('./addMatcher');
+
+var _addMatcher3 = _interopRequireDefault(_addMatcher2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

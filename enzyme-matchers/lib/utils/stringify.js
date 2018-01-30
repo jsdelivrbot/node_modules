@@ -10,13 +10,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 exports.default = stringify;
 
-var _colors = require('./colors');
-
-var _colors2 = _interopRequireDefault(_colors);
-
 var _circularJsonEs = require('circular-json-es6');
 
 var _circularJsonEs2 = _interopRequireDefault(_circularJsonEs);
+
+var _colors = require('./colors');
+
+var _colors2 = _interopRequireDefault(_colors);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

@@ -17,6 +17,8 @@ var _single2 = _interopRequireDefault(_single);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function toMatchElement(actualEnzymeWrapper, reactInstance) {
+  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : { ignoreProps: true };
+
   var expectedWrapper = void 0;
   if (!(0, _isShallowWrapper2.default)(actualEnzymeWrapper)) {
     expectedWrapper = (0, _enzyme.mount)(reactInstance);
@@ -24,8 +26,8 @@ function toMatchElement(actualEnzymeWrapper, reactInstance) {
     expectedWrapper = (0, _enzyme.shallow)(reactInstance);
   }
 
-  var actual = actualEnzymeWrapper.debug();
-  var expected = expectedWrapper.debug();
+  var actual = actualEnzymeWrapper.debug(options);
+  var expected = expectedWrapper.debug(options);
   var pass = actual === expected;
 
   return {

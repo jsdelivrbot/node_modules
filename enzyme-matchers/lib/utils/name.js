@@ -87,8 +87,6 @@ function getNameFromArbitraryWrapper(wrapper) {
 
         var nodeTypes = nodeTypeList.length === 1 ? nodeTypeList[0] : 'mixed';
 
-        var root = wrapper.first().parents();
-
         return nodeCount + ' ' + nodeTypes + ' nodes found';
       }
   }

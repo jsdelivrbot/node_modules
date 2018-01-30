@@ -30,6 +30,7 @@ function mapWrappersHTML(wrapper) {
     var type = node.type || inst._tag;
 
     var error = consoleObject.error;
+
     consoleObject.error = noop;
 
     var _ref = node.props ? node.props : inst._currentElement.props,
