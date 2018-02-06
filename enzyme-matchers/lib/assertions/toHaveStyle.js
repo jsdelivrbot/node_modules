@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _deepEqualIdent = require('deep-equal-ident');
 
 var _deepEqualIdent2 = _interopRequireDefault(_deepEqualIdent);
@@ -35,7 +37,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                                                                                                                                                                                                                    */
 
 function toHaveStyle(enzymeWrapper, styleKey, styleValue) {
-  var style = enzymeWrapper.prop('style');
+  var style = flattenStyle(enzymeWrapper.prop('style'));
 
   // error if component doesnt have style
   if (!style) {
@@ -73,6 +75,20 @@ function toHaveStyle(enzymeWrapper, styleKey, styleValue) {
       expected: 'Expected: ' + (0, _stringify4.default)(_defineProperty({}, styleKey, styleValue))
     }
   };
+}
+
+function flattenStyle(style) {
+  if (!style) {
+    return undefined;
+  }
+
+  if (!Array.isArray(style)) {
+    return style;
+  }
+
+  return style.reduce(function (computedStyle, currentStyle) {
+    return _extends({}, computedStyle, flattenStyle(currentStyle));
+  }, undefined);
 }
 
 exports.default = (0, _single2.default)(toHaveStyle);
